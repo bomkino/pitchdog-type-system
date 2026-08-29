@@ -5,6 +5,7 @@ on:
     branches: [main]
     tags: ["v*"]
   pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -18,4 +19,3 @@ jobs:
         with:
           python-version: "3.13"
       - run: python3 scripts/verify_repository.py
-
