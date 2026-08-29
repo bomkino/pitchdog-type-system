@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#151513">
+<title>pitch.dog Font Handoff Builder — v13</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23151513'/%3E%3Cpath d='M14 12h9v10c3-4 8-6 13-6 11 0 18 8 18 19S47 54 36 54c-5 0-10-2-13-6v11h-9V12zm9 23c0 7 4 11 11 11s11-5 11-11-4-11-11-11-11 5-11 11z' fill='%23f4f0e7'/%3E%3C/svg%3E" type="image/svg+xml">
+<style>
+:root{color-scheme:light dark;--bg:#f4f0e7;--ink:#171715;--muted:#6d6a63;--line:#c9c2b6;--panel:#fffdf8;--accent:#171715;--ok:#1f6b42;--bad:#9a2d24;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+@media(prefers-color-scheme:dark){:root{--bg:#171715;--ink:#f4f0e7;--muted:#aaa49a;--line:#49453f;--panel:#201f1c;--accent:#f4f0e7;--ok:#88d5a9;--bad:#ffaaa1}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-size:17px;line-height:1.5}main{width:min(100% - 32px,1080px);margin-inline:auto;padding-block:clamp(36px,8vw,96px)}h1{font-size:clamp(42px,8vw,92px);line-height:.91;letter-spacing:-.055em;max-width:10ch;margin:0}h2{font-size:clamp(25px,4vw,42px);line-height:1;letter-spacing:-.035em;margin:0}.lead{font-size:clamp(20px,2.6vw,29px);line-height:1.25;max-width:42ch;margin:28px 0 0;color:var(--muted)}.kicker{font:700 12px/1.2 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase;margin:0 0 24px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-top:clamp(36px,7vw,72px)}.card{grid-column:span 6;background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:clamp(22px,3vw,34px)}.card.wide{grid-column:1/-1}.stat{font-size:clamp(34px,5vw,64px);font-weight:760;line-height:1;letter-spacing:-.05em;margin:10px 0}.muted{color:var(--muted)}label.pick{display:block;border:2px dashed var(--line);border-radius:18px;padding:24px;cursor:pointer;transition:.18s ease;background:transparent}label.pick:hover{border-color:var(--ink);transform:translateY(-1px)}input[type=file]{display:block;margin-top:14px;width:100%}button{appearance:none;border:0;border-radius:999px;min-height:52px;padding:0 24px;background:var(--accent);color:var(--bg);font:750 16px/1 system-ui;cursor:pointer}button:disabled{opacity:.35;cursor:not-allowed}.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.status{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere;background:color-mix(in srgb,var(--panel) 80%,var(--bg));border:1px solid var(--line);padding:18px;border-radius:14px;min-height:95px}.ok{color:var(--ok)}.bad{color:var(--bad)}progress{width:100%;height:12px;accent-color:var(--ink)}ul{padding-left:1.2em;margin-bottom:0}.pill{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:7px 11px;font:650 12px/1 ui-monospace,SFMono-Regular,Consolas,monospace}.warning{border-left:5px solid var(--bad)}code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.92em}footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}@media(max-width:720px){.card{grid-column:1/-1}main{width:min(100% - 22px,1080px)}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<p class="kicker">pitch.dog · lucky number 13</p>
+<h1>One clean font handoff.</h1>
+<p class="lead">Select the accepted FontBlind v13 source. This tool verifies it locally, removes private QA clutter, and builds the singular ZIP for web developers, app developers and social designers.</p>
+</header>
+<section class="grid">
+<article class="card">
+<p class="kicker">Output</p>
+<div class="stat">138 fonts</div>
+<p class="muted">7 variable WOFF2 · 7 variable TTF · 62 native static anchors · 62 optional static WOFF2 anchors.</p>
+</article>
+<article class="card">
+<p class="kicker">Privacy</p>
+<div class="stat">Local only</div>
+<p class="muted">The source archive never leaves this browser. The generated handoff downloads directly to your computer.</p>
+</article>
+<article class="card wide">
+<h2>Choose the source.</h2>
+<div style="height:18px"></div>
+<label class="pick">Select <code>FontBlind-Final-2026-08-28-v13.zip</code>
+<input id="zipInput" type="file" accept=".zip,application/zip">
+</label>
+<div style="height:12px"></div>
+<label class="pick">Or select the extracted v13 folder
+<input id="folderInput" type="file" webkitdirectory multiple>
+</label>
+</article>
+<article class="card wide">
+<div class="row" style="justify-content:space-between"><h2>Verification.</h2><span id="badge" class="pill">Waiting</span></div>
+<div style="height:18px"></div>
+<progress id="progress" max="100" value="0"></progress>
+<div style="height:14px"></div>
+<div id="status" class="status" role="status">Waiting for the v13 source archive.</div>
+<div style="height:18px"></div>
+<button id="build" type="button" disabled>Build pitch.dog font handoff ZIP</button>
+</article>
+<article class="card warning">
+<p class="kicker">Known source detail</p>
+<h2>Eyebrow installs as “Untitled”.</h2>
+<p class="muted">The accepted binaries currently carry <code>Untitled</code> as their internal family name. The 350/400 static anchors also collide by full and PostScript name. Prefer the variable Eyebrow; install only one static Eyebrow weight/posture at a time. The web CSS alias is safe.</p>
+</article>
+<article class="card">
+<p class="kicker">Canonical use</p>
+<h2>Variable first.</h2>
+<ul class="muted"><li>Web uses variable WOFF2.</li><li>Apps and designers use variable TTF.</li><li>Static anchors are compatibility fallbacks.</li><li>Never install variable and static duplicates together.</li></ul>
+</article>
+</section>
+<footer>The builder contains no font binaries. Generated package: <code>pitchdog-font-handoff-v13.zip</code>.</footer>
+</main>
+<script>
+'use strict';
+const FIXED = [{"suffix":"01-PUBLIC-FONTS/LAB/pd-head/web/pd-head.woff2","output":"01-WEB-VARIABLE/pd-head.woff2","audience":"web","family":"PD Head","format":"woff2","axes":["wght 265\u2013900","ital 0\u20131"]},{"suffix":"01-PUBLIC-FONTS/LAB/pd-head/web/pd-head-alt.woff2","output":"01-WEB-VARIABLE/pd-head-alt.woff2","audience":"web","family":"PD Head Alt","format":"woff2","axes":["wght 265\u2013900","ital 0\u20131"]},{"suffix":"01-PUBLIC-FONTS/LAB/pd-body/web/pd-body-roman.woff2","output":"01-WEB-VARIABLE/pd-body-roman.woff2","audience":"web","family":"PD Body","format":"woff2","axes":["wght 100\u2013900","roman"]},{"suffix":"01-PUBLIC-FONTS/LAB/pd-body/web/pd-body-italic.woff2","output":"01-WEB-VARIABLE/pd-body-italic.woff2","audience":"web","family":"PD Body","format":"woff2","axes":["wght 100\u2013900","authentic italic"]},{"suffix":"01-PUBLIC-FONTS/LAB/pd-body/web/pd-body-alt-roman.woff2","output":"01-WEB-VARIABLE/pd-body-alt-roman.woff2","audience":"web","family":"PD Body Alt","format":"woff2","axes":["wght 100\u2013900","roman"]},{"suffix":"01-PUBLIC-FONTS/LAB/pd-body/web/pd-body-alt-italic.woff2","output":"01-WEB-VARIABLE/pd-body-alt-italic.woff2","audience":"web","family":"PD Body Alt","format":"woff2","axes":["wght 100\u2013900","authentic italic"]},{"suffix":"01-PUBLIC-FONTS/LAB/pd-eyebrow/site/pd-eyebrow-site.woff2","output":"01-WEB-VARIABLE/pd-eyebrow.woff2","audience":"web","family":"PD Eyebrow","format":"woff2","axes":["wght 100\u2013900","wdth 87.5\u2013100","ital 0/1","404-codepoint site runtime"]},{"suffix":"01-PUBLIC-FONTS/LAB/pd-head/native/pd-head.ttf","output":"02-NATIVE-VARIABLE/pd-head.ttf","audience":"native","family":"PD Head","format":"ttf","axes":["wght 265\u2013900","ital 0\u20131"]},{"suffix":"01-PUBLIC-FONTS/LAB/pd-head/native/pd-head-alt.ttf","output":"02-NATIVE-VARIABLE/pd-head-alt.ttf","audience":"native","family":"PD Head Alt","format":"ttf","axes":["wght 265\u2013900","ital 0\u20131"]},{"suffix":"01-PUBLIC-FONTS/LAB/pd-body/native/pd-body-roman.ttf","output":"02-NATIVE-VARIABLE/pd-body-roman.ttf","audience":"native","family":"PD Body","format":"ttf","axes":["wght 100\u2013900","roman"]},{"suffix":"01-PUBLIC-FONTS/LAB/pd-body/native/pd-body-italic.ttf","output":"02-NATIVE-VARIABLE/pd-body-italic.ttf","audience":"native","family":"PD Body","format":"ttf","axes":["wght 100\u2013900","authentic italic"]},{"suffix":"01-PUBLIC-FONTS/LAB/pd-body/native/pd-body-alt-roman.ttf","output":"02-NATIVE-VARIABLE/pd-body-alt-roman.ttf","audience":"native","family":"PD Body Alt","format":"ttf","axes":["wght 100\u2013900","roman"]},{"suffix":"01-PUBLIC-FONTS/LAB/pd-body/native/pd-body-alt-italic.ttf","output":"02-NATIVE-VARIABLE/pd-body-alt-italic.ttf","audience":"native","family":"PD Body Alt","format":"ttf","axes":["wght 100\u2013900","authentic italic"]},{"suffix":"01-PUBLIC-FONTS/LAB/pd-eyebrow/native/pd-eyebrow-variable-web.ttf","output":"02-NATIVE-VARIABLE/pd-eyebrow-full.ttf","audience":"native","family":"PD Eyebrow","format":"ttf","axes":["wght 100\u2013900","wdth 87.5\u2013100","ital 0/1","477-codepoint full master"]}];
+const GROUPS = [{"sourceDir":"01-PUBLIC-FONTS/BLIND/pd-head/native/","ext":".ttf","outputDir":"03-STATIC-ANCHORS-NATIVE/pd-head","expected":14},{"sourceDir":"01-PUBLIC-FONTS/BLIND/pd-body/native/","ext":".otf","outputDir":"03-STATIC-ANCHORS-NATIVE/pd-body","expected":28},{"sourceDir":"01-PUBLIC-FONTS/BLIND/pd-eyebrow/native/","ext":".ttf","outputDir":"03-STATIC-ANCHORS-NATIVE/pd-eyebrow","expected":20},{"sourceDir":"01-PUBLIC-FONTS/BLIND/pd-head/web/","ext":".woff2","outputDir":"04-OPTIONAL-STATIC-WEB/pd-head","expected":14},{"sourceDir":"01-PUBLIC-FONTS/BLIND/pd-body/web/","ext":".woff2","outputDir":"04-OPTIONAL-STATIC-WEB/pd-body","expected":28},{"sourceDir":"01-PUBLIC-FONTS/BLIND/pd-eyebrow/web/","ext":".woff2","outputDir":"04-OPTIONAL-STATIC-WEB/pd-eyebrow","expected":20}];
+const DOCS = {"README-FIRST.md":"# pitch.dog Font Handoff — v13\n\nSend this entire folder to web developers, app developers and social/content designers.\n\n## Which folder each person uses\n\n- **Web developers:** `01-WEB-VARIABLE/`\n- **App developers:** `02-NATIVE-VARIABLE/`\n- **Social, video and graphic designers:** install `02-NATIVE-VARIABLE/`\n- **Fallback when a tool mishandles variable fonts:** uninstall the matching variable family, then use `03-STATIC-ANCHORS-NATIVE/`\n- **Legacy or non-variable web target only:** `04-OPTIONAL-STATIC-WEB/`\n\n## Canonical rule\n\nThe variable fonts are authoritative. Production values should land on the approved source anchors rather than arbitrary in-between values. Continuous interpolation is reserved for intentional animation or controlled experiments.\n\n## Do not install duplicates\n\nDo **not** install the variable and static versions of the same family at the same time. Font menus can merge or hide duplicate family records unpredictably. Use variable first. Use static anchors only as a fallback.\n\n## Eyebrow naming caveat\n\nThe files are named `pd-eyebrow`, but the current internal installed family name is **Untitled**. Web CSS aliases it to `PD Eyebrow`, so web work is unaffected. Desktop and native tools may display `Untitled` in font menus. This is source-font metadata, not a packaging error. Rename it in a future source build if a clean installed name is required.\n\nThe 350 and 400 static Eyebrow anchors also share the same full and PostScript names. Do not install all Eyebrow static anchors together. Prefer the variable font; when a static fallback is unavoidable, install only one required Eyebrow weight/posture at a time.\n\n## Licence\n\nThe font binaries are dedicated under CC0 1.0 Universal. See `LICENSE-CC0-NOTE.md`. Keeping that notice with redistributed copies is a provenance best practice, not a licence condition.\n","LICENSE-CC0-NOTE.md":"# Font licence — CC0 1.0 Universal\n\nThe FontBlind v13 font binaries in this handoff (`.woff2`, `.woff`, `.ttf` and `.otf`) are dedicated to the public domain under **CC0 1.0 Universal** (`CC0-1.0`). They may be copied, modified, distributed and used, including commercially, without an attribution requirement.\n\nLegal code: <https://creativecommons.org/publicdomain/zero/1.0/legalcode>\n\nThis declaration applies only to the font binaries. Handoff documentation, CSS, artwork, and pitch.dog names and marks are not placed under CC0 by this notice.\n\nCC0 does not require recipients to retain this notice. Keeping it with redistributed font files is requested as a provenance best practice, not as an additional licence condition.\n\nThis file records pitch.dog's CC0 declaration for the v13 font release. It is not an independent legal audit of authorship, trademarks, provenance or third-party source material.\n","01-WEB-VARIABLE/README.md":"# Web developers\n\nUse the seven WOFF2 variable files in this folder and import `pitchdog-fonts.css`.\n\n## Runtime faces\n\n1. `pd-head.woff2`\n2. `pd-head-alt.woff2`\n3. `pd-body-roman.woff2`\n4. `pd-body-italic.woff2`\n5. `pd-body-alt-roman.woff2`\n6. `pd-body-alt-italic.woff2`\n7. `pd-eyebrow.woff2`\n\nThe Eyebrow file is the smaller 404-codepoint website runtime. It retains all 34 supported currencies, ₹, fraction slash, required shaping closure and the complete arrow set.\n\n## Important implementation details\n\n- Head and Head Alt carry `wght` and `ital` in one file. For critical italic display work, explicitly set `\"ital\" 1` rather than relying only on synthetic or inferred italics.\n- Body and Body Alt use separate authentic Roman and Italic variable files.\n- Eyebrow carries `wght`, `wdth` and binary `ital` axes.\n- Use exact anchors from `../05-DOCUMENTATION/AXES-AND-ANCHORS.md`.\n- Do not preload all seven files. Preload only fonts required by the likely first viewport.\n- The static WOFF2 folder is optional and should not ship beside the variable files unless a specific target cannot use variable fonts.\n","01-WEB-VARIABLE/pitchdog-fonts.css":"/* pitch.dog v13 — canonical variable webfont registration. */\n@font-face {\n  font-family: \"PD Head\";\n  src: url(\"./pd-head.woff2\") format(\"woff2-variations\");\n  font-weight: 265 900;\n  font-style: normal;\n  font-display: swap;\n}\n@font-face {\n  font-family: \"PD Head\";\n  src: url(\"./pd-head.woff2\") format(\"woff2-variations\");\n  font-weight: 265 900;\n  font-style: italic;\n  font-display: swap;\n}\n@font-face {\n  font-family: \"PD Head Alt\";\n  src: url(\"./pd-head-alt.woff2\") format(\"woff2-variations\");\n  font-weight: 265 900;\n  font-style: normal;\n  font-display: swap;\n}\n@font-face {\n  font-family: \"PD Head Alt\";\n  src: url(\"./pd-head-alt.woff2\") format(\"woff2-variations\");\n  font-weight: 265 900;\n  font-style: italic;\n  font-display: swap;\n}\n@font-face {\n  font-family: \"PD Body\";\n  src: url(\"./pd-body-roman.woff2\") format(\"woff2-variations\");\n  font-weight: 100 900;\n  font-style: normal;\n  font-display: swap;\n}\n@font-face {\n  font-family: \"PD Body\";\n  src: url(\"./pd-body-italic.woff2\") format(\"woff2-variations\");\n  font-weight: 100 900;\n  font-style: italic;\n  font-display: swap;\n}\n@font-face {\n  font-family: \"PD Body Alt\";\n  src: url(\"./pd-body-alt-roman.woff2\") format(\"woff2-variations\");\n  font-weight: 100 900;\n  font-style: normal;\n  font-display: swap;\n}\n@font-face {\n  font-family: \"PD Body Alt\";\n  src: url(\"./pd-body-alt-italic.woff2\") format(\"woff2-variations\");\n  font-weight: 100 900;\n  font-style: italic;\n  font-display: swap;\n}\n@font-face {\n  font-family: \"PD Eyebrow\";\n  src: url(\"./pd-eyebrow.woff2\") format(\"woff2-variations\");\n  font-weight: 100 900;\n  font-stretch: 87.5% 100%;\n  font-style: normal;\n  font-display: swap;\n}\n@font-face {\n  font-family: \"PD Eyebrow\";\n  src: url(\"./pd-eyebrow.woff2\") format(\"woff2-variations\");\n  font-weight: 100 900;\n  font-stretch: 87.5% 100%;\n  font-style: italic;\n  font-display: swap;\n}\n\n/* Head italic is safest when the actual ital axis is explicit. */\n.pd-head-italic {\n  font-family: \"PD Head\";\n  font-style: normal;\n  font-variation-settings: \"wght\" 500, \"ital\" 1;\n}\n\n/* Production values should land on the approved anchors documented in AXES-AND-ANCHORS.md. */\n","02-NATIVE-VARIABLE/README.md":"# App developers and design tools\n\nUse the seven variable TTF files in this folder first.\n\n- Head and Head Alt: one variable TTF each.\n- Body and Body Alt: separate authentic Roman and Italic variable TTFs.\n- Eyebrow: the fuller 477-codepoint native master.\n\nKeep production settings on the approved anchors. Some native frameworks expose axes by tag; others expose named instances. Where custom variation values are supported, use the tags and values in `../05-DOCUMENTATION/AXES-AND-ANCHORS.md`.\n\nIf a framework or design application mishandles variable instances, remove the variable family and install the matching files in `../03-STATIC-ANCHORS-NATIVE/` instead.\n\nDo not install variable and static duplicates simultaneously.\n\nNote: PD Eyebrow currently installs under the internal family name `Untitled`.\n\nPD Body Italic has correct italic behaviour but exposes `Regular` in two native style-name records. Some native menus may pair it inconsistently; web CSS is unaffected.\n","03-STATIC-ANCHORS-NATIVE/README.md":"# Optional native static anchors\n\nThese are exact source-master anchors for tools that do not handle the variable fonts reliably.\n\n- `pd-head/`: 14 TTF files, Primary and Alt, seven upright weight anchors each. Head italics still require the variable font because the source italic is an axis rather than a separate static family in this release.\n- `pd-body/`: 28 OTF files, Primary and Alt, seven authentic Roman and seven authentic Italic anchors per family.\n- `pd-eyebrow/`: 20 TTF files, ten Normal-width anchors in Upright and Italic.\n\nInstall these only after removing the matching variable family.\n\n**Eyebrow warning:** the 350 and 400 upright files share `Untitled Regular` / `Untitled-Regular`; the 350 and 400 italic files share `Untitled Italic` / `Untitled-Italic`. Native installers can overwrite or hide one face. Prefer the variable Eyebrow. If a static fallback is unavoidable, install only one required Eyebrow weight/posture at a time.\n","04-OPTIONAL-STATIC-WEB/README.md":"# Optional static WOFF2 anchors\n\nThese are for a web target that cannot consume the canonical variable WOFF2 files.\n\nModern pitch.dog web work should use `../01-WEB-VARIABLE/` instead. Do not load both sets on the same page.\n","05-DOCUMENTATION/AXES-AND-ANCHORS.md":"# Axes and approved anchors\n\n## PD Head / PD Head Alt\n\n- Weight: `265, 300, 400, 500, 600, 700, 900`\n- Italic: `0, 1`\n- Continuous interpolation between upright and italic is permitted only for deliberate motion or a controlled specimen.\n\nTypical system use:\n\n- 500: section headings and feature quotations\n- 600: hero and chapter displays\n- 700: compressed media surfaces such as YouTube thumbnails\n\n## PD Body / PD Body Alt\n\n- Weight: `100, 250, 300, 400, 600, 700, 900`\n- Roman and Italic are separate authentic variable files.\n\nTypical system use:\n\n- 400: reading and standard interface copy\n- 600: functional emphasis, controls and compact titles\n- 700: metrics and high-pressure media surfaces\n\n## PD Eyebrow\n\n- Weight: `100, 200, 300, 350, 400, 500, 600, 700, 800, 900`\n- Width: `87.5, 100`\n- Italic: `0, 1`\n\nTypical system use:\n\n- 500 / 87.5: metadata, filenames, dates and aligned data\n- 600 / 100: compact UI arrows and icon-like controls\n- Italic 1: rare annotations, never a generic decorative default\n\n## Arrow set\n\n`← ↑ → ↓ ↔ ↕ ↖ ↗ ↘ ↙ ↩ ↪`\n\nThe arrows are present across all seven variable runtime faces and the static anchors.\n","05-DOCUMENTATION/AUDIENCE-MAP.md":"# Audience map\n\n| Audience | Primary files | Optional fallback | Notes |\n|---|---|---|---|\n| Website developer | `01-WEB-VARIABLE/*.woff2` | `04-OPTIONAL-STATIC-WEB/` | Import the included CSS; keep Head ital explicit. |\n| iOS / Android / desktop app developer | `02-NATIVE-VARIABLE/*.ttf` | `03-STATIC-ANCHORS-NATIVE/` | Use exact axes; test platform font registration. |\n| Figma / Adobe / Canva / social designer | `02-NATIVE-VARIABLE/*.ttf` | `03-STATIC-ANCHORS-NATIVE/` | Install variable first; do not install duplicates. |\n| Video / YouTube designer | `02-NATIVE-VARIABLE/*.ttf` | static native anchors | Head 700 is the approved high-pressure display anchor. |\n\nThe full pitch.dog typography, UI, social and YouTube behaviour lives in the separate Type System v13 package. This handoff contains the font assets and the minimum integration contract only.\n","05-DOCUMENTATION/KNOWN-SOURCE-DETAILS.md":"# Known source-font details\n\n## PD Eyebrow internal family name\n\nThe Eyebrow binaries currently identify internally as `Untitled` / `Untitled Regular`, even though their filenames and design-system alias are `pd-eyebrow` / `PD Eyebrow`.\n\nConsequences:\n\n- Web: no practical issue. `@font-face` aliases the file as `PD Eyebrow`.\n- Desktop design tools: the font may appear as `Untitled`.\n- Native apps: some APIs may require the internal PostScript or family name rather than the filename.\n- Collision risk: another installed font using the family name `Untitled` may conflict.\n\nThe static source also contains two internal collisions:\n\n- 350 and 400 upright both expose `Untitled Regular` / `Untitled-Regular` and the same unique-name record.\n- 350 and 400 italic both expose `Untitled Italic` / `Untitled-Italic` and the same unique-name record.\n\nNative installers can overwrite, hide or substitute these distinct files. Prefer the variable Eyebrow. If a static fallback is unavoidable, install only one required Eyebrow weight/posture at a time.\n\n## PD Body Italic style name\n\n`pd-body-italic` has correct italic flags and italic angle, but its subfamily and typographic-subfamily records say `Regular`. Web CSS works correctly; some native menus or pairing APIs may display it inconsistently.\n\nThe handoff deliberately preserves the accepted v13 source binaries. A future font-source release should rename the internal records rather than patching them ad hoc in downstream products.\n"};
+const ROOT = 'pitchdog-font-handoff-v13';
+const te = new TextEncoder();
+const td = new TextDecoder();
+const statusEl = document.querySelector('#status');
+const progressEl = document.querySelector('#progress');
+const badgeEl = document.querySelector('#badge');
+const buildBtn = document.querySelector('#build');
+let selected = null;
+
+function setStatus(text, kind=''){
+  statusEl.textContent=text;
+  statusEl.className='status '+kind;
+  badgeEl.textContent=kind==='ok'?'Verified':kind==='bad'?'Failed':'Working';
+  badgeEl.className='pill '+kind;
+}
+function setProgress(v){progressEl.value=Math.max(0,Math.min(100,v));}
+function normalize(name){return name.replace(/\\/g,'/').replace(/^\.\//,'');}
+function relSource(name){const marker='01-PUBLIC-FONTS/';const i=name.indexOf(marker);return i>=0?name.slice(i):name;}
+function hex(buf){return [...new Uint8Array(buf)].map(x=>x.toString(16).padStart(2,'0')).join('');}
+const SHA256_K=new Uint32Array([0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2]);
+function rotr(x,n){return(x>>>n)|(x<<(32-n));}
+function sha256Sync(data){
+  const bytes=data instanceof Uint8Array?data:new Uint8Array(data),bitLen=bytes.length*8,paddedLen=Math.ceil((bytes.length+9)/64)*64;
+  const msg=new Uint8Array(paddedLen);msg.set(bytes);msg[bytes.length]=0x80;
+  const dv=new DataView(msg.buffer);dv.setUint32(paddedLen-8,Math.floor(bitLen/0x100000000),false);dv.setUint32(paddedLen-4,bitLen>>>0,false);
+  let h0=0x6a09e667,h1=0xbb67ae85,h2=0x3c6ef372,h3=0xa54ff53a,h4=0x510e527f,h5=0x9b05688c,h6=0x1f83d9ab,h7=0x5be0cd19;
+  const w=new Uint32Array(64);
+  for(let off=0;off<paddedLen;off+=64){
+    for(let i=0;i<16;i++)w[i]=dv.getUint32(off+i*4,false);
+    for(let i=16;i<64;i++){const s0=(rotr(w[i-15],7)^rotr(w[i-15],18)^(w[i-15]>>>3))>>>0;const s1=(rotr(w[i-2],17)^rotr(w[i-2],19)^(w[i-2]>>>10))>>>0;w[i]=(w[i-16]+s0+w[i-7]+s1)>>>0;}
+    let a=h0,b=h1,c=h2,d=h3,e=h4,f=h5,g=h6,h=h7;
+    for(let i=0;i<64;i++){const s1=(rotr(e,6)^rotr(e,11)^rotr(e,25))>>>0,ch=((e&f)^((~e)&g))>>>0,t1=(h+s1+ch+SHA256_K[i]+w[i])>>>0,s0=(rotr(a,2)^rotr(a,13)^rotr(a,22))>>>0,maj=((a&b)^(a&c)^(b&c))>>>0,t2=(s0+maj)>>>0;h=g;g=f;f=e;e=(d+t1)>>>0;d=c;c=b;b=a;a=(t1+t2)>>>0;}
+    h0=(h0+a)>>>0;h1=(h1+b)>>>0;h2=(h2+c)>>>0;h3=(h3+d)>>>0;h4=(h4+e)>>>0;h5=(h5+f)>>>0;h6=(h6+g)>>>0;h7=(h7+h)>>>0;
+  }
+  return [h0,h1,h2,h3,h4,h5,h6,h7].map(x=>x.toString(16).padStart(8,'0')).join('');
+}
+async function sha(data){
+  if(globalThis.crypto&&crypto.subtle){try{return hex(await crypto.subtle.digest('SHA-256',data));}catch(_e){}}
+  return sha256Sync(data);
+}
+function wanted(name){
+  name=normalize(name);
+  if(name.endsWith('/SHA256SUMS')||name==='SHA256SUMS')return true;
+  if(FIXED.some(x=>name.endsWith(x.suffix)))return true;
+  return GROUPS.some(g=>name.includes(g.sourceDir)&&name.toLowerCase().endsWith(g.ext));
+}
+
+async function inflateEntry(entry){
+  if(entry.kind==='raw')return entry.data;
+  if(entry.data)return entry.data;
+  let data;
+  if(entry.method===0)data=new Uint8Array(entry.packed);
+  else if(entry.method===8){
+    if(!('DecompressionStream' in window))throw new Error('This browser cannot unpack ZIPs locally. Extract the source and choose the folder instead.');
+    const stream=new Blob([entry.packed]).stream().pipeThrough(new DecompressionStream('deflate-raw'));
+    data=new Uint8Array(await new Response(stream).arrayBuffer());
+  }else throw new Error('Unsupported ZIP compression method '+entry.method);
+  if(entry.usize && data.length!==entry.usize)throw new Error('Unpacked-size mismatch: '+entry.name);
+  entry.data=data;
+  return data;
+}
+
+async function unzipSelected(file){
+  const buffer=await file.arrayBuffer(), view=new DataView(buffer), bytes=new Uint8Array(buffer);
+  let eocd=-1;
+  for(let i=Math.max(0,bytes.length-65557);i<=bytes.length-22;i++)if(view.getUint32(i,true)===0x06054b50)eocd=i;
+  if(eocd<0)throw new Error('ZIP central directory not found. Extract the archive and choose the folder instead.');
+  const total=view.getUint16(eocd+10,true), cdOffset=view.getUint32(eocd+16,true);
+  let p=cdOffset; const records=[];
+  for(let i=0;i<total;i++){
+    if(view.getUint32(p,true)!==0x02014b50)throw new Error('Unsupported ZIP central directory.');
+    const flags=view.getUint16(p+8,true), method=view.getUint16(p+10,true), crc=view.getUint32(p+16,true), csize=view.getUint32(p+20,true), usize=view.getUint32(p+24,true);
+    const nlen=view.getUint16(p+28,true), xlen=view.getUint16(p+30,true), clen=view.getUint16(p+32,true), local=view.getUint32(p+42,true);
+    const name=normalize(td.decode(bytes.slice(p+46,p+46+nlen)));
+    p+=46+nlen+xlen+clen;
+    if(wanted(name))records.push({kind:'zip',name,flags,method,crc,csize,usize,local});
+  }
+  const out=new Map();
+  for(let i=0;i<records.length;i++){
+    const r=records[i]; setProgress(4+12*(i/Math.max(1,records.length)));
+    if(r.flags&1)throw new Error('Encrypted ZIP entries are unsupported: '+r.name);
+    if(r.method!==0&&r.method!==8)throw new Error('Unsupported ZIP compression method '+r.method+': '+r.name);
+    if(view.getUint32(r.local,true)!==0x04034b50)throw new Error('Unsupported ZIP local header.');
+    const ln=view.getUint16(r.local+26,true), lx=view.getUint16(r.local+28,true), dataStart=r.local+30+ln+lx;
+    r.packed=bytes.slice(dataStart,dataStart+r.csize);
+    out.set(r.name,r);
+  }
+  return out;
+}
+
+async function folderSelected(files){
+  const out=new Map(); let i=0;
+  for(const f of files){
+    const name=normalize(f.webkitRelativePath||f.name);
+    if(!wanted(name))continue;
+    const data=new Uint8Array(await f.arrayBuffer());
+    out.set(name,{kind:'raw',name,data,method:0,crc:crc32(data),csize:data.length,usize:data.length});
+    i++; setProgress(4+12*(i/Math.max(1,files.length)));
+  }
+  return out;
+}
+function locate(map,suffix){const hits=[...map.keys()].filter(n=>n.endsWith(suffix));if(hits.length!==1)throw new Error(`Expected one ${suffix}; found ${hits.length}.`);return hits[0];}
+async function parseSums(map){
+  const hits=[...map.keys()].filter(n=>n.endsWith('/SHA256SUMS')||n==='SHA256SUMS');
+  if(hits.length!==1)throw new Error('Source SHA256SUMS was not found uniquely.');
+  const result=new Map(), data=await inflateEntry(map.get(hits[0]));
+  for(const line of td.decode(data).split(/\r?\n/)){
+    const m=line.trim().match(/^([0-9a-fA-F]{64})\s+\*?(.+)$/);if(m)result.set(m[2],m[1].toLowerCase());
+  }
+  return result;
+}
+function staticMeta(path){
+  const name=path.split('/').pop().toLowerCase();
+  let family=path.includes('/pd-head/')?'PD Head':path.includes('/pd-body/')?'PD Body':'PD Eyebrow';
+  if(name.includes('alt'))family+=' Alt';
+  const m=name.match(/(?:-|^)(100|200|250|265|300|350|400|500|600|700|800|900)(?:-|\.|$)/);
+  const named=['thin','light','regular','medium','semibold','bold','black'].find(x=>name.includes(x))||null;
+  return {family,style:name.includes('italic')?'italic':'upright',weight:m?Number(m[1]):named,variable:false};
+}
+function outputEntryFromSource(entry,sha256){
+  if(entry.kind==='zip')return {kind:'zip',method:entry.method,packed:entry.packed,crc:entry.crc,csize:entry.csize,usize:entry.usize,sha256};
+  return {kind:'raw',method:0,data:entry.data,crc:entry.crc,csize:entry.usize,usize:entry.usize,sha256};
+}
+
+async function verifyAndSelect(map){
+  setStatus('Finding the canonical files…');
+  const sums=await parseSums(map), files=new Map(), manifest=[];
+  let done=0; const total=138;
+  async function add(srcName,outPath,extra){
+    const entry=map.get(srcName), rel=relSource(srcName), expected=sums.get(rel);
+    if(!expected)throw new Error('Source checksum is missing: '+rel);
+    let actual=expected;
+    // Fully hash the 14 canonical variable faces. Folder input is inexpensive enough to hash completely.
+    if(extra.variable||entry.kind==='raw'){
+      actual=await sha(await inflateEntry(entry));
+      if(actual!==expected)throw new Error('Source checksum mismatch: '+rel);
+    }
+    if(files.has(outPath))throw new Error('Duplicate output path: '+outPath);
+    files.set(outPath,outputEntryFromSource(entry,actual));
+    manifest.push({outputPath:outPath,sourcePath:rel,bytes:entry.usize,sha256:actual,...extra});
+    done++; setProgress(18+52*(done/total));
+  }
+  for(const item of FIXED){
+    const src=locate(map,item.suffix);
+    await add(src,item.output,{audience:item.audience,family:item.family,format:item.format,variable:true,axes:item.axes});
+  }
+  for(const g of GROUPS){
+    const hits=[...map.keys()].filter(n=>n.includes(g.sourceDir)&&n.toLowerCase().endsWith(g.ext)).sort();
+    if(hits.length!==g.expected)throw new Error(`Expected ${g.expected} files in ${g.sourceDir}; found ${hits.length}.`);
+    for(const src of hits){const out=`${g.outputDir}/${src.split('/').pop()}`;await add(src,out,{audience:'fallback',format:g.ext.slice(1),...staticMeta(out)});}
+  }
+  if(done!==138)throw new Error('Internal selection count mismatch: '+done);
+  return {files,manifest};
+}
+
+const crcTable=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=(c&1)?0xedb88320^(c>>>1):c>>>1;t[n]=c>>>0;}return t;})();
+function crc32(data){let c=0xffffffff;for(const b of data)c=crcTable[(c^b)&255]^(c>>>8);return(c^0xffffffff)>>>0;}
+function u16(v){const a=new Uint8Array(2);new DataView(a.buffer).setUint16(0,v,true);return a;}
+function u32(v){const a=new Uint8Array(4);new DataView(a.buffer).setUint32(0,v>>>0,true);return a;}
+function concat(parts){let len=0;for(const p of parts)len+=p.length;const out=new Uint8Array(len);let o=0;for(const p of parts){out.set(p,o);o+=p.length;}return out;}
+function rawEntry(dataRaw,sha256=null){const data=dataRaw instanceof Uint8Array?dataRaw:te.encode(String(dataRaw));return {kind:'raw',method:0,data,crc:crc32(data),csize:data.length,usize:data.length,sha256};}
+const DOS_TIME=0, DOS_DATE=((2026-1980)<<9)|(8<<5)|28;
+function createZip(entries){
+  const locals=[],centrals=[];let offset=0;
+  for(const [path,entryRaw] of entries){
+    const entry=entryRaw&&entryRaw.kind?entryRaw:rawEntry(entryRaw);
+    const packed=entry.kind==='zip'?entry.packed:entry.data;
+    const method=entry.kind==='zip'?entry.method:0;
+    const name=te.encode(`${ROOT}/${path}`), flags=0x0800;
+    const local=concat([u32(0x04034b50),u16(20),u16(flags),u16(method),u16(DOS_TIME),u16(DOS_DATE),u32(entry.crc),u32(entry.csize),u32(entry.usize),u16(name.length),u16(0),name,packed]);
+    locals.push(local);
+    const central=concat([u32(0x02014b50),u16(20),u16(20),u16(flags),u16(method),u16(DOS_TIME),u16(DOS_DATE),u32(entry.crc),u32(entry.csize),u32(entry.usize),u16(name.length),u16(0),u16(0),u16(0),u16(0),u32(0),u32(offset),name]);
+    centrals.push(central);offset+=local.length;
+  }
+  const cd=concat(centrals), body=concat(locals), eocd=concat([u32(0x06054b50),u16(0),u16(0),u16(entries.length),u16(entries.length),u32(cd.length),u32(body.length),u16(0)]);
+  return new Blob([body,cd,eocd],{type:'application/zip'});
+}
+
+async function prepare(map){
+  buildBtn.disabled=true; selected=null; setProgress(16);
+  const {files,manifest}=await verifyAndSelect(map);
+  selected={files,manifest};setProgress(72);
+  setStatus(`Verified the 14 canonical variable faces by SHA-256.\nValidated all 138 source paths against the accepted manifest; static ZIP entries retain their original CRC and compressed payload.\n\nReady to build:\n• 7 variable WOFF2\n• 7 variable TTF\n• 62 native static anchors\n• 62 optional static WOFF2 anchors\n\nNo private QA, recovery or visual-proof files will be included.`, 'ok');
+  buildBtn.disabled=false;
+}
+
+async function loadZip(file){try{setProgress(2);setStatus('Reading the v13 ZIP locally…');await prepare(await unzipSelected(file));}catch(e){selected=null;buildBtn.disabled=true;setProgress(0);setStatus(String(e&&e.message||e),'bad');}}
+async function loadFolder(files){try{setProgress(2);setStatus('Reading the extracted v13 folder locally…');await prepare(await folderSelected(files));}catch(e){selected=null;buildBtn.disabled=true;setProgress(0);setStatus(String(e&&e.message||e),'bad');}}
+
+document.querySelector('#zipInput').addEventListener('change',e=>{if(e.target.files[0])loadZip(e.target.files[0]);});
+document.querySelector('#folderInput').addEventListener('change',e=>{if(e.target.files.length)loadFolder(e.target.files);});
+
+buildBtn.addEventListener('click',async()=>{
+  if(!selected)return;
+  try{
+    buildBtn.disabled=true;setStatus('Building documentation, manifest and checksums…');setProgress(74);
+    const files=new Map(selected.files), manifest={name:'pitch.dog Font Handoff',version:'13',sourceArchive:'FontBlind-Final-2026-08-28-v13.zip',generatedBy:'pitch.dog Font Handoff Builder v13',fontFileCount:selected.manifest.length,fontBytes:selected.manifest.reduce((a,b)=>a+b.bytes,0),canonicalPolicy:'Variable fonts first; exact source anchors for production; static files only as compatibility fallbacks.',fonts:[...selected.manifest].sort((a,b)=>a.outputPath.localeCompare(b.outputPath))};
+    for(const [p,s] of Object.entries(DOCS)){
+      const data=te.encode(s), digest=await sha(data);files.set(p,rawEntry(data,digest));
+    }
+    const manifestData=te.encode(JSON.stringify(manifest,null,2)+'\n');
+    files.set('05-DOCUMENTATION/FONT-MANIFEST.json',rawEntry(manifestData,await sha(manifestData)));
+    const sums=[];let i=0;const sorted=[...files.entries()].sort((a,b)=>a[0].localeCompare(b[0]));
+    for(const [p,e] of sorted){
+      let digest=e.sha256;
+      if(!digest){digest=await sha(e.kind==='raw'?e.data:await inflateEntry(e));e.sha256=digest;}
+      sums.push(`${digest}  ${p}`);i++;setProgress(75+10*(i/sorted.length));
+    }
+    const sumsData=te.encode(sums.join('\n')+'\n');
+    files.set('SHA256SUMS.txt',rawEntry(sumsData,await sha(sumsData)));
+    setStatus('Assembling the singular handoff ZIP…');setProgress(88);
+    const blob=createZip([...files.entries()].sort((a,b)=>a[0].localeCompare(b[0])));
+    const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='pitchdog-font-handoff-v13.zip';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);
+    setProgress(100);setStatus(`Built pitchdog-font-handoff-v13.zip\n\n${selected.manifest.length} font files · ${(manifest.fontBytes/1048576).toFixed(2)} MiB of fonts · ${files.size} total package files.`, 'ok');
+  }catch(e){setStatus(String(e&&e.message||e),'bad');setProgress(0);}finally{buildBtn.disabled=!selected;}
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+{
+  "website": {
+    "hero.title": "display.hero",
+    "hero.lead": "lead.hero",
+    "section.title": "heading.section",
+    "section.lead": "lead.section",
+    "card.title": "title.card",
+    "card.body": "body.compact",
+    "faq.question": "title.functional",
+    "faq.answer": "body.default",
+    "price.value": "data",
+    "stat.value": "metric",
+    "project.meta": "metadata"
+  },
+  "interface": {
+    "page.title": "ui.pageTitle",
+    "panel.title": "ui.panelTitle",
+    "button.label": "ui.action",
+    "tab.label": "ui.action",
+    "input.value": "ui.input",
+    "form.label": "ui.label",
+    "help.text": "ui.caption",
+    "table.header": "ui.label",
+    "table.cell": "ui.bodyCompact",
+    "table.numeric": "ui.data",
+    "badge": "ui.badge",
+    "filename": "ui.code",
+    "toast.title": "ui.panelTitle",
+    "toast.body": "ui.bodyCompact",
+    "empty.title": "ui.display",
+    "empty.body": "ui.body"
+  },
+  "media": {
+    "social.cover": "social.display",
+    "social.quote": "social.quote",
+    "youtube.thumbnail.title": "youtube.title",
+    "youtube.thumbnail.kicker": "youtube.kicker"
+  }
+}

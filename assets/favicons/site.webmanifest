@@ -1,0 +1,20 @@
+{
+  "name": "pitch.dog Typography System",
+  "short_name": "pitch.dog type",
+  "start_url": "./pitchdog-typography-system-v13.html",
+  "display": "standalone",
+  "background_color": "#f4f0e7",
+  "theme_color": "#141412",
+  "icons": [
+    {
+      "src": "assets/favicons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/favicons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

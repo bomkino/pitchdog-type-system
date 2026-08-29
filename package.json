@@ -1,0 +1,46 @@
+{
+  "name": "@pitchdog/type-system",
+  "version": "13.0.0",
+  "private": true,
+  "description": "Private pitch.dog fonts and typography system.",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/bomkino/pitchdog-type-system.git"
+  },
+  "style": "./dist/pitchdog-system.css",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "LICENSE.md",
+    "FONT-LICENSE.md",
+    "FONT-PROVENANCE.json",
+    "assets/fonts",
+    "dist",
+    "tokens",
+    "interface",
+    "social",
+    "youtube",
+    "docs"
+  ],
+  "exports": {
+    ".": "./dist/pitchdog-system.css",
+    "./system.css": "./dist/pitchdog-system.css",
+    "./system.min.css": "./dist/pitchdog-system.min.css",
+    "./fonts.css": "./dist/pitchdog-fonts.template.css",
+    "./typography.css": "./dist/pitchdog-typography.css",
+    "./ui.css": "./dist/pitchdog-ui.css",
+    "./social.css": "./dist/pitchdog-social.css",
+    "./youtube.css": "./dist/pitchdog-youtube.css",
+    "./tokens/*": "./tokens/*",
+    "./dist/*": "./dist/*",
+    "./fonts/*": "./assets/fonts/*"
+  },
+  "scripts": {
+    "validate": "python3 scripts/verify_repository.py",
+    "validate:contracts": "python3 tools/validate_release.py",
+    "populate:fonts": "python3 scripts/populate_fonts.py",
+    "checksums": "python3 scripts/checksums.py --write"
+  }
+}

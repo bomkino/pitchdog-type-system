@@ -1,0 +1,52 @@
+@layer pd.fonts {
+@font-face {
+  font-family: "PD Head";
+  src: url("../assets/fonts/pd-head.woff2") format("woff2");
+  font-weight: 265 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PD Head Alt";
+  src: url("../assets/fonts/pd-head-alt.woff2") format("woff2");
+  font-weight: 265 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PD Body";
+  src: url("../assets/fonts/pd-body-roman.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PD Body";
+  src: url("../assets/fonts/pd-body-italic.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PD Body Alt";
+  src: url("../assets/fonts/pd-body-alt-roman.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PD Body Alt";
+  src: url("../assets/fonts/pd-body-alt-italic.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PD Eyebrow";
+  src: url("../assets/fonts/pd-eyebrow-site.woff2") format("woff2");
+  font-weight: 100 900;
+  font-stretch: 87.5% 100%;
+  font-style: normal;
+  font-display: swap;
+}
+}

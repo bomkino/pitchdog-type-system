@@ -1,0 +1,890 @@
+{
+  "$schema": "./pitchdog.system.tokens.schema.json",
+  "meta": {
+    "name": "pitch.dog Type System",
+    "version": "13.0.0",
+    "displayVersion": "13",
+    "status": "production-candidate",
+    "fontSource": "FontBlind-Final-2026-08-28-v13.zip",
+    "principle": "Anchor-locked variable typography"
+  },
+  "families": {
+    "head": "PD Head",
+    "headAlt": "PD Head Alt",
+    "body": "PD Body",
+    "bodyAlt": "PD Body Alt",
+    "eyebrow": "PD Eyebrow"
+  },
+  "anchors": {
+    "head": {
+      "wght": [
+        265,
+        300,
+        400,
+        500,
+        600,
+        700,
+        900
+      ],
+      "ital": [
+        0,
+        1
+      ],
+      "continuous": [
+        "ital"
+      ]
+    },
+    "headAlt": {
+      "wght": [
+        265,
+        300,
+        400,
+        500,
+        600,
+        700,
+        900
+      ],
+      "ital": [
+        0,
+        1
+      ],
+      "continuous": [
+        "ital"
+      ]
+    },
+    "body": {
+      "wght": [
+        100,
+        250,
+        300,
+        400,
+        600,
+        700,
+        900
+      ],
+      "posture": [
+        "roman",
+        "italic"
+      ],
+      "continuous": []
+    },
+    "bodyAlt": {
+      "wght": [
+        100,
+        250,
+        300,
+        400,
+        600,
+        700,
+        900
+      ],
+      "posture": [
+        "roman",
+        "italic"
+      ],
+      "continuous": []
+    },
+    "eyebrow": {
+      "wght": [
+        100,
+        200,
+        300,
+        350,
+        400,
+        500,
+        600,
+        700,
+        800,
+        900
+      ],
+      "wdth": [
+        87.5,
+        100
+      ],
+      "ital": [
+        0,
+        1
+      ],
+      "continuous": []
+    }
+  },
+  "contexts": {
+    "expressive": "Story, emotion, showcases and major statements",
+    "productive": "Dense information, services, process, pricing, forms and interfaces"
+  },
+  "tones": {
+    "default": {
+      "head": "head"
+    },
+    "playful": {
+      "head": "headAlt"
+    }
+  },
+  "web": {
+    "roles": {
+      "display.hero": {
+        "family": "head",
+        "weight": 600,
+        "ital": 0,
+        "size": "clamp(3.75rem, 1.42rem + 7.15vi, 8.5rem)",
+        "lineHeight": 0.88,
+        "tracking": "-0.043em",
+        "measure": "11.5ch",
+        "wrap": "balance",
+        "context": "expressive",
+        "maxLines": 4
+      },
+      "display.chapter": {
+        "family": "head",
+        "weight": 600,
+        "ital": 0,
+        "size": "clamp(3.25rem, 1.65rem + 4.9vi, 7rem)",
+        "lineHeight": 0.91,
+        "tracking": "-0.037em",
+        "measure": "14ch",
+        "wrap": "balance",
+        "context": "expressive",
+        "maxLines": 4
+      },
+      "heading.section": {
+        "family": "head",
+        "weight": 500,
+        "ital": 0,
+        "size": "clamp(2.75rem, 1.72rem + 3.15vi, 5.5rem)",
+        "lineHeight": 0.95,
+        "tracking": "-0.031em",
+        "measure": "17ch",
+        "wrap": "balance",
+        "context": "both",
+        "maxLines": 4
+      },
+      "heading.subsection": {
+        "family": "head",
+        "weight": 500,
+        "ital": 0,
+        "size": "clamp(2.125rem, 1.52rem + 1.85vi, 3.75rem)",
+        "lineHeight": 0.99,
+        "tracking": "-0.024em",
+        "measure": "22ch",
+        "wrap": "balance",
+        "context": "both",
+        "maxLines": 4
+      },
+      "title.card": {
+        "family": "head",
+        "weight": 500,
+        "ital": 0,
+        "size": "clamp(1.625rem, 1.34rem + .86vi, 2.375rem)",
+        "lineHeight": 1.05,
+        "tracking": "-0.018em",
+        "measure": "25ch",
+        "wrap": "normal",
+        "context": "both",
+        "maxLines": 4
+      },
+      "title.functional": {
+        "family": "body",
+        "weight": 600,
+        "style": "normal",
+        "size": "clamp(1.1875rem, 1.11rem + .24vi, 1.4375rem)",
+        "lineHeight": 1.18,
+        "tracking": "-0.01em",
+        "measure": "36ch",
+        "wrap": "normal",
+        "context": "productive",
+        "maxLines": 5
+      },
+      "lead.hero": {
+        "family": "bodyAlt",
+        "weight": 400,
+        "style": "normal",
+        "size": "clamp(1.5rem, 1.19rem + .96vi, 2.375rem)",
+        "lineHeight": 1.25,
+        "tracking": "-0.013em",
+        "measure": "44ch",
+        "wrap": "pretty",
+        "context": "expressive",
+        "maxLines": 6
+      },
+      "lead.section": {
+        "family": "bodyAlt",
+        "weight": 400,
+        "style": "normal",
+        "size": "clamp(1.25rem, 1.11rem + .43vi, 1.625rem)",
+        "lineHeight": 1.34,
+        "tracking": "-0.009em",
+        "measure": "56ch",
+        "wrap": "pretty",
+        "context": "both",
+        "maxLines": 8
+      },
+      "body.reading": {
+        "family": "body",
+        "weight": 400,
+        "style": "normal",
+        "size": "clamp(1.1875rem, 1.15rem + .12vi, 1.3125rem)",
+        "lineHeight": 1.58,
+        "tracking": "-0.004em",
+        "measure": "64ch",
+        "wrap": "pretty",
+        "context": "both",
+        "maxLines": null
+      },
+      "body.default": {
+        "family": "body",
+        "weight": 400,
+        "style": "normal",
+        "size": "clamp(1.0625rem, 1.025rem + .12vi, 1.1875rem)",
+        "lineHeight": 1.52,
+        "tracking": "-0.003em",
+        "measure": "68ch",
+        "wrap": "normal",
+        "context": "both",
+        "maxLines": null
+      },
+      "body.compact": {
+        "family": "body",
+        "weight": 400,
+        "style": "normal",
+        "size": "clamp(1rem, .981rem + .06vi, 1.0625rem)",
+        "lineHeight": 1.45,
+        "tracking": "0em",
+        "measure": "72ch",
+        "wrap": "normal",
+        "context": "productive",
+        "maxLines": null
+      },
+      "body.small": {
+        "family": "body",
+        "weight": 400,
+        "style": "normal",
+        "size": "clamp(.875rem, .856rem + .06vi, .9375rem)",
+        "lineHeight": 1.42,
+        "tracking": ".003em",
+        "measure": "74ch",
+        "wrap": "normal",
+        "context": "productive",
+        "maxLines": null
+      },
+      "quote.feature": {
+        "family": "head",
+        "weight": 500,
+        "ital": 1,
+        "size": "clamp(2.25rem, 1.36rem + 2.72vi, 4.75rem)",
+        "lineHeight": 1.0,
+        "tracking": "-0.027em",
+        "measure": "23ch",
+        "wrap": "balance",
+        "context": "expressive",
+        "maxLines": 8
+      },
+      "label": {
+        "family": "body",
+        "weight": 600,
+        "style": "normal",
+        "size": "clamp(.875rem, .856rem + .06vi, .9375rem)",
+        "lineHeight": 1.2,
+        "tracking": ".012em",
+        "measure": "36ch",
+        "wrap": "normal",
+        "context": "productive",
+        "maxLines": 3
+      },
+      "metadata": {
+        "family": "eyebrow",
+        "weight": 500,
+        "width": 87.5,
+        "ital": 0,
+        "size": "clamp(.75rem, .731rem + .055vi, .8125rem)",
+        "lineHeight": 1.28,
+        "tracking": ".052em",
+        "measure": "54ch",
+        "wrap": "normal",
+        "context": "productive",
+        "maxLines": 4
+      },
+      "data": {
+        "family": "eyebrow",
+        "weight": 500,
+        "width": 87.5,
+        "ital": 0,
+        "size": "clamp(.8125rem, .77rem + .13vi, 1rem)",
+        "lineHeight": 1.3,
+        "tracking": ".01em",
+        "measure": "62ch",
+        "wrap": "normal",
+        "context": "productive",
+        "maxLines": null,
+        "numeric": "tabular-nums lining-nums slashed-zero"
+      },
+      "metric": {
+        "family": "body",
+        "weight": 700,
+        "style": "normal",
+        "size": "clamp(3.5rem, 1.74rem + 5.42vi, 7.75rem)",
+        "lineHeight": 0.84,
+        "tracking": "-0.052em",
+        "measure": "10ch",
+        "wrap": "normal",
+        "context": "expressive",
+        "maxLines": 2,
+        "numeric": "proportional-nums lining-nums"
+      }
+    }
+  },
+  "ui": {
+    "foundation": {
+      "density": {
+        "comfortable": {
+          "controlHeight": "3.25rem",
+          "controlPaddingInline": "1.125rem",
+          "rowMinHeight": "3.5rem",
+          "gap": "1rem"
+        },
+        "default": {
+          "controlHeight": "3rem",
+          "controlPaddingInline": "1rem",
+          "rowMinHeight": "3.25rem",
+          "gap": ".75rem"
+        },
+        "compact": {
+          "controlHeight": "2.5rem",
+          "controlPaddingInline": ".75rem",
+          "rowMinHeight": "2.75rem",
+          "gap": ".5rem",
+          "pointerOnly": true
+        }
+      },
+      "touchTarget": {
+        "minimum": "2.75rem",
+        "preferred": "3rem",
+        "coarsePointer": "3rem"
+      },
+      "focusRing": {
+        "width": "2px",
+        "offset": "3px"
+      },
+      "rules": [
+        "Density changes spacing and control geometry before it changes type size.",
+        "Never animate font weight for hover or selection because width changes destabilise interfaces.",
+        "Head is reserved for onboarding, empty states and rare moments of delight. Productive UI remains Body-led.",
+        "Eyebrow is metadata and literal data, not the default interface voice."
+      ]
+    },
+    "roles": {
+      "ui.display": {
+        "family": "head",
+        "weight": 500,
+        "ital": 0,
+        "size": "clamp(2.375rem, 1.86rem + 1.6vi, 3.75rem)",
+        "lineHeight": 0.98,
+        "tracking": "-0.026em",
+        "use": "Onboarding, empty-state and celebratory display only"
+      },
+      "ui.pageTitle": {
+        "family": "body",
+        "weight": 700,
+        "style": "normal",
+        "size": "clamp(1.75rem, 1.55rem + .62vi, 2.25rem)",
+        "lineHeight": 1.08,
+        "tracking": "-0.021em",
+        "use": "Primary title of an application view"
+      },
+      "ui.sectionTitle": {
+        "family": "body",
+        "weight": 600,
+        "style": "normal",
+        "size": "clamp(1.3125rem, 1.22rem + .29vi, 1.5625rem)",
+        "lineHeight": 1.16,
+        "tracking": "-0.013em",
+        "use": "Major region within a view"
+      },
+      "ui.panelTitle": {
+        "family": "body",
+        "weight": 600,
+        "style": "normal",
+        "size": "clamp(1.0625rem, 1.025rem + .12vi, 1.1875rem)",
+        "lineHeight": 1.2,
+        "tracking": "-0.008em",
+        "use": "Cards, dialogs, toasts and panels"
+      },
+      "ui.body": {
+        "family": "body",
+        "weight": 400,
+        "style": "normal",
+        "size": "clamp(1rem, .981rem + .06vi, 1.0625rem)",
+        "lineHeight": 1.48,
+        "tracking": "0em",
+        "use": "Default interface copy"
+      },
+      "ui.bodyCompact": {
+        "family": "body",
+        "weight": 400,
+        "style": "normal",
+        "size": "clamp(.9375rem, .919rem + .055vi, 1rem)",
+        "lineHeight": 1.42,
+        "tracking": ".001em",
+        "use": "Dense tables, lists and secondary interface copy"
+      },
+      "ui.label": {
+        "family": "body",
+        "weight": 600,
+        "style": "normal",
+        "size": "clamp(.875rem, .856rem + .055vi, .9375rem)",
+        "lineHeight": 1.22,
+        "tracking": ".006em",
+        "use": "Form labels and compact headings"
+      },
+      "ui.action": {
+        "family": "body",
+        "weight": 600,
+        "style": "normal",
+        "size": "clamp(.9375rem, .919rem + .055vi, 1rem)",
+        "lineHeight": 1.1,
+        "tracking": "-.002em",
+        "use": "Buttons, tabs and primary navigation"
+      },
+      "ui.input": {
+        "family": "body",
+        "weight": 400,
+        "style": "normal",
+        "size": "clamp(1rem, .981rem + .06vi, 1.0625rem)",
+        "lineHeight": 1.25,
+        "tracking": "0em",
+        "use": "Input values, selections and editable fields"
+      },
+      "ui.caption": {
+        "family": "body",
+        "weight": 400,
+        "style": "normal",
+        "size": "clamp(.8125rem, .794rem + .055vi, .875rem)",
+        "lineHeight": 1.38,
+        "tracking": ".004em",
+        "use": "Help, timestamps and non-essential supporting copy"
+      },
+      "ui.badge": {
+        "family": "eyebrow",
+        "weight": 600,
+        "width": 87.5,
+        "ital": 0,
+        "size": "clamp(.6875rem, .669rem + .055vi, .75rem)",
+        "lineHeight": 1.0,
+        "tracking": ".055em",
+        "use": "Short status and category badges"
+      },
+      "ui.metadata": {
+        "family": "eyebrow",
+        "weight": 500,
+        "width": 87.5,
+        "ital": 0,
+        "size": "clamp(.75rem, .731rem + .055vi, .8125rem)",
+        "lineHeight": 1.25,
+        "tracking": ".04em",
+        "use": "Versions, dates, dimensions and file facts"
+      },
+      "ui.data": {
+        "family": "eyebrow",
+        "weight": 500,
+        "width": 87.5,
+        "ital": 0,
+        "size": "clamp(.8125rem, .794rem + .055vi, .875rem)",
+        "lineHeight": 1.25,
+        "tracking": ".006em",
+        "numeric": "tabular-nums lining-nums slashed-zero",
+        "use": "Aligned numbers, prices, counts and durations"
+      },
+      "ui.code": {
+        "family": "eyebrow",
+        "weight": 400,
+        "width": 87.5,
+        "ital": 0,
+        "size": "clamp(.8125rem, .794rem + .055vi, .875rem)",
+        "lineHeight": 1.45,
+        "tracking": "0em",
+        "use": "Literal filenames, code and machine identifiers"
+      }
+    }
+  },
+  "social": {
+    "canvases": {
+      "square": {
+        "width": 1080,
+        "height": 1080,
+        "ratio": "1 / 1",
+        "safe": {
+          "top": 80,
+          "right": 80,
+          "bottom": 80,
+          "left": 80
+        },
+        "use": "Feed statement, quote, proof point or launch cover"
+      },
+      "portrait": {
+        "width": 1080,
+        "height": 1350,
+        "ratio": "4 / 5",
+        "safe": {
+          "top": 92,
+          "right": 80,
+          "bottom": 96,
+          "left": 80
+        },
+        "use": "Primary feed post and carousel slide"
+      },
+      "story": {
+        "width": 1080,
+        "height": 1920,
+        "ratio": "9 / 16",
+        "safe": {
+          "top": 250,
+          "right": 80,
+          "bottom": 320,
+          "left": 80
+        },
+        "use": "Story and reel cover with interface-chrome protection"
+      },
+      "landscape": {
+        "width": 1200,
+        "height": 630,
+        "ratio": "40 / 21",
+        "safe": {
+          "top": 72,
+          "right": 84,
+          "bottom": 72,
+          "left": 84
+        },
+        "use": "Open Graph, LinkedIn and link preview"
+      }
+    },
+    "roles": {
+      "social.display": {
+        "family": "head",
+        "weight": 600,
+        "ital": 0,
+        "size": "min(10.2cqi, 8.2cqb)",
+        "lineHeight": 0.88,
+        "tracking": "-0.043em",
+        "maxLines": 4,
+        "maxWords": 12
+      },
+      "social.headline": {
+        "family": "head",
+        "weight": 500,
+        "ital": 0,
+        "size": "min(7.4cqi, 6.5cqb)",
+        "lineHeight": 0.94,
+        "tracking": "-0.031em",
+        "maxLines": 4,
+        "maxWords": 18
+      },
+      "social.subhead": {
+        "family": "bodyAlt",
+        "weight": 400,
+        "style": "normal",
+        "size": "min(3.4cqi, 2.9cqb)",
+        "lineHeight": 1.2,
+        "tracking": "-0.012em",
+        "maxLines": 6,
+        "maxWords": 32
+      },
+      "social.body": {
+        "family": "body",
+        "weight": 400,
+        "style": "normal",
+        "size": "min(2.32cqi, 1.95cqb)",
+        "lineHeight": 1.38,
+        "tracking": "0em",
+        "maxLines": 10,
+        "maxWords": 62
+      },
+      "social.quote": {
+        "family": "head",
+        "weight": 500,
+        "ital": 1,
+        "size": "min(7.9cqi, 6.35cqb)",
+        "lineHeight": 0.98,
+        "tracking": "-0.027em",
+        "maxLines": 7,
+        "maxWords": 38
+      },
+      "social.metric": {
+        "family": "body",
+        "weight": 700,
+        "style": "normal",
+        "size": "min(13.5cqi, 10.5cqb)",
+        "lineHeight": 0.82,
+        "tracking": "-0.052em",
+        "maxLines": 2,
+        "maxWords": 4
+      },
+      "social.label": {
+        "family": "body",
+        "weight": 600,
+        "style": "normal",
+        "size": "min(1.75cqi, 1.45cqb)",
+        "lineHeight": 1.15,
+        "tracking": ".012em",
+        "maxLines": 2,
+        "maxWords": 10
+      },
+      "social.metadata": {
+        "family": "eyebrow",
+        "weight": 500,
+        "width": 87.5,
+        "ital": 0,
+        "size": "min(1.38cqi, 1.12cqb)",
+        "lineHeight": 1.2,
+        "tracking": ".055em",
+        "maxLines": 3,
+        "maxWords": 18
+      },
+      "social.credit": {
+        "family": "body",
+        "weight": 600,
+        "style": "normal",
+        "size": "min(1.72cqi, 1.4cqb)",
+        "lineHeight": 1.2,
+        "tracking": "0em",
+        "maxLines": 2,
+        "maxWords": 14
+      }
+    }
+  },
+  "youtube": {
+    "canvases": {
+      "thumbnail": {
+        "width": 3840,
+        "height": 2160,
+        "ratio": "16 / 9",
+        "safe": {
+          "top": 192,
+          "right": 192,
+          "bottom": 192,
+          "left": 192
+        },
+        "previewMinimum": {
+          "width": 1280,
+          "height": 720
+        },
+        "timestampExclusion": {
+          "width": 720,
+          "height": 270,
+          "edge": "bottom-right"
+        },
+        "use": "Standard video thumbnail"
+      },
+      "shorts": {
+        "width": 2160,
+        "height": 3840,
+        "ratio": "9 / 16",
+        "safe": {
+          "top": 420,
+          "right": 180,
+          "bottom": 620,
+          "left": 180
+        },
+        "use": "Shorts custom thumbnail or cover"
+      },
+      "podcast": {
+        "width": 3000,
+        "height": 3000,
+        "ratio": "1 / 1",
+        "safe": {
+          "top": 240,
+          "right": 240,
+          "bottom": 240,
+          "left": 240
+        },
+        "use": "Podcast playlist cover"
+      },
+      "channelBanner": {
+        "width": 2560,
+        "height": 1440,
+        "ratio": "16 / 9",
+        "safe": {
+          "width": 1544,
+          "height": 423,
+          "position": "center"
+        },
+        "minimumUpload": {
+          "width": 2048,
+          "height": 1152
+        },
+        "minimumSafe": {
+          "width": 1235,
+          "height": 338
+        },
+        "use": "Channel banner across television, desktop and mobile crops"
+      },
+      "endScreen": {
+        "width": 1920,
+        "height": 1080,
+        "ratio": "16 / 9",
+        "safe": {
+          "top": 90,
+          "right": 90,
+          "bottom": 90,
+          "left": 90
+        },
+        "durationSeconds": "5–20",
+        "use": "Last-frame typography around YouTube end-screen elements"
+      }
+    },
+    "roles": {
+      "youtube.title": {
+        "family": "head",
+        "weight": 700,
+        "ital": 0,
+        "size": "min(10.4cqi, 14.3cqb)",
+        "lineHeight": 0.86,
+        "tracking": "-0.045em",
+        "maxLines": 2,
+        "maxWords": 7
+      },
+      "youtube.titleCompact": {
+        "family": "head",
+        "weight": 600,
+        "ital": 0,
+        "size": "min(7.8cqi, 10.8cqb)",
+        "lineHeight": 0.91,
+        "tracking": "-0.036em",
+        "maxLines": 3,
+        "maxWords": 11
+      },
+      "youtube.kicker": {
+        "family": "eyebrow",
+        "weight": 700,
+        "width": 87.5,
+        "ital": 0,
+        "size": "min(1.8cqi, 2.5cqb)",
+        "lineHeight": 1.0,
+        "tracking": ".07em",
+        "maxLines": 1,
+        "maxWords": 6
+      },
+      "youtube.support": {
+        "family": "bodyAlt",
+        "weight": 600,
+        "style": "normal",
+        "size": "min(2.9cqi, 4cqb)",
+        "lineHeight": 1.1,
+        "tracking": "-0.012em",
+        "maxLines": 2,
+        "maxWords": 12
+      },
+      "youtube.badge": {
+        "family": "body",
+        "weight": 700,
+        "style": "normal",
+        "size": "min(1.9cqi, 2.65cqb)",
+        "lineHeight": 1.0,
+        "tracking": ".006em",
+        "maxLines": 1,
+        "maxWords": 4
+      },
+      "youtube.credit": {
+        "family": "body",
+        "weight": 600,
+        "style": "normal",
+        "size": "min(1.45cqi, 2cqb)",
+        "lineHeight": 1.1,
+        "tracking": "0em",
+        "maxLines": 1,
+        "maxWords": 7
+      },
+      "youtube.arrow": {
+        "family": "head",
+        "weight": 700,
+        "ital": 0,
+        "size": "min(7.2cqi, 10cqb)",
+        "lineHeight": 0.8,
+        "tracking": "0em",
+        "maxLines": 1,
+        "maxWords": 1
+      }
+    },
+    "templates": {
+      "tutorial": {
+        "formula": "Kicker + two-line title + one visual action",
+        "copy": "HOW WE BUILD / A PITCH DECK",
+        "titleWords": "3–7"
+      },
+      "critique": {
+        "formula": "Programme badge + diagnosis + marked detail",
+        "copy": "WHY THIS DECK FAILS",
+        "titleWords": "3–6"
+      },
+      "beforeAfter": {
+        "formula": "Split proof + BEFORE → AFTER",
+        "copy": "BEFORE → AFTER",
+        "titleWords": "2–5"
+      },
+      "process": {
+        "formula": "Episode marker + promise + artifact",
+        "copy": "ONE WEEK. ONE DECK.",
+        "titleWords": "3–7"
+      },
+      "opinion": {
+        "formula": "One hard statement + small qualifier",
+        "copy": "STOP USING TEMPLATES.",
+        "titleWords": "2–6"
+      },
+      "caseStudy": {
+        "formula": "Project name + outcome + visual proof",
+        "copy": "HOW WE WON THE ROOM",
+        "titleWords": "4–8"
+      }
+    }
+  },
+  "arrows": {
+    "glyphs": [
+      "←",
+      "↑",
+      "→",
+      "↓",
+      "↔",
+      "↕",
+      "↖",
+      "↗",
+      "↘",
+      "↙",
+      "↩",
+      "↪"
+    ],
+    "roles": {
+      "inline": {
+        "family": "inherit",
+        "weight": "inherit",
+        "use": "Directional text inside prose or action labels"
+      },
+      "ui": {
+        "family": "eyebrow",
+        "weight": 600,
+        "width": 100,
+        "ital": 0,
+        "use": "Icon-like directional controls and compact navigation"
+      },
+      "display": {
+        "family": "head",
+        "weight": 600,
+        "ital": 0,
+        "use": "Large directional composition and media artwork"
+      }
+    },
+    "semantics": {
+      "←": "previous, back, earlier",
+      "↑": "up, move upward, top",
+      "→": "next, continue, external direction",
+      "↓": "down, reveal, expand",
+      "↔": "horizontal relationship or resize",
+      "↕": "vertical relationship or resize",
+      "↖": "north-west direction",
+      "↗": "north-east or external-launch direction",
+      "↘": "south-east direction",
+      "↙": "south-west direction",
+      "↩": "return, enter, undo only when context names it",
+      "↪": "forward return or redo only when context names it"
+    },
+    "accessibility": "If an arrow is the only visible control, its accessible name must state the action. Mark redundant decorative arrows aria-hidden=true."
+  }
+}

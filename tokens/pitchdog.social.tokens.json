@@ -1,0 +1,153 @@
+{
+  "meta": {
+    "name": "pitch.dog Type System",
+    "version": "13.0.0",
+    "displayVersion": "13",
+    "status": "production-candidate",
+    "fontSource": "FontBlind-Final-2026-08-28-v13.zip",
+    "principle": "Anchor-locked variable typography"
+  },
+  "canvases": {
+    "square": {
+      "width": 1080,
+      "height": 1080,
+      "ratio": "1 / 1",
+      "safe": {
+        "top": 80,
+        "right": 80,
+        "bottom": 80,
+        "left": 80
+      },
+      "use": "Feed statement, quote, proof point or launch cover"
+    },
+    "portrait": {
+      "width": 1080,
+      "height": 1350,
+      "ratio": "4 / 5",
+      "safe": {
+        "top": 92,
+        "right": 80,
+        "bottom": 96,
+        "left": 80
+      },
+      "use": "Primary feed post and carousel slide"
+    },
+    "story": {
+      "width": 1080,
+      "height": 1920,
+      "ratio": "9 / 16",
+      "safe": {
+        "top": 250,
+        "right": 80,
+        "bottom": 320,
+        "left": 80
+      },
+      "use": "Story and reel cover with interface-chrome protection"
+    },
+    "landscape": {
+      "width": 1200,
+      "height": 630,
+      "ratio": "40 / 21",
+      "safe": {
+        "top": 72,
+        "right": 84,
+        "bottom": 72,
+        "left": 84
+      },
+      "use": "Open Graph, LinkedIn and link preview"
+    }
+  },
+  "roles": {
+    "social.display": {
+      "family": "head",
+      "weight": 600,
+      "ital": 0,
+      "size": "min(10.2cqi, 8.2cqb)",
+      "lineHeight": 0.88,
+      "tracking": "-0.043em",
+      "maxLines": 4,
+      "maxWords": 12
+    },
+    "social.headline": {
+      "family": "head",
+      "weight": 500,
+      "ital": 0,
+      "size": "min(7.4cqi, 6.5cqb)",
+      "lineHeight": 0.94,
+      "tracking": "-0.031em",
+      "maxLines": 4,
+      "maxWords": 18
+    },
+    "social.subhead": {
+      "family": "bodyAlt",
+      "weight": 400,
+      "style": "normal",
+      "size": "min(3.4cqi, 2.9cqb)",
+      "lineHeight": 1.2,
+      "tracking": "-0.012em",
+      "maxLines": 6,
+      "maxWords": 32
+    },
+    "social.body": {
+      "family": "body",
+      "weight": 400,
+      "style": "normal",
+      "size": "min(2.32cqi, 1.95cqb)",
+      "lineHeight": 1.38,
+      "tracking": "0em",
+      "maxLines": 10,
+      "maxWords": 62
+    },
+    "social.quote": {
+      "family": "head",
+      "weight": 500,
+      "ital": 1,
+      "size": "min(7.9cqi, 6.35cqb)",
+      "lineHeight": 0.98,
+      "tracking": "-0.027em",
+      "maxLines": 7,
+      "maxWords": 38
+    },
+    "social.metric": {
+      "family": "body",
+      "weight": 700,
+      "style": "normal",
+      "size": "min(13.5cqi, 10.5cqb)",
+      "lineHeight": 0.82,
+      "tracking": "-0.052em",
+      "maxLines": 2,
+      "maxWords": 4
+    },
+    "social.label": {
+      "family": "body",
+      "weight": 600,
+      "style": "normal",
+      "size": "min(1.75cqi, 1.45cqb)",
+      "lineHeight": 1.15,
+      "tracking": ".012em",
+      "maxLines": 2,
+      "maxWords": 10
+    },
+    "social.metadata": {
+      "family": "eyebrow",
+      "weight": 500,
+      "width": 87.5,
+      "ital": 0,
+      "size": "min(1.38cqi, 1.12cqb)",
+      "lineHeight": 1.2,
+      "tracking": ".055em",
+      "maxLines": 3,
+      "maxWords": 18
+    },
+    "social.credit": {
+      "family": "body",
+      "weight": 600,
+      "style": "normal",
+      "size": "min(1.72cqi, 1.4cqb)",
+      "lineHeight": 1.2,
+      "tracking": "0em",
+      "maxLines": 2,
+      "maxWords": 14
+    }
+  }
+}

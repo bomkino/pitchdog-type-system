@@ -1,0 +1,38 @@
+{
+  "social.display": {
+    "maxLines": 4,
+    "maxWords": 12
+  },
+  "social.headline": {
+    "maxLines": 4,
+    "maxWords": 18
+  },
+  "social.subhead": {
+    "maxLines": 6,
+    "maxWords": 32
+  },
+  "social.body": {
+    "maxLines": 10,
+    "maxWords": 62
+  },
+  "social.quote": {
+    "maxLines": 7,
+    "maxWords": 38
+  },
+  "social.metric": {
+    "maxLines": 2,
+    "maxWords": 4
+  },
+  "social.label": {
+    "maxLines": 2,
+    "maxWords": 10
+  },
+  "social.metadata": {
+    "maxLines": 3,
+    "maxWords": 18
+  },
+  "social.credit": {
+    "maxLines": 2,
+    "maxWords": 14
+  }
+}

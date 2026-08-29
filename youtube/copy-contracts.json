@@ -1,0 +1,30 @@
+{
+  "youtube.title": {
+    "maxLines": 2,
+    "maxWords": 7
+  },
+  "youtube.titleCompact": {
+    "maxLines": 3,
+    "maxWords": 11
+  },
+  "youtube.kicker": {
+    "maxLines": 1,
+    "maxWords": 6
+  },
+  "youtube.support": {
+    "maxLines": 2,
+    "maxWords": 12
+  },
+  "youtube.badge": {
+    "maxLines": 1,
+    "maxWords": 4
+  },
+  "youtube.credit": {
+    "maxLines": 1,
+    "maxWords": 7
+  },
+  "youtube.arrow": {
+    "maxLines": 1,
+    "maxWords": 1
+  }
+}

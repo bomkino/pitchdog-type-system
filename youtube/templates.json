@@ -1,0 +1,32 @@
+{
+  "tutorial": {
+    "formula": "Kicker + two-line title + one visual action",
+    "copy": "HOW WE BUILD / A PITCH DECK",
+    "titleWords": "3–7"
+  },
+  "critique": {
+    "formula": "Programme badge + diagnosis + marked detail",
+    "copy": "WHY THIS DECK FAILS",
+    "titleWords": "3–6"
+  },
+  "beforeAfter": {
+    "formula": "Split proof + BEFORE → AFTER",
+    "copy": "BEFORE → AFTER",
+    "titleWords": "2–5"
+  },
+  "process": {
+    "formula": "Episode marker + promise + artifact",
+    "copy": "ONE WEEK. ONE DECK.",
+    "titleWords": "3–7"
+  },
+  "opinion": {
+    "formula": "One hard statement + small qualifier",
+    "copy": "STOP USING TEMPLATES.",
+    "titleWords": "2–6"
+  },
+  "caseStudy": {
+    "formula": "Project name + outcome + visual proof",
+    "copy": "HOW WE WON THE ROOM",
+    "titleWords": "4–8"
+  }
+}

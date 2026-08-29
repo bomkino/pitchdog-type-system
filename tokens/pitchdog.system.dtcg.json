@@ -1,0 +1,988 @@
+{
+  "font": {
+    "family": {
+      "head": {
+        "$type": "fontFamily",
+        "$value": "PD Head"
+      },
+      "headAlt": {
+        "$type": "fontFamily",
+        "$value": "PD Head Alt"
+      },
+      "body": {
+        "$type": "fontFamily",
+        "$value": "PD Body"
+      },
+      "bodyAlt": {
+        "$type": "fontFamily",
+        "$value": "PD Body Alt"
+      },
+      "eyebrow": {
+        "$type": "fontFamily",
+        "$value": "PD Eyebrow"
+      }
+    },
+    "weight": {
+      "head": {
+        "265": {
+          "$type": "fontWeight",
+          "$value": 265
+        },
+        "300": {
+          "$type": "fontWeight",
+          "$value": 300
+        },
+        "400": {
+          "$type": "fontWeight",
+          "$value": 400
+        },
+        "500": {
+          "$type": "fontWeight",
+          "$value": 500
+        },
+        "600": {
+          "$type": "fontWeight",
+          "$value": 600
+        },
+        "700": {
+          "$type": "fontWeight",
+          "$value": 700
+        },
+        "900": {
+          "$type": "fontWeight",
+          "$value": 900
+        }
+      },
+      "body": {
+        "100": {
+          "$type": "fontWeight",
+          "$value": 100
+        },
+        "250": {
+          "$type": "fontWeight",
+          "$value": 250
+        },
+        "300": {
+          "$type": "fontWeight",
+          "$value": 300
+        },
+        "400": {
+          "$type": "fontWeight",
+          "$value": 400
+        },
+        "600": {
+          "$type": "fontWeight",
+          "$value": 600
+        },
+        "700": {
+          "$type": "fontWeight",
+          "$value": 700
+        },
+        "900": {
+          "$type": "fontWeight",
+          "$value": 900
+        }
+      },
+      "eyebrow": {
+        "100": {
+          "$type": "fontWeight",
+          "$value": 100
+        },
+        "200": {
+          "$type": "fontWeight",
+          "$value": 200
+        },
+        "300": {
+          "$type": "fontWeight",
+          "$value": 300
+        },
+        "350": {
+          "$type": "fontWeight",
+          "$value": 350
+        },
+        "400": {
+          "$type": "fontWeight",
+          "$value": 400
+        },
+        "500": {
+          "$type": "fontWeight",
+          "$value": 500
+        },
+        "600": {
+          "$type": "fontWeight",
+          "$value": 600
+        },
+        "700": {
+          "$type": "fontWeight",
+          "$value": 700
+        },
+        "800": {
+          "$type": "fontWeight",
+          "$value": 800
+        },
+        "900": {
+          "$type": "fontWeight",
+          "$value": 900
+        }
+      }
+    }
+  },
+  "type": {
+    "web": {
+      "display": {
+        "hero": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.family.head}",
+            "fontSize": "clamp(3.75rem, 1.42rem + 7.15vi, 8.5rem)",
+            "fontWeight": 600,
+            "letterSpacing": "-0.043em",
+            "lineHeight": 0.88
+          },
+          "$extensions": {
+            "pitchdog": {
+              "ital": 0,
+              "measure": "11.5ch",
+              "wrap": "balance",
+              "context": "expressive",
+              "maxLines": 4
+            }
+          }
+        },
+        "chapter": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.family.head}",
+            "fontSize": "clamp(3.25rem, 1.65rem + 4.9vi, 7rem)",
+            "fontWeight": 600,
+            "letterSpacing": "-0.037em",
+            "lineHeight": 0.91
+          },
+          "$extensions": {
+            "pitchdog": {
+              "ital": 0,
+              "measure": "14ch",
+              "wrap": "balance",
+              "context": "expressive",
+              "maxLines": 4
+            }
+          }
+        }
+      },
+      "heading": {
+        "section": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.family.head}",
+            "fontSize": "clamp(2.75rem, 1.72rem + 3.15vi, 5.5rem)",
+            "fontWeight": 500,
+            "letterSpacing": "-0.031em",
+            "lineHeight": 0.95
+          },
+          "$extensions": {
+            "pitchdog": {
+              "ital": 0,
+              "measure": "17ch",
+              "wrap": "balance",
+              "context": "both",
+              "maxLines": 4
+            }
+          }
+        },
+        "subsection": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.family.head}",
+            "fontSize": "clamp(2.125rem, 1.52rem + 1.85vi, 3.75rem)",
+            "fontWeight": 500,
+            "letterSpacing": "-0.024em",
+            "lineHeight": 0.99
+          },
+          "$extensions": {
+            "pitchdog": {
+              "ital": 0,
+              "measure": "22ch",
+              "wrap": "balance",
+              "context": "both",
+              "maxLines": 4
+            }
+          }
+        }
+      },
+      "title": {
+        "card": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.family.head}",
+            "fontSize": "clamp(1.625rem, 1.34rem + .86vi, 2.375rem)",
+            "fontWeight": 500,
+            "letterSpacing": "-0.018em",
+            "lineHeight": 1.05
+          },
+          "$extensions": {
+            "pitchdog": {
+              "ital": 0,
+              "measure": "25ch",
+              "wrap": "normal",
+              "context": "both",
+              "maxLines": 4
+            }
+          }
+        },
+        "functional": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.family.body}",
+            "fontSize": "clamp(1.1875rem, 1.11rem + .24vi, 1.4375rem)",
+            "fontWeight": 600,
+            "letterSpacing": "-0.01em",
+            "lineHeight": 1.18
+          },
+          "$extensions": {
+            "pitchdog": {
+              "style": "normal",
+              "measure": "36ch",
+              "wrap": "normal",
+              "context": "productive",
+              "maxLines": 5
+            }
+          }
+        }
+      },
+      "lead": {
+        "hero": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.family.bodyAlt}",
+            "fontSize": "clamp(1.5rem, 1.19rem + .96vi, 2.375rem)",
+            "fontWeight": 400,
+            "letterSpacing": "-0.013em",
+            "lineHeight": 1.25
+          },
+          "$extensions": {
+            "pitchdog": {
+              "style": "normal",
+              "measure": "44ch",
+              "wrap": "pretty",
+              "context": "expressive",
+              "maxLines": 6
+            }
+          }
+        },
+        "section": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.family.bodyAlt}",
+            "fontSize": "clamp(1.25rem, 1.11rem + .43vi, 1.625rem)",
+            "fontWeight": 400,
+            "letterSpacing": "-0.009em",
+            "lineHeight": 1.34
+          },
+          "$extensions": {
+            "pitchdog": {
+              "style": "normal",
+              "measure": "56ch",
+              "wrap": "pretty",
+              "context": "both",
+              "maxLines": 8
+            }
+          }
+        }
+      },
+      "body": {
+        "reading": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.family.body}",
+            "fontSize": "clamp(1.1875rem, 1.15rem + .12vi, 1.3125rem)",
+            "fontWeight": 400,
+            "letterSpacing": "-0.004em",
+            "lineHeight": 1.58
+          },
+          "$extensions": {
+            "pitchdog": {
+              "style": "normal",
+              "measure": "64ch",
+              "wrap": "pretty",
+              "context": "both",
+              "maxLines": null
+            }
+          }
+        },
+        "default": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.family.body}",
+            "fontSize": "clamp(1.0625rem, 1.025rem + .12vi, 1.1875rem)",
+            "fontWeight": 400,
+            "letterSpacing": "-0.003em",
+            "lineHeight": 1.52
+          },
+          "$extensions": {
+            "pitchdog": {
+              "style": "normal",
+              "measure": "68ch",
+              "wrap": "normal",
+              "context": "both",
+              "maxLines": null
+            }
+          }
+        },
+        "compact": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.family.body}",
+            "fontSize": "clamp(1rem, .981rem + .06vi, 1.0625rem)",
+            "fontWeight": 400,
+            "letterSpacing": "0em",
+            "lineHeight": 1.45
+          },
+          "$extensions": {
+            "pitchdog": {
+              "style": "normal",
+              "measure": "72ch",
+              "wrap": "normal",
+              "context": "productive",
+              "maxLines": null
+            }
+          }
+        },
+        "small": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.family.body}",
+            "fontSize": "clamp(.875rem, .856rem + .06vi, .9375rem)",
+            "fontWeight": 400,
+            "letterSpacing": ".003em",
+            "lineHeight": 1.42
+          },
+          "$extensions": {
+            "pitchdog": {
+              "style": "normal",
+              "measure": "74ch",
+              "wrap": "normal",
+              "context": "productive",
+              "maxLines": null
+            }
+          }
+        }
+      },
+      "quote": {
+        "feature": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.family.head}",
+            "fontSize": "clamp(2.25rem, 1.36rem + 2.72vi, 4.75rem)",
+            "fontWeight": 500,
+            "letterSpacing": "-0.027em",
+            "lineHeight": 1.0
+          },
+          "$extensions": {
+            "pitchdog": {
+              "ital": 1,
+              "measure": "23ch",
+              "wrap": "balance",
+              "context": "expressive",
+              "maxLines": 8
+            }
+          }
+        }
+      },
+      "label": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "clamp(.875rem, .856rem + .06vi, .9375rem)",
+          "fontWeight": 600,
+          "letterSpacing": ".012em",
+          "lineHeight": 1.2
+        },
+        "$extensions": {
+          "pitchdog": {
+            "style": "normal",
+            "measure": "36ch",
+            "wrap": "normal",
+            "context": "productive",
+            "maxLines": 3
+          }
+        }
+      },
+      "metadata": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.eyebrow}",
+          "fontSize": "clamp(.75rem, .731rem + .055vi, .8125rem)",
+          "fontWeight": 500,
+          "letterSpacing": ".052em",
+          "lineHeight": 1.28
+        },
+        "$extensions": {
+          "pitchdog": {
+            "width": 87.5,
+            "ital": 0,
+            "measure": "54ch",
+            "wrap": "normal",
+            "context": "productive",
+            "maxLines": 4
+          }
+        }
+      },
+      "data": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.eyebrow}",
+          "fontSize": "clamp(.8125rem, .77rem + .13vi, 1rem)",
+          "fontWeight": 500,
+          "letterSpacing": ".01em",
+          "lineHeight": 1.3
+        },
+        "$extensions": {
+          "pitchdog": {
+            "width": 87.5,
+            "ital": 0,
+            "measure": "62ch",
+            "wrap": "normal",
+            "context": "productive",
+            "maxLines": null,
+            "numeric": "tabular-nums lining-nums slashed-zero"
+          }
+        }
+      },
+      "metric": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "clamp(3.5rem, 1.74rem + 5.42vi, 7.75rem)",
+          "fontWeight": 700,
+          "letterSpacing": "-0.052em",
+          "lineHeight": 0.84
+        },
+        "$extensions": {
+          "pitchdog": {
+            "style": "normal",
+            "measure": "10ch",
+            "wrap": "normal",
+            "context": "expressive",
+            "maxLines": 2,
+            "numeric": "proportional-nums lining-nums"
+          }
+        }
+      }
+    },
+    "ui": {
+      "display": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.head}",
+          "fontSize": "clamp(2.375rem, 1.86rem + 1.6vi, 3.75rem)",
+          "fontWeight": 500,
+          "letterSpacing": "-0.026em",
+          "lineHeight": 0.98
+        },
+        "$extensions": {
+          "pitchdog": {
+            "ital": 0,
+            "use": "Onboarding, empty-state and celebratory display only"
+          }
+        }
+      },
+      "pageTitle": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "clamp(1.75rem, 1.55rem + .62vi, 2.25rem)",
+          "fontWeight": 700,
+          "letterSpacing": "-0.021em",
+          "lineHeight": 1.08
+        },
+        "$extensions": {
+          "pitchdog": {
+            "style": "normal",
+            "use": "Primary title of an application view"
+          }
+        }
+      },
+      "sectionTitle": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "clamp(1.3125rem, 1.22rem + .29vi, 1.5625rem)",
+          "fontWeight": 600,
+          "letterSpacing": "-0.013em",
+          "lineHeight": 1.16
+        },
+        "$extensions": {
+          "pitchdog": {
+            "style": "normal",
+            "use": "Major region within a view"
+          }
+        }
+      },
+      "panelTitle": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "clamp(1.0625rem, 1.025rem + .12vi, 1.1875rem)",
+          "fontWeight": 600,
+          "letterSpacing": "-0.008em",
+          "lineHeight": 1.2
+        },
+        "$extensions": {
+          "pitchdog": {
+            "style": "normal",
+            "use": "Cards, dialogs, toasts and panels"
+          }
+        }
+      },
+      "body": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "clamp(1rem, .981rem + .06vi, 1.0625rem)",
+          "fontWeight": 400,
+          "letterSpacing": "0em",
+          "lineHeight": 1.48
+        },
+        "$extensions": {
+          "pitchdog": {
+            "style": "normal",
+            "use": "Default interface copy"
+          }
+        }
+      },
+      "bodyCompact": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "clamp(.9375rem, .919rem + .055vi, 1rem)",
+          "fontWeight": 400,
+          "letterSpacing": ".001em",
+          "lineHeight": 1.42
+        },
+        "$extensions": {
+          "pitchdog": {
+            "style": "normal",
+            "use": "Dense tables, lists and secondary interface copy"
+          }
+        }
+      },
+      "label": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "clamp(.875rem, .856rem + .055vi, .9375rem)",
+          "fontWeight": 600,
+          "letterSpacing": ".006em",
+          "lineHeight": 1.22
+        },
+        "$extensions": {
+          "pitchdog": {
+            "style": "normal",
+            "use": "Form labels and compact headings"
+          }
+        }
+      },
+      "action": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "clamp(.9375rem, .919rem + .055vi, 1rem)",
+          "fontWeight": 600,
+          "letterSpacing": "-.002em",
+          "lineHeight": 1.1
+        },
+        "$extensions": {
+          "pitchdog": {
+            "style": "normal",
+            "use": "Buttons, tabs and primary navigation"
+          }
+        }
+      },
+      "input": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "clamp(1rem, .981rem + .06vi, 1.0625rem)",
+          "fontWeight": 400,
+          "letterSpacing": "0em",
+          "lineHeight": 1.25
+        },
+        "$extensions": {
+          "pitchdog": {
+            "style": "normal",
+            "use": "Input values, selections and editable fields"
+          }
+        }
+      },
+      "caption": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "clamp(.8125rem, .794rem + .055vi, .875rem)",
+          "fontWeight": 400,
+          "letterSpacing": ".004em",
+          "lineHeight": 1.38
+        },
+        "$extensions": {
+          "pitchdog": {
+            "style": "normal",
+            "use": "Help, timestamps and non-essential supporting copy"
+          }
+        }
+      },
+      "badge": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.eyebrow}",
+          "fontSize": "clamp(.6875rem, .669rem + .055vi, .75rem)",
+          "fontWeight": 600,
+          "letterSpacing": ".055em",
+          "lineHeight": 1.0
+        },
+        "$extensions": {
+          "pitchdog": {
+            "width": 87.5,
+            "ital": 0,
+            "use": "Short status and category badges"
+          }
+        }
+      },
+      "metadata": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.eyebrow}",
+          "fontSize": "clamp(.75rem, .731rem + .055vi, .8125rem)",
+          "fontWeight": 500,
+          "letterSpacing": ".04em",
+          "lineHeight": 1.25
+        },
+        "$extensions": {
+          "pitchdog": {
+            "width": 87.5,
+            "ital": 0,
+            "use": "Versions, dates, dimensions and file facts"
+          }
+        }
+      },
+      "data": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.eyebrow}",
+          "fontSize": "clamp(.8125rem, .794rem + .055vi, .875rem)",
+          "fontWeight": 500,
+          "letterSpacing": ".006em",
+          "lineHeight": 1.25
+        },
+        "$extensions": {
+          "pitchdog": {
+            "width": 87.5,
+            "ital": 0,
+            "numeric": "tabular-nums lining-nums slashed-zero",
+            "use": "Aligned numbers, prices, counts and durations"
+          }
+        }
+      },
+      "code": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.eyebrow}",
+          "fontSize": "clamp(.8125rem, .794rem + .055vi, .875rem)",
+          "fontWeight": 400,
+          "letterSpacing": "0em",
+          "lineHeight": 1.45
+        },
+        "$extensions": {
+          "pitchdog": {
+            "width": 87.5,
+            "ital": 0,
+            "use": "Literal filenames, code and machine identifiers"
+          }
+        }
+      }
+    },
+    "social": {
+      "display": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.head}",
+          "fontSize": "min(10.2cqi, 8.2cqb)",
+          "fontWeight": 600,
+          "letterSpacing": "-0.043em",
+          "lineHeight": 0.88
+        },
+        "$extensions": {
+          "pitchdog": {
+            "ital": 0,
+            "maxLines": 4,
+            "maxWords": 12
+          }
+        }
+      },
+      "headline": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.head}",
+          "fontSize": "min(7.4cqi, 6.5cqb)",
+          "fontWeight": 500,
+          "letterSpacing": "-0.031em",
+          "lineHeight": 0.94
+        },
+        "$extensions": {
+          "pitchdog": {
+            "ital": 0,
+            "maxLines": 4,
+            "maxWords": 18
+          }
+        }
+      },
+      "subhead": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.bodyAlt}",
+          "fontSize": "min(3.4cqi, 2.9cqb)",
+          "fontWeight": 400,
+          "letterSpacing": "-0.012em",
+          "lineHeight": 1.2
+        },
+        "$extensions": {
+          "pitchdog": {
+            "style": "normal",
+            "maxLines": 6,
+            "maxWords": 32
+          }
+        }
+      },
+      "body": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "min(2.32cqi, 1.95cqb)",
+          "fontWeight": 400,
+          "letterSpacing": "0em",
+          "lineHeight": 1.38
+        },
+        "$extensions": {
+          "pitchdog": {
+            "style": "normal",
+            "maxLines": 10,
+            "maxWords": 62
+          }
+        }
+      },
+      "quote": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.head}",
+          "fontSize": "min(7.9cqi, 6.35cqb)",
+          "fontWeight": 500,
+          "letterSpacing": "-0.027em",
+          "lineHeight": 0.98
+        },
+        "$extensions": {
+          "pitchdog": {
+            "ital": 1,
+            "maxLines": 7,
+            "maxWords": 38
+          }
+        }
+      },
+      "metric": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "min(13.5cqi, 10.5cqb)",
+          "fontWeight": 700,
+          "letterSpacing": "-0.052em",
+          "lineHeight": 0.82
+        },
+        "$extensions": {
+          "pitchdog": {
+            "style": "normal",
+            "maxLines": 2,
+            "maxWords": 4
+          }
+        }
+      },
+      "label": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "min(1.75cqi, 1.45cqb)",
+          "fontWeight": 600,
+          "letterSpacing": ".012em",
+          "lineHeight": 1.15
+        },
+        "$extensions": {
+          "pitchdog": {
+            "style": "normal",
+            "maxLines": 2,
+            "maxWords": 10
+          }
+        }
+      },
+      "metadata": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.eyebrow}",
+          "fontSize": "min(1.38cqi, 1.12cqb)",
+          "fontWeight": 500,
+          "letterSpacing": ".055em",
+          "lineHeight": 1.2
+        },
+        "$extensions": {
+          "pitchdog": {
+            "width": 87.5,
+            "ital": 0,
+            "maxLines": 3,
+            "maxWords": 18
+          }
+        }
+      },
+      "credit": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "min(1.72cqi, 1.4cqb)",
+          "fontWeight": 600,
+          "letterSpacing": "0em",
+          "lineHeight": 1.2
+        },
+        "$extensions": {
+          "pitchdog": {
+            "style": "normal",
+            "maxLines": 2,
+            "maxWords": 14
+          }
+        }
+      }
+    },
+    "youtube": {
+      "title": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.head}",
+          "fontSize": "min(10.4cqi, 14.3cqb)",
+          "fontWeight": 700,
+          "letterSpacing": "-0.045em",
+          "lineHeight": 0.86
+        },
+        "$extensions": {
+          "pitchdog": {
+            "ital": 0,
+            "maxLines": 2,
+            "maxWords": 7
+          }
+        }
+      },
+      "titleCompact": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.head}",
+          "fontSize": "min(7.8cqi, 10.8cqb)",
+          "fontWeight": 600,
+          "letterSpacing": "-0.036em",
+          "lineHeight": 0.91
+        },
+        "$extensions": {
+          "pitchdog": {
+            "ital": 0,
+            "maxLines": 3,
+            "maxWords": 11
+          }
+        }
+      },
+      "kicker": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.eyebrow}",
+          "fontSize": "min(1.8cqi, 2.5cqb)",
+          "fontWeight": 700,
+          "letterSpacing": ".07em",
+          "lineHeight": 1.0
+        },
+        "$extensions": {
+          "pitchdog": {
+            "width": 87.5,
+            "ital": 0,
+            "maxLines": 1,
+            "maxWords": 6
+          }
+        }
+      },
+      "support": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.bodyAlt}",
+          "fontSize": "min(2.9cqi, 4cqb)",
+          "fontWeight": 600,
+          "letterSpacing": "-0.012em",
+          "lineHeight": 1.1
+        },
+        "$extensions": {
+          "pitchdog": {
+            "style": "normal",
+            "maxLines": 2,
+            "maxWords": 12
+          }
+        }
+      },
+      "badge": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "min(1.9cqi, 2.65cqb)",
+          "fontWeight": 700,
+          "letterSpacing": ".006em",
+          "lineHeight": 1.0
+        },
+        "$extensions": {
+          "pitchdog": {
+            "style": "normal",
+            "maxLines": 1,
+            "maxWords": 4
+          }
+        }
+      },
+      "credit": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "min(1.45cqi, 2cqb)",
+          "fontWeight": 600,
+          "letterSpacing": "0em",
+          "lineHeight": 1.1
+        },
+        "$extensions": {
+          "pitchdog": {
+            "style": "normal",
+            "maxLines": 1,
+            "maxWords": 7
+          }
+        }
+      },
+      "arrow": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.head}",
+          "fontSize": "min(7.2cqi, 10cqb)",
+          "fontWeight": 700,
+          "letterSpacing": "0em",
+          "lineHeight": 0.8
+        },
+        "$extensions": {
+          "pitchdog": {
+            "ital": 0,
+            "maxLines": 1,
+            "maxWords": 1
+          }
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "pitchdog": {
+      "version": "13.0.0",
+      "anchorPolicy": "Only listed master anchors are valid production values."
+    }
+  }
+}

@@ -1,0 +1,237 @@
+@layer pd.tokens, pd.base, pd.type, pd.ui, pd.media, pd.utilities, pd.overrides;
+
+@property --pd-ital {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+@layer pd.tokens {
+  :root {
+    --pd-font-head: "PD Head", Georgia, "Times New Roman", serif;
+    --pd-font-head-alt: "PD Head Alt", "PD Head", Georgia, serif;
+    --pd-font-head-active: var(--pd-font-head);
+    --pd-font-body: "PD Body", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --pd-font-body-alt: "PD Body Alt", "PD Body", system-ui, sans-serif;
+    --pd-font-eyebrow: "PD Eyebrow", ui-monospace, "SFMono-Regular", Consolas, monospace;
+
+    --pd-type-ink: currentColor;
+    --pd-measure-reading: 64ch;
+    --pd-measure-default: 68ch;
+    --pd-measure-compact: 72ch;
+
+    --pd-head-wght-thin: 265;
+    --pd-head-wght-light: 300;
+    --pd-head-wght-regular: 400;
+    --pd-head-wght-medium: 500;
+    --pd-head-wght-semibold: 600;
+    --pd-head-wght-bold: 700;
+    --pd-head-wght-black: 900;
+
+    --pd-body-wght-thin: 100;
+    --pd-body-wght-extra-light: 250;
+    --pd-body-wght-light: 300;
+    --pd-body-wght-regular: 400;
+    --pd-body-wght-semibold: 600;
+    --pd-body-wght-bold: 700;
+    --pd-body-wght-black: 900;
+
+    --pd-eye-wdth-compact: 87.5;
+    --pd-eye-wdth-normal: 100;
+  }
+
+  [data-pd-type-tone="playful"] { --pd-font-head-active: var(--pd-font-head-alt); }
+}
+
+@layer pd.base {
+  html { font-size: 100%; text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+  body { font-family: var(--pd-font-body); font-weight: 400; line-height: 1.52; font-synthesis: none; }
+  :where(h1,h2,h3,h4,h5,h6,p,blockquote,figure) { margin-block: 0; }
+  :where(p + p) { margin-block-start: 1em; }
+  :where(strong,b) { font-weight: 600; }
+  :where(em,i) { font-style: italic; }
+  :where(button,input,select,textarea) { font: inherit; }
+  :where(a) { text-decoration-thickness: .08em; text-underline-offset: .16em; text-decoration-skip-ink: auto; }
+}
+
+@layer pd.type {
+  :where([data-pd-type], [class*="pd-type-"]) {
+    color: var(--pd-type-ink);
+    font-synthesis: none;
+    overflow-wrap: break-word;
+  }
+
+  :where([data-pd-family="head"], [data-pd-type^="display."], [data-pd-type^="heading."], [data-pd-type="title.card"], [data-pd-type="quote.feature"]) {
+    --pd-ital: 0;
+    font-family: var(--pd-font-head-active);
+    font-style: normal;
+    font-variation-settings: "wght" var(--pd-wght), "ital" var(--pd-ital);
+  }
+
+  :where([data-pd-family="eyebrow"], [data-pd-type="metadata"], [data-pd-type="data"]) {
+    --pd-ital: 0;
+    --pd-wdth: 87.5;
+    font-family: var(--pd-font-eyebrow);
+    font-style: normal;
+    font-stretch: calc(var(--pd-wdth) * 1%);
+    font-variation-settings: "wght" var(--pd-wght), "wdth" var(--pd-wdth), "ital" var(--pd-ital);
+    font-variant-ligatures: none;
+  }
+
+  :where([data-pd-emphasis="head-italic"], .pd-em-head) {
+    --pd-ital: 1;
+    font-family: var(--pd-font-head-active);
+    font-style: normal;
+    font-variation-settings: "wght" var(--pd-wght), "ital" 1;
+  }
+
+  :where([data-pd-emphasis="body-italic"], .pd-em-body) {
+    font-family: var(--pd-font-body);
+    font-style: italic;
+  }
+
+  :where([data-pd-type^="display."], [data-pd-type^="heading."], [data-pd-type="title.card"]) :where(em,i) {
+    --pd-ital: 1;
+    font-family: var(--pd-font-head-active);
+    font-style: normal;
+    font-variation-settings: "wght" var(--pd-wght), "ital" 1;
+  }
+
+  :where([data-pd-type="quote.feature"]) { --pd-ital: 1; }
+
+  :where([data-pd-italic-motion]) {
+    transition: font-variation-settings 320ms cubic-bezier(.2,.8,.2,1);
+  }
+  :where([data-pd-italic-motion]:hover, [data-pd-italic-motion]:focus-visible) { --pd-ital: 1; }
+
+  :where([data-pd-type="display.hero"], .pd-type-display-hero) {
+    --pd-wght: 600; --pd-ital: 0;
+    font-family: var(--pd-font-head-active); font-weight: 600; font-style: normal;
+    font-variation-settings: "wght" 600, "ital" var(--pd-ital);
+    font-size: clamp(3.75rem, 1.42rem + 7.15vi, 8.5rem);
+    line-height: .88; letter-spacing: -.043em; max-inline-size: 11.5ch; text-wrap: balance;
+  }
+  :where([data-pd-type="display.chapter"], .pd-type-display-chapter) {
+    --pd-wght: 600; --pd-ital: 0; font-family: var(--pd-font-head-active); font-weight: 600; font-style: normal;
+    font-variation-settings: "wght" 600, "ital" var(--pd-ital);
+    font-size: clamp(3.25rem, 1.65rem + 4.9vi, 7rem); line-height: .91; letter-spacing: -.037em; max-inline-size: 14ch; text-wrap: balance;
+  }
+  :where([data-pd-type="heading.section"], .pd-type-heading-section) {
+    --pd-wght: 500; --pd-ital: 0; font-family: var(--pd-font-head-active); font-weight: 500; font-style: normal;
+    font-variation-settings: "wght" 500, "ital" var(--pd-ital);
+    font-size: clamp(2.75rem, 1.72rem + 3.15vi, 5.5rem); line-height: .95; letter-spacing: -.031em; max-inline-size: 17ch; text-wrap: balance;
+  }
+  :where([data-pd-type="heading.subsection"], .pd-type-heading-subsection) {
+    --pd-wght: 500; --pd-ital: 0; font-family: var(--pd-font-head-active); font-weight: 500; font-style: normal;
+    font-variation-settings: "wght" 500, "ital" var(--pd-ital);
+    font-size: clamp(2.125rem, 1.52rem + 1.85vi, 3.75rem); line-height: .99; letter-spacing: -.024em; max-inline-size: 22ch; text-wrap: balance;
+  }
+  :where([data-pd-type="title.card"], .pd-type-title-card) {
+    --pd-wght: 500; --pd-ital: 0; font-family: var(--pd-font-head-active); font-weight: 500; font-style: normal;
+    font-variation-settings: "wght" 500, "ital" var(--pd-ital);
+    font-size: clamp(1.625rem, 1.34rem + .86vi, 2.375rem); line-height: 1.05; letter-spacing: -.018em; max-inline-size: 25ch;
+  }
+  :where([data-pd-type="title.functional"], .pd-type-title-functional) {
+    font-family: var(--pd-font-body); font-weight: 600; font-style: normal;
+    font-size: clamp(1.1875rem, 1.11rem + .24vi, 1.4375rem); line-height: 1.18; letter-spacing: -.01em; max-inline-size: 36ch;
+  }
+  :where([data-pd-type="lead.hero"], .pd-type-lead-hero) {
+    font-family: var(--pd-font-body-alt); font-weight: 400; font-style: normal;
+    font-size: clamp(1.5rem, 1.19rem + .96vi, 2.375rem); line-height: 1.25; letter-spacing: -.013em; max-inline-size: 44ch; text-wrap: pretty;
+  }
+  :where([data-pd-type="lead.section"], .pd-type-lead-section) {
+    font-family: var(--pd-font-body-alt); font-weight: 400; font-style: normal;
+    font-size: clamp(1.25rem, 1.11rem + .43vi, 1.625rem); line-height: 1.34; letter-spacing: -.009em; max-inline-size: 56ch; text-wrap: pretty;
+  }
+  :where([data-pd-type="body.reading"], .pd-type-body-reading) {
+    font-family: var(--pd-font-body); font-weight: 400; font-style: normal;
+    font-size: clamp(1.1875rem, 1.15rem + .12vi, 1.3125rem); line-height: 1.58; letter-spacing: -.004em; max-inline-size: var(--pd-measure-reading); text-wrap: pretty;
+  }
+  :where([data-pd-type="body.default"], .pd-type-body-default) {
+    font-family: var(--pd-font-body); font-weight: 400; font-style: normal;
+    font-size: clamp(1.0625rem, 1.025rem + .12vi, 1.1875rem); line-height: 1.52; letter-spacing: -.003em; max-inline-size: var(--pd-measure-default);
+  }
+  :where([data-pd-type="body.compact"], .pd-type-body-compact) {
+    font-family: var(--pd-font-body); font-weight: 400; font-style: normal;
+    font-size: clamp(1rem, .981rem + .06vi, 1.0625rem); line-height: 1.45; letter-spacing: 0; max-inline-size: var(--pd-measure-compact);
+  }
+  :where([data-pd-type="body.small"], .pd-type-body-small) {
+    font-family: var(--pd-font-body); font-weight: 400; font-style: normal;
+    font-size: clamp(.875rem, .856rem + .06vi, .9375rem); line-height: 1.42; letter-spacing: .003em; max-inline-size: 74ch;
+  }
+  :where([data-pd-type="quote.feature"], .pd-type-quote-feature) {
+    --pd-wght: 500; --pd-ital: 1; font-family: var(--pd-font-head-active); font-weight: 500; font-style: normal;
+    font-variation-settings: "wght" 500, "ital" 1;
+    font-size: clamp(2.25rem, 1.36rem + 2.72vi, 4.75rem); line-height: 1; letter-spacing: -.027em; max-inline-size: 23ch; text-wrap: balance;
+  }
+  :where([data-pd-type="label"], .pd-type-label) {
+    font-family: var(--pd-font-body); font-weight: 600; font-style: normal;
+    font-size: clamp(.875rem, .856rem + .06vi, .9375rem); line-height: 1.2; letter-spacing: .012em; max-inline-size: 36ch;
+  }
+  :where([data-pd-type="metadata"], .pd-type-metadata) {
+    --pd-wght: 500; --pd-wdth: 87.5; --pd-ital: 0; font-family: var(--pd-font-eyebrow); font-weight: 500; font-style: normal; font-stretch: 87.5%;
+    font-variation-settings: "wght" 500, "wdth" 87.5, "ital" 0;
+    font-size: clamp(.75rem, .731rem + .055vi, .8125rem); line-height: 1.28; letter-spacing: .052em; max-inline-size: 54ch; font-variant-ligatures: none;
+  }
+  :where([data-pd-type="data"], .pd-type-data) {
+    --pd-wght: 500; --pd-wdth: 87.5; --pd-ital: 0; font-family: var(--pd-font-eyebrow); font-weight: 500; font-style: normal; font-stretch: 87.5%;
+    font-variation-settings: "wght" 500, "wdth" 87.5, "ital" 0;
+    font-size: clamp(.8125rem, .77rem + .13vi, 1rem); line-height: 1.3; letter-spacing: .01em; max-inline-size: 62ch; font-variant-numeric: tabular-nums lining-nums slashed-zero; font-variant-ligatures: none;
+  }
+  :where([data-pd-type="metric"], .pd-type-metric) {
+    font-family: var(--pd-font-body); font-weight: 700; font-style: normal;
+    font-size: clamp(3.5rem, 1.74rem + 5.42vi, 7.75rem); line-height: .84; letter-spacing: -.052em; max-inline-size: 10ch; font-variant-numeric: proportional-nums lining-nums;
+  }
+
+  :where([data-pd-type-context="productive"]) :where([data-pd-type="heading.subsection"], [data-pd-type="title.card"]) {
+    font-family: var(--pd-font-body); font-style: normal; font-variation-settings: normal;
+  }
+  :where([data-pd-type-context="productive"]) [data-pd-type="heading.subsection"] {
+    font-weight: 700; font-size: clamp(1.75rem, 1.51rem + .74vi, 2.375rem); line-height: 1.06; letter-spacing: -.02em;
+  }
+  :where([data-pd-type-context="productive"]) [data-pd-type="title.card"] {
+    font-weight: 600; font-size: clamp(1.3125rem, 1.22rem + .29vi, 1.5625rem); line-height: 1.14; letter-spacing: -.012em;
+  }
+
+  :where([data-pd-arrow]) { display: inline-block; line-height: 1; letter-spacing: 0; font-variant-ligatures: none; }
+  :where([data-pd-arrow="ui"]) { font-family: var(--pd-font-eyebrow); font-weight: 600; font-stretch: 100%; font-variation-settings: "wght" 600, "wdth" 100, "ital" 0; }
+  :where([data-pd-arrow="display"]) { font-family: var(--pd-font-head-active); font-weight: 600; font-style: normal; font-variation-settings: "wght" 600, "ital" 0; }
+
+  @supports (text-box-trim: trim-both) {
+    :where([data-pd-type="label"], [data-pd-type="metadata"], [data-pd-type="data"]) {
+      text-box-trim: trim-both;
+      text-box-edge: cap alphabetic;
+    }
+  }
+  @supports (text-autospace: normal) {
+    :lang(ja), :lang(zh) { text-autospace: normal; }
+  }
+}
+
+@layer pd.utilities {
+  :where(.pd-balance) { text-wrap: balance; }
+  :where(.pd-pretty) { text-wrap: pretty; }
+  :where(.pd-prose) { max-inline-size: var(--pd-measure-reading); }
+  :where(.pd-break-anywhere) { overflow-wrap: anywhere; }
+  :where(.pd-tabular) { font-variant-numeric: tabular-nums lining-nums; }
+  :where(.pd-no-ligatures) { font-variant-ligatures: none; }
+  :where(.pd-head-italic) { --pd-ital: 1; font-family: var(--pd-font-head-active); font-style: normal; font-variation-settings: "wght" var(--pd-wght, 500), "ital" 1; }
+}
+
+@media (max-width: 40rem) {
+  [data-pd-type="display.hero"] { line-height: .91; letter-spacing: -.038em; }
+  [data-pd-type="display.chapter"] { line-height: .93; letter-spacing: -.034em; }
+  [data-pd-type="heading.section"] { line-height: .98; letter-spacing: -.028em; }
+  [data-pd-type="body.reading"] { line-height: 1.55; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where([data-pd-italic-motion]) { transition: none; }
+}
+
+:where([lang="ar"],[lang="he"],[lang="fa"],[lang="ur"],[lang="hi"],[lang="ja"],[lang="zh"],[lang="ko"]) :where([data-pd-type^="display."],[data-pd-type^="heading."],[data-pd-type="title.card"],[data-pd-type="quote.feature"]) {
+  font-family: system-ui, sans-serif; font-style: normal; font-variation-settings: normal; letter-spacing: normal; line-height: 1.12; text-transform: none;
+}
+:where([lang="ar"],[lang="he"],[lang="fa"],[lang="ur"],[lang="hi"],[lang="ja"],[lang="zh"],[lang="ko"]) :where([data-pd-type^="body."],[data-pd-type^="lead."],[data-pd-type="title.functional"]) {
+  font-family: system-ui, sans-serif; letter-spacing: normal; line-height: 1.55;
+}

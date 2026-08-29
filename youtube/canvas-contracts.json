@@ -1,0 +1,79 @@
+{
+  "thumbnail": {
+    "width": 3840,
+    "height": 2160,
+    "ratio": "16 / 9",
+    "safe": {
+      "top": 192,
+      "right": 192,
+      "bottom": 192,
+      "left": 192
+    },
+    "previewMinimum": {
+      "width": 1280,
+      "height": 720
+    },
+    "timestampExclusion": {
+      "width": 720,
+      "height": 270,
+      "edge": "bottom-right"
+    },
+    "use": "Standard video thumbnail"
+  },
+  "shorts": {
+    "width": 2160,
+    "height": 3840,
+    "ratio": "9 / 16",
+    "safe": {
+      "top": 420,
+      "right": 180,
+      "bottom": 620,
+      "left": 180
+    },
+    "use": "Shorts custom thumbnail or cover"
+  },
+  "podcast": {
+    "width": 3000,
+    "height": 3000,
+    "ratio": "1 / 1",
+    "safe": {
+      "top": 240,
+      "right": 240,
+      "bottom": 240,
+      "left": 240
+    },
+    "use": "Podcast playlist cover"
+  },
+  "channelBanner": {
+    "width": 2560,
+    "height": 1440,
+    "ratio": "16 / 9",
+    "safe": {
+      "width": 1544,
+      "height": 423,
+      "position": "center"
+    },
+    "minimumUpload": {
+      "width": 2048,
+      "height": 1152
+    },
+    "minimumSafe": {
+      "width": 1235,
+      "height": 338
+    },
+    "use": "Channel banner across television, desktop and mobile crops"
+  },
+  "endScreen": {
+    "width": 1920,
+    "height": 1080,
+    "ratio": "16 / 9",
+    "safe": {
+      "top": 90,
+      "right": 90,
+      "bottom": 90,
+      "left": 90
+    },
+    "durationSeconds": "5–20",
+    "use": "Last-frame typography around YouTube end-screen elements"
+  }
+}

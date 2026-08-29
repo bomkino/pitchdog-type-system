@@ -1,0 +1,48 @@
+{
+  "product": "pitch.dog Type System",
+  "version": "13.0.0",
+  "displayVersion": "13",
+  "validatedOn": "2026-08-28",
+  "status": "pass",
+  "static": {
+    "passed": 232,
+    "failed": 0,
+    "evidence": "tools/validate_release.py"
+  },
+  "browser": {
+    "engine": "Chromium",
+    "passed": 100,
+    "failed": 0,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "screenshots": 16,
+    "evidence": "evidence/browser-validation.json"
+  },
+  "fonts": {
+    "runtimeFaces": 7,
+    "source": "FontBlind-Final-2026-08-28-v13.zip",
+    "distributedBinaries": 0,
+    "audit": "evidence/font-audit.json"
+  },
+  "contracts": {
+    "webRoles": 17,
+    "uiRoles": 14,
+    "socialRoles": 9,
+    "youtubeRoles": 7,
+    "socialCanvases": 4,
+    "youtubeCanvases": 5,
+    "arrows": 12
+  },
+  "remainingLaunchGates": [
+    "Safari desktop",
+    "Firefox desktop",
+    "iOS Safari hardware",
+    "Android hardware",
+    "Windows ClearType",
+    "forced colours",
+    "assistive technology",
+    "deployed LCP/CLS",
+    "production GSAP/WebGL font geometry",
+    "physical-phone media review"
+  ]
+}

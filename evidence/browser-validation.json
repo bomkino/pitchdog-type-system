@@ -1,0 +1,578 @@
+{
+  "document": "/mnt/data/pitchdog-typography-system-v13/pitchdog-typography-system-v13.html",
+  "tests": [
+    {
+      "name": "HTML document parses and loads",
+      "pass": true,
+      "detail": {
+        "bytes": 98242,
+        "title": "pitch.dog Type System v13"
+      }
+    },
+    {
+      "name": "Lucky-number version 13 visible",
+      "pass": true,
+      "detail": "pitch.dog Type System v13"
+    },
+    {
+      "name": "Seven v13 variable webfonts verify and load",
+      "pass": true,
+      "detail": "Verified and loaded all 7 v13 variable webfonts. Head italic is axis-driven."
+    },
+    {
+      "name": "Font ready: head",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Font ready: headAlt",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Font ready: body",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Font ready: bodyItalic",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Font ready: bodyAlt",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Font ready: bodyAltItalic",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Font ready: eyebrow",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Desktop page has no horizontal overflow",
+      "pass": true,
+      "detail": {
+        "scrollWidth": 1440,
+        "clientWidth": 1440
+      }
+    },
+    {
+      "name": "Head lab upright uses ital 0",
+      "pass": true,
+      "detail": "\"ital\" 0, \"wght\" 600"
+    },
+    {
+      "name": "Head lab italic uses ital 1",
+      "pass": true,
+      "detail": "\"ital\" 1, \"wght\" 600"
+    },
+    {
+      "name": "Head italic visibly changes the actual glyphs",
+      "pass": true,
+      "detail": {
+        "diffBoundingBox": [
+          383,
+          3,
+          923,
+          103
+        ],
+        "canvas": [
+          1310,
+          103
+        ]
+      }
+    },
+    {
+      "name": "Semantic Head emphasis uses authentic ital axis",
+      "pass": true,
+      "detail": "\"ital\" 1, \"wght\" 600"
+    },
+    {
+      "name": "Feature quote uses authentic Head italic",
+      "pass": true,
+      "detail": "\"ital\" 1, \"wght\" 500"
+    },
+    {
+      "name": "Navigation exists: overview",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "name": "View activates: overview",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Navigation exists: anchors",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "name": "View activates: anchors",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Navigation exists: roles",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "name": "View activates: roles",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Navigation exists: dense",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "name": "View activates: dense",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Navigation exists: ui",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "name": "View activates: ui",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Navigation exists: social",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "name": "View activates: social",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Navigation exists: youtube",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "name": "View activates: youtube",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Navigation exists: arrows",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "name": "View activates: arrows",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Navigation exists: stress",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "name": "View activates: stress",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Anchor specimen is substantial",
+      "pass": true,
+      "detail": 39
+    },
+    {
+      "name": "Head anchor shown: 265",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Head anchor shown: 300",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Head anchor shown: 400",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Head anchor shown: 500",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Head anchor shown: 600",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Head anchor shown: 700",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Head anchor shown: 900",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Body anchor shown: 100",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Body anchor shown: 250",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Body anchor shown: 300",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Body anchor shown: 400",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Body anchor shown: 600",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Body anchor shown: 700",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Body anchor shown: 900",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Eyebrow anchor shown: 100",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Eyebrow anchor shown: 200",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Eyebrow anchor shown: 300",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Eyebrow anchor shown: 350",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Eyebrow anchor shown: 400",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Eyebrow anchor shown: 500",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Eyebrow anchor shown: 600",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Eyebrow anchor shown: 700",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Eyebrow anchor shown: 800",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Eyebrow anchor shown: 900",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Eyebrow compact width shown",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Eyebrow normal width shown",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Dense specimen includes lots of body paragraphs",
+      "pass": true,
+      "detail": {
+        "paragraphs": 46,
+        "characters": 9202
+      }
+    },
+    {
+      "name": "Dense specimen includes long real-copy corpus",
+      "pass": true,
+      "detail": 9202
+    },
+    {
+      "name": "Dense desktop has no unintended local overflow",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "UI specimen includes dense dashboard, table and form",
+      "pass": true,
+      "detail": {
+        "chars": 2686
+      }
+    },
+    {
+      "name": "UI specimen has many interactive controls",
+      "pass": true,
+      "detail": 16
+    },
+    {
+      "name": "UI controls avoid tiny targets",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "UI has a dense data table",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "name": "UI has a mobile interface specimen",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Social system shows all canonical canvas ratios",
+      "pass": true,
+      "detail": 4
+    },
+    {
+      "name": "YouTube system includes multiple thumbnail treatments",
+      "pass": true,
+      "detail": 3
+    },
+    {
+      "name": "YouTube thumbnail previews are 16:9",
+      "pass": true,
+      "detail": [
+        1.7777777777777777,
+        1.7777777777777777,
+        1.7777777777777777
+      ]
+    },
+    {
+      "name": "YouTube system covers channel and Shorts surfaces",
+      "pass": true,
+      "detail": "YOUTUBE SYSTEM\n\nReadable at phone size. Recognisable at a glance.\n\nTitles stay short, image and title work together, and the bottom-right duration zone remains clear. The system includes standard videos, Shorts, podcast covers, banners and end-screen typography.\n\nSTANDARD VIDEO THUMBNAILS\n\nPITCH.DOG"
+    },
+    {
+      "name": "Native arrow shown: ←",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Native arrow shown: ↑",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Native arrow shown: →",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Native arrow shown: ↓",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Native arrow shown: ↔",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Native arrow shown: ↕",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Native arrow shown: ↖",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Native arrow shown: ↗",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Native arrow shown: ↘",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Native arrow shown: ↙",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Native arrow shown: ↩",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Native arrow shown: ↪",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "UI arrows use governed Eyebrow voice",
+      "pass": true,
+      "detail": {
+        "family": "\"PD Eyebrow\", ui-monospace, SFMono-Regular, Consolas, monospace",
+        "fvs": "\"ital\" 0, \"wdth\" 100, \"wght\" 600"
+      }
+    },
+    {
+      "name": "200% text + WCAG spacing + native wrap does not overflow page",
+      "pass": true,
+      "detail": {
+        "sw": 1440,
+        "cw": 1440,
+        "root": "32px"
+      }
+    },
+    {
+      "name": "Mobile page has no horizontal overflow",
+      "pass": true,
+      "detail": {
+        "sw": 390,
+        "cw": 390
+      }
+    },
+    {
+      "name": "Mobile view no page overflow: overview",
+      "pass": true,
+      "detail": {
+        "sw": 390,
+        "cw": 390
+      }
+    },
+    {
+      "name": "Mobile view no page overflow: dense",
+      "pass": true,
+      "detail": {
+        "sw": 390,
+        "cw": 390
+      }
+    },
+    {
+      "name": "Mobile view no page overflow: ui",
+      "pass": true,
+      "detail": {
+        "sw": 390,
+        "cw": 390
+      }
+    },
+    {
+      "name": "Mobile view no page overflow: youtube",
+      "pass": true,
+      "detail": {
+        "sw": 390,
+        "cw": 390
+      }
+    },
+    {
+      "name": "Local baker embeds seven variable WOFF2 faces",
+      "pass": true,
+      "detail": 7
+    },
+    {
+      "name": "Embedded review removes loader",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Embedded review removes baker script",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Embedded review keeps inline favicon",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "Embedded review preserves authentic Head ital 1",
+      "pass": true,
+      "detail": "\"ital\" 1, \"wght\" 600"
+    },
+    {
+      "name": "Embedded review has no horizontal overflow",
+      "pass": true,
+      "detail": {
+        "sw": 1440,
+        "cw": 1440
+      }
+    },
+    {
+      "name": "No browser page errors",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "No browser console errors",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "console": [],
+  "pageErrors": [],
+  "screenshots": [
+    "/mnt/data/pitchdog-typography-system-v13/evidence/screenshots/head-italic-upright.png",
+    "/mnt/data/pitchdog-typography-system-v13/evidence/screenshots/head-italic-full.png",
+    "/mnt/data/pitchdog-typography-system-v13/evidence/screenshots/overview-desktop.png",
+    "/mnt/data/pitchdog-typography-system-v13/evidence/screenshots/anchors-desktop.png",
+    "/mnt/data/pitchdog-typography-system-v13/evidence/screenshots/roles-desktop.png",
+    "/mnt/data/pitchdog-typography-system-v13/evidence/screenshots/dense-desktop.png",
+    "/mnt/data/pitchdog-typography-system-v13/evidence/screenshots/ui-desktop.png",
+    "/mnt/data/pitchdog-typography-system-v13/evidence/screenshots/social-desktop.png",
+    "/mnt/data/pitchdog-typography-system-v13/evidence/screenshots/youtube-desktop.png",
+    "/mnt/data/pitchdog-typography-system-v13/evidence/screenshots/arrows-desktop.png",
+    "/mnt/data/pitchdog-typography-system-v13/evidence/screenshots/stress-desktop.png",
+    "/mnt/data/pitchdog-typography-system-v13/evidence/screenshots/stress-200-spacing.png",
+    "/mnt/data/pitchdog-typography-system-v13/evidence/screenshots/overview-mobile.png",
+    "/mnt/data/pitchdog-typography-system-v13/evidence/screenshots/dense-mobile.png",
+    "/mnt/data/pitchdog-typography-system-v13/evidence/screenshots/ui-mobile.png",
+    "/mnt/data/pitchdog-typography-system-v13/evidence/screenshots/youtube-mobile.png"
+  ],
+  "passed": 100,
+  "failed": 0
+}

@@ -1,0 +1,48 @@
+Surface,Figma style,Token role,Family,Weight,Italic/Style,Width,Size policy,Line height,Tracking
+Web,Display / Hero,display.hero,head,600,0,,"clamp(3.75rem, 1.42rem + 7.15vi, 8.5rem)",0.88,-0.043em
+Web,Display / Chapter,display.chapter,head,600,0,,"clamp(3.25rem, 1.65rem + 4.9vi, 7rem)",0.91,-0.037em
+Web,Heading / Section,heading.section,head,500,0,,"clamp(2.75rem, 1.72rem + 3.15vi, 5.5rem)",0.95,-0.031em
+Web,Heading / Subsection,heading.subsection,head,500,0,,"clamp(2.125rem, 1.52rem + 1.85vi, 3.75rem)",0.99,-0.024em
+Web,Title / Card,title.card,head,500,0,,"clamp(1.625rem, 1.34rem + .86vi, 2.375rem)",1.05,-0.018em
+Web,Title / Functional,title.functional,body,600,normal,,"clamp(1.1875rem, 1.11rem + .24vi, 1.4375rem)",1.18,-0.01em
+Web,Lead / Hero,lead.hero,bodyAlt,400,normal,,"clamp(1.5rem, 1.19rem + .96vi, 2.375rem)",1.25,-0.013em
+Web,Lead / Section,lead.section,bodyAlt,400,normal,,"clamp(1.25rem, 1.11rem + .43vi, 1.625rem)",1.34,-0.009em
+Web,Body / Reading,body.reading,body,400,normal,,"clamp(1.1875rem, 1.15rem + .12vi, 1.3125rem)",1.58,-0.004em
+Web,Body / Default,body.default,body,400,normal,,"clamp(1.0625rem, 1.025rem + .12vi, 1.1875rem)",1.52,-0.003em
+Web,Body / Compact,body.compact,body,400,normal,,"clamp(1rem, .981rem + .06vi, 1.0625rem)",1.45,0em
+Web,Body / Small,body.small,body,400,normal,,"clamp(.875rem, .856rem + .06vi, .9375rem)",1.42,.003em
+Web,Quote / Feature,quote.feature,head,500,1,,"clamp(2.25rem, 1.36rem + 2.72vi, 4.75rem)",1.0,-0.027em
+Web,Label,label,body,600,normal,,"clamp(.875rem, .856rem + .06vi, .9375rem)",1.2,.012em
+Web,Metadata,metadata,eyebrow,500,0,87.5,"clamp(.75rem, .731rem + .055vi, .8125rem)",1.28,.052em
+Web,Data,data,eyebrow,500,0,87.5,"clamp(.8125rem, .77rem + .13vi, 1rem)",1.3,.01em
+Web,Metric,metric,body,700,normal,,"clamp(3.5rem, 1.74rem + 5.42vi, 7.75rem)",0.84,-0.052em
+UI,Ui / Display,ui.display,head,500,0,,"clamp(2.375rem, 1.86rem + 1.6vi, 3.75rem)",0.98,-0.026em
+UI,Ui / Pagetitle,ui.pageTitle,body,700,normal,,"clamp(1.75rem, 1.55rem + .62vi, 2.25rem)",1.08,-0.021em
+UI,Ui / Sectiontitle,ui.sectionTitle,body,600,normal,,"clamp(1.3125rem, 1.22rem + .29vi, 1.5625rem)",1.16,-0.013em
+UI,Ui / Paneltitle,ui.panelTitle,body,600,normal,,"clamp(1.0625rem, 1.025rem + .12vi, 1.1875rem)",1.2,-0.008em
+UI,Ui / Body,ui.body,body,400,normal,,"clamp(1rem, .981rem + .06vi, 1.0625rem)",1.48,0em
+UI,Ui / Bodycompact,ui.bodyCompact,body,400,normal,,"clamp(.9375rem, .919rem + .055vi, 1rem)",1.42,.001em
+UI,Ui / Label,ui.label,body,600,normal,,"clamp(.875rem, .856rem + .055vi, .9375rem)",1.22,.006em
+UI,Ui / Action,ui.action,body,600,normal,,"clamp(.9375rem, .919rem + .055vi, 1rem)",1.1,-.002em
+UI,Ui / Input,ui.input,body,400,normal,,"clamp(1rem, .981rem + .06vi, 1.0625rem)",1.25,0em
+UI,Ui / Caption,ui.caption,body,400,normal,,"clamp(.8125rem, .794rem + .055vi, .875rem)",1.38,.004em
+UI,Ui / Badge,ui.badge,eyebrow,600,0,87.5,"clamp(.6875rem, .669rem + .055vi, .75rem)",1.0,.055em
+UI,Ui / Metadata,ui.metadata,eyebrow,500,0,87.5,"clamp(.75rem, .731rem + .055vi, .8125rem)",1.25,.04em
+UI,Ui / Data,ui.data,eyebrow,500,0,87.5,"clamp(.8125rem, .794rem + .055vi, .875rem)",1.25,.006em
+UI,Ui / Code,ui.code,eyebrow,400,0,87.5,"clamp(.8125rem, .794rem + .055vi, .875rem)",1.45,0em
+Social,Social / Display,social.display,head,600,0,,"min(10.2cqi, 8.2cqb)",0.88,-0.043em
+Social,Social / Headline,social.headline,head,500,0,,"min(7.4cqi, 6.5cqb)",0.94,-0.031em
+Social,Social / Subhead,social.subhead,bodyAlt,400,normal,,"min(3.4cqi, 2.9cqb)",1.2,-0.012em
+Social,Social / Body,social.body,body,400,normal,,"min(2.32cqi, 1.95cqb)",1.38,0em
+Social,Social / Quote,social.quote,head,500,1,,"min(7.9cqi, 6.35cqb)",0.98,-0.027em
+Social,Social / Metric,social.metric,body,700,normal,,"min(13.5cqi, 10.5cqb)",0.82,-0.052em
+Social,Social / Label,social.label,body,600,normal,,"min(1.75cqi, 1.45cqb)",1.15,.012em
+Social,Social / Metadata,social.metadata,eyebrow,500,0,87.5,"min(1.38cqi, 1.12cqb)",1.2,.055em
+Social,Social / Credit,social.credit,body,600,normal,,"min(1.72cqi, 1.4cqb)",1.2,0em
+YouTube,Youtube / Title,youtube.title,head,700,0,,"min(10.4cqi, 14.3cqb)",0.86,-0.045em
+YouTube,Youtube / Titlecompact,youtube.titleCompact,head,600,0,,"min(7.8cqi, 10.8cqb)",0.91,-0.036em
+YouTube,Youtube / Kicker,youtube.kicker,eyebrow,700,0,87.5,"min(1.8cqi, 2.5cqb)",1.0,.07em
+YouTube,Youtube / Support,youtube.support,bodyAlt,600,normal,,"min(2.9cqi, 4cqb)",1.1,-0.012em
+YouTube,Youtube / Badge,youtube.badge,body,700,normal,,"min(1.9cqi, 2.65cqb)",1.0,.006em
+YouTube,Youtube / Credit,youtube.credit,body,600,normal,,"min(1.45cqi, 2cqb)",1.1,0em
+YouTube,Youtube / Arrow,youtube.arrow,head,700,0,,"min(7.2cqi, 10cqb)",0.8,0em

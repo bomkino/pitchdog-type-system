@@ -1,0 +1,785 @@
+{
+  "source": "FontBlind-Final-2026-08-28-v13.zip",
+  "version": "13.0.0",
+  "arrowSet": [
+    "←",
+    "↑",
+    "→",
+    "↓",
+    "↔",
+    "↕",
+    "↖",
+    "↗",
+    "↘",
+    "↙",
+    "↩",
+    "↪"
+  ],
+  "fonts": {
+    "head": {
+      "family": "PD Head",
+      "style": "normal",
+      "sourcePath": "FontBlind-Final-2026-08-28-v13/01-PUBLIC-FONTS/LAB/pd-head/web/pd-head.woff2",
+      "targetFile": "assets/fonts/pd-head.woff2",
+      "bytes": 270176,
+      "sha256": "528dd6d9d5d79265f4e3589523a250cd652110d1380e87a0252bca9489da50e9",
+      "names": {
+        "family": "pd-head",
+        "subfamily": "Regular",
+        "full": "pd-head Variable",
+        "postscript": "pd-head-Variable",
+        "typographicFamily": "pd-head",
+        "typographicSubfamily": "Regular"
+      },
+      "axes": [
+        {
+          "tag": "wght",
+          "min": 265.0,
+          "default": 400.0,
+          "max": 900.0
+        },
+        {
+          "tag": "ital",
+          "min": 0.0,
+          "default": 0.0,
+          "max": 1.0
+        }
+      ],
+      "instances": [
+        {
+          "name": "Thin",
+          "coordinates": {
+            "wght": 265.0,
+            "ital": 0.0
+          }
+        },
+        {
+          "name": "Light",
+          "coordinates": {
+            "wght": 300.0,
+            "ital": 0.0
+          }
+        },
+        {
+          "name": "Regular",
+          "coordinates": {
+            "wght": 400.0,
+            "ital": 0.0
+          }
+        },
+        {
+          "name": "Medium",
+          "coordinates": {
+            "wght": 500.0,
+            "ital": 0.0
+          }
+        },
+        {
+          "name": "Semibold",
+          "coordinates": {
+            "wght": 600.0,
+            "ital": 0.0
+          }
+        },
+        {
+          "name": "Bold",
+          "coordinates": {
+            "wght": 700.0,
+            "ital": 0.0
+          }
+        },
+        {
+          "name": "Black",
+          "coordinates": {
+            "wght": 900.0,
+            "ital": 0.0
+          }
+        },
+        {
+          "name": "Thin Italic",
+          "coordinates": {
+            "wght": 265.0,
+            "ital": 1.0
+          }
+        },
+        {
+          "name": "Light Italic",
+          "coordinates": {
+            "wght": 300.0,
+            "ital": 1.0
+          }
+        },
+        {
+          "name": "Regular Italic",
+          "coordinates": {
+            "wght": 400.0,
+            "ital": 1.0
+          }
+        },
+        {
+          "name": "Medium Italic",
+          "coordinates": {
+            "wght": 500.0,
+            "ital": 1.0
+          }
+        },
+        {
+          "name": "Semibold Italic",
+          "coordinates": {
+            "wght": 600.0,
+            "ital": 1.0
+          }
+        },
+        {
+          "name": "Bold Italic",
+          "coordinates": {
+            "wght": 700.0,
+            "ital": 1.0
+          }
+        },
+        {
+          "name": "Black Italic",
+          "coordinates": {
+            "wght": 900.0,
+            "ital": 1.0
+          }
+        }
+      ],
+      "metrics": {
+        "unitsPerEm": 1000,
+        "xHeight": 480,
+        "capHeight": 710,
+        "typoAscender": 1000,
+        "typoDescender": -360,
+        "typoLineGap": 0,
+        "hheaAscender": 1000,
+        "hheaDescender": -360,
+        "hheaLineGap": 0
+      },
+      "codepointCount": 378,
+      "hasRupee": true,
+      "arrowsPresent": {
+        "←": true,
+        "↑": true,
+        "→": true,
+        "↓": true,
+        "↔": true,
+        "↕": true,
+        "↖": true,
+        "↗": true,
+        "↘": true,
+        "↙": true,
+        "↩": true,
+        "↪": true
+      },
+      "currencyCount": 7
+    },
+    "headAlt": {
+      "family": "PD Head Alt",
+      "style": "normal",
+      "sourcePath": "FontBlind-Final-2026-08-28-v13/01-PUBLIC-FONTS/LAB/pd-head/web/pd-head-alt.woff2",
+      "targetFile": "assets/fonts/pd-head-alt.woff2",
+      "bytes": 276308,
+      "sha256": "bf4db03493580a52e3e01cb6aec2fe791da8e7293d6083e2c567c3bb3f0b927a",
+      "names": {
+        "family": "pd-head-alt",
+        "subfamily": "Regular",
+        "full": "pd-head-alt Variable",
+        "postscript": "pd-head-alt-Variable",
+        "typographicFamily": "pd-head-alt",
+        "typographicSubfamily": "Regular"
+      },
+      "axes": [
+        {
+          "tag": "wght",
+          "min": 265.0,
+          "default": 400.0,
+          "max": 900.0
+        },
+        {
+          "tag": "ital",
+          "min": 0.0,
+          "default": 0.0,
+          "max": 1.0
+        }
+      ],
+      "instances": [
+        {
+          "name": "Thin",
+          "coordinates": {
+            "wght": 265.0,
+            "ital": 0.0
+          }
+        },
+        {
+          "name": "Light",
+          "coordinates": {
+            "wght": 300.0,
+            "ital": 0.0
+          }
+        },
+        {
+          "name": "Regular",
+          "coordinates": {
+            "wght": 400.0,
+            "ital": 0.0
+          }
+        },
+        {
+          "name": "Medium",
+          "coordinates": {
+            "wght": 500.0,
+            "ital": 0.0
+          }
+        },
+        {
+          "name": "Semibold",
+          "coordinates": {
+            "wght": 600.0,
+            "ital": 0.0
+          }
+        },
+        {
+          "name": "Bold",
+          "coordinates": {
+            "wght": 700.0,
+            "ital": 0.0
+          }
+        },
+        {
+          "name": "Black",
+          "coordinates": {
+            "wght": 900.0,
+            "ital": 0.0
+          }
+        },
+        {
+          "name": "Thin Italic",
+          "coordinates": {
+            "wght": 265.0,
+            "ital": 1.0
+          }
+        },
+        {
+          "name": "Light Italic",
+          "coordinates": {
+            "wght": 300.0,
+            "ital": 1.0
+          }
+        },
+        {
+          "name": "Regular Italic",
+          "coordinates": {
+            "wght": 400.0,
+            "ital": 1.0
+          }
+        },
+        {
+          "name": "Medium Italic",
+          "coordinates": {
+            "wght": 500.0,
+            "ital": 1.0
+          }
+        },
+        {
+          "name": "Semibold Italic",
+          "coordinates": {
+            "wght": 600.0,
+            "ital": 1.0
+          }
+        },
+        {
+          "name": "Bold Italic",
+          "coordinates": {
+            "wght": 700.0,
+            "ital": 1.0
+          }
+        },
+        {
+          "name": "Black Italic",
+          "coordinates": {
+            "wght": 900.0,
+            "ital": 1.0
+          }
+        }
+      ],
+      "metrics": {
+        "unitsPerEm": 1000,
+        "xHeight": 480,
+        "capHeight": 710,
+        "typoAscender": 1000,
+        "typoDescender": -360,
+        "typoLineGap": 0,
+        "hheaAscender": 1000,
+        "hheaDescender": -360,
+        "hheaLineGap": 0
+      },
+      "codepointCount": 378,
+      "hasRupee": true,
+      "arrowsPresent": {
+        "←": true,
+        "↑": true,
+        "→": true,
+        "↓": true,
+        "↔": true,
+        "↕": true,
+        "↖": true,
+        "↗": true,
+        "↘": true,
+        "↙": true,
+        "↩": true,
+        "↪": true
+      },
+      "currencyCount": 7
+    },
+    "body": {
+      "family": "PD Body",
+      "style": "normal",
+      "sourcePath": "FontBlind-Final-2026-08-28-v13/01-PUBLIC-FONTS/LAB/pd-body/web/pd-body-roman.woff2",
+      "targetFile": "assets/fonts/pd-body-roman.woff2",
+      "bytes": 171820,
+      "sha256": "433a1b69a8e8a903478b978c198b879824541dc9eb62db959058ae37a250819f",
+      "names": {
+        "family": "pd-body-roman",
+        "subfamily": "Regular",
+        "full": "pd-body-roman",
+        "postscript": "pd-body-roman",
+        "typographicFamily": "pd-body-roman",
+        "typographicSubfamily": "Regular"
+      },
+      "axes": [
+        {
+          "tag": "wght",
+          "min": 100.0,
+          "default": 400.0,
+          "max": 900.0
+        }
+      ],
+      "instances": [
+        {
+          "name": "Thin",
+          "coordinates": {
+            "wght": 100.0
+          }
+        },
+        {
+          "name": "Extra Light",
+          "coordinates": {
+            "wght": 250.0
+          }
+        },
+        {
+          "name": "Light",
+          "coordinates": {
+            "wght": 300.0
+          }
+        },
+        {
+          "name": "Regular",
+          "coordinates": {
+            "wght": 400.0
+          }
+        },
+        {
+          "name": "SemiBold",
+          "coordinates": {
+            "wght": 600.0
+          }
+        },
+        {
+          "name": "Bold",
+          "coordinates": {
+            "wght": 700.0
+          }
+        },
+        {
+          "name": "Black",
+          "coordinates": {
+            "wght": 900.0
+          }
+        }
+      ],
+      "metrics": {
+        "unitsPerEm": 1000,
+        "xHeight": 472,
+        "capHeight": 660,
+        "typoAscender": 750,
+        "typoDescender": -250,
+        "typoLineGap": 0,
+        "hheaAscender": 996,
+        "hheaDescender": -204,
+        "hheaLineGap": 0
+      },
+      "codepointCount": 395,
+      "hasRupee": true,
+      "arrowsPresent": {
+        "←": true,
+        "↑": true,
+        "→": true,
+        "↓": true,
+        "↔": true,
+        "↕": true,
+        "↖": true,
+        "↗": true,
+        "↘": true,
+        "↙": true,
+        "↩": true,
+        "↪": true
+      },
+      "currencyCount": 7
+    },
+    "bodyItalic": {
+      "family": "PD Body",
+      "style": "italic",
+      "sourcePath": "FontBlind-Final-2026-08-28-v13/01-PUBLIC-FONTS/LAB/pd-body/web/pd-body-italic.woff2",
+      "targetFile": "assets/fonts/pd-body-italic.woff2",
+      "bytes": 218976,
+      "sha256": "6bd35c9ad364e585ca5667c1df74f892eebbe32237005ba926b54ffa61df8a78",
+      "names": {
+        "family": "pd-body-italic",
+        "subfamily": "Regular",
+        "full": "pd-body-italic",
+        "postscript": "pd-body-italic",
+        "typographicFamily": "pd-body-italic",
+        "typographicSubfamily": "Regular"
+      },
+      "axes": [
+        {
+          "tag": "wght",
+          "min": 100.0,
+          "default": 400.0,
+          "max": 900.0
+        }
+      ],
+      "instances": [
+        {
+          "name": "Thin",
+          "coordinates": {
+            "wght": 100.0
+          }
+        },
+        {
+          "name": "Extra Light",
+          "coordinates": {
+            "wght": 250.0
+          }
+        },
+        {
+          "name": "Light",
+          "coordinates": {
+            "wght": 300.0
+          }
+        },
+        {
+          "name": "Regular",
+          "coordinates": {
+            "wght": 400.0
+          }
+        },
+        {
+          "name": "SemiBold",
+          "coordinates": {
+            "wght": 600.0
+          }
+        },
+        {
+          "name": "Bold",
+          "coordinates": {
+            "wght": 700.0
+          }
+        },
+        {
+          "name": "Black",
+          "coordinates": {
+            "wght": 900.0
+          }
+        }
+      ],
+      "metrics": {
+        "unitsPerEm": 1000,
+        "xHeight": 472,
+        "capHeight": 660,
+        "typoAscender": 750,
+        "typoDescender": -250,
+        "typoLineGap": 0,
+        "hheaAscender": 996,
+        "hheaDescender": -204,
+        "hheaLineGap": 0
+      },
+      "codepointCount": 395,
+      "hasRupee": true,
+      "arrowsPresent": {
+        "←": true,
+        "↑": true,
+        "→": true,
+        "↓": true,
+        "↔": true,
+        "↕": true,
+        "↖": true,
+        "↗": true,
+        "↘": true,
+        "↙": true,
+        "↩": true,
+        "↪": true
+      },
+      "currencyCount": 7
+    },
+    "bodyAlt": {
+      "family": "PD Body Alt",
+      "style": "normal",
+      "sourcePath": "FontBlind-Final-2026-08-28-v13/01-PUBLIC-FONTS/LAB/pd-body/web/pd-body-alt-roman.woff2",
+      "targetFile": "assets/fonts/pd-body-alt-roman.woff2",
+      "bytes": 169540,
+      "sha256": "4ae6044273de9010d1a9660001319c34a4a8ece764279bb7f1e0f81f01dca85b",
+      "names": {
+        "family": "pd-body-alt-roman",
+        "subfamily": "Regular",
+        "full": "pd-body-alt-roman",
+        "postscript": "pd-body-alt-roman",
+        "typographicFamily": "pd-body-alt-roman",
+        "typographicSubfamily": "Regular"
+      },
+      "axes": [
+        {
+          "tag": "wght",
+          "min": 100.0,
+          "default": 400.0,
+          "max": 900.0
+        }
+      ],
+      "instances": [
+        {
+          "name": "Thin",
+          "coordinates": {
+            "wght": 100.0
+          }
+        },
+        {
+          "name": "Extra Light",
+          "coordinates": {
+            "wght": 250.0
+          }
+        },
+        {
+          "name": "Light",
+          "coordinates": {
+            "wght": 300.0
+          }
+        },
+        {
+          "name": "Regular",
+          "coordinates": {
+            "wght": 400.0
+          }
+        },
+        {
+          "name": "SemiBold",
+          "coordinates": {
+            "wght": 600.0
+          }
+        },
+        {
+          "name": "Bold",
+          "coordinates": {
+            "wght": 700.0
+          }
+        },
+        {
+          "name": "Black",
+          "coordinates": {
+            "wght": 900.0
+          }
+        }
+      ],
+      "metrics": {
+        "unitsPerEm": 1000,
+        "xHeight": 472,
+        "capHeight": 660,
+        "typoAscender": 750,
+        "typoDescender": -250,
+        "typoLineGap": 0,
+        "hheaAscender": 996,
+        "hheaDescender": -204,
+        "hheaLineGap": 0
+      },
+      "codepointCount": 395,
+      "hasRupee": true,
+      "arrowsPresent": {
+        "←": true,
+        "↑": true,
+        "→": true,
+        "↓": true,
+        "↔": true,
+        "↕": true,
+        "↖": true,
+        "↗": true,
+        "↘": true,
+        "↙": true,
+        "↩": true,
+        "↪": true
+      },
+      "currencyCount": 7
+    },
+    "bodyAltItalic": {
+      "family": "PD Body Alt",
+      "style": "italic",
+      "sourcePath": "FontBlind-Final-2026-08-28-v13/01-PUBLIC-FONTS/LAB/pd-body/web/pd-body-alt-italic.woff2",
+      "targetFile": "assets/fonts/pd-body-alt-italic.woff2",
+      "bytes": 179020,
+      "sha256": "9f59a7f058ba824e0b3e2760204c0c70b7cfb2f61956a460b730e486b1209285",
+      "names": {
+        "family": "pd-body-alt-italic",
+        "subfamily": "Italic",
+        "full": "pd-body-alt-italic",
+        "postscript": "pd-body-alt-italic",
+        "typographicFamily": "pd-body-alt-italic",
+        "typographicSubfamily": "Italic"
+      },
+      "axes": [
+        {
+          "tag": "wght",
+          "min": 100.0,
+          "default": 400.0,
+          "max": 900.0
+        }
+      ],
+      "instances": [
+        {
+          "name": "Thin Italic",
+          "coordinates": {
+            "wght": 100.0
+          }
+        },
+        {
+          "name": "Extra Light Italic",
+          "coordinates": {
+            "wght": 250.0
+          }
+        },
+        {
+          "name": "Light Italic",
+          "coordinates": {
+            "wght": 300.0
+          }
+        },
+        {
+          "name": "Regular Italic",
+          "coordinates": {
+            "wght": 400.0
+          }
+        },
+        {
+          "name": "SemiBold Italic",
+          "coordinates": {
+            "wght": 600.0
+          }
+        },
+        {
+          "name": "Bold Italic",
+          "coordinates": {
+            "wght": 700.0
+          }
+        },
+        {
+          "name": "Black Italic",
+          "coordinates": {
+            "wght": 900.0
+          }
+        }
+      ],
+      "metrics": {
+        "unitsPerEm": 1000,
+        "xHeight": 472,
+        "capHeight": 660,
+        "typoAscender": 750,
+        "typoDescender": -250,
+        "typoLineGap": 0,
+        "hheaAscender": 996,
+        "hheaDescender": -204,
+        "hheaLineGap": 0
+      },
+      "codepointCount": 395,
+      "hasRupee": true,
+      "arrowsPresent": {
+        "←": true,
+        "↑": true,
+        "→": true,
+        "↓": true,
+        "↔": true,
+        "↕": true,
+        "↖": true,
+        "↗": true,
+        "↘": true,
+        "↙": true,
+        "↩": true,
+        "↪": true
+      },
+      "currencyCount": 7
+    },
+    "eyebrow": {
+      "family": "PD Eyebrow",
+      "style": "normal",
+      "sourcePath": "FontBlind-Final-2026-08-28-v13/01-PUBLIC-FONTS/LAB/pd-eyebrow/site/pd-eyebrow-site.woff2",
+      "targetFile": "assets/fonts/pd-eyebrow-site.woff2",
+      "bytes": 916908,
+      "sha256": "24aeaf1bfb45a874fe807c8138fc0d815b499b1834e8291c2dc46bb5fc32b7a3",
+      "names": {
+        "family": "Untitled",
+        "subfamily": "Regular",
+        "full": "Untitled Regular",
+        "postscript": "Untitled-Regular",
+        "typographicFamily": null,
+        "typographicSubfamily": null
+      },
+      "axes": [
+        {
+          "tag": "wght",
+          "min": 100.0,
+          "default": 400.0,
+          "max": 900.0
+        },
+        {
+          "tag": "wdth",
+          "min": 87.5,
+          "default": 100.0,
+          "max": 100.0
+        },
+        {
+          "tag": "ital",
+          "min": 0.0,
+          "default": 0.0,
+          "max": 1.0
+        }
+      ],
+      "instances": [],
+      "metrics": {
+        "unitsPerEm": 2000,
+        "xHeight": 1040,
+        "capHeight": 1380,
+        "typoAscender": 1930,
+        "typoDescender": -570,
+        "typoLineGap": 0,
+        "hheaAscender": 1930,
+        "hheaDescender": -440,
+        "hheaLineGap": 130
+      },
+      "codepointCount": 404,
+      "hasRupee": true,
+      "arrowsPresent": {
+        "←": true,
+        "↑": true,
+        "→": true,
+        "↓": true,
+        "↔": true,
+        "↕": true,
+        "↖": true,
+        "↗": true,
+        "↘": true,
+        "↙": true,
+        "↩": true,
+        "↪": true
+      },
+      "currencyCount": 34
+    }
+  }
+}

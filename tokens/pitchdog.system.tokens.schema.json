@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "pitch.dog Type System v13",
+  "type": "object",
+  "required": [
+    "meta",
+    "families",
+    "anchors",
+    "web",
+    "ui",
+    "social",
+    "youtube",
+    "arrows"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object"
+    },
+    "families": {
+      "type": "object"
+    },
+    "anchors": {
+      "type": "object"
+    },
+    "web": {
+      "type": "object"
+    },
+    "ui": {
+      "type": "object"
+    },
+    "social": {
+      "type": "object"
+    },
+    "youtube": {
+      "type": "object"
+    },
+    "arrows": {
+      "type": "object"
+    }
+  }
+}

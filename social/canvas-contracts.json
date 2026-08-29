@@ -1,0 +1,50 @@
+{
+  "square": {
+    "width": 1080,
+    "height": 1080,
+    "ratio": "1 / 1",
+    "safe": {
+      "top": 80,
+      "right": 80,
+      "bottom": 80,
+      "left": 80
+    },
+    "use": "Feed statement, quote, proof point or launch cover"
+  },
+  "portrait": {
+    "width": 1080,
+    "height": 1350,
+    "ratio": "4 / 5",
+    "safe": {
+      "top": 92,
+      "right": 80,
+      "bottom": 96,
+      "left": 80
+    },
+    "use": "Primary feed post and carousel slide"
+  },
+  "story": {
+    "width": 1080,
+    "height": 1920,
+    "ratio": "9 / 16",
+    "safe": {
+      "top": 250,
+      "right": 80,
+      "bottom": 320,
+      "left": 80
+    },
+    "use": "Story and reel cover with interface-chrome protection"
+  },
+  "landscape": {
+    "width": 1200,
+    "height": 630,
+    "ratio": "40 / 21",
+    "safe": {
+      "top": 72,
+      "right": 84,
+      "bottom": 72,
+      "left": 84
+    },
+    "use": "Open Graph, LinkedIn and link preview"
+  }
+}

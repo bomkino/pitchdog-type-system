@@ -1,0 +1,12 @@
+.DS_Store
+Thumbs.db
+__pycache__/
+*.py[cod]
+node_modules/
+.env
+.env.*
+.npmrc
+FontBlind-Final-*.zip
+pitchdog-font-handoff-v13.zip
+*.tmp
+

@@ -1,0 +1,51 @@
+{
+  "glyphs": [
+    "←",
+    "↑",
+    "→",
+    "↓",
+    "↔",
+    "↕",
+    "↖",
+    "↗",
+    "↘",
+    "↙",
+    "↩",
+    "↪"
+  ],
+  "roles": {
+    "inline": {
+      "family": "inherit",
+      "weight": "inherit",
+      "use": "Directional text inside prose or action labels"
+    },
+    "ui": {
+      "family": "eyebrow",
+      "weight": 600,
+      "width": 100,
+      "ital": 0,
+      "use": "Icon-like directional controls and compact navigation"
+    },
+    "display": {
+      "family": "head",
+      "weight": 600,
+      "ital": 0,
+      "use": "Large directional composition and media artwork"
+    }
+  },
+  "semantics": {
+    "←": "previous, back, earlier",
+    "↑": "up, move upward, top",
+    "→": "next, continue, external direction",
+    "↓": "down, reveal, expand",
+    "↔": "horizontal relationship or resize",
+    "↕": "vertical relationship or resize",
+    "↖": "north-west direction",
+    "↗": "north-east or external-launch direction",
+    "↘": "south-east direction",
+    "↙": "south-west direction",
+    "↩": "return, enter, undo only when context names it",
+    "↪": "forward return or redo only when context names it"
+  },
+  "accessibility": "If an arrow is the only visible control, its accessible name must state the action. Mark redundant decorative arrows aria-hidden=true."
+}

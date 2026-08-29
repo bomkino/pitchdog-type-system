@@ -1,0 +1,194 @@
+{
+  "meta": {
+    "name": "pitch.dog Type System",
+    "version": "13.0.0",
+    "displayVersion": "13",
+    "status": "production-candidate",
+    "fontSource": "FontBlind-Final-2026-08-28-v13.zip",
+    "principle": "Anchor-locked variable typography"
+  },
+  "canvases": {
+    "thumbnail": {
+      "width": 3840,
+      "height": 2160,
+      "ratio": "16 / 9",
+      "safe": {
+        "top": 192,
+        "right": 192,
+        "bottom": 192,
+        "left": 192
+      },
+      "previewMinimum": {
+        "width": 1280,
+        "height": 720
+      },
+      "timestampExclusion": {
+        "width": 720,
+        "height": 270,
+        "edge": "bottom-right"
+      },
+      "use": "Standard video thumbnail"
+    },
+    "shorts": {
+      "width": 2160,
+      "height": 3840,
+      "ratio": "9 / 16",
+      "safe": {
+        "top": 420,
+        "right": 180,
+        "bottom": 620,
+        "left": 180
+      },
+      "use": "Shorts custom thumbnail or cover"
+    },
+    "podcast": {
+      "width": 3000,
+      "height": 3000,
+      "ratio": "1 / 1",
+      "safe": {
+        "top": 240,
+        "right": 240,
+        "bottom": 240,
+        "left": 240
+      },
+      "use": "Podcast playlist cover"
+    },
+    "channelBanner": {
+      "width": 2560,
+      "height": 1440,
+      "ratio": "16 / 9",
+      "safe": {
+        "width": 1544,
+        "height": 423,
+        "position": "center"
+      },
+      "minimumUpload": {
+        "width": 2048,
+        "height": 1152
+      },
+      "minimumSafe": {
+        "width": 1235,
+        "height": 338
+      },
+      "use": "Channel banner across television, desktop and mobile crops"
+    },
+    "endScreen": {
+      "width": 1920,
+      "height": 1080,
+      "ratio": "16 / 9",
+      "safe": {
+        "top": 90,
+        "right": 90,
+        "bottom": 90,
+        "left": 90
+      },
+      "durationSeconds": "5–20",
+      "use": "Last-frame typography around YouTube end-screen elements"
+    }
+  },
+  "roles": {
+    "youtube.title": {
+      "family": "head",
+      "weight": 700,
+      "ital": 0,
+      "size": "min(10.4cqi, 14.3cqb)",
+      "lineHeight": 0.86,
+      "tracking": "-0.045em",
+      "maxLines": 2,
+      "maxWords": 7
+    },
+    "youtube.titleCompact": {
+      "family": "head",
+      "weight": 600,
+      "ital": 0,
+      "size": "min(7.8cqi, 10.8cqb)",
+      "lineHeight": 0.91,
+      "tracking": "-0.036em",
+      "maxLines": 3,
+      "maxWords": 11
+    },
+    "youtube.kicker": {
+      "family": "eyebrow",
+      "weight": 700,
+      "width": 87.5,
+      "ital": 0,
+      "size": "min(1.8cqi, 2.5cqb)",
+      "lineHeight": 1.0,
+      "tracking": ".07em",
+      "maxLines": 1,
+      "maxWords": 6
+    },
+    "youtube.support": {
+      "family": "bodyAlt",
+      "weight": 600,
+      "style": "normal",
+      "size": "min(2.9cqi, 4cqb)",
+      "lineHeight": 1.1,
+      "tracking": "-0.012em",
+      "maxLines": 2,
+      "maxWords": 12
+    },
+    "youtube.badge": {
+      "family": "body",
+      "weight": 700,
+      "style": "normal",
+      "size": "min(1.9cqi, 2.65cqb)",
+      "lineHeight": 1.0,
+      "tracking": ".006em",
+      "maxLines": 1,
+      "maxWords": 4
+    },
+    "youtube.credit": {
+      "family": "body",
+      "weight": 600,
+      "style": "normal",
+      "size": "min(1.45cqi, 2cqb)",
+      "lineHeight": 1.1,
+      "tracking": "0em",
+      "maxLines": 1,
+      "maxWords": 7
+    },
+    "youtube.arrow": {
+      "family": "head",
+      "weight": 700,
+      "ital": 0,
+      "size": "min(7.2cqi, 10cqb)",
+      "lineHeight": 0.8,
+      "tracking": "0em",
+      "maxLines": 1,
+      "maxWords": 1
+    }
+  },
+  "templates": {
+    "tutorial": {
+      "formula": "Kicker + two-line title + one visual action",
+      "copy": "HOW WE BUILD / A PITCH DECK",
+      "titleWords": "3–7"
+    },
+    "critique": {
+      "formula": "Programme badge + diagnosis + marked detail",
+      "copy": "WHY THIS DECK FAILS",
+      "titleWords": "3–6"
+    },
+    "beforeAfter": {
+      "formula": "Split proof + BEFORE → AFTER",
+      "copy": "BEFORE → AFTER",
+      "titleWords": "2–5"
+    },
+    "process": {
+      "formula": "Episode marker + promise + artifact",
+      "copy": "ONE WEEK. ONE DECK.",
+      "titleWords": "3–7"
+    },
+    "opinion": {
+      "formula": "One hard statement + small qualifier",
+      "copy": "STOP USING TEMPLATES.",
+      "titleWords": "2–6"
+    },
+    "caseStudy": {
+      "formula": "Project name + outcome + visual proof",
+      "copy": "HOW WE WON THE ROOM",
+      "titleWords": "4–8"
+    }
+  }
+}
