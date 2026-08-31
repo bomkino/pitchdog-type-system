@@ -29,7 +29,7 @@ def sha256(path: Path) -> str:
 def validate_package() -> None:
     package = json.loads((ROOT / "package.json").read_text(encoding="utf-8"))
     check(package.get("name") == "@pitchdog/type-system", "package name is canonical")
-    check(package.get("version") == "13.0.0", "package version is 13.0.0")
+    check(package.get("version") == "13.1.0", "package version is 13.1.0")
     check(package.get("private") is True, "package cannot be published accidentally")
     packaged = set(package.get("files", []))
     for legal_file in ["LICENSE.md", "FONT-LICENSE.md", "FONT-PROVENANCE.json"]:

@@ -21,6 +21,9 @@ PROPERTIES = (
     "font-variation-settings",
     "font-feature-settings",
     "font-stretch",
+    "text-wrap",
+    "text-wrap-style",
+    "hyphens",
 )
 EXCEPTION_MARKER = "pd-type-exception:"
 

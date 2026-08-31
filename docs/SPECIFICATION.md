@@ -121,6 +121,10 @@ Dense content is a first-class mode, not a fallback. It uses:
 - productive sans titles inside cards and tables
 - Eyebrow only for literal data and metadata
 
+## 10a. Web wrapping and measure
+
+Wrapping is governed by content job, never by a blanket paragraph selector. Short display text uses `balance`; selected leads and reading prose use `pretty`; repeated or longer body copy may opt into progressive `avoid-orphans`; editable text uses `stable`; controls and dense UI keep normal wrapping. Reading measure and wrapping are independent decisions. See `WEB-TEXT-WRAPPING.md` for the complete policy, API and QA matrix.
+
 ## 11. Interface layer
 
 The UI system contains fourteen roles and three density modes. Density changes spacing and control geometry before it changes typography. Default controls are 48 px tall. Coarse-pointer contexts never use the 40 px compact control geometry.

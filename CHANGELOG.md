@@ -1,5 +1,14 @@
 # Changelog
 
+## 13.1.0
+
+- Added governed web measure tokens for short display support, introductions, sustained prose, operational copy and the WCAG line-length ceiling.
+- Added explicit `auto`, `balance`, `pretty`, `stable` and progressive `avoid-orphans` wrapping contracts as data attributes and utility classes.
+- Kept the legacy `.pd-balance`, `.pd-pretty` and `.pd-prose` utilities as compatible aliases.
+- Added opt-in language-aware hyphenation instead of forcing word breaks across the system.
+- Documented when balancing helps, when prettier wrapping costs too much, how authored line breaks interact with both, and why reading measure remains a separate decision.
+- Extended the typography guard and release validator so wrapping policy is testable rather than advisory.
+
 ## 13.0.0
 
 - Renamed the release line to lucky-number version 13.

@@ -16,6 +16,12 @@
     --pd-font-eyebrow: "PD Eyebrow", ui-monospace, "SFMono-Regular", Consolas, monospace;
 
     --pd-type-ink: currentColor;
+    --pd-reading-measure-narrow: 38ch;
+    --pd-reading-measure-intro: 48ch;
+    --pd-reading-measure-prose: 45ch;
+    --pd-reading-measure-default: 48ch;
+    --pd-reading-measure-wide: 52ch;
+    --pd-reading-measure-ceiling: 54ch;
     --pd-measure-reading: 64ch;
     --pd-measure-default: 68ch;
     --pd-measure-compact: 72ch;
@@ -209,9 +215,23 @@
 }
 
 @layer pd.utilities {
-  :where(.pd-balance) { text-wrap: balance; }
-  :where(.pd-pretty) { text-wrap: pretty; }
+  :where([data-pd-wrap="auto"], .pd-wrap-auto) { text-wrap: wrap; }
+  :where([data-pd-wrap="balance"], .pd-wrap-balance, .pd-balance) { text-wrap: balance; }
+  :where([data-pd-wrap="pretty"], .pd-wrap-pretty, .pd-pretty) { text-wrap: pretty; }
+  :where([data-pd-wrap="stable"], .pd-wrap-stable) { text-wrap: stable; }
+  :where([data-pd-wrap="avoid-orphans"], .pd-wrap-avoid-orphans) { text-wrap: wrap; }
+  @supports (text-wrap-style: avoid-orphans) {
+    :where([data-pd-wrap="avoid-orphans"], .pd-wrap-avoid-orphans) { text-wrap-style: avoid-orphans; }
+  }
+  :where([data-pd-measure="narrow"], .pd-measure-narrow) { max-inline-size: var(--pd-reading-measure-narrow); }
+  :where([data-pd-measure="intro"], .pd-measure-intro) { max-inline-size: var(--pd-reading-measure-intro); }
+  :where([data-pd-measure="reading"], .pd-measure-reading) { max-inline-size: var(--pd-reading-measure-prose); }
+  :where([data-pd-measure="default"], .pd-measure-default) { max-inline-size: var(--pd-reading-measure-default); }
+  :where([data-pd-measure="wide"], .pd-measure-wide) { max-inline-size: var(--pd-reading-measure-wide); }
+  :where([data-pd-measure="ceiling"], .pd-measure-ceiling) { max-inline-size: var(--pd-reading-measure-ceiling); }
   :where(.pd-prose) { max-inline-size: var(--pd-measure-reading); }
+  :where([data-pd-measure="none"], .pd-measure-none) { max-inline-size: none; }
+  :where([data-pd-hyphenate], .pd-hyphenate) { overflow-wrap: break-word; hyphens: auto; }
   :where(.pd-break-anywhere) { overflow-wrap: anywhere; }
   :where(.pd-tabular) { font-variant-numeric: tabular-nums lining-nums; }
   :where(.pd-no-ligatures) { font-variant-ligatures: none; }

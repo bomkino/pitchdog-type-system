@@ -1,4 +1,16 @@
-# Research sources used for the YouTube extension
+# Research sources
+
+## Web wrapping and reading measure
+
+Checked 31 August 2026.
+
+- W3C CSS Text Module Level 4 — normative definitions and intended jobs for `balance`, `pretty`, `stable` and `avoid-orphans`.
+- MDN `text-wrap-style` — current cross-browser availability, performance guidance and browser-specific balance limits.
+- W3C WAI Understanding WCAG 2.2 SC 1.4.8 — the 80-character line-length ceiling and the accessibility cost of long lines.
+- U.S. Web Design System Typography — a 45–90 character working range and a 66-character target for long reading.
+- GOV.UK Design System Layout — a practical 75-character recommendation for ordinary page layouts.
+
+## YouTube extension
 
 Checked 28 August 2026.
 

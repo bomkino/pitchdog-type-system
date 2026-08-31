@@ -38,6 +38,16 @@ For a copied checkout or non-JavaScript build, preserve the relative relationshi
 </h1>
 ```
 
+Use explicit wrapping and measure contracts when a role alone does not express the content job:
+
+```html
+<p data-pd-type="lead.section" data-pd-wrap="pretty" data-pd-measure="intro">
+  A short, important introduction.
+</p>
+```
+
+Do not apply `pretty` to `body`, every paragraph or an entire interface. Use `docs/WEB-TEXT-WRAPPING.md` to choose between `balance`, `pretty`, `stable`, progressive `avoid-orphans` and normal wrapping.
+
 ## Productive context
 
 ```html

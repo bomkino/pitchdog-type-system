@@ -2,7 +2,7 @@
   "$schema": "./pitchdog.system.tokens.schema.json",
   "meta": {
     "name": "pitch.dog Type System",
-    "version": "13.0.0",
+    "version": "13.1.0",
     "displayVersion": "13",
     "status": "production-candidate",
     "fontSource": "FontBlind-Final-2026-08-28-v13.zip",
@@ -121,6 +121,49 @@
     }
   },
   "web": {
+    "measures": {
+      "narrow": {
+        "value": "38ch",
+        "use": "Large text, short supporting copy and compact explanations"
+      },
+      "intro": {
+        "value": "48ch",
+        "use": "Hero propositions, section introductions and short editorial passages"
+      },
+      "reading": {
+        "value": "45ch",
+        "use": "Sustained prose and case-study reading"
+      },
+      "default": {
+        "value": "48ch",
+        "use": "General website copy that is shorter than long-form reading"
+      },
+      "wide": {
+        "value": "52ch",
+        "use": "Compact operational copy with sufficient line height"
+      },
+      "ceiling": {
+        "value": "54ch",
+        "use": "Accessibility ceiling, not a normal design target"
+      }
+    },
+    "wrapStyles": {
+      "auto": {
+        "use": "Controls, metadata, dense interfaces and the safe fallback"
+      },
+      "balance": {
+        "use": "Titles, headings and captions that remain at five lines or fewer"
+      },
+      "pretty": {
+        "use": "Selected introductory and editorial prose where quality justifies extra layout work"
+      },
+      "stable": {
+        "use": "Editable text whose earlier lines should not reflow while typing"
+      },
+      "avoid-orphans": {
+        "use": "Progressive, lower-cost last-line protection for repeated or longer body copy"
+      }
+    },
     "roles": {
       "display.hero": {
         "family": "head",

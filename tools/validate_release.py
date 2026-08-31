@@ -64,7 +64,7 @@ check(not any(message.startswith("invalid JSON:") for message in errors), "all J
 
 tokens = load_json(ROOT / "tokens/pitchdog.system.tokens.json") or {}
 meta = tokens.get("meta", {})
-check(meta.get("version") == "13.0.0", "version is 13.0.0")
+check(meta.get("version") == "13.1.0", "version is 13.1.0")
 check(meta.get("displayVersion") == "13", "display version is lucky number 13")
 check(
     meta.get("fontSource") == "FontBlind-Final-2026-08-28-v13.zip",
@@ -111,6 +111,24 @@ dtcg_web = (
     else {}
 )
 canonical_web = tokens.get("web", {}).get("roles", {})
+web_measures = tokens.get("web", {}).get("measures", {})
+check(
+    {name: contract.get("value") for name, contract in web_measures.items()}
+    == {
+        "narrow": "38ch",
+        "intro": "48ch",
+        "reading": "45ch",
+        "default": "48ch",
+        "wide": "52ch",
+        "ceiling": "54ch",
+    },
+    "web measure tokens are exact",
+)
+wrap_styles = tokens.get("web", {}).get("wrapStyles", {})
+check(
+    set(wrap_styles) == {"auto", "balance", "pretty", "stable", "avoid-orphans"},
+    "web wrapping styles are complete",
+)
 check(
     len(dtcg_web) == 17 and set(dtcg_web) == set(canonical_web),
     "DTCG preserves all 17 unique web role paths",
@@ -244,9 +262,30 @@ required_docs = [
     "IMPLEMENTATION.md",
     "GOVERNANCE.md",
     "VALIDATION-REPORT.md",
+    "WEB-TEXT-WRAPPING.md",
 ]
 for name in required_docs:
     check((ROOT / "docs" / name).exists(), f"documentation exists: {name}")
+
+wrap_contracts = load_json(ROOT / "dist" / "pitchdog-wrap-contracts.json") or {}
+check(wrap_contracts.get("version") == "13.1.0", "wrap contracts carry the release version")
+check(
+    wrap_contracts.get("measures", {}).get("reading") == "45ch"
+    and wrap_contracts.get("measures", {}).get("ceiling") == "54ch",
+    "wrap contract measures preserve the reading target and accessibility ceiling",
+)
+typography_css = (ROOT / "dist" / "pitchdog-typography.css").read_text(encoding="utf-8")
+for marker in [
+    'data-pd-wrap="balance"',
+    'data-pd-wrap="pretty"',
+    'data-pd-wrap="stable"',
+    'data-pd-wrap="avoid-orphans"',
+    'data-pd-measure="reading"',
+    'data-pd-measure="ceiling"',
+    "@supports (text-wrap-style: avoid-orphans)",
+    "hyphens: auto",
+]:
+    check(marker in typography_css, f"typography CSS contains {marker}")
 
 result = {
     "pass": not errors,

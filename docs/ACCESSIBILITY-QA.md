@@ -27,3 +27,7 @@
 - No colour-only link or state distinction
 - No synthetic Head italic
 - No hidden semantic text behind canvas-only or WebGL-only rendering
+- No sustained reading measure above 80 characters
+- No blanket `text-wrap: pretty` on the document or application shell
+- No automatic hyphenation without a correct language declaration
+- No non-breaking-space strings used to force visual line endings

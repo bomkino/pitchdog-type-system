@@ -2,7 +2,7 @@
 
 The private source of truth for pitch.dog fonts, type tokens, CSS roles, interface typography, social formats and YouTube typography.
 
-Current release: **v13.0.0**
+Current release: **v13.1.0**
 
 ## Use it in a project
 
@@ -11,7 +11,7 @@ Pin the release. Do not depend on `main`.
 ```json
 {
   "dependencies": {
-    "@pitchdog/type-system": "git+ssh://git@github.com/bomkino/pitchdog-type-system.git#v13.0.0"
+    "@pitchdog/type-system": "git+ssh://git@github.com/bomkino/pitchdog-type-system.git#v13.1.0"
   }
 }
 ```
@@ -35,6 +35,8 @@ import "@pitchdog/type-system/youtube.css";
 `ui.css`, `social.css` and `youtube.css` are not standalone; they consume variables declared by `typography.css`.
 
 The CSS resolves the seven canonical WOFF2 files from this package. Your app's bundler should copy and fingerprint them with the rest of its assets.
+
+For web wrapping and reading measure, use the semantic roles or the explicit `data-pd-wrap` and `data-pd-measure` contracts. Do not put `text-wrap: pretty` on `body`, every paragraph, or an entire application shell. See `docs/WEB-TEXT-WRAPPING.md`.
 
 Do **not** hotlink private `raw.githubusercontent.com` URLs in a browser. They need authentication, and placing a GitHub token in client-side CSS would leak it. GitHub is the source and distribution point; each project serves the webfonts from its own build.
 

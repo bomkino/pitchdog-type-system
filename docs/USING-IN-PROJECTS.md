@@ -5,7 +5,7 @@
 Install the private repository at an immutable release tag:
 
 ```bash
-npm install "git+ssh://git@github.com/bomkino/pitchdog-type-system.git#v13.0.0"
+npm install "git+ssh://git@github.com/bomkino/pitchdog-type-system.git#v13.1.0"
 ```
 
 Local installs require GitHub SSH access for the `bomkino` account. CI and cloud builds need their own read-only deploy key, GitHub App installation token, or narrowly scoped token stored in the platform's secret manager. Never put a token in `package.json`, a Git URL, browser code or committed `.npmrc`.
@@ -24,7 +24,7 @@ For a non-npm project:
 
 ```bash
 git submodule add git@github.com:bomkino/pitchdog-type-system.git vendor/pitchdog-type-system
-git -C vendor/pitchdog-type-system checkout v13.0.0
+git -C vendor/pitchdog-type-system checkout v13.1.0
 ```
 
 Copy `dist/` and `assets/fonts/` into the project's own static asset pipeline. Keep their relative relationship intact: CSS in `dist/` resolves fonts from `../assets/fonts/`.

@@ -1,7 +1,7 @@
 {
   "meta": {
     "name": "pitch.dog Type System",
-    "version": "13.0.0",
+    "version": "13.1.0",
     "displayVersion": "13",
     "status": "production-candidate",
     "fontSource": "FontBlind-Final-2026-08-28-v13.zip",
@@ -119,6 +119,21 @@
       "head": "headAlt"
     }
   },
+  "measures": {
+    "narrow": "38ch",
+    "intro": "48ch",
+    "reading": "45ch",
+    "default": "48ch",
+    "wide": "52ch",
+    "ceiling": "54ch"
+  },
+  "wrapStyles": [
+    "auto",
+    "balance",
+    "pretty",
+    "stable",
+    "avoid-orphans"
+  ],
   "roles": {
     "display.hero": {
       "family": "head",

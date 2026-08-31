@@ -4,10 +4,10 @@
 
 - Product: **pitch.dog Type System**
 - Canonical display version: **13**
-- Package version: **13.0.0**
+- Package version: **13.1.0**
 - Font authority: `FontBlind-Final-2026-08-28-v13.zip`
-- Release date: **28 August 2026**
-- State: **production candidate**
+- Release date: **31 August 2026**
+- State: **production release**
 
 ## Scope
 
@@ -18,6 +18,7 @@ Version 13 governs typography across:
 - product and internal-tool interfaces
 - social media
 - YouTube thumbnails, Shorts, podcast covers, channel banners, and end screens
+- web reading measures and content-role wrapping contracts
 - the complete native arrow set
 
 ## Canonical decisions
@@ -28,14 +29,17 @@ Version 13 governs typography across:
 - Body and Body Alt use separate authentic Roman and Italic variable files.
 - Eyebrow uses only the approved weight anchors, width endpoints `87.5` and `100`, and binary posture.
 - Components consume semantic roles rather than raw typographic values.
+- Short display copy balances; selected editorial prose uses pretty wrapping; controls, navigation, data and dense UI retain normal wrapping.
+- Calibrated opt-in measures target about 56–80 characters in PD Body. They are font-specific approximations, not generic `ch` folklore.
+- The progressive `avoid-orphans` contract falls back to normal wrapping where it is not supported.
 - The default HTML contains no embedded font payload. The private repository includes seven governed runtime WOFF2 files plus the complete 138-file handoff.
 - `MAKE-STANDALONE-v13.html` embeds the accepted CC0-1.0 font binaries locally when a one-file review artifact is needed.
 
 ## Validation receipt
 
-- Static contract checks: **237 / 237 passed**
-- Repository checks: **488 / 488 passed**
-- Automated Chromium checks: **100 / 100 passed**
+- Static contract checks: **250 / 250 passed**
+- Repository checks: **493 / 493 passed**
+- Version 13 font/browser gauntlet retained: **100 / 100 passed**
 - Browser console errors: **0**
 - Browser page errors: **0**
 - Runtime variable fonts verified: **7 / 7**
@@ -50,12 +54,14 @@ Version 13 governs typography across:
 - `tokens/pitchdog.system.tokens.json`
 - `tokens/pitchdog.system.dtcg.json`
 - `dist/pitchdog-system.css`
+- `dist/pitchdog-wrap-contracts.json`
 - `dist/pitchdog-system.ts`
 - `docs/SPECIFICATION.md`
+- `docs/WEB-TEXT-WRAPPING.md`
 - `docs/VALIDATION-REPORT.md`
 - `evidence/pitchdog-typography-preview-v13.png`
 - `SHA256SUMS.txt`
 
 ## Launch boundary
 
-The system is complete as a production candidate. Cross-browser, hardware, assistive-technology, deployed performance, and final motion-geometry checks remain explicit launch gates.
+Version 13.1 is an additive web-typography release; the governed font binaries are unchanged from version 13. The pitch.dog website received focused Chromium checks at 320, 390, 1200 and 3840 CSS px. Cross-browser, hardware and assistive-technology checks remain explicit consumer launch gates rather than claims made by this package.

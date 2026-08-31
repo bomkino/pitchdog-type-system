@@ -1,0 +1,43 @@
+{
+  "version": "13.1.0",
+  "measures": {
+    "narrow": "38ch",
+    "intro": "48ch",
+    "reading": "45ch",
+    "default": "48ch",
+    "wide": "52ch",
+    "ceiling": "54ch"
+  },
+  "wrapStyles": {
+    "auto": {
+      "selector": "[data-pd-wrap=\"auto\"]",
+      "class": "pd-wrap-auto",
+      "use": "Controls, metadata, dense interfaces and the safe fallback"
+    },
+    "balance": {
+      "selector": "[data-pd-wrap=\"balance\"]",
+      "class": "pd-wrap-balance",
+      "use": "Titles, headings and captions that remain at five lines or fewer"
+    },
+    "pretty": {
+      "selector": "[data-pd-wrap=\"pretty\"]",
+      "class": "pd-wrap-pretty",
+      "use": "Selected introductory and editorial prose"
+    },
+    "stable": {
+      "selector": "[data-pd-wrap=\"stable\"]",
+      "class": "pd-wrap-stable",
+      "use": "Editable text whose earlier lines should remain stable while typing"
+    },
+    "avoid-orphans": {
+      "selector": "[data-pd-wrap=\"avoid-orphans\"]",
+      "class": "pd-wrap-avoid-orphans",
+      "use": "Progressive, lower-cost last-line protection for repeated or longer body copy"
+    }
+  },
+  "hyphenation": {
+    "selector": "[data-pd-hyphenate]",
+    "class": "pd-hyphenate",
+    "requires": "A correct lang attribute on the element or an ancestor"
+  }
+}
