@@ -981,7 +981,7 @@
   },
   "$extensions": {
     "pitchdog": {
-      "version": "13.1.0",
+      "version": "13.1.1",
       "anchorPolicy": "Only listed master anchors are valid production values."
     }
   }

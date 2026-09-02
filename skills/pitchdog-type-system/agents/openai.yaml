@@ -1,0 +1,4 @@
+interface:
+  display_name: "pitch.dog Type System"
+  short_description: "Apply canonical pitch.dog typography everywhere"
+  default_prompt: "Use $pitchdog-type-system for this type work and verify the rendered result."

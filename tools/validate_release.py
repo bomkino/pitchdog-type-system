@@ -64,12 +64,23 @@ check(not any(message.startswith("invalid JSON:") for message in errors), "all J
 
 tokens = load_json(ROOT / "tokens/pitchdog.system.tokens.json") or {}
 meta = tokens.get("meta", {})
-check(meta.get("version") == "13.1.0", "version is 13.1.0")
+check(meta.get("version") == "13.1.1", "version is 13.1.1")
 check(meta.get("displayVersion") == "13", "display version is lucky number 13")
+check(meta.get("status") == "production", "canonical token state is production")
 check(
     meta.get("fontSource") == "FontBlind-Final-2026-08-28-v13.zip",
     "v13 font authority recorded",
 )
+
+for split_name in [
+    "pitchdog.typography.tokens.json",
+    "pitchdog.ui.tokens.json",
+    "pitchdog.social.tokens.json",
+    "pitchdog.youtube.tokens.json",
+]:
+    split_meta = (load_json(ROOT / "tokens" / split_name) or {}).get("meta", {})
+    check(split_meta.get("version") == meta.get("version"), f"{split_name} carries the canonical version")
+    check(split_meta.get("status") == meta.get("status"), f"{split_name} carries the canonical release state")
 
 anchors = tokens.get("anchors", {})
 for family, expected in EXPECTED_ANCHORS.items():
@@ -268,7 +279,7 @@ for name in required_docs:
     check((ROOT / "docs" / name).exists(), f"documentation exists: {name}")
 
 wrap_contracts = load_json(ROOT / "dist" / "pitchdog-wrap-contracts.json") or {}
-check(wrap_contracts.get("version") == "13.1.0", "wrap contracts carry the release version")
+check(wrap_contracts.get("version") == "13.1.1", "wrap contracts carry the release version")
 check(
     wrap_contracts.get("measures", {}).get("reading") == "45ch"
     and wrap_contracts.get("measures", {}).get("ceiling") == "54ch",

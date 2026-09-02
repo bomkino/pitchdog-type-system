@@ -2,9 +2,9 @@
   "$schema": "./pitchdog.system.tokens.schema.json",
   "meta": {
     "name": "pitch.dog Type System",
-    "version": "13.1.0",
+    "version": "13.1.1",
     "displayVersion": "13",
-    "status": "production-candidate",
+    "status": "production",
     "fontSource": "FontBlind-Final-2026-08-28-v13.zip",
     "principle": "Anchor-locked variable typography"
   },

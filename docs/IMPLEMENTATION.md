@@ -2,7 +2,7 @@
 
 ## Installed package
 
-The private package already includes all seven runtime WOFF2 files. Import the complete system once from your application entry point:
+The installed package already includes all seven runtime WOFF2 files. Import the complete system once from your application entry point:
 
 ```js
 import "@pitchdog/type-system/system.css";

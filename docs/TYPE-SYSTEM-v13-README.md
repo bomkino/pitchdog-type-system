@@ -9,7 +9,7 @@ Version 13 is the canonical typography system for pitch.dog across website, dens
 3. Inspect the real fonts and every system layer.
 4. Click **Build embedded standalone HTML** when you need a one-file review artifact.
 
-The original standalone-review distributable contained no font binaries. This private source repository deliberately adds the seven hash-verified runtime WOFF2 files in `assets/fonts/` and the complete handoff in `pitchdog-font-handoff-v13/`.
+The original standalone-review distributable contained no font binaries. The canonical repository deliberately adds the seven hash-verified runtime WOFF2 files in `assets/fonts/` and the complete handoff in `pitchdog-font-handoff-v13/`.
 
 ## Governing decisions
 

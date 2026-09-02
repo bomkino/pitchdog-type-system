@@ -1,4 +1,4 @@
-export const VERSION = "13.1.0" as const;
+export const VERSION = "13.1.1" as const;
 export const HEAD_WEIGHTS = [265, 300, 400, 500, 600, 700, 900] as const;
 export const BODY_WEIGHTS = [100, 250, 300, 400, 600, 700, 900] as const;
 export const EYEBROW_WEIGHTS = [100, 200, 300, 350, 400, 500, 600, 700, 800, 900] as const;

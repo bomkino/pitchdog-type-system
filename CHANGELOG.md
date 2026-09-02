@@ -1,5 +1,13 @@
 # Changelog
 
+## 13.1.1
+
+- Added the model-invoked `pitchdog-type-system` Codex Agent Skill for every task that touches type.
+- Kept the skill procedural and lean: it resolves immutable source, routes to canonical files, preserves consumer pins, and verifies real output without copying typography data or fonts.
+- Added repository checks for skill structure, invocation metadata, local reference integrity, and the absence of duplicated type-system payloads inside the skill.
+- Aligned current release metadata to production and corrected public-source instructions while preserving the all-rights-reserved system and font-only CC0 boundary.
+- Left font binaries, semantic roles, metrics, and other typography contracts unchanged from 13.1.0.
+
 ## 13.1.0
 
 - Added governed web measure tokens for short display support, introductions, sustained prose, operational copy and the WCAG line-length ceiling.

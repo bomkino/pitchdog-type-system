@@ -1,12 +1,12 @@
 {
   "name": "@pitchdog/type-system",
-  "version": "13.1.0",
+  "version": "13.1.1",
   "private": true,
-  "description": "Private pitch.dog fonts and typography system.",
+  "description": "Canonical pitch.dog fonts and typography system.",
   "license": "SEE LICENSE IN LICENSE.md",
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com/bomkino/pitchdog-type-system.git"
+    "url": "https://github.com/bomkino/pitchdog-type-system.git"
   },
   "style": "./dist/pitchdog-system.css",
   "sideEffects": [

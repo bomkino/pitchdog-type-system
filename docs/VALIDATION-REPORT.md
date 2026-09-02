@@ -1,8 +1,10 @@
 # pitch.dog Type System v13 — Validation report
 
 **Validation date:** 28 August 2026  
-**Release state:** production candidate  
+**Validation state at capture:** production candidate
 **Font authority:** `FontBlind-Final-2026-08-28-v13.zip`
+
+This report preserves the pre-release browser and font evidence captured on 28 August 2026. The package was later promoted to production; current release identity and repository checks belong to `RELEASE-RECEIPT.md`. The historical candidate label is not the current package state.
 
 ## Result
 
@@ -14,7 +16,7 @@
 | Browser page errors | **0** |
 | Font binaries in original standalone-review distributable | **0** |
 | Embedded font payloads in distributable HTML | **0** |
-| Runtime variable faces verified in private web package | **7 / 7** |
+| Runtime variable faces verified in web package | **7 / 7** |
 
 The release passed every gate available in this environment.
 
@@ -185,7 +187,7 @@ The automated browser test selected the supplied v13 ZIP, then:
 9. confirmed the loader and baker code had been removed
 10. confirmed the inline favicon remained
 
-The generated embedded test file was deleted after validation. The HTML review artifact contains no embedded font data by default. The private repository distributes the governed fonts separately in `assets/fonts/` and `pitchdog-font-handoff-v13/`.
+The generated embedded test file was deleted after validation. The HTML review artifact contains no embedded font data by default. The canonical repository distributes the governed fonts separately in `assets/fonts/` and `pitchdog-font-handoff-v13/`.
 
 ## Static release integrity
 

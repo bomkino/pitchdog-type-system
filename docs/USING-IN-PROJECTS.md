@@ -2,13 +2,13 @@
 
 ## JavaScript projects
 
-Install the private repository at an immutable release tag:
+Install the canonical repository at an immutable release tag:
 
 ```bash
-npm install "git+ssh://git@github.com/bomkino/pitchdog-type-system.git#v13.1.0"
+npm install "git+https://github.com/bomkino/pitchdog-type-system.git#v13.1.1"
 ```
 
-Local installs require GitHub SSH access for the `bomkino` account. CI and cloud builds need their own read-only deploy key, GitHub App installation token, or narrowly scoped token stored in the platform's secret manager. Never put a token in `package.json`, a Git URL, browser code or committed `.npmrc`.
+The public canonical repository does not require credentials for read-only HTTPS installation. If a private mirror or authenticated workflow is used, keep credentials in the platform's secret manager. Never put a token in `package.json`, a Git URL, browser code or committed `.npmrc`.
 
 Import the complete system from the application entry point:
 
@@ -23,8 +23,8 @@ This works with bundlers that process CSS asset URLs, including Vite and its fra
 For a non-npm project:
 
 ```bash
-git submodule add git@github.com:bomkino/pitchdog-type-system.git vendor/pitchdog-type-system
-git -C vendor/pitchdog-type-system checkout v13.1.0
+git submodule add https://github.com/bomkino/pitchdog-type-system.git vendor/pitchdog-type-system
+git -C vendor/pitchdog-type-system checkout v13.1.1
 ```
 
 Copy `dist/` and `assets/fonts/` into the project's own static asset pipeline. Keep their relative relationship intact: CSS in `dist/` resolves fonts from `../assets/fonts/`.
@@ -46,10 +46,10 @@ PD Eyebrow's 350 and 400 static files share internal names and can overwrite one
 
 Font filenames may be content-hashed by the consuming app. Serve production WOFF2 files with long immutable caching only when the URL itself changes with the file hash.
 
-## Private-source boundary
+## Source/runtime boundary
 
-A private GitHub repository is not a browser CDN. Runtime webfonts inevitably become downloadable by visitors to any public website that uses them. Repository privacy protects the source collection and native handoff, not assets already shipped to a browser.
+The canonical GitHub repository is a source and distribution surface, not a browser CDN. Runtime webfonts inevitably become downloadable by visitors to any public website that uses them; each consumer serves the files from its own asset pipeline.
 
 ## Rights boundary
 
-The font binaries are CC0 1.0 Universal and may be copied, modified and redistributed without attribution. The typography-system code, tokens, documentation, examples, artwork and pitch.dog branding are not CC0 and remain private. Keep `FONT-LICENSE.md` with font handoffs as provenance, but not as an additional CC0 condition.
+The font binaries are CC0 1.0 Universal and may be copied, modified and redistributed without attribution. The typography-system code, tokens, documentation, examples, artwork and pitch.dog branding are not CC0 and remain all-rights-reserved. Public repository visibility does not grant a licence. Keep `FONT-LICENSE.md` with font handoffs as provenance, but not as an additional CC0 condition.
