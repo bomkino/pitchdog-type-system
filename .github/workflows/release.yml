@@ -1,0 +1,135 @@
+name: Release
+
+# Publishes a GitHub Release whenever main carries a package version that has no
+# tag yet. A manual run can also publish the missing Release page for a tag that
+# already exists, without moving that tag.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Existing tag that needs a Release page (for example v13.1.0). Leave empty to release main."
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    if: github.repository == 'bomkino/pitchdog-type-system'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ inputs.tag || github.sha }}
+
+      - name: Decide what to publish
+        id: plan
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          INPUT_TAG: ${{ inputs.tag }}
+        run: |
+          if [ -n "$INPUT_TAG" ]; then
+            tag="$INPUT_TAG"
+            git rev-parse -q --verify "refs/tags/$tag" >/dev/null || { echo "::error::$tag does not exist"; exit 1; }
+            mode=backfill
+          else
+            tag="v$(python3 -c 'import json; print(json.load(open("package.json"))["version"])')"
+            mode=new
+            if git rev-parse -q --verify "refs/tags/$tag" >/dev/null; then
+              echo "$tag is already tagged; nothing to release."
+              echo "skip=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+          fi
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "$tag already has a Release page; nothing to do."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          echo "version=${tag#v}" >> "$GITHUB_OUTPUT"
+          echo "mode=$mode" >> "$GITHUB_OUTPUT"
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          echo "skip=false" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/setup-python@v5
+        if: steps.plan.outputs.skip == 'false'
+        with:
+          python-version: "3.13"
+
+      - name: Verify the release tree
+        if: steps.plan.outputs.skip == 'false' && steps.plan.outputs.mode == 'new'
+        run: |
+          python3 -m pip install --quiet -r tools/requirements.txt
+          python3 scripts/verify_repository.py
+          python3 tools/normalize_font_names.py --check assets/fonts pitchdog-font-handoff
+
+      - name: Build release assets
+        if: steps.plan.outputs.skip == 'false' && steps.plan.outputs.mode == 'new'
+        env:
+          TAG: ${{ steps.plan.outputs.tag }}
+        run: python3 scripts/build_release_assets.py --tag "$TAG" --output "$RUNNER_TEMP/assets"
+
+      - name: Write release notes
+        if: steps.plan.outputs.skip == 'false'
+        env:
+          TAG: ${{ steps.plan.outputs.tag }}
+          VERSION: ${{ steps.plan.outputs.version }}
+          SHA: ${{ steps.plan.outputs.sha }}
+          MODE: ${{ steps.plan.outputs.mode }}
+        shell: python
+        run: |
+          import os, re
+          from pathlib import Path
+
+          version, tag, sha, mode = (os.environ[key] for key in ("VERSION", "TAG", "SHA", "MODE"))
+          changelog = Path("CHANGELOG.md").read_text(encoding="utf-8")
+          match = re.search(rf"^## {re.escape(version)}\b.*?$(.*?)(?=^## |\Z)", changelog, re.M | re.S)
+          if not match:
+              raise SystemExit(f"CHANGELOG.md has no section for {version}")
+          lines = [match.group(1).strip(), "", "### Release identity", "", f"- Tag: `{tag}`", f"- Commit: `{sha}`"]
+          if mode == "new":
+              lines += [
+                  "- Assets: runtime fonts, full font handoff and the agent skill, each with a `.sha256` sidecar",
+                  "",
+                  "### Install",
+                  "",
+                  "```json",
+                  f'"@pitchdog/type-system": "git+https://github.com/bomkino/pitchdog-type-system.git#{tag}"',
+                  "```",
+              ]
+          else:
+              lines += ["- This Release page was published after the tag; the tag and its commit are unchanged."]
+          lines += [
+              "",
+              "The font binaries are CC0-1.0. Everything else in the repository remains all rights reserved; see `LICENSE.md`.",
+          ]
+          Path(os.environ["RUNNER_TEMP"], "notes.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+      - name: Publish
+        if: steps.plan.outputs.skip == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.plan.outputs.tag }}
+          SHA: ${{ steps.plan.outputs.sha }}
+          MODE: ${{ steps.plan.outputs.mode }}
+        shell: bash
+        run: |
+          title="$TAG — pitch.dog type system"
+          if [ "$MODE" = new ]; then
+            gh release create "$TAG" "$RUNNER_TEMP"/assets/* \
+              --target "$SHA" --title "$title" --notes-file "$RUNNER_TEMP/notes.md" --latest
+          else
+            gh release create "$TAG" --verify-tag --title "$title" \
+              --notes-file "$RUNNER_TEMP/notes.md" --latest=false
+          fi

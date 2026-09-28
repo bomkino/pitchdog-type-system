@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Static integrity checks for the pitch.dog Type System v13 release."""
+"""Static integrity checks for the pitch.dog Type System release."""
 from __future__ import annotations
 
 import json
@@ -64,12 +64,13 @@ check(not any(message.startswith("invalid JSON:") for message in errors), "all J
 
 tokens = load_json(ROOT / "tokens/pitchdog.system.tokens.json") or {}
 meta = tokens.get("meta", {})
-check(meta.get("version") == "13.1.1", "version is 13.1.1")
-check(meta.get("displayVersion") == "13", "display version is lucky number 13")
+RELEASE = json.loads((ROOT / "package.json").read_text(encoding="utf-8"))["version"]
+check(meta.get("version") == RELEASE, f"version is {RELEASE}")
+check(meta.get("displayVersion") == RELEASE.split(".")[0], "display version is the major version")
 check(meta.get("status") == "production", "canonical token state is production")
 check(
     meta.get("fontSource") == "FontBlind-Final-2026-08-28-v13.zip",
-    "v13 font authority recorded",
+    "FontBlind v13 font authority recorded",
 )
 
 for split_name in [
@@ -198,11 +199,19 @@ check(
     "Eyebrow exposes genuine wght, wdth and ital axes",
 )
 
-html_path = ROOT / "pitchdog-typography-system-v13.html"
-baker_path = ROOT / "MAKE-STANDALONE-v13.html"
+html_path = ROOT / "pitchdog-typography-system.html"
 html = html_path.read_text(encoding="utf-8")
-baker = baker_path.read_text(encoding="utf-8")
-check(html == baker, "main lab and local baker are identical")
+baker = html  # the specimen is also the local standalone builder
+check(not (ROOT / "MAKE-STANDALONE-v13.html").exists(), "no duplicate standalone-builder copy")
+runtime_records = load_json(ROOT / "dist" / "pitchdog-font-runtime.json") or []
+expected_match = re.search(r"const EXPECTED=(\[.*?\]);", html)
+html_expected = json.loads(expected_match.group(1)) if expected_match else []
+check(
+    {record["key"]: (record["bytes"], record["sha256"]) for record in html_expected}
+    == {record["key"]: (record["bytes"], record["sha256"]) for record in runtime_records},
+    "specimen loader verifies the shipped runtime font hashes",
+)
+check(f'data-pd-version="{RELEASE.split(".")[0]}"' in html, "specimen carries the display version")
 check("font/woff2;base64" not in html, "distributable HTML contains no embedded font payload")
 malformed_inline_axis = re.compile(
     r'<[^>]*\bstyle="[^">]*font-variation-settings:"'
@@ -229,8 +238,8 @@ for glyph in ARROWS:
 
 manifest = load_json(ROOT / "assets/favicons/site.webmanifest") or {}
 check(
-    manifest.get("start_url") == "./pitchdog-typography-system-v13.html",
-    "web manifest points to v13 HTML",
+    manifest.get("start_url") == "./pitchdog-typography-system.html",
+    "web manifest points to the specimen HTML",
 )
 for relative in [
     "assets/favicons/favicon.svg",
@@ -255,7 +264,7 @@ for path in font_files:
     relative = path.relative_to(ROOT)
     if relative.parts[:2] == ("assets", "fonts"):
         continue
-    if relative.parts and relative.parts[0] == "pitchdog-font-handoff-v13":
+    if relative.parts and relative.parts[0] == "pitchdog-font-handoff":
         continue
     unexpected_fonts.append(relative.as_posix())
 check(not unexpected_fonts, f"no font binaries outside governed directories: {unexpected_fonts}")
@@ -272,6 +281,8 @@ required_docs = [
     "ACCESSIBILITY-QA.md",
     "IMPLEMENTATION.md",
     "GOVERNANCE.md",
+    "FONT-NAMING.md",
+    "MIGRATION-v13-to-v2.md",
     "VALIDATION-REPORT.md",
     "WEB-TEXT-WRAPPING.md",
 ]
@@ -279,7 +290,7 @@ for name in required_docs:
     check((ROOT / "docs" / name).exists(), f"documentation exists: {name}")
 
 wrap_contracts = load_json(ROOT / "dist" / "pitchdog-wrap-contracts.json") or {}
-check(wrap_contracts.get("version") == "13.1.1", "wrap contracts carry the release version")
+check(wrap_contracts.get("version") == RELEASE, "wrap contracts carry the release version")
 check(
     wrap_contracts.get("measures", {}).get("reading") == "45ch"
     and wrap_contracts.get("measures", {}).get("ceiling") == "54ch",

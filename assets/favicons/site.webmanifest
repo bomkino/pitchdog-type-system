@@ -1,7 +1,7 @@
 {
   "name": "pitch.dog Typography System",
   "short_name": "pitch.dog type",
-  "start_url": "./pitchdog-typography-system-v13.html",
+  "start_url": "./pitchdog-typography-system.html",
   "display": "standalone",
   "background_color": "#f4f0e7",
   "theme_color": "#141412",

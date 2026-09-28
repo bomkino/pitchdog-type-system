@@ -17,10 +17,11 @@ The following command is for maintainers working in a complete repository checko
 Run:
 
 ```bash
-python3 tools/prepare_fonts.py "/path/to/FontBlind-Final-2026-08-28-v13.zip"
+python3 -m pip install -r tools/requirements.txt
+python3 scripts/populate_fonts.py "/path/to/FontBlind-Final-2026-08-28-v13.zip" --replace
 ```
 
-The tool verifies all seven files by SHA-256 before writing `assets/fonts/`.
+The script rebuilds the handoff from the source, applies the 2.0.0 name normalization (`docs/FONT-NAMING.md`), and writes `assets/fonts/` and the handoff fonts only if every file matches the committed SHA-256.
 
 ## Direct CSS use
 
@@ -74,4 +75,4 @@ Do not apply `pretty` to `body`, every paragraph or an entire interface. Use `do
 
 ## Local standalone review from a full checkout
 
-`MAKE-STANDALONE-v13.html` exists only in the complete Git repository. Open it there, select the v13 font ZIP, then build. The browser verifies the seven source hashes before embedding them into the downloaded review file.
+`pitchdog-typography-system.html` exists only in the complete Git repository. Open it there, choose the `assets/fonts/` folder or the release's `pitchdog-fonts-<tag>.zip` in the local loader, then build. The browser verifies the seven runtime hashes before embedding them into the downloaded review file.

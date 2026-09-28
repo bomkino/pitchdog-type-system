@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""Populate the governed v13 fonts from the accepted source or handoff ZIP."""
+"""Populate the governed fonts from the accepted FontBlind v13 source or its generated handoff ZIP.
+
+The source binaries are rebuilt into the v13 handoff, verified against that handoff's
+own checksums, renamed by `tools/normalize_font_names.py`, and then accepted only if
+every font matches the hashes committed for this release. Only font binaries are
+written; the handoff's documentation stays as committed.
+"""
 from __future__ import annotations
 
 import argparse
@@ -15,7 +21,9 @@ from zipfile import ZipFile, ZipInfo
 ROOT = Path(__file__).resolve().parents[1]
 BUILDER = ROOT / "tools" / "font-handoff-builder-v13" / "make_font_handoff.py"
 RUNTIME_MANIFEST = ROOT / "dist" / "pitchdog-font-runtime.json"
-HANDOFF_TARGET = ROOT / "pitchdog-font-handoff-v13"
+HANDOFF_TARGET = ROOT / "pitchdog-font-handoff"
+NORMALIZER = ROOT / "tools" / "normalize_font_names.py"
+FONT_SUFFIXES = {".woff2", ".woff", ".ttf", ".otf", ".ttc"}
 RUNTIME_TARGET = ROOT / "assets" / "fonts"
 
 WEB_TO_RUNTIME = {
@@ -97,7 +105,7 @@ def verify_handoff(root: Path) -> int:
         missing = sorted(actual - governed)
         extra = sorted(governed - actual)
         raise RuntimeError(f"Handoff checksum coverage mismatch; missing={missing}, extra={extra}")
-    font_count = sum(path.suffix.lower() in {".woff2", ".woff", ".ttf", ".otf", ".ttc"} for path in root.rglob("*") if path.is_file())
+    font_count = sum(path.suffix.lower() in FONT_SUFFIXES for path in root.rglob("*") if path.is_file())
     if font_count != 138:
         raise RuntimeError(f"Expected 138 handoff font files, found {font_count}")
     return font_count
@@ -124,19 +132,58 @@ def stage_runtime(handoff: Path, destination: Path) -> None:
         raise RuntimeError("Runtime directory contains an unexpected file set")
 
 
-def replace_directory(staged: Path, target: Path, replace: bool) -> None:
-    if target.exists():
-        if not replace:
-            raise RuntimeError(f"{target} already exists; inspect it or rerun with --replace")
-        shutil.rmtree(target)
-    target.parent.mkdir(parents=True, exist_ok=True)
-    shutil.move(str(staged), str(target))
+def committed_font_hashes() -> dict[str, str]:
+    manifest = HANDOFF_TARGET / "SHA256SUMS.txt"
+    if not manifest.is_file():
+        raise RuntimeError("Committed pitchdog-font-handoff/SHA256SUMS.txt is missing")
+    hashes: dict[str, str] = {}
+    for line in manifest.read_text(encoding="utf-8").splitlines():
+        expected, relative = line.split(maxsplit=1)
+        relative = relative.lstrip("*")
+        if PurePosixPath(relative).suffix.lower() in FONT_SUFFIXES:
+            hashes[relative] = expected.lower()
+    return hashes
+
+
+def verify_against_release(staged_handoff: Path, staged_runtime: Path) -> dict[str, str]:
+    expected = committed_font_hashes()
+    staged = {
+        path.relative_to(staged_handoff).as_posix(): sha256(path)
+        for path in staged_handoff.rglob("*")
+        if path.is_file() and path.suffix.lower() in FONT_SUFFIXES
+    }
+    if set(staged) != set(expected):
+        raise RuntimeError(
+            f"Font set differs from this release; missing={sorted(set(expected) - set(staged))}, extra={sorted(set(staged) - set(expected))}"
+        )
+    mismatched = sorted(relative for relative, digest in staged.items() if digest != expected[relative])
+    if mismatched:
+        raise RuntimeError(
+            f"{len(mismatched)} normalized fonts do not match this release (first: {mismatched[0]}). "
+            "Install the pinned tools: python3 -m pip install -r tools/requirements.txt"
+        )
+    stage_runtime(staged_handoff, staged_runtime)
+    return expected
+
+
+def install_fonts(staged_handoff: Path, staged_runtime: Path, fonts: dict[str, str], replace: bool) -> None:
+    present = [relative for relative in fonts if (HANDOFF_TARGET / relative).exists()]
+    present += [path.name for path in RUNTIME_TARGET.glob("*")] if RUNTIME_TARGET.exists() else []
+    if present and not replace:
+        raise RuntimeError("Governed fonts already exist; inspect them or rerun with --replace")
+    for relative in fonts:
+        target = HANDOFF_TARGET / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(staged_handoff / relative, target)
+    if RUNTIME_TARGET.exists():
+        shutil.rmtree(RUNTIME_TARGET)
+    shutil.copytree(staged_runtime, RUNTIME_TARGET)
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("archive", type=Path)
-    parser.add_argument("--replace", action="store_true", help="replace existing governed font directories")
+    parser.add_argument("--replace", action="store_true", help="replace existing governed font files")
     args = parser.parse_args()
     archive = args.archive.resolve()
     if not archive.is_file():
@@ -161,15 +208,14 @@ def main() -> int:
             else:
                 raise RuntimeError("Archive is neither the accepted FontBlind v13 source nor its generated handoff")
 
-            staged_handoff = temp / "pitchdog-font-handoff-v13"
+            staged_handoff = temp / "handoff"
             unpack_handoff(handoff_zip, staged_handoff)
             font_count = verify_handoff(staged_handoff)
+            subprocess.run([sys.executable, str(NORMALIZER), str(staged_handoff)], check=True)
 
             staged_runtime = temp / "runtime-fonts"
-            stage_runtime(staged_handoff, staged_runtime)
-
-            replace_directory(staged_handoff, HANDOFF_TARGET, args.replace)
-            replace_directory(staged_runtime, RUNTIME_TARGET, args.replace)
+            fonts = verify_against_release(staged_handoff, staged_runtime)
+            install_fonts(staged_handoff, staged_runtime, fonts, args.replace)
 
         subprocess.run([sys.executable, str(ROOT / "scripts" / "checksums.py"), "--write"], check=True)
         print(f"Populated and verified {font_count} handoff fonts plus 7 runtime faces")
@@ -181,4 +227,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

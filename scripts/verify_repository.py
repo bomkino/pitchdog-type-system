@@ -10,7 +10,7 @@ import sys
 from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parents[1]
-EXPECTED_VERSION = "13.1.1"
+EXPECTED_VERSION = json.loads((ROOT / "package.json").read_text(encoding="utf-8"))["version"]
 FONT_SUFFIXES = {".woff2", ".woff", ".ttf", ".otf", ".ttc"}
 SKILL_ROOT = ROOT / "skills" / "pitchdog-type-system"
 errors: list[str] = []
@@ -159,7 +159,7 @@ def validate_runtime() -> None:
 
 
 def validate_handoff() -> None:
-    handoff = ROOT / "pitchdog-font-handoff-v13"
+    handoff = ROOT / "pitchdog-font-handoff"
     sums = handoff / "SHA256SUMS.txt"
     check(sums.is_file(), "full font handoff is present")
     if not sums.is_file():
@@ -200,10 +200,32 @@ def validate_font_boundaries() -> None:
         relative = path.relative_to(ROOT)
         if relative.parts[:2] == ("assets", "fonts"):
             continue
-        if relative.parts and relative.parts[0] == "pitchdog-font-handoff-v13":
+        if relative.parts and relative.parts[0] == "pitchdog-font-handoff":
             continue
         unexpected.append(relative.as_posix())
     check(not unexpected, f"no fonts outside governed directories: {unexpected}")
+
+
+def validate_normalization_evidence() -> None:
+    provenance = json.loads((ROOT / "FONT-PROVENANCE.json").read_text(encoding="utf-8"))
+    evidence_path = ROOT / provenance.get("derivation", {}).get("evidence", "missing")
+    check(evidence_path.is_file(), "font provenance names its normalization evidence")
+    if not evidence_path.is_file():
+        return
+    evidence = json.loads(evidence_path.read_text(encoding="utf-8"))
+    files = evidence.get("files", {})
+    check(evidence.get("summary", {}).get("failed") == 0, "font renaming changed nothing but naming metadata")
+    shipped = {
+        path.relative_to(ROOT).as_posix(): sha256(path)
+        for base in (ROOT / "assets" / "fonts", ROOT / "pitchdog-font-handoff")
+        for path in base.rglob("*")
+        if path.is_file() and path.suffix.lower() in FONT_SUFFIXES
+    }
+    check(set(files) == set(shipped), "normalization evidence covers every shipped font")
+    check(
+        all(files.get(path, {}).get("after", {}).get("sha256") == digest for path, digest in shipped.items()),
+        "normalization evidence matches every shipped font hash",
+    )
 
 
 def run_validator(path: Path, label: str) -> None:
@@ -221,6 +243,7 @@ def main() -> int:
     validate_handoff()
     validate_font_boundaries()
     run_validator(ROOT / "tools" / "validate_release.py", "semantic type-system validation")
+    validate_normalization_evidence()
     run_validator(ROOT / "scripts" / "checksums.py", "repository checksum validation")
     result = {
         "pass": not errors,

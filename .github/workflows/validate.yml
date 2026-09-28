@@ -18,4 +18,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
-      - run: python3 scripts/verify_repository.py
+      - name: Verify repository, fonts and contracts
+        run: python3 scripts/verify_repository.py
+      - name: Install pinned font tooling
+        run: python3 -m pip install -r tools/requirements.txt
+      - name: Check font naming
+        run: python3 tools/normalize_font_names.py --check assets/fonts pitchdog-font-handoff
