@@ -10,6 +10,7 @@
     "ui",
     "social",
     "youtube",
+    "deck",
     "arrows"
   ],
   "properties": {
@@ -32,6 +33,9 @@
       "type": "object"
     },
     "youtube": {
+      "type": "object"
+    },
+    "deck": {
       "type": "object"
     },
     "arrows": {

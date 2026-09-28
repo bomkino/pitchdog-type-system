@@ -1,0 +1,26 @@
+{
+  "widescreen": {
+    "width": 1920,
+    "height": 1080,
+    "ratio": "16 / 9",
+    "safe": {
+      "top": 80,
+      "right": 96,
+      "bottom": 80,
+      "left": 96
+    },
+    "use": "Keynote, Google Slides, PowerPoint and PDF default"
+  },
+  "standard": {
+    "width": 1440,
+    "height": 1080,
+    "ratio": "4 / 3",
+    "safe": {
+      "top": 80,
+      "right": 80,
+      "bottom": 80,
+      "left": 80
+    },
+    "use": "Projectors, printed handouts and legacy templates"
+  }
+}

@@ -1,7 +1,7 @@
 {
   "meta": {
     "name": "pitch.dog Type System",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "displayVersion": "2",
     "status": "production",
     "fontSource": "FontBlind-Final-2026-08-28-v13.zip",
@@ -95,7 +95,8 @@
       "lineHeight": 0.86,
       "tracking": "-0.045em",
       "maxLines": 2,
-      "maxWords": 7
+      "maxWords": 7,
+      "wrap": "balance"
     },
     "youtube.titleCompact": {
       "family": "head",
@@ -105,7 +106,8 @@
       "lineHeight": 0.91,
       "tracking": "-0.036em",
       "maxLines": 3,
-      "maxWords": 11
+      "maxWords": 11,
+      "wrap": "balance"
     },
     "youtube.kicker": {
       "family": "eyebrow",
@@ -116,7 +118,8 @@
       "lineHeight": 1.0,
       "tracking": ".07em",
       "maxLines": 1,
-      "maxWords": 6
+      "maxWords": 6,
+      "case": "upper"
     },
     "youtube.support": {
       "family": "bodyAlt",
@@ -126,7 +129,8 @@
       "lineHeight": 1.1,
       "tracking": "-0.012em",
       "maxLines": 2,
-      "maxWords": 12
+      "maxWords": 12,
+      "wrap": "pretty"
     },
     "youtube.badge": {
       "family": "body",
