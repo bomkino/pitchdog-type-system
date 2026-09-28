@@ -4,7 +4,7 @@
 
 - Product: **pitch.dog Type System**
 - Canonical display version: **2**
-- Package version: **2.1.0**
+- Package version: **2.2.0**
 - Font authority: `FontBlind-Final-2026-08-28-v13.zip`
 - Release date: **28 September 2026**
 - State: **production release**
@@ -40,13 +40,14 @@ The system governs typography across:
 
 ## Agent Skill
 
-- `skills/pitchdog-type-system/` is the model-invoked Codex Agent Skill for every task that touches type.
+- `skills/pitchdog-type-system/` is the model-invoked Agent Skill, for Codex and Claude, for every task that touches type.
 - The skill resolves a tag to a full commit, preserves existing consumer pins unless migration is authorized, and routes each task to the relevant canonical source files.
 - The skill contains process, routing, and its rights notice only. It contains no copied type values, CSS, token data, or font binaries.
 - Release completion requires independent readback of the tagged source, packaged skill asset, GitHub Release, local installation, and source-to-install hashes.
 
 ## Validation receipt
 
+- 2.2.0 rewrites the Agent Skill for agents and adds `AGENTS.md`; no token, CSS, contract or font file changes. `evidence/agent-skill-behavior-v2.2.0.md` records decision-level runs on the pinned, contradictory-latest, runtime-diagnosis and deck branches.
 - 2.1.0 adds deck mode and generated derived files; font binaries are byte-identical to 2.0.0. `scripts/build_dist.py --check` passes, and the release validator checks every deck role against its floor, the 80 percent 4:3 ratio, the read-density ordering and limits, template roles, starter markup and the deck print rules.
 - `evidence/browser-deck-v2.1.0.json`: in Chromium 141 the starter deck loads all four families; at present and read density on both canvases no element leaves a slide's safe area; computed sizes match the tokens; printing gives 10 pages at 1920 × 1080 px (widescreen) and 1440 × 1080 px (standard); all ten specimen views open, the Decks view has no overflow, and there are no console or page errors.
 - 2.0.0 changes font naming metadata only. `evidence/font-name-normalization-v2.0.0.json` records, for all 145 shipped font files, the source and new SHA-256 and that every table other than naming and style-link fields is unchanged (`tools/compare_font_payloads.py`).
@@ -67,7 +68,9 @@ The system governs typography across:
 - `docs/SPECIFICATION.md`
 - `docs/WEB-TEXT-WRAPPING.md`
 - `skills/pitchdog-type-system/SKILL.md`
+- `evidence/agent-skill-behavior-v2.2.0.md`
 - `evidence/agent-skill-behavior-v13.1.1.md`
+- `AGENTS.md`
 - `evidence/font-name-normalization-v2.0.0.json`
 - `evidence/browser-font-rename-v2.0.0.json`
 - `evidence/browser-deck-v2.1.0.json`

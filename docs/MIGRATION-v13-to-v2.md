@@ -36,3 +36,10 @@ Pin `#v13.1.1` (commit `318e6ff4d4bf76be76f7ed5225aacf7517d2ee82`) and reinstall
 2. Expect slightly different line breaks in social display, headline, subhead, body and quote roles and in YouTube support copy, which now balance or use pretty wrapping. Check fixed-canvas exports that depend on exact breaks.
 3. If you import `docs/figma-style-map.csv`, rename UI and YouTube styles to the new casing (for example `UI / Page Title`).
 4. Nothing else is required. Deck roles are new attributes (`data-pd-deck`, `data-pd-deck-canvas`) and do not affect existing markup.
+
+## From 2.1.0 to 2.2.0
+
+2.2.0 changes only the Agent Skill and agent notes. No token, CSS, contract or font file changes.
+
+1. Change the pin to `#v2.2.0` if you want to track the newest release; the rendered type is identical to 2.1.0.
+2. Replace any installed copy of the `pitchdog-type-system` skill with the one in the v2.2.0 Release.

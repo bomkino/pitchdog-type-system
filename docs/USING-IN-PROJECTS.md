@@ -5,7 +5,7 @@
 Install the canonical repository at an immutable release tag:
 
 ```bash
-npm install "git+https://github.com/bomkino/pitchdog-type-system.git#v2.1.0"
+npm install "git+https://github.com/bomkino/pitchdog-type-system.git#v2.2.0"
 ```
 
 The public canonical repository does not require credentials for read-only HTTPS installation. If a private mirror or authenticated workflow is used, keep credentials in the platform's secret manager. Never put a token in `package.json`, a Git URL, browser code or committed `.npmrc`.
@@ -24,7 +24,7 @@ For a non-npm project:
 
 ```bash
 git submodule add https://github.com/bomkino/pitchdog-type-system.git vendor/pitchdog-type-system
-git -C vendor/pitchdog-type-system checkout v2.1.0
+git -C vendor/pitchdog-type-system checkout v2.2.0
 ```
 
 Copy `dist/` and `assets/fonts/` into the project's own static asset pipeline. Keep their relative relationship intact: CSS in `dist/` resolves fonts from `../assets/fonts/`.

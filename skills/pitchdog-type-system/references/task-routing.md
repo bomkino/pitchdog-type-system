@@ -20,7 +20,7 @@ For social work, read `docs/SOCIAL-TYPOGRAPHY.md`, `tokens/pitchdog.social.token
 
 ## Deck or presentation work
 
-Read `docs/DECKS.md`, `tokens/pitchdog.deck.tokens.json`, and the canvas, copy and template contracts in `deck/`. Choose the density (present or read) before choosing sizes. For Keynote, PowerPoint, Google Slides or Figma, use the point-size table in `docs/DECKS.md` rather than converting container units yourself.
+Read `docs/DECKS.md`, `tokens/pitchdog.deck.tokens.json`, and the canvas, copy and template contracts in `deck/`. Choose the density (present or read) before choosing sizes. Deck roles carry their own wrapping, so the web wrapping branch does not apply to slides. For Keynote, PowerPoint, Google Slides or Figma, take sizes from `docs/DECKS.md`: its point-size table for present density, and its read column with the conversion it gives for read density.
 
 ## Figma or design-tool work
 

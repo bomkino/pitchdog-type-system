@@ -1,6 +1,6 @@
 ---
 name: pitchdog-type-system
-description: pitch.dog typography authority for fonts, type roles and hierarchy, wrapping and measure, and any rendered text on web, interface, social, video, native or design-tool surfaces. Always invoke for any type work.
+description: pitch.dog typography authority for fonts, type roles and hierarchy, wrapping and measure, and any rendered text on web, interface, social, video, deck, native or design-tool surfaces. Always invoke for any type work.
 ---
 
 # pitch.dog Type System
@@ -27,7 +27,7 @@ Resolution is complete when the source location, version or tag, and full commit
 
 Read [task routing](references/task-routing.md), combine every branch the task touches, and read each branch's documents at the pinned commit.
 
-Select semantic roles and supported exports from those documents. Trace each role to the canonical token source and each export to `package.json`, and confirm the generated contract agrees with both. Raw family names, font values, scales, measures, wrapping rules, CSS and binaries stay in their authoritative files; the consumer references them.
+Select semantic roles and supported exports from those documents. Trace each role to the canonical token source and confirm its generated contract matches; confirm each export exists in `package.json`. Raw family names, font values, scales, measures, wrapping rules, CSS and binaries stay in their authoritative files; the consumer references them.
 
 When no governed role fits, surface the gap. A governed exception needs the user's explicit authorization, then follows the canonical exception process.
 
