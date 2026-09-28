@@ -1,7 +1,5 @@
 # Runtime verification
 
-Use this branch after implementing, building, exporting, migrating, or diagnosing type work.
-
 ## Source and package
 
 - In a full canonical checkout, run its repository verifier and inspect any reported mismatch rather than reducing the result to a pass count.

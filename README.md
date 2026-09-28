@@ -111,6 +111,8 @@ python3 /path/to/skill-installer/scripts/install-skill-from-github.py \
 
 Confirm the v2.0.0 GitHub Release records that commit before installing.
 
+For Claude, upload the Release's `pitchdog-type-system-skill-<tag>.zip` as a skill; for Claude Code, unzip it into `~/.claude/skills/`. Replace the installed copy on each release, since an older copy keeps routing to older documents.
+
 ## Repository maintenance
 
 These commands need a full Git checkout, not the lean package installed into web projects.

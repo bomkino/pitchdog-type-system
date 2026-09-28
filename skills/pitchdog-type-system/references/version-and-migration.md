@@ -1,10 +1,8 @@
 # Version and migration
 
-Use this branch for an unpinned consumer, “latest” request, pin change, migration, release, or source contradiction.
-
 ## Select an immutable version
 
-1. Inspect the consumer first. An existing full commit, package lock, submodule SHA, or vendored receipt is the pin and wins over a newer upstream version unless migration is authorized. A tag without a recorded commit establishes the intended version, not immutable identity; recover its original commit from installed or lock evidence and stop if that evidence is absent or conflicts with the current remote tag.
+1. Start from the consumer's pin (SKILL.md step 1). A tag without a recorded commit establishes the intended version only: recover its original commit from installed or lock evidence, and fail closed if that evidence is absent or conflicts with the current remote tag.
 2. Inspect stable GitHub Release records and Git tags independently. Peel annotated tags to commits and record the full SHA.
 3. At that commit, compare the package version, canonical token metadata, generated version markers, changelog, and release receipt. Read GitHub visibility independently from licensing files.
 4. For a new unpinned consumer, accept the newest stable release only when those surfaces identify the same version and both canonical metadata and the receipt explicitly say production. Use the tag in integration syntax when required and retain the full commit in the lock evidence.
