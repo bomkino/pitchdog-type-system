@@ -1,6 +1,6 @@
 # Task routing
 
-Resolve the repository version before using this map. Every path below is relative to that immutable source. Combine every branch the task actually touches. Treat the names as routing candidates: if a path is absent at the resolved commit, inspect that commit's README and tree for its governed equivalent. If none exists, report a version capability gap; never borrow the file from a newer source.
+Every path below is relative to the pinned commit, and every file is read from that commit. Treat the names as routing candidates: if a path is absent at the pinned commit, find its governed equivalent in that commit's README and tree. If none exists, report a version capability gap.
 
 ## Shared semantic work
 
@@ -20,15 +20,15 @@ For social work, read `docs/SOCIAL-TYPOGRAPHY.md`, `tokens/pitchdog.social.token
 
 ## Deck or presentation work
 
-Read `docs/DECKS.md`, `tokens/pitchdog.deck.tokens.json`, and the canvas, copy and template contracts in `deck/`. Choose the density (present or read) before choosing sizes. For Keynote, PowerPoint, Google Slides or Figma, use the point-size table in `docs/DECKS.md` rather than converting container units yourself.
+Read `docs/DECKS.md`, `tokens/pitchdog.deck.tokens.json`, and the canvas, copy and template contracts in `deck/`. Choose the density (present or read) before choosing sizes. Deck roles carry their own wrapping, so the web wrapping branch does not apply to slides. For Keynote, PowerPoint, Google Slides or Figma, take sizes from `docs/DECKS.md`: its point-size table for present density, and its read column with the conversion it gives for read density.
 
 ## Figma or design-tool work
 
-Read `docs/FIGMA-MAPPING.md`, `docs/figma-style-map.csv`, and `docs/ANCHOR-POLICY.md`. Reconcile tool styles against the canonical source and a rendered specimen; the design-tool library is not the source of truth.
+Read `docs/FIGMA-MAPPING.md`, `docs/figma-style-map.csv`, and `docs/ANCHOR-POLICY.md`. Treat the design-tool library as a derived copy: reconcile its styles against the canonical source and a rendered specimen.
 
 ## Native, desktop, or video work
 
-Read `docs/ANCHOR-POLICY.md`, `docs/FONT-NAMING.md`, `docs/KNOWN-FONT-DETAILS.md`, `FONT-PROVENANCE.json`, and the relevant documentation inside the handoff directory identified by that source. Choose native or fixed-canvas files from the manifest inside that handoff; reserve `dist/pitchdog-font-runtime.json` for the web runtime. Verify registration and rendered output in the target application before claiming the handoff works.
+Read `docs/ANCHOR-POLICY.md`, `docs/FONT-NAMING.md`, `docs/KNOWN-FONT-DETAILS.md`, `FONT-PROVENANCE.json`, and the relevant documentation inside the handoff directory identified by that source. Choose native or fixed-canvas files from the manifest inside that handoff; reserve `dist/pitchdog-font-runtime.json` for the web runtime.
 
 ## Accessibility or failure diagnosis
 
@@ -36,4 +36,4 @@ Read `docs/ACCESSIBILITY-QA.md`, then the branch document for the affected surfa
 
 ## Version change or release work
 
-Read [version and migration](version-and-migration.md), `CHANGELOG.md`, `RELEASE-RECEIPT.md`, and any migration document that spans the pinned and target versions. A release record does not authorize changing a consumer's pin.
+Read [version and migration](version-and-migration.md), `CHANGELOG.md`, `RELEASE-RECEIPT.md`, and any migration document that spans the pinned and target versions.

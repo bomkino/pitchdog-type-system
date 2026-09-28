@@ -68,6 +68,9 @@ def validate_package() -> None:
         "TypeScript export matches package version",
     )
     check(f"Current release: **v{EXPECTED_VERSION}**" in (ROOT / "README.md").read_text(encoding="utf-8"), "README matches package version")
+    using = (ROOT / "docs" / "USING-IN-PROJECTS.md").read_text(encoding="utf-8")
+    pinned = set(re.findall(r"(?:#|checkout )v(\d+\.\d+\.\d+)", using))
+    check(pinned == {EXPECTED_VERSION}, f"USING-IN-PROJECTS installs the package version: {sorted(pinned)}")
     receipt = (ROOT / "RELEASE-RECEIPT.md").read_text(encoding="utf-8")
     check(f"Package version: **{EXPECTED_VERSION}**" in receipt, "release receipt matches package version")
     check("State: **production release**" in receipt, "release receipt declares production")

@@ -1,10 +1,8 @@
 # Runtime verification
 
-Use this branch after implementing, building, exporting, migrating, or diagnosing type work.
-
 ## Source and package
 
-- In a full canonical checkout, run its repository verifier and inspect any reported mismatch rather than reducing the result to a pass count.
+- When the source is a full canonical checkout rather than an installed package, run its repository verifier and inspect any reported mismatch rather than reducing the result to a pass count.
 - In a package consumer, confirm the installed dependency or vendored tree resolves to the recorded commit. Compare its canonical token source, package exports, and generated contracts with the same paths in that commit; stop if the installed tree is patched or internally inconsistent.
 - Read the runtime font manifest from the resolved version. Match each emitted file to its logical source record by byte size and SHA-256, allowing the consumer to fingerprint its URL. Separately trace each CSS URL to that emitted file and its network response.
 

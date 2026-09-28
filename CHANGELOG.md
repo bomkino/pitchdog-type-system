@@ -1,5 +1,23 @@
 # Changelog
 
+## 2.2.0
+
+**The Agent Skill, rewritten for agents.** Same process and the same rules; it now takes the same route every run and costs less context.
+
+- The skill's description lists the surfaces that should trigger it, including decks, and keeps the universal "any type work" trigger. Process detail moved into the body.
+- Two defined words, **pin** and **fail closed**, carry the whole process. Fail closed now applies to the type system's own sources; a consumer that deviates from the system is a finding to diagnose, not a reason to stop.
+- Every step ends on a completion criterion, and a diagnosis has its own.
+- Version selection defines the requested and default cases, including a tag whose lock commit disagrees and a newest tag with no Release.
+- Duplicated rules, no-op lines and "use this branch when" openers are gone; prohibitions are written as the behaviour wanted. The rights section points to the skill's notice.
+- `evidence/agent-skill-behavior-v2.2.0.md` records decision-level runs on a pinned consumer, a contradictory "latest", a production font failure and a deck task. Every sentence the agents found unclear was rewritten.
+
+**Also**
+
+- `AGENTS.md` (imported by `CLAUDE.md`) holds the conventions `CONTRIBUTING.md` leaves unwritten, for agents working on this repository.
+- The README explains installing the skill in Claude and Claude Code, and the verifier now checks that `docs/USING-IN-PROJECTS.md` installs the current release.
+
+Tokens, CSS, contracts and fonts are unchanged from 2.1.0.
+
 ## 2.1.0
 
 **Deck mode.** pitch.dog decks now have their own layer, built on the same families, anchors and voice.

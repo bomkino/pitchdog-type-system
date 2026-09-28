@@ -1,46 +1,50 @@
 ---
 name: pitchdog-type-system
-description: Use the canonical pitch.dog type system for every task involving typography, fonts, text roles or hierarchy, wrapping or measure, or rendered text. Always invoke for any type work; resolve an immutable source, preserve existing pins, consume semantic roles and exports, and verify the real output.
+description: pitch.dog typography authority for fonts, type roles and hierarchy, wrapping and measure, and any rendered text on web, interface, social, video, deck, native or design-tool surfaces. Always invoke for any type work.
 ---
 
 # pitch.dog Type System
 
-Use the canonical pitch.dog repository as the sole typography authority for every output. This skill defines the process; `tokens/pitchdog.system.tokens.json` at the resolved commit defines the semantic system. The same commit's `dist/` provides generated consumption surfaces and `docs/` explains their use. Reconcile them rather than recreating their values here or in a downstream project.
+The canonical pitch.dog repository is the sole typography authority. This skill is the process. At the resolved commit, `tokens/pitchdog.system.tokens.json` is the semantic source of truth, `dist/` holds the generated consumption surfaces, and `docs/` explains them. Point to those files; their values stay there, out of this skill and out of the consumer.
 
-## 1. Resolve the source
+Two words carry the whole process:
 
-Identify the consumer, read its local instructions, and inspect its dependency files, lockfiles, submodules, vendored receipts, or release records for an existing type-system pin.
+- **Pin**: the full commit SHA a consumer's type system resolves to. An existing pin holds until the user authorizes a migration.
+- **Fail closed**: when the type system's own identities or sources disagree, stop, name the conflicting values, and change nothing. A consumer that deviates from the system is a finding to diagnose and report, not a reason to stop.
 
-- Read [version and migration](references/version-and-migration.md) during this step for an unpinned consumer, an explicit target version, “latest,” a pin change, release work, or any source contradiction.
-- Preserve an existing immutable pin and its resolved commit unless the user explicitly authorizes migration.
-- For an unpinned consumer, resolve the requested version. If no version was requested, accept a default only when the stable release, tag, and package version agree and the canonical metadata explicitly says production.
-- Resolve a tag to its full commit SHA. Treat a branch name, a tag name alone, or `/releases/latest` alone as mutable evidence, not a lock.
-- Obtain canonical files from the consumer's exact package or checkout, or from `https://github.com/bomkino/pitchdog-type-system` at the resolved commit. Keep temporary source outside the consumer and remove it after the task.
+## 1. Resolve the pin
 
-Resolution is complete when the source location, version or tag, and full commit are recorded and the retrieved tree agrees with them. Stop on conflicting identity, missing provenance, a non-production default, or disagreement between the canonical tokens and a derived or documented surface.
+Inspect the consumer's dependency files, lockfiles, submodules, vendored receipts and release records for an existing pin.
+
+- An existing pin stays, and the work reads from that commit even when a newer release exists.
+- No pin, an explicit target version, “latest”, a pin change, release work, or a source contradiction: read [version and migration](references/version-and-migration.md) now.
+- Resolve a tag to its full commit SHA. A branch, a bare tag name, or `/releases/latest` is mutable evidence, never a pin.
+- Read canonical files from the consumer's exact package or checkout, or from `https://github.com/bomkino/pitchdog-type-system` at the pinned commit. Keep temporary source outside the consumer and remove it afterwards.
+
+Resolution is complete when the source location, version or tag, and full commit are recorded and the retrieved tree matches them. Fail closed on conflicting identity, missing provenance, a version not explicitly marked production, or canonical tokens disagreeing with a derived or documented surface.
 
 ## 2. Route the type work
 
-Read [task routing](references/task-routing.md) after resolution. Load only the canonical documents and generated contracts for the task's branch.
+Read [task routing](references/task-routing.md), combine every branch the task touches, and read each branch's documents at the pinned commit.
 
-Select semantic roles and supported exports from the resolved source. Trace every semantic decision to the canonical token source, trace every export to `package.json`, and confirm the generated contract agrees with both. Keep raw family names, font values, scales, measures, wrapping rules, CSS, and binaries in their existing authoritative files.
+Select semantic roles and supported exports from those documents. Trace each role to the canonical token source and confirm its generated contract matches; confirm each export exists in `package.json`. Raw family names, font values, scales, measures, wrapping rules, CSS and binaries stay in their authoritative files; the consumer references them.
 
-If no governed role fits, surface the gap. Create a governed exception only when the user explicitly authorizes it, then follow the canonical exception process.
+When no governed role fits, surface the gap. A governed exception needs the user's explicit authorization, then follows the canonical exception process.
 
-## 3. Apply without drifting
+Routing is complete when every touched surface has a branch and every chosen role or export traces to the token source and `package.json`.
 
-Use the resolved package exports, semantic attributes, classes, tokens, or handoff described by the relevant canonical documentation. Keep the target's existing integration shape and pin unless the requested work requires an authorized change.
+## 3. Apply
 
-Limit edits to the requested surface. Preserve an existing recorded exception; do not broaden it or create another without authorization.
+Use the pinned package exports, semantic attributes, classes, tokens or handoff that the branch documents describe, in the consumer's existing integration shape. Keep an existing recorded exception exactly as recorded.
 
-Application is complete when every touched type decision points to a governed role or recorded exception, and no pin or unrelated typography changed without authorization.
+Application is complete when every touched type decision points to a governed role or recorded exception, and the pin and unrelated typography are unchanged unless the user authorized the change.
 
-## 4. Verify reality
+## 4. Verify the rendered result
 
-For implementation, build, migration, or diagnosis, read [runtime verification](references/runtime-verification.md). Verify the actual target after its build or export; a successful import, build, validator, or screenshot proves only that narrow surface.
+For implementation, build, migration or diagnosis, read [runtime verification](references/runtime-verification.md) and inspect the real target after its build or export. Each check proves only its own surface: an import, build, validator or screenshot is narrow evidence.
 
-Report source resolution, package or handoff, consumer integration, emitted assets, rendered output, and migration state separately. Completion requires direct evidence for every in-scope surface; preserve `unverified`, `mismatch`, or `blocked` where evidence does not hold.
+Report source resolution, migration state and each surface runtime verification names as a separate claim, each `verified`, `unverified`, `mismatch` or `blocked`. A change is complete when every in-scope surface has direct evidence; a diagnosis is complete when every in-scope surface has a state and each one short of `verified` names the next check.
 
-## Rights boundary
+## Rights
 
-Repository visibility is not a licence. Read this skill's `NOTICE.md`, then `LICENSE.md` and `FONT-LICENSE.md` at the resolved commit before redistributing anything. Only the binary files covered by the font licence receive its CC0 dedication; the skill and surrounding type-system material remain all-rights-reserved.
+Repository visibility is not a licence. Before redistributing any file, read this skill's [rights notice](NOTICE.md), then `LICENSE.md` and `FONT-LICENSE.md` at the pinned commit.
