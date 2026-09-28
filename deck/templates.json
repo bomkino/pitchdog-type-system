@@ -1,0 +1,89 @@
+{
+  "cover": {
+    "formula": "Kicker + title + presenter line",
+    "roles": [
+      "deck.kicker",
+      "deck.title",
+      "deck.footer"
+    ],
+    "copy": "Series A, told in twelve slides"
+  },
+  "section": {
+    "formula": "Section marker + a chapter title of one to five words",
+    "roles": [
+      "deck.kicker",
+      "deck.section"
+    ],
+    "copy": "The problem"
+  },
+  "statement": {
+    "formula": "One sentence and nothing else",
+    "roles": [
+      "deck.statement"
+    ],
+    "copy": "Most decks lose the room by slide three."
+  },
+  "insight": {
+    "formula": "Claim + explanation + optional body + source",
+    "roles": [
+      "deck.headline",
+      "deck.lead",
+      "deck.body",
+      "deck.source"
+    ],
+    "copy": "Investors decide in the first four minutes"
+  },
+  "metric": {
+    "formula": "One number + what it measures + where it came from",
+    "roles": [
+      "deck.metric",
+      "deck.label",
+      "deck.source"
+    ],
+    "copy": "3.2×"
+  },
+  "quote": {
+    "formula": "Pull quote + attribution",
+    "roles": [
+      "deck.quote",
+      "deck.label"
+    ],
+    "copy": "“The first deck that made us lean in.”"
+  },
+  "list": {
+    "formula": "Headline + three to five bullets",
+    "roles": [
+      "deck.headline",
+      "deck.bullet"
+    ],
+    "copy": "What the round pays for"
+  },
+  "data": {
+    "formula": "Headline + table or chart with figures in deck.data",
+    "roles": [
+      "deck.headline",
+      "deck.label",
+      "deck.data",
+      "deck.source"
+    ],
+    "copy": "Revenue, quarter by quarter"
+  },
+  "compare": {
+    "formula": "Headline + two labelled columns",
+    "roles": [
+      "deck.headline",
+      "deck.label",
+      "deck.body"
+    ],
+    "copy": "Before → After"
+  },
+  "close": {
+    "formula": "The ask + next step + contact",
+    "roles": [
+      "deck.title",
+      "deck.lead",
+      "deck.footer"
+    ],
+    "copy": "Let’s build the one that gets funded."
+  }
+}

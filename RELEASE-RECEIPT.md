@@ -4,7 +4,7 @@
 
 - Product: **pitch.dog Type System**
 - Canonical display version: **2**
-- Package version: **2.0.0**
+- Package version: **2.1.0**
 - Font authority: `FontBlind-Final-2026-08-28-v13.zip`
 - Release date: **28 September 2026**
 - State: **production release**
@@ -18,6 +18,7 @@ The system governs typography across:
 - product and internal-tool interfaces
 - social media
 - YouTube thumbnails, Shorts, podcast covers, channel banners, and end screens
+- pitch decks on 16:9 and 4:3 slides, presented live or read as a PDF
 - web reading measures and content-role wrapping contracts
 - the complete native arrow set
 
@@ -33,6 +34,8 @@ The system governs typography across:
 - Calibrated opt-in measures target about 56–80 characters in PD Body. They are font-specific approximations, not generic `ch` folklore.
 - The progressive `avoid-orphans` contract falls back to normal wrapping where it is not supported.
 - The default HTML contains no embedded font payload. The canonical repository includes the governed runtime WOFF2 files plus the complete handoff.
+- Deck roles size from the slide with container units, set 4:3 slides at 80 percent of 16:9, and never go below 1.8 percent of the slide height. Present and read densities share one role set.
+- Every derived file is generated from `tokens/pitchdog.system.tokens.json` by `scripts/build_dist.py`; CI rejects stale output. The web and UI CSS layers remain hand-authored.
 - Every font file carries its canonical family name and a unique PostScript name (`docs/FONT-NAMING.md`); only naming and style-linking metadata differs from the FontBlind v13 source.
 
 ## Agent Skill
@@ -44,6 +47,8 @@ The system governs typography across:
 
 ## Validation receipt
 
+- 2.1.0 adds deck mode and generated derived files; font binaries are byte-identical to 2.0.0. `scripts/build_dist.py --check` passes, and the release validator checks every deck role against its floor, the 80 percent 4:3 ratio, the read-density ordering and limits, template roles, starter markup and the deck print rules.
+- `evidence/browser-deck-v2.1.0.json`: in Chromium 141 the starter deck loads all four families; at present and read density on both canvases no element leaves a slide's safe area; computed sizes match the tokens; printing gives 10 pages at 1920 × 1080 px (widescreen) and 1440 × 1080 px (standard); all ten specimen views open, the Decks view has no overflow, and there are no console or page errors.
 - 2.0.0 changes font naming metadata only. `evidence/font-name-normalization-v2.0.0.json` records, for all 145 shipped font files, the source and new SHA-256 and that every table other than naming and style-link fields is unchanged (`tools/compare_font_payloads.py`).
 - `tools/normalize_font_names.py --check` passes on every font: canonical names, correct style bits, and no two faces sharing a PostScript name.
 - `evidence/browser-font-rename-v2.0.0.json`: in Chromium 141 all seven faces load, and all nine specimen views render pixel-identical to 13.1.1 once the changed header text is excluded. The specimen's local loader verifies the new runtime hashes and builds a standalone file with the seven fonts embedded. No console or page errors.
@@ -65,6 +70,10 @@ The system governs typography across:
 - `evidence/agent-skill-behavior-v13.1.1.md`
 - `evidence/font-name-normalization-v2.0.0.json`
 - `evidence/browser-font-rename-v2.0.0.json`
+- `evidence/browser-deck-v2.1.0.json`
+- `docs/DECKS.md`
+- `deck/deck-starter.html`
+- `scripts/build_dist.py`
 - `docs/FONT-NAMING.md`
 - `docs/MIGRATION-v13-to-v2.md`
 - `docs/VALIDATION-REPORT.md`

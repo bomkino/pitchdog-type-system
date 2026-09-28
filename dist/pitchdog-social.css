@@ -15,4 +15,6 @@
 :where([data-pd-social="credit"]){font-family:var(--pd-font-body);font-weight:600;font-style:normal;font-size:min(1.72cqi, 1.4cqb);line-height:1.2;letter-spacing:0em;}
   :where([data-pd-social="quote"]) { --pd-ital:1; }
   :where([data-pd-social="metadata"]) { text-transform:uppercase; }
+  :where([data-pd-social="display"],[data-pd-social="headline"]) { text-wrap:balance; }
+  :where([data-pd-social="subhead"],[data-pd-social="body"],[data-pd-social="quote"]) { text-wrap:pretty; }
 }

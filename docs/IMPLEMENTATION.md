@@ -73,6 +73,31 @@ Do not apply `pretty` to `body`, every paragraph or an entire interface. Use `do
 </button>
 ```
 
+## Decks
+
+```html
+<main data-pd-deck-density="present">
+  <section data-pd-deck-canvas="widescreen">
+    <div data-pd-deck-safe>
+      <h2 data-pd-deck="headline">Investors decide in the first four minutes.</h2>
+      <p data-pd-deck="lead">So the claim goes on the slide, not in the speaker notes.</p>
+    </div>
+  </section>
+</main>
+```
+
+Switch to `data-pd-deck-density="read"` for decks sent as a PDF. `docs/DECKS.md` covers canvases, sizes, printing and app point sizes; `deck/deck-starter.html` is a working ten-slide starter.
+
+## Regenerating derived files
+
+Semantic values change only in `tokens/pitchdog.system.tokens.json`. Then run:
+
+```bash
+python3 scripts/build_dist.py
+```
+
+It rewrites the split token files, the DTCG export, the TypeScript types, the role, canvas, copy and template contracts, the Figma style map, the social, YouTube and deck CSS, both system bundles and the specimen's inline CSS. The web and UI layers (`dist/pitchdog-typography.css`, `dist/pitchdog-ui.css`) are still authored by hand. `--check` fails if anything is stale; CI runs it. The minified bundle needs esbuild 0.28.2, fetched through `npx` or taken from `PD_ESBUILD`.
+
 ## Local standalone review from a full checkout
 
 `pitchdog-typography-system.html` exists only in the complete Git repository. Open it there, choose the `assets/fonts/` folder or the release's `pitchdog-fonts-<tag>.zip` in the local loader, then build. The browser verifies the seven runtime hashes before embedding them into the downloaded review file.

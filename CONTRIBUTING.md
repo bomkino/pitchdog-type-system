@@ -7,7 +7,7 @@ Everything outside the font binaries is all rights reserved (`LICENSE.md`). Open
 ## Before you open a pull request
 
 1. Start from an issue for anything larger than a typo, so the change can be agreed first.
-2. Change the canonical source, not a derived copy. Semantic values live in `tokens/pitchdog.system.tokens.json`; `dist/` and the split token files must agree with it.
+2. Change the canonical source, not a derived copy. Semantic values live in `tokens/pitchdog.system.tokens.json`; run `python3 scripts/build_dist.py` to regenerate everything derived from it.
 3. Keep production values on the governed anchors (`docs/ANCHOR-POLICY.md`) and follow `docs/GOVERNANCE.md` for exceptions.
 4. Never commit font source archives, `.npmrc`, `.env` files or credentials.
 
@@ -16,6 +16,7 @@ Everything outside the font binaries is all rights reserved (`LICENSE.md`). Open
 Run these from a full checkout. CI runs the same commands and must be green before merge.
 
 ```bash
+python3 scripts/build_dist.py --check   # needs Node.js for the pinned esbuild
 python3 scripts/verify_repository.py
 python3 -m pip install -r tools/requirements.txt
 python3 tools/normalize_font_names.py --check assets/fonts pitchdog-font-handoff

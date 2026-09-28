@@ -67,10 +67,16 @@ jobs:
         with:
           python-version: "3.13"
 
+      - uses: actions/setup-node@v4
+        if: steps.plan.outputs.skip == 'false' && steps.plan.outputs.mode == 'new'
+        with:
+          node-version: "22"
+
       - name: Verify the release tree
         if: steps.plan.outputs.skip == 'false' && steps.plan.outputs.mode == 'new'
         run: |
           python3 -m pip install --quiet -r tools/requirements.txt
+          python3 scripts/build_dist.py --check
           python3 scripts/verify_repository.py
           python3 tools/normalize_font_names.py --check assets/fonts pitchdog-font-handoff
 

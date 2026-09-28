@@ -1,0 +1,146 @@
+{
+  "generated": "2026-09-28",
+  "browser": "Chromium 141.0.7390.37",
+  "page": "deck/deck-starter.html",
+  "checks": {
+    "present/widescreen": {
+      "rule": "no element inside data-pd-deck-safe extends past the safe area",
+      "slides": 10,
+      "slideSize": [
+        "1920x1080"
+      ],
+      "overflowing": []
+    },
+    "present/standard": {
+      "rule": "no element inside data-pd-deck-safe extends past the safe area",
+      "slides": 10,
+      "slideSize": [
+        "1440x1080"
+      ],
+      "overflowing": []
+    },
+    "read/widescreen": {
+      "rule": "no element inside data-pd-deck-safe extends past the safe area",
+      "slides": 10,
+      "slideSize": [
+        "1920x1080"
+      ],
+      "overflowing": []
+    },
+    "read/standard": {
+      "rule": "no element inside data-pd-deck-safe extends past the safe area",
+      "slides": 10,
+      "slideSize": [
+        "1440x1080"
+      ],
+      "overflowing": []
+    }
+  },
+  "sizesPx1920": {
+    "present": {
+      "kicker": 23.76,
+      "title": 101.52,
+      "footer": 19.44,
+      "section": 129.6,
+      "statement": 82.08,
+      "headline": 58.32,
+      "lead": 38.88,
+      "body": 30.24,
+      "source": 21.6,
+      "metric": 183.6,
+      "label": 24.84,
+      "quote": 56.16,
+      "bullet": 32.4,
+      "data": 24.84
+    },
+    "read": {
+      "kicker": 23.76,
+      "title": 101.52,
+      "footer": 19.44,
+      "section": 129.6,
+      "statement": 69.12,
+      "headline": 49.68,
+      "lead": 32.4,
+      "body": 24.84,
+      "source": 19.44,
+      "metric": 183.6,
+      "label": 21.6,
+      "quote": 47.52,
+      "bullet": 27,
+      "data": 21.6
+    }
+  },
+  "pdf": {
+    "widescreen": {
+      "pages": 10,
+      "mediaBoxPt": [
+        "MediaBox [0 0 1440 810]"
+      ]
+    },
+    "standard": {
+      "pages": 10,
+      "mediaBoxPt": [
+        "MediaBox [0 0 1080 810]"
+      ]
+    }
+  },
+  "specimen": {
+    "views": [
+      "overview",
+      "anchors",
+      "roles",
+      "dense",
+      "ui",
+      "social",
+      "youtube",
+      "decks",
+      "arrows",
+      "stress"
+    ],
+    "decksViewSlides": 8,
+    "overflowing": 0,
+    "errors": []
+  },
+  "consoleErrors": [],
+  "pageErrors": [],
+  "fontsLoaded": [
+    "PD Head",
+    "PD Body",
+    "PD Body Alt",
+    "PD Eyebrow"
+  ],
+  "sizesPx1440": {
+    "present": {
+      "kicker": 19.008,
+      "title": 81.216,
+      "footer": 15.552,
+      "section": 103.68,
+      "statement": 65.664,
+      "headline": 46.656,
+      "lead": 31.104,
+      "body": 24.192,
+      "source": 17.28,
+      "metric": 146.88,
+      "label": 19.872,
+      "quote": 44.928,
+      "bullet": 25.92,
+      "data": 19.872
+    },
+    "read": {
+      "kicker": 19.008,
+      "title": 81.216,
+      "footer": 15.552,
+      "section": 103.68,
+      "statement": 55.296,
+      "headline": 39.744,
+      "lead": 25.92,
+      "body": 19.872,
+      "source": 15.552,
+      "metric": 146.88,
+      "label": 17.28,
+      "quote": 38.016,
+      "bullet": 21.6,
+      "data": 17.28
+    }
+  }
+}

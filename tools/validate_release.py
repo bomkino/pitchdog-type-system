@@ -21,8 +21,13 @@ EXPECTED_ANCHORS = {
         "ital": [0, 1],
     },
 }
-EXPECTED_COUNTS = {"web": 17, "ui": 14, "social": 9, "youtube": 7}
-EXPECTED_CANVASES = {"social": 4, "youtube": 5}
+EXPECTED_COUNTS = {"web": 17, "ui": 14, "social": 9, "youtube": 7, "deck": 14}
+EXPECTED_CANVASES = {"social": 4, "youtube": 5, "deck": 2}
+MEDIA_ATTRIBUTES = {
+    "social": ("data-pd-canvas", "data-pd-social"),
+    "youtube": ("data-pd-youtube-canvas", "data-pd-youtube"),
+    "deck": ("data-pd-deck-canvas", "data-pd-deck"),
+}
 
 errors: list[str] = []
 checks: list[str] = []
@@ -78,6 +83,7 @@ for split_name in [
     "pitchdog.ui.tokens.json",
     "pitchdog.social.tokens.json",
     "pitchdog.youtube.tokens.json",
+    "pitchdog.deck.tokens.json",
 ]:
     split_meta = (load_json(ROOT / "tokens" / split_name) or {}).get("meta", {})
     check(split_meta.get("version") == meta.get("version"), f"{split_name} carries the canonical version")
@@ -172,9 +178,105 @@ check(
     "DTCG web role values match the canonical source",
 )
 
+for group in ["ui", "social", "youtube", "deck"]:
+    exported = (dtcg.get("type") or {}).get(group) or {}
+    canonical = tokens.get(group, {}).get("roles", {})
+    prefix = f"{group}."
+    check(
+        {f"{prefix}{name}": value for name, value in exported.items()}
+        == {
+            name: {
+                "$type": "typography",
+                "$value": {
+                    "fontFamily": f"{{font.family.{role['family']}}}",
+                    "fontSize": role["size"],
+                    "fontWeight": role["weight"],
+                    "letterSpacing": role["tracking"],
+                    "lineHeight": role["lineHeight"],
+                },
+                "$extensions": {
+                    "pitchdog": {
+                        key: value
+                        for key, value in role.items()
+                        if key not in {"family", "size", "weight", "tracking", "lineHeight"}
+                    }
+                },
+            }
+            for name, role in canonical.items()
+        },
+        f"DTCG {group} role values match the canonical source",
+    )
+
+
+def kebab(name: str) -> str:
+    return re.sub(r"(?<=[a-z0-9])([A-Z])", r"-\1", name).lower()
+
+
 for group, expected_count in EXPECTED_CANVASES.items():
     canvases = tokens.get(group, {}).get("canvases", {})
     check(len(canvases) == expected_count, f"{group} has {expected_count} canonical canvases")
+    canvas_attr, role_attr = MEDIA_ATTRIBUTES[group]
+    media_css = (ROOT / "dist" / f"pitchdog-{group}.css").read_text(encoding="utf-8")
+    for key in canvases:
+        check(f'[{canvas_attr}="{kebab(key)}"]' in media_css, f"{group} CSS sizes the {key} canvas")
+    roles = tokens.get(group, {}).get("roles", {})
+    governed = {name.split(".", 1)[1] for name in roles}
+    for name in sorted(governed):
+        check(f'[{role_attr}="{name}"]' in media_css, f"{group} CSS implements {group}.{name}")
+    for starter in sorted((ROOT / group).glob("*.html")):
+        used = set(re.findall(rf'{role_attr}="([^"]+)"', starter.read_text(encoding="utf-8")))
+        check(
+            bool(used) and used <= governed,
+            f"{starter.relative_to(ROOT).as_posix()} uses only governed {group} roles: {sorted(used - governed)}",
+        )
+
+
+def slide_size(size: str) -> tuple[float, float]:
+    """Return the (cqi, cqb) pair of a deck size such as `min(1.68cqi, 2.8cqb)`."""
+    match = re.fullmatch(r"min\(([\d.]+)cqi, ([\d.]+)cqb\)", size)
+    return (float(match.group(1)), float(match.group(2))) if match else (-1.0, -1.0)
+
+
+def cqb_value(length: str) -> float:
+    match = re.fullmatch(r"([\d.]+)cqb", length)
+    return float(match.group(1)) if match else -1.0
+
+
+deck = tokens.get("deck", {})
+deck_roles = deck.get("roles", {})
+floor = deck.get("floor", {})
+present_floor = cqb_value(floor.get("present", ""))
+read_floor = cqb_value(floor.get("read", ""))
+check(present_floor > 0 and 0 < read_floor <= present_floor, "deck publishes present and read size floors")
+check(set(deck.get("densities", {})) == {"present", "read"}, "deck densities are present and read")
+for name, role in deck_roles.items():
+    cqi, cqb = slide_size(role.get("size", ""))
+    check(cqb > 0, f"{name} size is a cqi/cqb pair")
+    minimum = read_floor if name in floor.get("exceptions", []) else present_floor
+    check(cqb >= minimum, f"{name} meets its size floor")
+    check(abs(cqi - round(cqb * 0.6, 2)) < 1e-9, f"{name} sets 4:3 slides at 80 percent of widescreen")
+    read = role.get("read")
+    if read:
+        read_cqi, read_cqb = slide_size(read.get("size", ""))
+        check(read_floor <= read_cqb < cqb, f"{name} read density is smaller and above the read floor")
+        check(abs(read_cqi - round(read_cqb * 0.6, 2)) < 1e-9, f"{name} read size keeps the 4:3 ratio")
+        check(
+            all(read.get(key, role.get(key, 0)) >= role.get(key, 0) for key in ("maxLines", "maxWords", "maxItems")),
+            f"{name} read density allows at least the present copy",
+        )
+for name, template in deck.get("templates", {}).items():
+    check(bool(template.get("roles")) and set(template["roles"]) <= set(deck_roles), f"deck template {name} uses governed roles")
+deck_css = (ROOT / "dist" / "pitchdog-deck.css").read_text(encoding="utf-8")
+for marker in [
+    '[data-pd-deck-density="read"]',
+    "[data-pd-deck-safe]",
+    "@page pd-deck-widescreen { size:1920px 1080px; margin:0; }",
+    "@page pd-deck-standard { size:1440px 1080px; margin:0; }",
+    "break-after:page",
+]:
+    check(marker in deck_css, f"deck CSS contains {marker}")
+system_css = (ROOT / "dist" / "pitchdog-system.css").read_text(encoding="utf-8")
+check(deck_css in system_css, "system CSS bundles the deck layer")
 
 arrow_contract = tokens.get("arrows", {})
 check(arrow_contract.get("glyphs") == ARROWS, "all twelve native arrows are governed")
@@ -277,6 +379,7 @@ required_docs = [
     "UI-UX-TYPOGRAPHY.md",
     "SOCIAL-TYPOGRAPHY.md",
     "YOUTUBE.md",
+    "DECKS.md",
     "ARROWS.md",
     "ACCESSIBILITY-QA.md",
     "IMPLEMENTATION.md",

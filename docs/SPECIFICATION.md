@@ -9,6 +9,7 @@ This system governs every recurring typographic job across:
 - product and internal-tool interfaces
 - social posts, stories, carousel slides and Open Graph cards
 - YouTube thumbnails, Shorts covers, podcast covers, banners and end screens
+- pitch decks and presentations, presented live or sent as a PDF
 
 It is a small semantic interface over a heavily tested runtime. Components consume roles. They do not invent typography.
 
@@ -131,7 +132,9 @@ The UI system contains fourteen roles and three density modes. Density changes s
 
 ## 12. Media layers
 
-Social and YouTube use canvas-relative roles because their typography belongs to a fixed export surface. They share families and anchor weights with the web but not its responsive formulas.
+Social, YouTube and decks use canvas-relative roles because their typography belongs to a fixed export surface. They share families and anchor weights with the web but not its responsive formulas.
+
+Decks add a second axis: density. Present density is for slides shown live; read density steps nine roles down for decks sent ahead. Deck sizes are `min(0.6 × Y cqi, Y cqb)`, so 4:3 slides set at 80 percent of 16:9, and no deck role sets below 1.8 percent of the slide height. See `DECKS.md`.
 
 ## 13. Arrows
 

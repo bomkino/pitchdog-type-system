@@ -2,7 +2,7 @@
   "$schema": "./pitchdog.system.tokens.schema.json",
   "meta": {
     "name": "pitch.dog Type System",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "displayVersion": "2",
     "status": "production",
     "fontSource": "FontBlind-Final-2026-08-28-v13.zip",
@@ -608,7 +608,8 @@
         "lineHeight": 0.88,
         "tracking": "-0.043em",
         "maxLines": 4,
-        "maxWords": 12
+        "maxWords": 12,
+        "wrap": "balance"
       },
       "social.headline": {
         "family": "head",
@@ -618,7 +619,8 @@
         "lineHeight": 0.94,
         "tracking": "-0.031em",
         "maxLines": 4,
-        "maxWords": 18
+        "maxWords": 18,
+        "wrap": "balance"
       },
       "social.subhead": {
         "family": "bodyAlt",
@@ -628,7 +630,8 @@
         "lineHeight": 1.2,
         "tracking": "-0.012em",
         "maxLines": 6,
-        "maxWords": 32
+        "maxWords": 32,
+        "wrap": "pretty"
       },
       "social.body": {
         "family": "body",
@@ -638,7 +641,8 @@
         "lineHeight": 1.38,
         "tracking": "0em",
         "maxLines": 10,
-        "maxWords": 62
+        "maxWords": 62,
+        "wrap": "pretty"
       },
       "social.quote": {
         "family": "head",
@@ -648,7 +652,8 @@
         "lineHeight": 0.98,
         "tracking": "-0.027em",
         "maxLines": 7,
-        "maxWords": 38
+        "maxWords": 38,
+        "wrap": "pretty"
       },
       "social.metric": {
         "family": "body",
@@ -679,7 +684,8 @@
         "lineHeight": 1.2,
         "tracking": ".055em",
         "maxLines": 3,
-        "maxWords": 18
+        "maxWords": 18,
+        "case": "upper"
       },
       "social.credit": {
         "family": "body",
@@ -782,7 +788,8 @@
         "lineHeight": 0.86,
         "tracking": "-0.045em",
         "maxLines": 2,
-        "maxWords": 7
+        "maxWords": 7,
+        "wrap": "balance"
       },
       "youtube.titleCompact": {
         "family": "head",
@@ -792,7 +799,8 @@
         "lineHeight": 0.91,
         "tracking": "-0.036em",
         "maxLines": 3,
-        "maxWords": 11
+        "maxWords": 11,
+        "wrap": "balance"
       },
       "youtube.kicker": {
         "family": "eyebrow",
@@ -803,7 +811,8 @@
         "lineHeight": 1.0,
         "tracking": ".07em",
         "maxLines": 1,
-        "maxWords": 6
+        "maxWords": 6,
+        "case": "upper"
       },
       "youtube.support": {
         "family": "bodyAlt",
@@ -813,7 +822,8 @@
         "lineHeight": 1.1,
         "tracking": "-0.012em",
         "maxLines": 2,
-        "maxWords": 12
+        "maxWords": 12,
+        "wrap": "pretty"
       },
       "youtube.badge": {
         "family": "body",
@@ -876,6 +886,351 @@
         "formula": "Project name + outcome + visual proof",
         "copy": "HOW WE WON THE ROOM",
         "titleWords": "4–8"
+      }
+    }
+  },
+  "deck": {
+    "canvases": {
+      "widescreen": {
+        "width": 1920,
+        "height": 1080,
+        "ratio": "16 / 9",
+        "safe": {
+          "top": 80,
+          "right": 96,
+          "bottom": 80,
+          "left": 96
+        },
+        "use": "Keynote, Google Slides, PowerPoint and PDF default"
+      },
+      "standard": {
+        "width": 1440,
+        "height": 1080,
+        "ratio": "4 / 3",
+        "safe": {
+          "top": 80,
+          "right": 80,
+          "bottom": 80,
+          "left": 80
+        },
+        "use": "Projectors, printed handouts and legacy templates"
+      }
+    },
+    "densities": {
+      "present": {
+        "use": "Presented live and read from across a room. One idea per slide."
+      },
+      "read": {
+        "use": "Sent as a PDF or read on screen. Headline, body and small text step down so a slide can carry a paragraph.",
+        "attribute": "data-pd-deck-density=\"read\""
+      }
+    },
+    "floor": {
+      "present": "2cqb",
+      "read": "1.8cqb",
+      "exceptions": [
+        "deck.footer"
+      ],
+      "note": "1cqb is 10.8px on a 1080px slide. Footer is the only present-density role below 2cqb."
+    },
+    "roles": {
+      "deck.title": {
+        "family": "head",
+        "weight": 600,
+        "ital": 0,
+        "size": "min(5.64cqi, 9.4cqb)",
+        "lineHeight": 0.9,
+        "tracking": "-0.042em",
+        "maxLines": 3,
+        "maxWords": 10,
+        "wrap": "balance",
+        "use": "Cover and closing titles"
+      },
+      "deck.section": {
+        "family": "head",
+        "weight": 500,
+        "ital": 1,
+        "size": "min(7.2cqi, 12cqb)",
+        "lineHeight": 0.9,
+        "tracking": "-0.04em",
+        "maxLines": 2,
+        "maxWords": 5,
+        "wrap": "balance",
+        "use": "Chapter dividers in Head italic"
+      },
+      "deck.headline": {
+        "family": "head",
+        "weight": 500,
+        "ital": 0,
+        "size": "min(3.24cqi, 5.4cqb)",
+        "lineHeight": 1.0,
+        "tracking": "-0.028em",
+        "maxLines": 2,
+        "maxWords": 14,
+        "wrap": "balance",
+        "use": "The claim at the top of a content slide",
+        "read": {
+          "size": "min(2.76cqi, 4.6cqb)",
+          "maxLines": 3,
+          "maxWords": 20
+        }
+      },
+      "deck.statement": {
+        "family": "head",
+        "weight": 500,
+        "ital": 0,
+        "size": "min(4.56cqi, 7.6cqb)",
+        "lineHeight": 0.95,
+        "tracking": "-0.034em",
+        "maxLines": 4,
+        "maxWords": 16,
+        "wrap": "balance",
+        "use": "A slide that is one sentence and nothing else",
+        "read": {
+          "size": "min(3.84cqi, 6.4cqb)",
+          "maxLines": 4,
+          "maxWords": 20
+        }
+      },
+      "deck.lead": {
+        "family": "bodyAlt",
+        "weight": 400,
+        "style": "normal",
+        "size": "min(2.16cqi, 3.6cqb)",
+        "lineHeight": 1.22,
+        "tracking": "-0.012em",
+        "maxLines": 3,
+        "maxWords": 28,
+        "wrap": "pretty",
+        "use": "The sentence that explains a headline",
+        "read": {
+          "size": "min(1.8cqi, 3cqb)",
+          "maxLines": 4,
+          "maxWords": 40
+        }
+      },
+      "deck.body": {
+        "family": "body",
+        "weight": 400,
+        "style": "normal",
+        "size": "min(1.68cqi, 2.8cqb)",
+        "lineHeight": 1.36,
+        "tracking": "0em",
+        "maxLines": 7,
+        "maxWords": 55,
+        "wrap": "pretty",
+        "use": "Supporting paragraphs; keep them rare when presenting live",
+        "read": {
+          "size": "min(1.38cqi, 2.3cqb)",
+          "lineHeight": 1.4,
+          "maxLines": 12,
+          "maxWords": 110
+        }
+      },
+      "deck.bullet": {
+        "family": "body",
+        "weight": 400,
+        "style": "normal",
+        "size": "min(1.8cqi, 3cqb)",
+        "lineHeight": 1.3,
+        "tracking": "0em",
+        "maxLines": 2,
+        "maxWords": 14,
+        "maxItems": 5,
+        "wrap": "pretty",
+        "use": "List items; limits are per item",
+        "read": {
+          "size": "min(1.5cqi, 2.5cqb)",
+          "maxLines": 3,
+          "maxWords": 24,
+          "maxItems": 7
+        }
+      },
+      "deck.quote": {
+        "family": "head",
+        "weight": 500,
+        "ital": 1,
+        "size": "min(3.12cqi, 5.2cqb)",
+        "lineHeight": 1.04,
+        "tracking": "-0.024em",
+        "maxLines": 5,
+        "maxWords": 32,
+        "wrap": "pretty",
+        "use": "Customer, investor and press quotes",
+        "read": {
+          "size": "min(2.64cqi, 4.4cqb)",
+          "maxLines": 6,
+          "maxWords": 45
+        }
+      },
+      "deck.metric": {
+        "family": "body",
+        "weight": 700,
+        "style": "normal",
+        "size": "min(10.2cqi, 17cqb)",
+        "lineHeight": 0.82,
+        "tracking": "-0.052em",
+        "maxLines": 1,
+        "maxWords": 2,
+        "use": "One hero number per slide"
+      },
+      "deck.kicker": {
+        "family": "eyebrow",
+        "weight": 500,
+        "width": 87.5,
+        "ital": 0,
+        "size": "min(1.32cqi, 2.2cqb)",
+        "lineHeight": 1.1,
+        "tracking": ".06em",
+        "maxLines": 1,
+        "maxWords": 6,
+        "case": "upper",
+        "use": "Section markers and slide eyebrows"
+      },
+      "deck.label": {
+        "family": "body",
+        "weight": 600,
+        "style": "normal",
+        "size": "min(1.38cqi, 2.3cqb)",
+        "lineHeight": 1.2,
+        "tracking": ".01em",
+        "maxLines": 2,
+        "maxWords": 8,
+        "use": "Metric labels, column heads, legends and attributions",
+        "read": {
+          "size": "min(1.2cqi, 2cqb)"
+        }
+      },
+      "deck.data": {
+        "family": "eyebrow",
+        "weight": 500,
+        "width": 100,
+        "ital": 0,
+        "size": "min(1.38cqi, 2.3cqb)",
+        "lineHeight": 1.2,
+        "tracking": "0em",
+        "maxLines": 1,
+        "maxWords": 4,
+        "use": "Table figures and chart axes; Eyebrow digits share one advance width",
+        "read": {
+          "size": "min(1.2cqi, 2cqb)"
+        }
+      },
+      "deck.source": {
+        "family": "body",
+        "weight": 400,
+        "style": "normal",
+        "size": "min(1.2cqi, 2cqb)",
+        "lineHeight": 1.3,
+        "tracking": "0em",
+        "maxLines": 2,
+        "maxWords": 30,
+        "use": "Sources, footnotes and disclaimers",
+        "read": {
+          "size": "min(1.08cqi, 1.8cqb)"
+        }
+      },
+      "deck.footer": {
+        "family": "eyebrow",
+        "weight": 500,
+        "width": 87.5,
+        "ital": 0,
+        "size": "min(1.08cqi, 1.8cqb)",
+        "lineHeight": 1.1,
+        "tracking": ".06em",
+        "maxLines": 1,
+        "maxWords": 8,
+        "case": "upper",
+        "use": "Running footer: company, date and slide number"
+      }
+    },
+    "templates": {
+      "cover": {
+        "formula": "Kicker + title + presenter line",
+        "roles": [
+          "deck.kicker",
+          "deck.title",
+          "deck.footer"
+        ],
+        "copy": "Series A, told in twelve slides"
+      },
+      "section": {
+        "formula": "Section marker + a chapter title of one to five words",
+        "roles": [
+          "deck.kicker",
+          "deck.section"
+        ],
+        "copy": "The problem"
+      },
+      "statement": {
+        "formula": "One sentence and nothing else",
+        "roles": [
+          "deck.statement"
+        ],
+        "copy": "Most decks lose the room by slide three."
+      },
+      "insight": {
+        "formula": "Claim + explanation + optional body + source",
+        "roles": [
+          "deck.headline",
+          "deck.lead",
+          "deck.body",
+          "deck.source"
+        ],
+        "copy": "Investors decide in the first four minutes"
+      },
+      "metric": {
+        "formula": "One number + what it measures + where it came from",
+        "roles": [
+          "deck.metric",
+          "deck.label",
+          "deck.source"
+        ],
+        "copy": "3.2×"
+      },
+      "quote": {
+        "formula": "Pull quote + attribution",
+        "roles": [
+          "deck.quote",
+          "deck.label"
+        ],
+        "copy": "“The first deck that made us lean in.”"
+      },
+      "list": {
+        "formula": "Headline + three to five bullets",
+        "roles": [
+          "deck.headline",
+          "deck.bullet"
+        ],
+        "copy": "What the round pays for"
+      },
+      "data": {
+        "formula": "Headline + table or chart with figures in deck.data",
+        "roles": [
+          "deck.headline",
+          "deck.label",
+          "deck.data",
+          "deck.source"
+        ],
+        "copy": "Revenue, quarter by quarter"
+      },
+      "compare": {
+        "formula": "Headline + two labelled columns",
+        "roles": [
+          "deck.headline",
+          "deck.label",
+          "deck.body"
+        ],
+        "copy": "Before → After"
+      },
+      "close": {
+        "formula": "The ask + next step + contact",
+        "roles": [
+          "deck.title",
+          "deck.lead",
+          "deck.footer"
+        ],
+        "copy": "Let’s build the one that gets funded."
       }
     }
   },

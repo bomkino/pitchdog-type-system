@@ -1,7 +1,7 @@
 {
   "meta": {
     "name": "pitch.dog Type System",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "displayVersion": "2",
     "status": "production",
     "fontSource": "FontBlind-Final-2026-08-28-v13.zip",
@@ -66,7 +66,8 @@
       "lineHeight": 0.88,
       "tracking": "-0.043em",
       "maxLines": 4,
-      "maxWords": 12
+      "maxWords": 12,
+      "wrap": "balance"
     },
     "social.headline": {
       "family": "head",
@@ -76,7 +77,8 @@
       "lineHeight": 0.94,
       "tracking": "-0.031em",
       "maxLines": 4,
-      "maxWords": 18
+      "maxWords": 18,
+      "wrap": "balance"
     },
     "social.subhead": {
       "family": "bodyAlt",
@@ -86,7 +88,8 @@
       "lineHeight": 1.2,
       "tracking": "-0.012em",
       "maxLines": 6,
-      "maxWords": 32
+      "maxWords": 32,
+      "wrap": "pretty"
     },
     "social.body": {
       "family": "body",
@@ -96,7 +99,8 @@
       "lineHeight": 1.38,
       "tracking": "0em",
       "maxLines": 10,
-      "maxWords": 62
+      "maxWords": 62,
+      "wrap": "pretty"
     },
     "social.quote": {
       "family": "head",
@@ -106,7 +110,8 @@
       "lineHeight": 0.98,
       "tracking": "-0.027em",
       "maxLines": 7,
-      "maxWords": 38
+      "maxWords": 38,
+      "wrap": "pretty"
     },
     "social.metric": {
       "family": "body",
@@ -137,7 +142,8 @@
       "lineHeight": 1.2,
       "tracking": ".055em",
       "maxLines": 3,
-      "maxWords": 18
+      "maxWords": 18,
+      "case": "upper"
     },
     "social.credit": {
       "family": "body",
