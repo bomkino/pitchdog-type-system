@@ -21,7 +21,7 @@ Inspect the consumer's dependency files, lockfiles, submodules, vendored receipt
 - Resolve a tag to its full commit SHA. A branch, a bare tag name, or `/releases/latest` is mutable evidence, never a pin.
 - Read canonical files from the consumer's exact package or checkout, or from `https://github.com/bomkino/pitchdog-type-system` at the pinned commit. Keep temporary source outside the consumer and remove it afterwards.
 
-Resolution is complete when the source location, version or tag, and full commit are recorded and the retrieved tree matches them. Fail closed on conflicting identity, missing provenance, a non-production default, or canonical tokens disagreeing with a derived or documented surface.
+Resolution is complete when the source location, version or tag, and full commit are recorded and the retrieved tree matches them. Fail closed on conflicting identity, missing provenance, a version not explicitly marked production, or canonical tokens disagreeing with a derived or documented surface.
 
 ## 2. Route the type work
 

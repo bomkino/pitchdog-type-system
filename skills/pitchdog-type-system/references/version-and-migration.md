@@ -2,12 +2,16 @@
 
 ## Select an immutable version
 
-1. Start from the consumer's pin (SKILL.md step 1). A tag without a recorded commit establishes the intended version only: recover its original commit from installed or lock evidence, and fail closed if that evidence is absent or conflicts with the current remote tag.
+1. Start from the consumer's pin (SKILL.md step 1). When a tag has no recorded commit, or its recorded lock or receipt commit differs from the commit the tag now resolves to, recover the original commit from installed or lock evidence. Fail closed if that evidence is absent or still disagrees, and ask the user which named commit is the pin.
 2. Inspect stable GitHub Release records and Git tags independently. Peel annotated tags to commits and record the full SHA.
-3. At that commit, compare the package version, canonical token metadata, generated version markers, changelog, and release receipt. Read GitHub visibility independently from licensing files.
-4. For a new unpinned consumer, accept the newest stable release only when those surfaces identify the same version and both canonical metadata and the receipt explicitly say production. Use the tag in integration syntax when required and retain the full commit in the lock evidence.
+3. At that commit, compare the package version, canonical token metadata, generated version markers, changelog, and release receipt.
+4. Choose the version:
+   - **Requested version**: accept its tag when every surface in step 3 names that version and both canonical metadata and the receipt say production. Report a missing GitHub Release without treating it as a blocker.
+   - **Default** (no version requested): the newest stable GitHub Release. Accept it only when its tag is also the newest version tag, every surface in step 3 names that version, and both canonical metadata and the receipt say production.
 
-Fail closed when the tag and Release disagree, `/releases/latest` is stale, a required Release object is absent, any default candidate is not explicitly production, canonical tokens disagree with a derived or documented surface, or the retrieved tree differs from the resolved commit. State the conflicting values. Canonical tokens remain the semantic authority; repair a conflicting derived surface only with authorization, otherwise keep the task blocked. Ask the user only when a non-semantic release-identity conflict genuinely requires their choice.
+   Use the tag in integration syntax when required and keep the full commit in the lock evidence.
+
+Fail closed when the tag and Release disagree, the default's tag is older than the newest version tag, the chosen version is not explicitly production, canonical tokens disagree with a derived or documented surface, or the retrieved tree differs from the pinned commit. State the conflicting values and the repair the maintainers need. Canonical tokens remain the semantic authority; repair a conflicting derived surface only with authorization. When naming a specific commit or version would resolve the conflict, ask the user to choose between the named candidates.
 
 ## Migrate only with authority
 
