@@ -10,7 +10,7 @@ The canonical pitch.dog repository is the sole typography authority. This skill 
 Two words carry the whole process:
 
 - **Pin**: the full commit SHA a consumer's type system resolves to. An existing pin holds until the user authorizes a migration.
-- **Fail closed**: when identities or sources disagree, stop, name the conflicting values, and change nothing.
+- **Fail closed**: when the type system's own identities or sources disagree, stop, name the conflicting values, and change nothing. A consumer that deviates from the system is a finding to diagnose and report, not a reason to stop.
 
 ## 1. Resolve the pin
 
@@ -43,7 +43,7 @@ Application is complete when every touched type decision points to a governed ro
 
 For implementation, build, migration or diagnosis, read [runtime verification](references/runtime-verification.md) and inspect the real target after its build or export. Each check proves only its own surface: an import, build, validator or screenshot is narrow evidence.
 
-Report source resolution, package or handoff, consumer integration, emitted assets, rendered output and migration state as separate claims, each `verified`, `unverified`, `mismatch` or `blocked`. Completion requires direct evidence for every in-scope surface.
+Report source resolution, migration state and each surface runtime verification names as a separate claim, each `verified`, `unverified`, `mismatch` or `blocked`. A change is complete when every in-scope surface has direct evidence; a diagnosis is complete when every in-scope surface has a state and each one short of `verified` names the next check.
 
 ## Rights
 
