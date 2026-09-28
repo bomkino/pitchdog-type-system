@@ -8,7 +8,7 @@ canvases and templates. This script writes everything that restates it:
 - role contracts, TypeScript types and the media-layer CSS in `dist/`
 - canvas, copy and template contracts in `social/`, `youtube/` and `deck/`
 - the Figma style map in `docs/`
-- `dist/pitchdog-system.css` and `dist/pitchdog-system.min.css`
+- `dist/pitchdog-system.css`, `dist/pitchdog-system.min.css` and the copy inlined in the specimen
 
 The web and UI layers (`dist/pitchdog-typography.css`, `dist/pitchdog-ui.css`) and the
 font registration template stay hand-authored; they are assembled here, not generated.
@@ -50,6 +50,8 @@ SYSTEM_PARTS = [
     "pitchdog-youtube.css",
     "pitchdog-deck.css",
 ]
+SPECIMEN = "pitchdog-typography-system.html"
+SPECIMEN_OPEN = '<style id="pd-system-css">'
 FAMILY_VARS = {
     "head": "--pd-font-head-active",
     "headAlt": "--pd-font-head-alt",
@@ -384,6 +386,14 @@ def build(tokens: dict) -> dict[str, str]:
     system = "\n".join(text(name) for name in SYSTEM_PARTS)
     files["dist/pitchdog-system.css"] = system
     files["dist/pitchdog-system.min.css"] = minify(system)
+
+    # The specimen inlines the system CSS (fonts come from a separate link) so the
+    # standalone file it builds works offline. Keep that copy identical to dist.
+    specimen = (ROOT / SPECIMEN).read_bytes().decode("utf-8")
+    start = specimen.index(SPECIMEN_OPEN) + len(SPECIMEN_OPEN)
+    end = specimen.index("</style>", start)
+    inline = "\n".join(text(name) for name in SYSTEM_PARTS[1:]).rstrip("\n")
+    files[SPECIMEN] = specimen[:start] + inline + specimen[end:]
     return files
 
 

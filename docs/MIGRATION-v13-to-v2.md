@@ -1,4 +1,4 @@
-# Migration from 13.x to 2.0.0
+# Migration from 13.x to 2.x
 
 2.0.0 is the major release after 13.1.1. Numbering restarted at 2; tools that sort versions will still list 13.x higher, so move pins by tag rather than by "latest".
 
@@ -27,3 +27,12 @@
 ## Rollback
 
 Pin `#v13.1.1` (commit `318e6ff4d4bf76be76f7ed5225aacf7517d2ee82`) and reinstall the v13 fonts.
+
+## From 2.0.0 to 2.1.0
+
+2.1.0 adds deck mode and changes no font file, size, weight or limit.
+
+1. Change the pin to `#v2.1.0` and reinstall.
+2. Expect slightly different line breaks in social display, headline, subhead, body and quote roles and in YouTube support copy, which now balance or use pretty wrapping. Check fixed-canvas exports that depend on exact breaks.
+3. If you import `docs/figma-style-map.csv`, rename UI and YouTube styles to the new casing (for example `UI / Page Title`).
+4. Nothing else is required. Deck roles are new attributes (`data-pd-deck`, `data-pd-deck-canvas`) and do not affect existing markup.

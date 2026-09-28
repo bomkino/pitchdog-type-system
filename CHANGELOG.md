@@ -1,5 +1,30 @@
 # Changelog
 
+## 2.1.0
+
+**Deck mode.** pitch.dog decks now have their own layer, built on the same families, anchors and voice.
+
+- Fourteen slide roles (`deck.title` through `deck.footer`) on 16:9 (1920 × 1080) and 4:3 (1440 × 1080) canvases. Sizes come from the slide itself, and 4:3 slides set at 80 percent of widescreen.
+- Two densities: **present** for slides shown live, **read** (`data-pd-deck-density="read"`) for decks sent as a PDF. Read steps nine roles down and raises their copy limits.
+- A size floor the validator enforces: nothing below 1.8 percent of the slide height, and nothing but the footer below 2 percent at present density.
+- Safe areas as a positioned `data-pd-deck-safe` child, and print rules that put one slide on each page at the slide's own size.
+- Ten slide templates, canvas and copy contracts in `deck/`, `tokens/pitchdog.deck.tokens.json`, the `./deck.css` package export, `DeckRole`, `DeckCanvas` and `DeckDensity` types, and `Deck / …` Figma styles.
+- `deck/deck-starter.html`: a ten-slide starter with canvas, density and head-tone switches, a presenter mode and one-click PDF export. The specimen gains a Decks view.
+- `docs/DECKS.md`: the scale, writing rules, numerals, PDF export and point sizes for Keynote, PowerPoint, Google Slides and Figma.
+
+**Polish**
+
+- `scripts/build_dist.py` generates every derived file from `tokens/pitchdog.system.tokens.json`: split tokens, DTCG, TypeScript, role, canvas, copy and template contracts, the Figma style map, the social, YouTube and deck CSS, both bundles and the specimen's inline CSS. CI and the release workflow fail if any of them is stale. Before deck mode was added, it reproduced the 2.0.0 split tokens, DTCG export and contracts byte for byte.
+- The specimen's inline system CSS had fallen behind `dist/` (it lacked the 13.1 wrapping and measure contracts); it is now generated from the same source.
+- The YouTube end-screen canvas had tokens and specimen markup but no CSS; `data-pd-youtube-canvas="end-screen"` now sets its 16:9 ratio and container.
+- Social and YouTube roles now declare their wrapping and capitals in the tokens (`wrap`, `case`). New in CSS: social display and headline balance, social subhead, body and quote and YouTube support use pretty wrapping. Sizes, weights and limits are unchanged.
+- Figma style names are properly cased: `UI / Page Title` instead of `Ui / Pagetitle`, `YouTube / Title Compact` instead of `Youtube / Titlecompact`. Rename existing Figma styles to match.
+- The DTCG export, role contracts and validator now cover every role group, not just web.
+- `docs/README.md` indexes the documentation by task. `docs/USING-IN-PROJECTS.md` no longer pins 13.1.1, and the specimen's font loader no longer names a specific release ZIP.
+- Documented honestly that PD Head and PD Body digits are proportional with no tabular feature, and that PD Eyebrow is monospaced, which is why tables use Eyebrow.
+
+Fonts are unchanged from 2.0.0: same files, same hashes.
+
 ## 2.0.0
 
 Numbering restarts at 2.0.0 after 13.1.1. Pin by tag; version-sorting tools will still list 13.x higher.

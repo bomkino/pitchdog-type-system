@@ -5,7 +5,7 @@
 Install the canonical repository at an immutable release tag:
 
 ```bash
-npm install "git+https://github.com/bomkino/pitchdog-type-system.git#v13.1.1"
+npm install "git+https://github.com/bomkino/pitchdog-type-system.git#v2.1.0"
 ```
 
 The public canonical repository does not require credentials for read-only HTTPS installation. If a private mirror or authenticated workflow is used, keep credentials in the platform's secret manager. Never put a token in `package.json`, a Git URL, browser code or committed `.npmrc`.
@@ -24,7 +24,7 @@ For a non-npm project:
 
 ```bash
 git submodule add https://github.com/bomkino/pitchdog-type-system.git vendor/pitchdog-type-system
-git -C vendor/pitchdog-type-system checkout v13.1.1
+git -C vendor/pitchdog-type-system checkout v2.1.0
 ```
 
 Copy `dist/` and `assets/fonts/` into the project's own static asset pipeline. Keep their relative relationship intact: CSS in `dist/` resolves fonts from `../assets/fonts/`.
@@ -39,6 +39,8 @@ The following folders exist in a full Git checkout or repository download. They 
 - Static web fallback: `pitchdog-font-handoff/04-OPTIONAL-STATIC-WEB/`
 
 Use variable fonts first. Remove the matching variable family before installing static anchors.
+
+For Keynote, PowerPoint, Google Slides and Figma deck work, `docs/DECKS.md` gives point sizes for each app's default slide size.
 
 Every font installs under its canonical family name (PD Head, PD Head Alt, PD Body, PD Body Alt, PD Eyebrow) and every static face has a unique name; see `docs/FONT-NAMING.md`. Uninstall fonts from the v13 handoff before installing these.
 
