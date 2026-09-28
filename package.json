@@ -1,6 +1,6 @@
 {
   "name": "@pitchdog/type-system",
-  "version": "13.1.1",
+  "version": "2.0.0",
   "private": true,
   "description": "Canonical pitch.dog fonts and typography system.",
   "license": "SEE LICENSE IN LICENSE.md",

@@ -33,14 +33,14 @@ Copy `dist/` and `assets/fonts/` into the project's own static asset pipeline. K
 
 The following folders exist in a full Git checkout or repository download. They are deliberately excluded from the lean web package:
 
-- Variable desktop/native fonts: `pitchdog-font-handoff-v13/02-NATIVE-VARIABLE/`
-- Static compatibility fallback: `pitchdog-font-handoff-v13/03-STATIC-ANCHORS-NATIVE/`
-- Web variable fonts: `pitchdog-font-handoff-v13/01-WEB-VARIABLE/`
-- Static web fallback: `pitchdog-font-handoff-v13/04-OPTIONAL-STATIC-WEB/`
+- Variable desktop/native fonts: `pitchdog-font-handoff/02-NATIVE-VARIABLE/`
+- Static compatibility fallback: `pitchdog-font-handoff/03-STATIC-ANCHORS-NATIVE/`
+- Web variable fonts: `pitchdog-font-handoff/01-WEB-VARIABLE/`
+- Static web fallback: `pitchdog-font-handoff/04-OPTIONAL-STATIC-WEB/`
 
 Use variable fonts first. Remove the matching variable family before installing static anchors.
 
-PD Eyebrow's 350 and 400 static files share internal names and can overwrite one another. Use the variable Eyebrow whenever possible. If static files are unavoidable, install only the single Eyebrow weight/posture needed and read `KNOWN-FONT-DETAILS.md` first.
+Every font installs under its canonical family name (PD Head, PD Head Alt, PD Body, PD Body Alt, PD Eyebrow) and every static face has a unique name; see `docs/FONT-NAMING.md`. Uninstall fonts from the v13 handoff before installing these.
 
 ## Caching
 

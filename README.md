@@ -1,30 +1,58 @@
 # pitch.dog Type System
 
-The canonical source of truth for pitch.dog fonts, type tokens, CSS roles, interface typography, social formats and YouTube typography.
+The canonical source for pitch.dog typography: five variable font families, semantic type tokens, production CSS, and the roles that govern the website, product interfaces, social posts and YouTube.
 
-Current release: **v13.1.1**
+Current release: **v2.0.0**
 
-## Use it in an authorized project
+![Specimen overview: hero type, Head italics, dense reading, interface, social and YouTube layouts, and the arrow set](evidence/pitchdog-typography-preview-v13.png)
+
+## What is inside
+
+| Path | What it is |
+| --- | --- |
+| `tokens/pitchdog.system.tokens.json` | Canonical semantic source. Every other surface derives from it. |
+| `dist/pitchdog-system.css` | Complete production CSS (fonts, typography, UI, social, YouTube). |
+| `dist/pitchdog-system.ts` | Typed anchors, role names and the release version. |
+| `assets/fonts/` | The seven runtime WOFF2 files the CSS loads. |
+| `pitchdog-font-handoff/` | Web, native and static-fallback fonts for design tools and apps. Git checkout only. |
+| `interface/`, `social/`, `youtube/` | Component, canvas and copy contracts, each with a starter HTML page. |
+| `docs/` | Specification, policies, platform guides and validation evidence. |
+| `pitchdog-typography-system.html` | The live specimen. Open it from a checkout to see every layer with the real fonts. |
+| `skills/pitchdog-type-system/` | An agent skill that routes type work back to this repository. |
+
+## The families
+
+| Family | Role | Axes |
+| --- | --- | --- |
+| PD Head | Display and headings | `wght` 265–900, `ital` 0–1 |
+| PD Head Alt | Alternate display voice | `wght` 265–900, `ital` 0–1 |
+| PD Body | Reading and interface text (Roman and Italic files) | `wght` 100–900 |
+| PD Body Alt | Alternate reading voice (Roman and Italic files) | `wght` 100–900 |
+| PD Eyebrow | Labels, metadata, data and arrows | `wght` 100–900, `wdth` 87.5–100, `ital` 0–1 |
+
+Production values snap to authentic master anchors; see `docs/ANCHOR-POLICY.md`. From v2.0.0 every font file installs under these names on desktop and native platforms too; see `docs/FONT-NAMING.md`.
+
+## Use it in a project
 
 These integration instructions describe mechanics for pitch.dog and its authorized collaborators; they do not grant a public licence to the surrounding system.
 
-Pin the release. Do not depend on `main`.
+Pin a release. Do not depend on `main`.
 
 ```json
 {
   "dependencies": {
-    "@pitchdog/type-system": "git+https://github.com/bomkino/pitchdog-type-system.git#v13.1.1"
+    "@pitchdog/type-system": "git+https://github.com/bomkino/pitchdog-type-system.git#v2.0.0"
   }
 }
 ```
 
-Then load the complete system once:
+Load the complete system once:
 
 ```js
 import "@pitchdog/type-system/system.css";
 ```
 
-For a deliberately split build, load the font registration and typography foundation first, then optional layers:
+Or load the layers separately, fonts and typography first:
 
 ```js
 import "@pitchdog/type-system/fonts.css";
@@ -36,32 +64,42 @@ import "@pitchdog/type-system/youtube.css";
 
 `ui.css`, `social.css` and `youtube.css` are not standalone; they consume variables declared by `typography.css`.
 
-The CSS resolves the seven canonical WOFF2 files from this package. Your app's bundler should copy and fingerprint them with the rest of its assets.
+The CSS resolves the seven WOFF2 files from this package. Let your bundler copy and fingerprint them with the rest of its assets. Do **not** hotlink `raw.githubusercontent.com` URLs in a browser: GitHub is the source and distribution point, not a runtime CDN.
 
 For web wrapping and reading measure, use the semantic roles or the explicit `data-pd-wrap` and `data-pd-measure` contracts. Do not put `text-wrap: pretty` on `body`, every paragraph, or an entire application shell. See `docs/WEB-TEXT-WRAPPING.md`.
 
-Do **not** hotlink `raw.githubusercontent.com` URLs in a browser. GitHub is the source and distribution point, not the runtime CDN; each project serves the webfonts from its own build.
+Frameworks, non-JavaScript projects, vendoring and native apps are covered in `docs/USING-IN-PROJECTS.md`. Upgrading from 13.x: `docs/MIGRATION-v13-to-v2.md`.
 
-## What is authoritative
+## Fonts for design tools and apps
 
-- `tokens/pitchdog.system.tokens.json` — canonical semantic source
-- `dist/pitchdog-system.css` — complete production CSS
-- `dist/pitchdog-system.ts` — typed anchors and role names
-- `assets/fonts/` — seven exact runtime WOFF2 files
-- `pitchdog-font-handoff-v13/` — web, native and static fallback handoff in the full Git repository; deliberately excluded from the web package
+Each GitHub Release attaches:
+
+- `pitchdog-fonts-<tag>.zip` — the seven runtime WOFF2 files
+- `pitchdog-font-handoff-<tag>.zip` — the full handoff: web and native variable fonts plus static fallbacks
+- `pitchdog-type-system-skill-<tag>.zip` — the agent skill
+
+Every asset has a `.sha256` sidecar. Variable fonts are authoritative; static fonts are compatibility fallbacks. Never install the variable and static versions of the same family together.
+
+## Documentation
+
 - `docs/SPECIFICATION.md` — full behaviour and role specification
-- `docs/USING-IN-PROJECTS.md` — framework and non-JavaScript consumption
+- `docs/ANCHOR-POLICY.md`, `docs/GOVERNANCE.md` — what values are allowed and how changes are controlled
+- `docs/UI-UX-TYPOGRAPHY.md`, `docs/DENSE-TEXT.md`, `docs/WEB-TEXT-WRAPPING.md` — interface and reading guidance
+- `docs/SOCIAL-TYPOGRAPHY.md`, `docs/YOUTUBE.md` — media canvases
+- `docs/HEAD-ITALICS.md`, `docs/ARROWS.md` — family-specific behaviour
+- `docs/FONT-NAMING.md`, `docs/KNOWN-FONT-DETAILS.md`, `docs/FIGMA-MAPPING.md` — fonts in design tools and native apps
+- `docs/ACCESSIBILITY-QA.md`, `docs/VALIDATION-REPORT.md` — verification
 
-Variable fonts are authoritative. Static fonts are compatibility fallbacks. Never install the variable and static versions of the same family together.
+## Agent skill
 
-## Codex Agent Skill
+`skills/pitchdog-type-system/` is a model-invoked skill for any task that touches typography, fonts, text hierarchy, semantic type roles, wrapping, measure or rendered text. It resolves this repository at an immutable commit and reads the canonical values from `tokens/`, `dist/` and `docs/` rather than copying them.
 
-Authorized users can resolve the release tag to its full commit, then install the model-invoked skill from that commit:
+Resolve the release tag to its full commit, then install from that commit:
 
 ```bash
-pitchdog_release_commit="$(git ls-remote https://github.com/bomkino/pitchdog-type-system.git 'refs/tags/v13.1.1^{}' | cut -f1)"
+pitchdog_release_commit="$(git ls-remote https://github.com/bomkino/pitchdog-type-system.git 'refs/tags/v2.0.0^{}' 'refs/tags/v2.0.0' | tail -n1 | cut -f1)"
 if ! printf '%s' "$pitchdog_release_commit" | grep -Eq '^[0-9a-f]{40}$'; then
-  echo "Could not resolve v13.1.1 to one full commit." >&2
+  echo "Could not resolve v2.0.0 to one full commit." >&2
   exit 1
 fi
 python3 /path/to/skill-installer/scripts/install-skill-from-github.py \
@@ -71,40 +109,47 @@ python3 /path/to/skill-installer/scripts/install-skill-from-github.py \
   --method download
 ```
 
-Confirm the v13.1.1 GitHub Release records that commit and a skill-asset digest before installing. The skill must run whenever work touches typography, fonts, text hierarchy, semantic type roles, wrapping, measure, or rendered text. It resolves this repository at an immutable commit and keeps the canonical type values in `tokens/`, `dist/`, and `docs/` rather than copying them into the skill.
+Confirm the v2.0.0 GitHub Release records that commit before installing.
 
 ## Repository maintenance
 
-These commands and the full font handoff exist in a complete Git checkout, not the lean package installed into web projects.
+These commands need a full Git checkout, not the lean package installed into web projects.
 
 ```bash
-python3 scripts/verify_repository.py
+python3 scripts/verify_repository.py            # everything: package, fonts, handoff, contracts, checksums
+python3 -m pip install -r tools/requirements.txt
+python3 tools/normalize_font_names.py --check assets/fonts pitchdog-font-handoff
 ```
 
-The verifier rejects missing or altered runtime fonts, unexpected font locations, broken package exports, malformed JSON, a damaged full handoff, and system-contract regressions.
+The verifier rejects missing or altered fonts, unexpected font locations, broken package exports, malformed JSON, a damaged handoff and system-contract regressions. CI runs both on every push and pull request.
 
-To populate a fresh checkout from the accepted source archive:
+To rebuild the fonts from the accepted FontBlind source archive (or its generated v13 handoff ZIP):
 
 ```bash
-python3 scripts/populate_fonts.py /path/to/FontBlind-Final-2026-08-28-v13.zip
+python3 scripts/populate_fonts.py /path/to/FontBlind-Final-2026-08-28-v13.zip --replace
 ```
 
-It also accepts the already-generated `pitchdog-font-handoff-v13.zip`.
+It rebuilds the handoff, applies the v2 name normalization, and refuses the result unless every hash matches the committed release.
 
-## Release discipline
+## Versioning and releases
 
 - Pin projects to an immutable tag or commit.
 - Patch: fixes that preserve font metrics and role contracts.
 - Minor: additive roles or tokens.
-- Major: any font binary, metric, axis, family-name or existing role change that can reflow layouts.
+- Major: any font binary, metric, axis, family-name or existing role change that can reflow layouts or change native registration.
+- Merging a version bump to `main` publishes the Release automatically (`.github/workflows/release.yml`).
 - Never commit source archives, access tokens, `.npmrc`, or `.env` files.
 
-PD Eyebrow's v13 native binaries still identify internally as `Untitled`; its 350/400 static anchors also collide by name. Web CSS aliases the family safely. Desktop and native consumers must read `docs/KNOWN-FONT-DETAILS.md` before using static fallbacks.
+Numbering restarted at **2.0.0** after 13.1.1, the last release of the "lucky number 13" line. Tools that sort versions will list 13.x above 2.x, so pin by tag and use the GitHub Release marked latest.
+
+## Contributing and security
+
+See `CONTRIBUTING.md` for how changes are proposed and checked, and `SECURITY.md` for reporting a vulnerability privately.
 
 ## Rights
 
-Font binaries in `assets/fonts/` and `pitchdog-font-handoff-v13/` are dedicated under **CC0 1.0 Universal**. They may be used, changed and redistributed without an attribution requirement; keep `FONT-LICENSE.md` with handoffs as a provenance best practice.
+Font binaries in `assets/fonts/` and `pitchdog-font-handoff/` are dedicated under **CC0 1.0 Universal**. They may be used, changed and redistributed without an attribution requirement; keep `FONT-LICENSE.md` with handoffs as a provenance best practice.
 
 The surrounding type-system code, tokens, documentation, examples, artwork and pitch.dog branding remain all-rights-reserved material. See `LICENSE.md` and `FONT-LICENSE.md` for the exact scope.
 
-This GitHub repository is publicly visible as of v13.1.1. Earlier release material may describe private distribution; that history does not change the all-rights-reserved status of the surrounding system or expand the font-only CC0 boundary.
+This GitHub repository is publicly visible. Public visibility does not change the all-rights-reserved status of the surrounding system or expand the font-only CC0 boundary.

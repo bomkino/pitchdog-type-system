@@ -24,7 +24,7 @@ Read `docs/FIGMA-MAPPING.md`, `docs/figma-style-map.csv`, and `docs/ANCHOR-POLIC
 
 ## Native, desktop, or video work
 
-Read `docs/ANCHOR-POLICY.md`, `docs/KNOWN-FONT-DETAILS.md`, `FONT-PROVENANCE.json`, and the relevant documentation inside the handoff directory identified by that source. Choose native or fixed-canvas files from the manifest inside that handoff; reserve `dist/pitchdog-font-runtime.json` for the web runtime. Verify registration and rendered output in the target application before claiming the handoff works.
+Read `docs/ANCHOR-POLICY.md`, `docs/FONT-NAMING.md`, `docs/KNOWN-FONT-DETAILS.md`, `FONT-PROVENANCE.json`, and the relevant documentation inside the handoff directory identified by that source. Choose native or fixed-canvas files from the manifest inside that handoff; reserve `dist/pitchdog-font-runtime.json` for the web runtime. Verify registration and rendered output in the target application before claiming the handoff works.
 
 ## Accessibility or failure diagnosis
 

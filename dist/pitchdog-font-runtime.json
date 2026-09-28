@@ -5,8 +5,8 @@
     "style": "normal",
     "file": "assets/fonts/pd-head.woff2",
     "sourcePath": "FontBlind-Final-2026-08-28-v13/01-PUBLIC-FONTS/LAB/pd-head/web/pd-head.woff2",
-    "bytes": 270176,
-    "sha256": "528dd6d9d5d79265f4e3589523a250cd652110d1380e87a0252bca9489da50e9",
+    "bytes": 269712,
+    "sha256": "7d0a93a8048fa4110e26b27fac1915f8fd88129a8ba19df7bdbc1ac651a46115",
     "axes": [
       {
         "tag": "wght",
@@ -23,7 +23,10 @@
     ],
     "codepointCount": 378,
     "hasRupee": true,
-    "arrows": true
+    "arrows": true,
+    "sourceSha256": "528dd6d9d5d79265f4e3589523a250cd652110d1380e87a0252bca9489da50e9",
+    "sourceBytes": 270176,
+    "postscriptName": "PDHead-Regular"
   },
   {
     "key": "headAlt",
@@ -31,8 +34,8 @@
     "style": "normal",
     "file": "assets/fonts/pd-head-alt.woff2",
     "sourcePath": "FontBlind-Final-2026-08-28-v13/01-PUBLIC-FONTS/LAB/pd-head/web/pd-head-alt.woff2",
-    "bytes": 276308,
-    "sha256": "bf4db03493580a52e3e01cb6aec2fe791da8e7293d6083e2c567c3bb3f0b927a",
+    "bytes": 275884,
+    "sha256": "0cc1d7aa0a02f308618464de9e8c272b6a7a03f08e095bf47a453164a7dac310",
     "axes": [
       {
         "tag": "wght",
@@ -49,7 +52,10 @@
     ],
     "codepointCount": 378,
     "hasRupee": true,
-    "arrows": true
+    "arrows": true,
+    "sourceSha256": "bf4db03493580a52e3e01cb6aec2fe791da8e7293d6083e2c567c3bb3f0b927a",
+    "sourceBytes": 276308,
+    "postscriptName": "PDHeadAlt-Regular"
   },
   {
     "key": "body",
@@ -57,8 +63,8 @@
     "style": "normal",
     "file": "assets/fonts/pd-body-roman.woff2",
     "sourcePath": "FontBlind-Final-2026-08-28-v13/01-PUBLIC-FONTS/LAB/pd-body/web/pd-body-roman.woff2",
-    "bytes": 171820,
-    "sha256": "433a1b69a8e8a903478b978c198b879824541dc9eb62db959058ae37a250819f",
+    "bytes": 172000,
+    "sha256": "bcc637d10ce2008d2766030ed6a27e3bdaf20ee76f1085fe5883f738c7b51292",
     "axes": [
       {
         "tag": "wght",
@@ -69,7 +75,10 @@
     ],
     "codepointCount": 395,
     "hasRupee": true,
-    "arrows": true
+    "arrows": true,
+    "sourceSha256": "433a1b69a8e8a903478b978c198b879824541dc9eb62db959058ae37a250819f",
+    "sourceBytes": 171820,
+    "postscriptName": "PDBody-Regular"
   },
   {
     "key": "bodyItalic",
@@ -78,7 +87,7 @@
     "file": "assets/fonts/pd-body-italic.woff2",
     "sourcePath": "FontBlind-Final-2026-08-28-v13/01-PUBLIC-FONTS/LAB/pd-body/web/pd-body-italic.woff2",
     "bytes": 218976,
-    "sha256": "6bd35c9ad364e585ca5667c1df74f892eebbe32237005ba926b54ffa61df8a78",
+    "sha256": "cd6fbfa5ca4a64297a55bf3dde11865efc5e1b729a6cf4050ca34723016fc604",
     "axes": [
       {
         "tag": "wght",
@@ -89,7 +98,10 @@
     ],
     "codepointCount": 395,
     "hasRupee": true,
-    "arrows": true
+    "arrows": true,
+    "sourceSha256": "6bd35c9ad364e585ca5667c1df74f892eebbe32237005ba926b54ffa61df8a78",
+    "sourceBytes": 218976,
+    "postscriptName": "PDBody-Italic"
   },
   {
     "key": "bodyAlt",
@@ -97,8 +109,8 @@
     "style": "normal",
     "file": "assets/fonts/pd-body-alt-roman.woff2",
     "sourcePath": "FontBlind-Final-2026-08-28-v13/01-PUBLIC-FONTS/LAB/pd-body/web/pd-body-alt-roman.woff2",
-    "bytes": 169540,
-    "sha256": "4ae6044273de9010d1a9660001319c34a4a8ece764279bb7f1e0f81f01dca85b",
+    "bytes": 169640,
+    "sha256": "fcd54ec46040e568fb75180309119f587aebf53cb4368b8a7471aa3a1b819d52",
     "axes": [
       {
         "tag": "wght",
@@ -109,7 +121,10 @@
     ],
     "codepointCount": 395,
     "hasRupee": true,
-    "arrows": true
+    "arrows": true,
+    "sourceSha256": "4ae6044273de9010d1a9660001319c34a4a8ece764279bb7f1e0f81f01dca85b",
+    "sourceBytes": 169540,
+    "postscriptName": "PDBodyAlt-Regular"
   },
   {
     "key": "bodyAltItalic",
@@ -117,8 +132,8 @@
     "style": "italic",
     "file": "assets/fonts/pd-body-alt-italic.woff2",
     "sourcePath": "FontBlind-Final-2026-08-28-v13/01-PUBLIC-FONTS/LAB/pd-body/web/pd-body-alt-italic.woff2",
-    "bytes": 179020,
-    "sha256": "9f59a7f058ba824e0b3e2760204c0c70b7cfb2f61956a460b730e486b1209285",
+    "bytes": 178912,
+    "sha256": "651d2165a483424b1f2ec6fe374eb12989271c1107ed7e7e696c9cdbc66eecdf",
     "axes": [
       {
         "tag": "wght",
@@ -129,7 +144,10 @@
     ],
     "codepointCount": 395,
     "hasRupee": true,
-    "arrows": true
+    "arrows": true,
+    "sourceSha256": "9f59a7f058ba824e0b3e2760204c0c70b7cfb2f61956a460b730e486b1209285",
+    "sourceBytes": 179020,
+    "postscriptName": "PDBodyAlt-Italic"
   },
   {
     "key": "eyebrow",
@@ -137,8 +155,8 @@
     "style": "normal",
     "file": "assets/fonts/pd-eyebrow-site.woff2",
     "sourcePath": "FontBlind-Final-2026-08-28-v13/01-PUBLIC-FONTS/LAB/pd-eyebrow/site/pd-eyebrow-site.woff2",
-    "bytes": 916908,
-    "sha256": "24aeaf1bfb45a874fe807c8138fc0d815b499b1834e8291c2dc46bb5fc32b7a3",
+    "bytes": 915156,
+    "sha256": "438c490e109237906a342c533f5a7acf4ed678ce5daf938de21048b23246f29e",
     "axes": [
       {
         "tag": "wght",
@@ -161,6 +179,9 @@
     ],
     "codepointCount": 404,
     "hasRupee": true,
-    "arrows": true
+    "arrows": true,
+    "sourceSha256": "24aeaf1bfb45a874fe807c8138fc0d815b499b1834e8291c2dc46bb5fc32b7a3",
+    "sourceBytes": 916908,
+    "postscriptName": "PDEyebrow-Regular"
   }
 ]

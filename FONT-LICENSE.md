@@ -9,7 +9,7 @@ Legal code: <https://creativecommons.org/publicdomain/zero/1.0/legalcode>
 This declaration applies only to font binary files (`.woff2`, `.woff`, `.ttf` and `.otf`) under:
 
 - `assets/fonts/`
-- `pitchdog-font-handoff-v13/`
+- `pitchdog-font-handoff/`
 
 The type-system code, tokens, documentation, examples, artwork, and pitch.dog names and marks are not placed under CC0 by this declaration. Their terms are in `LICENSE.md`.
 

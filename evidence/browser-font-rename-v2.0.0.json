@@ -1,0 +1,64 @@
+{
+  "release": "2.0.0",
+  "date": "2026-09-28",
+  "browser": "Chromium 141 (Playwright 1.56.1 chromium-1194), headless, 1440x1000 CSS px, DPR 1",
+  "method": "Rendered pitchdog-typography-system.html from the v13.1.1 tree (FontBlind v13 source fonts) and from the 2.0.0 tree (renamed fonts). Header, loader and intro kicker text differ between releases and were excluded; every specimen view was captured full-page and compared byte for byte.",
+  "fontsLoaded": {
+    "v13": {
+      "600 4rem \"PD Head\"": true,
+      "600 4rem \"PD Head Alt\"": true,
+      "400 1rem \"PD Body\"": true,
+      "italic 400 1rem \"PD Body\"": true,
+      "400 1rem \"PD Body Alt\"": true,
+      "italic 400 1rem \"PD Body Alt\"": true,
+      "500 1rem \"PD Eyebrow\"": true
+    },
+    "v2": {
+      "600 4rem \"PD Head\"": true,
+      "600 4rem \"PD Head Alt\"": true,
+      "400 1rem \"PD Body\"": true,
+      "italic 400 1rem \"PD Body\"": true,
+      "400 1rem \"PD Body Alt\"": true,
+      "italic 400 1rem \"PD Body Alt\"": true,
+      "500 1rem \"PD Eyebrow\"": true
+    }
+  },
+  "views": {
+    "overview": {
+      "pixelIdentical": true
+    },
+    "roles": {
+      "pixelIdentical": true
+    },
+    "anchors": {
+      "pixelIdentical": true
+    },
+    "dense": {
+      "pixelIdentical": true
+    },
+    "ui": {
+      "pixelIdentical": true
+    },
+    "social": {
+      "pixelIdentical": true
+    },
+    "youtube": {
+      "pixelIdentical": true
+    },
+    "arrows": {
+      "pixelIdentical": true
+    },
+    "stress": {
+      "pixelIdentical": true
+    }
+  },
+  "consoleErrors": [],
+  "pageErrors": [],
+  "localLoader": {
+    "input": "assets/fonts folder",
+    "status": "Verified and loaded all 7 variable webfonts. Head italic is axis-driven.",
+    "standaloneEmbeddedFonts": 7,
+    "standaloneFontsLoad": true,
+    "pageErrors": []
+  }
+}

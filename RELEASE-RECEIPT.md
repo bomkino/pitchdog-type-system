@@ -3,15 +3,15 @@
 ## Identity
 
 - Product: **pitch.dog Type System**
-- Canonical display version: **13**
-- Package version: **13.1.1**
+- Canonical display version: **2**
+- Package version: **2.0.0**
 - Font authority: `FontBlind-Final-2026-08-28-v13.zip`
-- Release date: **3 September 2026**
+- Release date: **28 September 2026**
 - State: **production release**
 
 ## Scope
 
-Version 13 governs typography across:
+The system governs typography across:
 
 - website and long-form editorial pages
 - dense operational content
@@ -33,7 +33,7 @@ Version 13 governs typography across:
 - Calibrated opt-in measures target about 56–80 characters in PD Body. They are font-specific approximations, not generic `ch` folklore.
 - The progressive `avoid-orphans` contract falls back to normal wrapping where it is not supported.
 - The default HTML contains no embedded font payload. The canonical repository includes the governed runtime WOFF2 files plus the complete handoff.
-- `MAKE-STANDALONE-v13.html` embeds the accepted CC0-1.0 font binaries locally when a one-file review artifact is needed.
+- Every font file carries its canonical family name and a unique PostScript name (`docs/FONT-NAMING.md`); only naming and style-linking metadata differs from the FontBlind v13 source.
 
 ## Agent Skill
 
@@ -44,16 +44,16 @@ Version 13 governs typography across:
 
 ## Validation receipt
 
-- The semantic contracts and font binaries remain unchanged from 13.1.0. Retained machine-captured font and browser evidence keeps its original 13.0.0 / 28 August identity; it supports the unchanged payload, not this patch release's identity.
-- Repository validation rechecked package exports, canonical metadata, governed font boundaries, font hashes, the full handoff, and repository checksums.
-- Skill validation rechecked its frontmatter, universal trigger, invocation metadata, local references, and zero duplicated typography payloads.
-- Realistic agent runs exercised an existing pinned consumer, a contradictory latest-release request, and runtime font diagnosis; `evidence/agent-skill-behavior-v13.1.1.md` records the observed decisions and limits.
-- Browser console and page errors remain absent in the retained version 13 browser evidence. Consumer-specific launch checks remain outside this repository receipt.
+- 2.0.0 changes font naming metadata only. `evidence/font-name-normalization-v2.0.0.json` records, for all 145 shipped font files, the source and new SHA-256 and that every table other than naming and style-link fields is unchanged (`tools/compare_font_payloads.py`).
+- `tools/normalize_font_names.py --check` passes on every font: canonical names, correct style bits, and no two faces sharing a PostScript name.
+- `evidence/browser-font-rename-v2.0.0.json`: in Chromium 141 all seven faces load, and all nine specimen views render pixel-identical to 13.1.1 once the changed header text is excluded. The specimen's local loader verifies the new runtime hashes and builds a standalone file with the seven fonts embedded. No console or page errors.
+- Repository validation rechecks package exports, canonical metadata, governed font boundaries, font hashes, the full handoff, the normalization evidence and repository checksums.
+- The semantic contracts are unchanged from 13.1.1, so the retained 13.0.0 font-audit and 100-check browser evidence still describes the typography; it does not describe the new font names.
+- Consumer-specific launch checks remain outside this repository receipt.
 
 ## Primary artifacts
 
-- `pitchdog-typography-system-v13.html`
-- `MAKE-STANDALONE-v13.html`
+- `pitchdog-typography-system.html`
 - `tokens/pitchdog.system.tokens.json`
 - `tokens/pitchdog.system.dtcg.json`
 - `dist/pitchdog-system.css`
@@ -63,10 +63,14 @@ Version 13 governs typography across:
 - `docs/WEB-TEXT-WRAPPING.md`
 - `skills/pitchdog-type-system/SKILL.md`
 - `evidence/agent-skill-behavior-v13.1.1.md`
+- `evidence/font-name-normalization-v2.0.0.json`
+- `evidence/browser-font-rename-v2.0.0.json`
+- `docs/FONT-NAMING.md`
+- `docs/MIGRATION-v13-to-v2.md`
 - `docs/VALIDATION-REPORT.md`
 - `evidence/pitchdog-typography-preview-v13.png`
 - `SHA256SUMS.txt`
 
 ## Launch boundary
 
-Version 13.1.1 adds the Codex Agent Skill and aligns release metadata; it does not change the governed typography contracts or font binaries from 13.1.0. The pitch.dog website received focused Chromium checks at 320, 390, 1200 and 3840 CSS px. Cross-browser, hardware and assistive-technology checks remain explicit consumer launch gates rather than claims made by this package.
+Version 2.0.0 renames font metadata and cleans up the repository; typography contracts, glyphs and metrics are unchanged from 13.1.1. Native and design-tool users must reinstall the fonts (`docs/MIGRATION-v13-to-v2.md`). Cross-browser, hardware and assistive-technology checks remain explicit consumer launch gates rather than claims made by this package.

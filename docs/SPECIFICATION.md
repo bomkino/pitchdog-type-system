@@ -1,4 +1,4 @@
-# pitch.dog Type System v13 — Specification
+# pitch.dog Type System — Specification
 
 ## 1. Purpose
 
@@ -95,7 +95,7 @@ Services, process, pricing, FAQs, forms, archives and dense grids. Productive co
 
 ## 8. Head italics
 
-Head contains a real continuous `ital` axis. Version 13 loads one variable file and drives the axis explicitly:
+Head contains a real continuous `ital` axis. The system loads one variable file and drives the axis explicitly:
 
 ```css
 font-family: var(--pd-font-head);

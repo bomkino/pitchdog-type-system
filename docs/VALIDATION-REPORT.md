@@ -1,5 +1,7 @@
 # pitch.dog Type System v13 — Validation report
 
+> Historical v13 evidence. The 2.0.0 font renaming is verified in `RELEASE-RECEIPT.md`, `evidence/font-name-normalization-v2.0.0.json` and `evidence/browser-font-rename-v2.0.0.json`; glyphs and metrics are unchanged, so the typography findings below still hold.
+
 **Validation date:** 28 August 2026  
 **Validation state at capture:** production candidate
 **Font authority:** `FontBlind-Final-2026-08-28-v13.zip`
@@ -187,7 +189,7 @@ The automated browser test selected the supplied v13 ZIP, then:
 9. confirmed the loader and baker code had been removed
 10. confirmed the inline favicon remained
 
-The generated embedded test file was deleted after validation. The HTML review artifact contains no embedded font data by default. The canonical repository distributes the governed fonts separately in `assets/fonts/` and `pitchdog-font-handoff-v13/`.
+The generated embedded test file was deleted after validation. The HTML review artifact contains no embedded font data by default. The canonical repository distributes the governed fonts separately in `assets/fonts/` and `pitchdog-font-handoff/`.
 
 ## Static release integrity
 
