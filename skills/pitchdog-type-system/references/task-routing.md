@@ -18,6 +18,10 @@ Read `docs/UI-UX-TYPOGRAPHY.md`, `tokens/pitchdog.ui.tokens.json`, `interface/co
 
 For social work, read `docs/SOCIAL-TYPOGRAPHY.md`, `tokens/pitchdog.social.tokens.json`, and the canvas and copy contracts in `social/`. For YouTube work, use the parallel document, token source, and contracts in `youtube/`. Keep platform research dates visible when a task depends on current platform rules; refresh time-sensitive rules from primary platform sources rather than treating old research as current.
 
+## Deck or presentation work
+
+Read `docs/DECKS.md`, `tokens/pitchdog.deck.tokens.json`, and the canvas, copy and template contracts in `deck/`. Choose the density (present or read) before choosing sizes. For Keynote, PowerPoint, Google Slides or Figma, use the point-size table in `docs/DECKS.md` rather than converting container units yourself.
+
 ## Figma or design-tool work
 
 Read `docs/FIGMA-MAPPING.md`, `docs/figma-style-map.csv`, and `docs/ANCHOR-POLICY.md`. Treat the design-tool library as a derived copy: reconcile its styles against the canonical source and a rendered specimen.

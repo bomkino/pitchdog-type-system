@@ -1,0 +1,84 @@
+{
+  "deck.title": {
+    "maxLines": 3,
+    "maxWords": 10
+  },
+  "deck.section": {
+    "maxLines": 2,
+    "maxWords": 5
+  },
+  "deck.headline": {
+    "maxLines": 2,
+    "maxWords": 14,
+    "read": {
+      "maxLines": 3,
+      "maxWords": 20
+    }
+  },
+  "deck.statement": {
+    "maxLines": 4,
+    "maxWords": 16,
+    "read": {
+      "maxLines": 4,
+      "maxWords": 20
+    }
+  },
+  "deck.lead": {
+    "maxLines": 3,
+    "maxWords": 28,
+    "read": {
+      "maxLines": 4,
+      "maxWords": 40
+    }
+  },
+  "deck.body": {
+    "maxLines": 7,
+    "maxWords": 55,
+    "read": {
+      "maxLines": 12,
+      "maxWords": 110
+    }
+  },
+  "deck.bullet": {
+    "maxLines": 2,
+    "maxWords": 14,
+    "maxItems": 5,
+    "read": {
+      "maxLines": 3,
+      "maxWords": 24,
+      "maxItems": 7
+    }
+  },
+  "deck.quote": {
+    "maxLines": 5,
+    "maxWords": 32,
+    "read": {
+      "maxLines": 6,
+      "maxWords": 45
+    }
+  },
+  "deck.metric": {
+    "maxLines": 1,
+    "maxWords": 2
+  },
+  "deck.kicker": {
+    "maxLines": 1,
+    "maxWords": 6
+  },
+  "deck.label": {
+    "maxLines": 2,
+    "maxWords": 8
+  },
+  "deck.data": {
+    "maxLines": 1,
+    "maxWords": 4
+  },
+  "deck.source": {
+    "maxLines": 2,
+    "maxWords": 30
+  },
+  "deck.footer": {
+    "maxLines": 1,
+    "maxWords": 8
+  }
+}

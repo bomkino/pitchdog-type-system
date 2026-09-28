@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>pitch.dog deck starter</title>
+<link rel="icon" href="../assets/favicons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../dist/pitchdog-system.css">
+<style>
+  /* Layout and colour only. Every type decision comes from a data-pd-deck role. */
+  :root {
+    --ink: #171715;
+    --paper: #f4f0e7;
+    --orange: #ef633d;
+    --blush: #d7b7a9;
+    --stone: #d6d0c4;
+    --muted: #6d685e;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--stone); }
+  body { margin: 0; color: var(--ink); }
+
+  .bar {
+    position: sticky; top: 0; z-index: 2;
+    display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.25rem;
+    padding: .75rem 1.5rem; background: var(--paper); border-bottom: 1px solid #c9c2b7;
+  }
+  .bar strong { margin-inline-end: auto; }
+  .bar fieldset { display: flex; align-items: center; gap: .25rem; margin: 0; padding: 0; border: 0; }
+  .bar legend { float: left; margin-inline-end: .5rem; color: var(--muted); }
+  .bar button {
+    min-block-size: 2.75rem; padding: 0 .9rem; border: 1px solid #c9c2b7; border-radius: 999px;
+    background: transparent; color: var(--ink); cursor: pointer;
+  }
+  .bar button[aria-pressed="true"], .bar button.primary { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+  .bar button:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
+
+  .deck { counter-reset: slide; display: grid; gap: 2rem; justify-items: center; padding: 2rem 1.5rem 4rem; }
+  .slide {
+    counter-increment: slide;
+    inline-size: min(100%, 1280px);
+    background: var(--paper); color: var(--ink);
+    border-radius: 6px; box-shadow: 0 1px 2px rgb(0 0 0 / .08), 0 12px 32px rgb(0 0 0 / .08);
+  }
+  .slide.ink { background: var(--ink); color: var(--paper); }
+  .slide.blush { background: var(--blush); }
+  .slide.orange { background: var(--orange); color: var(--ink); }
+
+  .safe { display: flex; flex-direction: column; gap: 3cqb; }
+  .grow { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 2.4cqb; }
+  .end { justify-content: flex-end; }
+  .foot { display: flex; justify-content: space-between; gap: 2cqi; color: var(--muted); }
+  .ink .foot, .ink .quiet { color: #afa99d; }
+  .orange .foot { color: var(--ink); }
+  .num::before { content: counter(slide, decimal-leading-zero); }
+  .accent { color: var(--orange); }
+  .quiet { color: var(--muted); }
+  .measure { max-inline-size: 13ch; }
+  .measure-wide { max-inline-size: 26ch; }
+  .measure-text { max-inline-size: 44ch; }
+
+  .bullets { margin: 0; padding: 0 0 0 1.2em; display: grid; gap: 1.4cqb; }
+  .bullets li::marker { content: "→  "; color: var(--orange); }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 5cqi; }
+  .cols > div { display: grid; align-content: start; gap: 1.6cqb; padding-block-start: 2cqb; border-block-start: .25cqb solid currentColor; }
+  table { border-collapse: collapse; inline-size: min(100%, 62cqi); }
+  th, td { padding: 1.1cqb 0; border-block-end: .15cqb solid #c9c2b7; text-align: start; }
+  th:not(:first-child), td:not(:first-child) { text-align: end; }
+
+  /* Present mode: one slide, fitted to the screen. */
+  .presenting, .presenting body { background: #000; }
+  .presenting .bar { display: none; }
+  .presenting .deck { display: block; padding: 0; }
+  .presenting .slide { display: none; border-radius: 0; box-shadow: none; }
+  .presenting .slide.current {
+    display: block; position: fixed; inset: 0; margin: auto;
+    inline-size: min(100vw, 100vh * 16 / 9);
+  }
+  .presenting [data-pd-deck-canvas="standard"].current { inline-size: min(100vw, 100vh * 4 / 3); }
+
+  @media print {
+    html, body { background: none; }
+    .bar { display: none; }
+    .deck { display: block; padding: 0; }
+    .slide { inline-size: 100%; border-radius: 0; box-shadow: none; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<header class="bar" data-pd-ui="body-compact">
+  <strong data-pd-ui="label">pitch.dog deck starter</strong>
+  <fieldset data-control="canvas">
+    <legend data-pd-ui="caption">Canvas</legend>
+    <button type="button" data-pd-ui="action" data-value="widescreen" aria-pressed="true">16:9</button>
+    <button type="button" data-pd-ui="action" data-value="standard" aria-pressed="false">4:3</button>
+  </fieldset>
+  <fieldset data-control="density">
+    <legend data-pd-ui="caption">Density</legend>
+    <button type="button" data-pd-ui="action" data-value="present" aria-pressed="true">Present</button>
+    <button type="button" data-pd-ui="action" data-value="read" aria-pressed="false">Read</button>
+  </fieldset>
+  <fieldset data-control="tone">
+    <legend data-pd-ui="caption">Head</legend>
+    <button type="button" data-pd-ui="action" data-value="default" aria-pressed="true">Default</button>
+    <button type="button" data-pd-ui="action" data-value="playful" aria-pressed="false">Playful</button>
+  </fieldset>
+  <button type="button" class="primary" data-pd-ui="action" data-action="present">Present</button>
+  <button type="button" data-pd-ui="action" data-action="print">Save as PDF</button>
+</header>
+
+<main class="deck" data-pd-deck-density="present" data-pd-type-tone="default">
+
+  <!-- cover: kicker + title + presenter line -->
+  <section class="slide ink" data-pd-deck-canvas="widescreen" aria-label="Cover">
+    <div class="safe" data-pd-deck-safe>
+      <p data-pd-deck="kicker" class="accent">pitch.dog type system · deck mode</p>
+      <div class="grow end">
+        <h1 data-pd-deck="title" class="measure">Your pitch’s best friend, now in slides.</h1>
+      </div>
+      <div class="foot"><span data-pd-deck="footer">pitch.dog · v2.1</span><span data-pd-deck="footer" class="num"></span></div>
+    </div>
+  </section>
+
+  <!-- section: marker + chapter title -->
+  <section class="slide orange" data-pd-deck-canvas="widescreen" aria-label="Section">
+    <div class="safe" data-pd-deck-safe>
+      <p data-pd-deck="kicker">Chapter 01</p>
+      <div class="grow end">
+        <h2 data-pd-deck="section">The rules</h2>
+      </div>
+      <div class="foot"><span data-pd-deck="footer">pitch.dog · deck mode</span><span data-pd-deck="footer" class="num"></span></div>
+    </div>
+  </section>
+
+  <!-- statement: one sentence, nothing else -->
+  <section class="slide" data-pd-deck-canvas="widescreen" aria-label="Statement">
+    <div class="safe" data-pd-deck-safe>
+      <div class="grow">
+        <p data-pd-deck="statement" class="measure-wide">One idea per slide. <span class="accent">Everything else is a footnote.</span></p>
+      </div>
+      <div class="foot"><span data-pd-deck="footer">pitch.dog · deck mode</span><span data-pd-deck="footer" class="num"></span></div>
+    </div>
+  </section>
+
+  <!-- insight: claim + explanation + body + source -->
+  <section class="slide" data-pd-deck-canvas="widescreen" aria-label="Insight">
+    <div class="safe" data-pd-deck-safe>
+      <p data-pd-deck="kicker" class="quiet">How it scales</p>
+      <h2 data-pd-deck="headline" class="measure-wide">Type is sized by the slide, not by the screen.</h2>
+      <div class="grow">
+        <p data-pd-deck="lead" class="measure-text">Every deck role is measured in container units, so a slide sets the same way on a laptop, a projector and a PDF.</p>
+        <p data-pd-deck="body" class="measure-text">A 16:9 slide sets type from its height. A 4:3 slide is narrower, so the same role lands at 80 percent of its widescreen size, and copy held to a measure keeps its line breaks.</p>
+      </div>
+      <p data-pd-deck="source" class="quiet">Source: deck.roles in tokens/pitchdog.system.tokens.json</p>
+      <div class="foot"><span data-pd-deck="footer">pitch.dog · deck mode</span><span data-pd-deck="footer" class="num"></span></div>
+    </div>
+  </section>
+
+  <!-- metric: one number + label + source -->
+  <section class="slide ink" data-pd-deck-canvas="widescreen" aria-label="Metric">
+    <div class="safe" data-pd-deck-safe>
+      <div class="grow">
+        <p data-pd-deck="metric" class="accent">14</p>
+        <p data-pd-deck="label" class="measure-text">Governed deck roles, from cover title to running footer</p>
+      </div>
+      <p data-pd-deck="source" class="quiet">Every role has line and word limits in deck/copy-contracts.json</p>
+      <div class="foot"><span data-pd-deck="footer">pitch.dog · deck mode</span><span data-pd-deck="footer" class="num"></span></div>
+    </div>
+  </section>
+
+  <!-- quote: pull quote + attribution -->
+  <section class="slide blush" data-pd-deck-canvas="widescreen" aria-label="Quote">
+    <div class="safe" data-pd-deck-safe>
+      <figure class="grow" style="margin:0">
+        <blockquote data-pd-deck="quote" class="measure-wide" style="margin:0">“Set the claim big, the proof small, and the source smaller still.”</blockquote>
+        <figcaption data-pd-deck="label">Deck house rule</figcaption>
+      </figure>
+      <div class="foot"><span data-pd-deck="footer">pitch.dog · deck mode</span><span data-pd-deck="footer" class="num"></span></div>
+    </div>
+  </section>
+
+  <!-- list: headline + three to five bullets -->
+  <section class="slide" data-pd-deck-canvas="widescreen" aria-label="List">
+    <div class="safe" data-pd-deck-safe>
+      <h2 data-pd-deck="headline">What every deck role gives you</h2>
+      <div class="grow">
+        <ul class="bullets measure-text">
+          <li data-pd-deck="bullet">A governed family, weight and posture</li>
+          <li data-pd-deck="bullet">A size that follows the slide</li>
+          <li data-pd-deck="bullet">Line and word limits for the copy</li>
+          <li data-pd-deck="bullet">A smaller setting for decks that are read</li>
+          <li data-pd-deck="bullet">Print-ready pages for PDF export</li>
+        </ul>
+      </div>
+      <div class="foot"><span data-pd-deck="footer">pitch.dog · deck mode</span><span data-pd-deck="footer" class="num"></span></div>
+    </div>
+  </section>
+
+  <!-- data: headline + table with figures in deck.data -->
+  <section class="slide" data-pd-deck-canvas="widescreen" aria-label="Data">
+    <div class="safe" data-pd-deck-safe>
+      <h2 data-pd-deck="headline">The scale on a 1080-pixel slide</h2>
+      <div class="grow">
+        <table>
+          <thead><tr><th data-pd-deck="label">Role</th><th data-pd-deck="label">Present</th><th data-pd-deck="label">Read</th></tr></thead>
+          <tbody>
+            <tr><td data-pd-deck="label">Headline</td><td data-pd-deck="data">58.3 px</td><td data-pd-deck="data">49.7 px</td></tr>
+            <tr><td data-pd-deck="label">Lead</td><td data-pd-deck="data">38.9 px</td><td data-pd-deck="data">32.4 px</td></tr>
+            <tr><td data-pd-deck="label">Bullet</td><td data-pd-deck="data">32.4 px</td><td data-pd-deck="data">27.0 px</td></tr>
+            <tr><td data-pd-deck="label">Body</td><td data-pd-deck="data">30.2 px</td><td data-pd-deck="data">24.8 px</td></tr>
+            <tr><td data-pd-deck="label">Source</td><td data-pd-deck="data">21.6 px</td><td data-pd-deck="data">19.4 px</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p data-pd-deck="source" class="quiet">Figures set in PD Eyebrow, whose digits share one width, so columns align without tabular features.</p>
+      <div class="foot"><span data-pd-deck="footer">pitch.dog · deck mode</span><span data-pd-deck="footer" class="num"></span></div>
+    </div>
+  </section>
+
+  <!-- compare: headline + two labelled columns -->
+  <section class="slide" data-pd-deck-canvas="widescreen" aria-label="Compare">
+    <div class="safe" data-pd-deck-safe>
+      <h2 data-pd-deck="headline">Presented, or sent ahead?</h2>
+      <div class="grow">
+        <div class="cols">
+          <div>
+            <p data-pd-deck="label">Present</p>
+            <p data-pd-deck="body">You are in the room. Keep each slide to a claim and its proof, and say the rest out loud.</p>
+          </div>
+          <div>
+            <p data-pd-deck="label">Read</p>
+            <p data-pd-deck="body">The deck travels without you. Switch the density to read and each slide can carry a paragraph.</p>
+          </div>
+        </div>
+      </div>
+      <div class="foot"><span data-pd-deck="footer">pitch.dog · deck mode</span><span data-pd-deck="footer" class="num"></span></div>
+    </div>
+  </section>
+
+  <!-- close: the ask + next step + contact -->
+  <section class="slide ink" data-pd-deck-canvas="widescreen" aria-label="Close">
+    <div class="safe" data-pd-deck-safe>
+      <div class="grow end">
+        <h2 data-pd-deck="title" class="measure">Now build the one that gets funded.</h2>
+        <p data-pd-deck="lead" class="quiet measure-text">Copy this file, keep the roles, change the words.</p>
+      </div>
+      <div class="foot"><span data-pd-deck="footer">pitch.dog</span><span data-pd-deck="footer" class="num"></span></div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+(() => {
+  const root = document.documentElement;
+  const deck = document.querySelector('.deck');
+  const slides = [...deck.querySelectorAll('.slide')];
+  let current = 0;
+
+  const setters = {
+    canvas: (value) => slides.forEach((slide) => slide.setAttribute('data-pd-deck-canvas', value)),
+    density: (value) => deck.setAttribute('data-pd-deck-density', value),
+    tone: (value) => deck.setAttribute('data-pd-type-tone', value),
+  };
+  document.querySelectorAll('[data-control]').forEach((group) => {
+    group.addEventListener('click', (event) => {
+      const button = event.target.closest('button[data-value]');
+      if (!button) return;
+      group.querySelectorAll('button').forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+      setters[group.dataset.control](button.dataset.value);
+    });
+  });
+
+  const show = (index) => {
+    current = Math.max(0, Math.min(slides.length - 1, index));
+    slides.forEach((slide, i) => slide.classList.toggle('current', i === current));
+  };
+  const stop = () => {
+    root.classList.remove('presenting');
+    slides.forEach((slide) => slide.classList.remove('current'));
+    if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+  };
+  document.querySelector('[data-action="present"]').addEventListener('click', () => {
+    root.classList.add('presenting');
+    show(0);
+    root.requestFullscreen?.().catch(() => {});
+  });
+  document.querySelector('[data-action="print"]').addEventListener('click', () => window.print());
+  document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement) stop(); });
+  document.addEventListener('keydown', (event) => {
+    if (!root.classList.contains('presenting')) return;
+    if (['ArrowRight', 'ArrowDown', 'PageDown', ' '].includes(event.key)) show(current + 1);
+    else if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(event.key)) show(current - 1);
+    else if (event.key === 'Home') show(0);
+    else if (event.key === 'End') show(slides.length - 1);
+    else if (event.key === 'Escape') stop();
+    else return;
+    event.preventDefault();
+  });
+  document.addEventListener('click', (event) => {
+    if (root.classList.contains('presenting') && event.target.closest('.slide')) show(current + 1);
+  });
+})();
+</script>
+</body>
+</html>

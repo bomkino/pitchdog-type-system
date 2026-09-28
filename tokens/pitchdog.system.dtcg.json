@@ -714,7 +714,8 @@
           "pitchdog": {
             "ital": 0,
             "maxLines": 4,
-            "maxWords": 12
+            "maxWords": 12,
+            "wrap": "balance"
           }
         }
       },
@@ -731,7 +732,8 @@
           "pitchdog": {
             "ital": 0,
             "maxLines": 4,
-            "maxWords": 18
+            "maxWords": 18,
+            "wrap": "balance"
           }
         }
       },
@@ -748,7 +750,8 @@
           "pitchdog": {
             "style": "normal",
             "maxLines": 6,
-            "maxWords": 32
+            "maxWords": 32,
+            "wrap": "pretty"
           }
         }
       },
@@ -765,7 +768,8 @@
           "pitchdog": {
             "style": "normal",
             "maxLines": 10,
-            "maxWords": 62
+            "maxWords": 62,
+            "wrap": "pretty"
           }
         }
       },
@@ -782,7 +786,8 @@
           "pitchdog": {
             "ital": 1,
             "maxLines": 7,
-            "maxWords": 38
+            "maxWords": 38,
+            "wrap": "pretty"
           }
         }
       },
@@ -834,7 +839,8 @@
             "width": 87.5,
             "ital": 0,
             "maxLines": 3,
-            "maxWords": 18
+            "maxWords": 18,
+            "case": "upper"
           }
         }
       },
@@ -870,7 +876,8 @@
           "pitchdog": {
             "ital": 0,
             "maxLines": 2,
-            "maxWords": 7
+            "maxWords": 7,
+            "wrap": "balance"
           }
         }
       },
@@ -887,7 +894,8 @@
           "pitchdog": {
             "ital": 0,
             "maxLines": 3,
-            "maxWords": 11
+            "maxWords": 11,
+            "wrap": "balance"
           }
         }
       },
@@ -905,7 +913,8 @@
             "width": 87.5,
             "ital": 0,
             "maxLines": 1,
-            "maxWords": 6
+            "maxWords": 6,
+            "case": "upper"
           }
         }
       },
@@ -922,7 +931,8 @@
           "pitchdog": {
             "style": "normal",
             "maxLines": 2,
-            "maxWords": 12
+            "maxWords": 12,
+            "wrap": "pretty"
           }
         }
       },
@@ -977,11 +987,320 @@
           }
         }
       }
+    },
+    "deck": {
+      "title": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.head}",
+          "fontSize": "min(5.64cqi, 9.4cqb)",
+          "fontWeight": 600,
+          "letterSpacing": "-0.042em",
+          "lineHeight": 0.9
+        },
+        "$extensions": {
+          "pitchdog": {
+            "ital": 0,
+            "maxLines": 3,
+            "maxWords": 10,
+            "wrap": "balance",
+            "use": "Cover and closing titles"
+          }
+        }
+      },
+      "section": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.head}",
+          "fontSize": "min(7.2cqi, 12cqb)",
+          "fontWeight": 500,
+          "letterSpacing": "-0.04em",
+          "lineHeight": 0.9
+        },
+        "$extensions": {
+          "pitchdog": {
+            "ital": 1,
+            "maxLines": 2,
+            "maxWords": 5,
+            "wrap": "balance",
+            "use": "Chapter dividers in Head italic"
+          }
+        }
+      },
+      "headline": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.head}",
+          "fontSize": "min(3.24cqi, 5.4cqb)",
+          "fontWeight": 500,
+          "letterSpacing": "-0.028em",
+          "lineHeight": 1.0
+        },
+        "$extensions": {
+          "pitchdog": {
+            "ital": 0,
+            "maxLines": 2,
+            "maxWords": 14,
+            "wrap": "balance",
+            "use": "The claim at the top of a content slide",
+            "read": {
+              "size": "min(2.76cqi, 4.6cqb)",
+              "maxLines": 3,
+              "maxWords": 20
+            }
+          }
+        }
+      },
+      "statement": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.head}",
+          "fontSize": "min(4.56cqi, 7.6cqb)",
+          "fontWeight": 500,
+          "letterSpacing": "-0.034em",
+          "lineHeight": 0.95
+        },
+        "$extensions": {
+          "pitchdog": {
+            "ital": 0,
+            "maxLines": 4,
+            "maxWords": 16,
+            "wrap": "balance",
+            "use": "A slide that is one sentence and nothing else",
+            "read": {
+              "size": "min(3.84cqi, 6.4cqb)",
+              "maxLines": 4,
+              "maxWords": 20
+            }
+          }
+        }
+      },
+      "lead": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.bodyAlt}",
+          "fontSize": "min(2.16cqi, 3.6cqb)",
+          "fontWeight": 400,
+          "letterSpacing": "-0.012em",
+          "lineHeight": 1.22
+        },
+        "$extensions": {
+          "pitchdog": {
+            "style": "normal",
+            "maxLines": 3,
+            "maxWords": 28,
+            "wrap": "pretty",
+            "use": "The sentence that explains a headline",
+            "read": {
+              "size": "min(1.8cqi, 3cqb)",
+              "maxLines": 4,
+              "maxWords": 40
+            }
+          }
+        }
+      },
+      "body": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "min(1.68cqi, 2.8cqb)",
+          "fontWeight": 400,
+          "letterSpacing": "0em",
+          "lineHeight": 1.36
+        },
+        "$extensions": {
+          "pitchdog": {
+            "style": "normal",
+            "maxLines": 7,
+            "maxWords": 55,
+            "wrap": "pretty",
+            "use": "Supporting paragraphs; keep them rare when presenting live",
+            "read": {
+              "size": "min(1.38cqi, 2.3cqb)",
+              "lineHeight": 1.4,
+              "maxLines": 12,
+              "maxWords": 110
+            }
+          }
+        }
+      },
+      "bullet": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "min(1.8cqi, 3cqb)",
+          "fontWeight": 400,
+          "letterSpacing": "0em",
+          "lineHeight": 1.3
+        },
+        "$extensions": {
+          "pitchdog": {
+            "style": "normal",
+            "maxLines": 2,
+            "maxWords": 14,
+            "maxItems": 5,
+            "wrap": "pretty",
+            "use": "List items; limits are per item",
+            "read": {
+              "size": "min(1.5cqi, 2.5cqb)",
+              "maxLines": 3,
+              "maxWords": 24,
+              "maxItems": 7
+            }
+          }
+        }
+      },
+      "quote": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.head}",
+          "fontSize": "min(3.12cqi, 5.2cqb)",
+          "fontWeight": 500,
+          "letterSpacing": "-0.024em",
+          "lineHeight": 1.04
+        },
+        "$extensions": {
+          "pitchdog": {
+            "ital": 1,
+            "maxLines": 5,
+            "maxWords": 32,
+            "wrap": "pretty",
+            "use": "Customer, investor and press quotes",
+            "read": {
+              "size": "min(2.64cqi, 4.4cqb)",
+              "maxLines": 6,
+              "maxWords": 45
+            }
+          }
+        }
+      },
+      "metric": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "min(10.2cqi, 17cqb)",
+          "fontWeight": 700,
+          "letterSpacing": "-0.052em",
+          "lineHeight": 0.82
+        },
+        "$extensions": {
+          "pitchdog": {
+            "style": "normal",
+            "maxLines": 1,
+            "maxWords": 2,
+            "use": "One hero number per slide"
+          }
+        }
+      },
+      "kicker": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.eyebrow}",
+          "fontSize": "min(1.32cqi, 2.2cqb)",
+          "fontWeight": 500,
+          "letterSpacing": ".06em",
+          "lineHeight": 1.1
+        },
+        "$extensions": {
+          "pitchdog": {
+            "width": 87.5,
+            "ital": 0,
+            "maxLines": 1,
+            "maxWords": 6,
+            "case": "upper",
+            "use": "Section markers and slide eyebrows"
+          }
+        }
+      },
+      "label": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "min(1.38cqi, 2.3cqb)",
+          "fontWeight": 600,
+          "letterSpacing": ".01em",
+          "lineHeight": 1.2
+        },
+        "$extensions": {
+          "pitchdog": {
+            "style": "normal",
+            "maxLines": 2,
+            "maxWords": 8,
+            "use": "Metric labels, column heads, legends and attributions",
+            "read": {
+              "size": "min(1.2cqi, 2cqb)"
+            }
+          }
+        }
+      },
+      "data": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.eyebrow}",
+          "fontSize": "min(1.38cqi, 2.3cqb)",
+          "fontWeight": 500,
+          "letterSpacing": "0em",
+          "lineHeight": 1.2
+        },
+        "$extensions": {
+          "pitchdog": {
+            "width": 100,
+            "ital": 0,
+            "maxLines": 1,
+            "maxWords": 4,
+            "use": "Table figures and chart axes; Eyebrow digits share one advance width",
+            "read": {
+              "size": "min(1.2cqi, 2cqb)"
+            }
+          }
+        }
+      },
+      "source": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "min(1.2cqi, 2cqb)",
+          "fontWeight": 400,
+          "letterSpacing": "0em",
+          "lineHeight": 1.3
+        },
+        "$extensions": {
+          "pitchdog": {
+            "style": "normal",
+            "maxLines": 2,
+            "maxWords": 30,
+            "use": "Sources, footnotes and disclaimers",
+            "read": {
+              "size": "min(1.08cqi, 1.8cqb)"
+            }
+          }
+        }
+      },
+      "footer": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.eyebrow}",
+          "fontSize": "min(1.08cqi, 1.8cqb)",
+          "fontWeight": 500,
+          "letterSpacing": ".06em",
+          "lineHeight": 1.1
+        },
+        "$extensions": {
+          "pitchdog": {
+            "width": 87.5,
+            "ital": 0,
+            "maxLines": 1,
+            "maxWords": 8,
+            "case": "upper",
+            "use": "Running footer: company, date and slide number"
+          }
+        }
+      }
     }
   },
   "$extensions": {
     "pitchdog": {
-      "version": "2.0.0",
+      "version": "2.1.0",
       "anchorPolicy": "Only listed master anchors are valid production values."
     }
   }

@@ -34,6 +34,22 @@
     "social.cover": "social.display",
     "social.quote": "social.quote",
     "youtube.thumbnail.title": "youtube.title",
-    "youtube.thumbnail.kicker": "youtube.kicker"
+    "youtube.thumbnail.kicker": "youtube.kicker",
+    "deck.cover.title": "deck.title",
+    "deck.section.title": "deck.section",
+    "deck.slide.headline": "deck.headline",
+    "deck.slide.statement": "deck.statement",
+    "deck.slide.lead": "deck.lead",
+    "deck.slide.body": "deck.body",
+    "deck.list.item": "deck.bullet",
+    "deck.quote": "deck.quote",
+    "deck.metric.value": "deck.metric",
+    "deck.metric.label": "deck.label",
+    "deck.table.header": "deck.label",
+    "deck.table.cell": "deck.data",
+    "deck.chart.axis": "deck.data",
+    "deck.slide.source": "deck.source",
+    "deck.slide.kicker": "deck.kicker",
+    "deck.footer": "deck.footer"
   }
 }
