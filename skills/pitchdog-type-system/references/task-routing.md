@@ -8,7 +8,7 @@ Start with `docs/SPECIFICATION.md` and `tokens/pitchdog.system.tokens.json`. Use
 
 ## Web installation and integration
 
-Read `README.md`, `docs/USING-IN-PROJECTS.md`, `docs/IMPLEMENTATION.md`, and `package.json`. Use package exports from that version. For wrapping or reading measure, read `docs/WEB-TEXT-WRAPPING.md` and `dist/pitchdog-wrap-contracts.json` when present; absence means the pinned version does not govern that capability.
+Read `README.md`, `docs/USING-IN-PROJECTS.md`, `docs/IMPLEMENTATION.md`, and `package.json`. Use package exports from that version. When the work sets paragraphs, or touches wrapping or reading measure, read `docs/WEB-TEXT-WRAPPING.md` and `dist/pitchdog-wrap-contracts.json` when present; absence means the pinned version does not govern that capability.
 
 ## Interface work
 

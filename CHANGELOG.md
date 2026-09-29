@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.0.0
+
+**Lines you can read, and social text you can see.** A type review found that two sets of roles were fine on paper and wrong in the browser.
+
+- **Reading measures.** The lead and body roles now carry the calibrated measures that 13.1 introduced as an opt-in. `body.reading` goes from 64ch to 45ch, `body.default` from 68ch to 48ch, `body.compact` and `body.small` to 52ch, `lead.section` to 48ch and `lead.hero` to 38ch. In Chromium at 1440 px, body text went from 92–102 characters per line, past WCAG's 80, to 63–72. The `--pd-measure-*` variables and `.pd-prose` follow, so they no longer contradict `data-pd-measure`.
+- **Social small text.** `social.subhead`, `body`, `label`, `metadata` and `credit` grow about 1.3 to 1.9 times. Seen at phone-feed width, body text went from about 9 px to 13 px and metadata from 5 px to 10 px on a portrait post.
+- **Agent Skill.** Runtime verification now counts characters per rendered line, checks display lines for descenders touching the line below, and judges exported media at the size people see it. Paragraph work always routes to the wrapping and measure document. `evidence/agent-skill-behavior-v3.0.0.md` records the runs.
+
+Fonts, anchors, families, weights, line heights, tracking, deck, YouTube and UI roles are unchanged. `docs/MIGRATION-v2-to-v3.md` lists the before and after values. `evidence/type-review-v3.0.0.md` records the review.
+
 ## 2.2.0
 
 **The Agent Skill, rewritten for agents.** Same process and the same rules; it now takes the same route every run and costs less context.

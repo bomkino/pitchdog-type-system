@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en" data-pd-version="2">
+<html lang="en" data-pd-version="3">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="pitch.dog typography, interface, social and YouTube system v2.">
+<meta name="description" content="pitch.dog typography, interface, social and YouTube system v3.">
 <meta name="theme-color" content="#171715">
-<title>pitch.dog Type System v2</title>
+<title>pitch.dog Type System v3</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'%3E%3Cstyle%3E@media(prefers-color-scheme:dark){.bg{fill:%23f4f0e7}.mark{fill:%23141412}.cut{fill:%23f4f0e7}}@media(prefers-color-scheme:light){.bg{fill:%23141412}.mark{fill:%23f4f0e7}.cut{fill:%23141412}}%3C/style%3E%3Crect%20class='bg'%20width='512'%20height='512'%20rx='112'/%3E%3Cpath%20class='mark'%20d='M122%20104h70v74c24-32%2060-50%20102-50%2078%200%20132%2057%20132%20140s-55%20142-137%20142c-40%200-73-14-97-40v83h-70V104zm70%20164c0%2048%2032%2080%2078%2080%2048%200%2080-33%2080-80%200-46-32-78-79-78-47%200-79%2032-79%2078z'/%3E%3Ccircle%20class='mark'%20cx='425'%20cy='410'%20r='31'/%3E%3C/svg%3E" type="image/svg+xml">
 <link rel="stylesheet" href="dist/pitchdog-fonts.template.css" data-pd-repo-fonts>
 <style id="pd-system-css">@layer pd.tokens, pd.base, pd.type, pd.ui, pd.media, pd.utilities, pd.overrides;
@@ -32,9 +32,9 @@
     --pd-reading-measure-default: 48ch;
     --pd-reading-measure-wide: 52ch;
     --pd-reading-measure-ceiling: 54ch;
-    --pd-measure-reading: 64ch;
-    --pd-measure-default: 68ch;
-    --pd-measure-compact: 72ch;
+    --pd-measure-reading: 45ch;
+    --pd-measure-default: 48ch;
+    --pd-measure-compact: 52ch;
 
     --pd-head-wght-thin: 265;
     --pd-head-wght-light: 300;
@@ -153,11 +153,11 @@
   }
   :where([data-pd-type="lead.hero"], .pd-type-lead-hero) {
     font-family: var(--pd-font-body-alt); font-weight: 400; font-style: normal;
-    font-size: clamp(1.5rem, 1.19rem + .96vi, 2.375rem); line-height: 1.25; letter-spacing: -.013em; max-inline-size: 44ch; text-wrap: pretty;
+    font-size: clamp(1.5rem, 1.19rem + .96vi, 2.375rem); line-height: 1.25; letter-spacing: -.013em; max-inline-size: 38ch; text-wrap: pretty;
   }
   :where([data-pd-type="lead.section"], .pd-type-lead-section) {
     font-family: var(--pd-font-body-alt); font-weight: 400; font-style: normal;
-    font-size: clamp(1.25rem, 1.11rem + .43vi, 1.625rem); line-height: 1.34; letter-spacing: -.009em; max-inline-size: 56ch; text-wrap: pretty;
+    font-size: clamp(1.25rem, 1.11rem + .43vi, 1.625rem); line-height: 1.34; letter-spacing: -.009em; max-inline-size: 48ch; text-wrap: pretty;
   }
   :where([data-pd-type="body.reading"], .pd-type-body-reading) {
     font-family: var(--pd-font-body); font-weight: 400; font-style: normal;
@@ -173,7 +173,7 @@
   }
   :where([data-pd-type="body.small"], .pd-type-body-small) {
     font-family: var(--pd-font-body); font-weight: 400; font-style: normal;
-    font-size: clamp(.875rem, .856rem + .06vi, .9375rem); line-height: 1.42; letter-spacing: .003em; max-inline-size: 74ch;
+    font-size: clamp(.875rem, .856rem + .06vi, .9375rem); line-height: 1.42; letter-spacing: .003em; max-inline-size: 52ch;
   }
   :where([data-pd-type="quote.feature"], .pd-type-quote-feature) {
     --pd-wght: 500; --pd-ital: 1; font-family: var(--pd-font-head-active); font-weight: 500; font-style: normal;
@@ -315,13 +315,13 @@
   :where([data-pd-canvas="landscape"]) { aspect-ratio:40/21; }
 :where([data-pd-social="display"]){font-family:var(--pd-font-head-active);font-weight:600;font-style:normal;font-variation-settings:"wght" 600,"ital" 0;font-size:min(10.2cqi, 8.2cqb);line-height:0.88;letter-spacing:-0.043em;}
 :where([data-pd-social="headline"]){font-family:var(--pd-font-head-active);font-weight:500;font-style:normal;font-variation-settings:"wght" 500,"ital" 0;font-size:min(7.4cqi, 6.5cqb);line-height:0.94;letter-spacing:-0.031em;}
-:where([data-pd-social="subhead"]){font-family:var(--pd-font-body-alt);font-weight:400;font-style:normal;font-size:min(3.4cqi, 2.9cqb);line-height:1.2;letter-spacing:-0.012em;}
-:where([data-pd-social="body"]){font-family:var(--pd-font-body);font-weight:400;font-style:normal;font-size:min(2.32cqi, 1.95cqb);line-height:1.38;letter-spacing:0em;}
+:where([data-pd-social="subhead"]){font-family:var(--pd-font-body-alt);font-weight:400;font-style:normal;font-size:min(4.4cqi, 3.9cqb);line-height:1.2;letter-spacing:-0.012em;}
+:where([data-pd-social="body"]){font-family:var(--pd-font-body);font-weight:400;font-style:normal;font-size:min(3.4cqi, 3cqb);line-height:1.38;letter-spacing:0em;}
 :where([data-pd-social="quote"]){font-family:var(--pd-font-head-active);font-weight:500;font-style:normal;font-variation-settings:"wght" 500,"ital" 1;font-size:min(7.9cqi, 6.35cqb);line-height:0.98;letter-spacing:-0.027em;}
 :where([data-pd-social="metric"]){font-family:var(--pd-font-body);font-weight:700;font-style:normal;font-size:min(13.5cqi, 10.5cqb);line-height:0.82;letter-spacing:-0.052em;}
-:where([data-pd-social="label"]){font-family:var(--pd-font-body);font-weight:600;font-style:normal;font-size:min(1.75cqi, 1.45cqb);line-height:1.15;letter-spacing:.012em;}
-:where([data-pd-social="metadata"]){font-family:var(--pd-font-eyebrow);font-weight:500;font-style:normal;font-stretch:87.5%;font-variation-settings:"wght" 500,"wdth" 87.5,"ital" 0;font-variant-ligatures:none;font-size:min(1.38cqi, 1.12cqb);line-height:1.2;letter-spacing:.055em;}
-:where([data-pd-social="credit"]){font-family:var(--pd-font-body);font-weight:600;font-style:normal;font-size:min(1.72cqi, 1.4cqb);line-height:1.2;letter-spacing:0em;}
+:where([data-pd-social="label"]){font-family:var(--pd-font-body);font-weight:600;font-style:normal;font-size:min(2.8cqi, 2.5cqb);line-height:1.15;letter-spacing:.012em;}
+:where([data-pd-social="metadata"]){font-family:var(--pd-font-eyebrow);font-weight:500;font-style:normal;font-stretch:87.5%;font-variation-settings:"wght" 500,"wdth" 87.5,"ital" 0;font-variant-ligatures:none;font-size:min(2.6cqi, 2.4cqb);line-height:1.2;letter-spacing:.055em;}
+:where([data-pd-social="credit"]){font-family:var(--pd-font-body);font-weight:600;font-style:normal;font-size:min(2.4cqi, 2.2cqb);line-height:1.2;letter-spacing:0em;}
   :where([data-pd-social="quote"]) { --pd-ital:1; }
   :where([data-pd-social="metadata"]) { text-transform:uppercase; }
   :where([data-pd-social="display"],[data-pd-social="headline"]) { text-wrap:balance; }
@@ -399,7 +399,7 @@
 </head>
 <body>
 <div class="lab-shell">
-<header class="lab-top"><a class="lab-brand" href="#"><span class="lab-mark">p.</span><span><strong>pitch.dog type system</strong><span class="lab-version"> / v2</span></span></a><nav class="lab-nav" aria-label="Specimen views"><button data-view="overview" aria-current="page">Overview</button><button data-view="anchors">Anchors</button><button data-view="roles">Web roles</button><button data-view="dense">Dense text</button><button data-view="ui">UI / UX</button><button data-view="social">Social</button><button data-view="youtube">YouTube</button><button data-view="decks">Decks</button><button data-view="arrows">Arrows</button><button data-view="stress">Stress</button></nav><div class="lab-actions"><button id="theme" aria-label="Toggle dark mode">◐</button></div></header>
+<header class="lab-top"><a class="lab-brand" href="#"><span class="lab-mark">p.</span><span><strong>pitch.dog type system</strong><span class="lab-version"> / v3</span></span></a><nav class="lab-nav" aria-label="Specimen views"><button data-view="overview" aria-current="page">Overview</button><button data-view="anchors">Anchors</button><button data-view="roles">Web roles</button><button data-view="dense">Dense text</button><button data-view="ui">UI / UX</button><button data-view="social">Social</button><button data-view="youtube">YouTube</button><button data-view="decks">Decks</button><button data-view="arrows">Arrows</button><button data-view="stress">Stress</button></nav><div class="lab-actions"><button id="theme" aria-label="Toggle dark mode">◐</button></div></header>
 <main class="lab-main">
 <section class="lab-view is-active" data-view-panel="overview">
 <section class="lab-section lab-intro"><p class="lab-kicker">Anchor-locked variable typography</p><h1 data-pd-type="display.hero">Your pitch’s <span data-pd-emphasis="head-italic">best friend.</span></h1><p data-pd-type="lead.hero">One type system for the website, dense editorial work, interfaces, social media and YouTube. Larger than average. Never swollen. Warm, clear and precise.</p></section>
@@ -445,7 +445,7 @@
 <p>A testimonial is another stress case. It may be ten words or two hundred. It carries somebody else’s rhythm, punctuation, names, titles, and emotion. The system must preserve that voice without turning every quote into an oversized poster or compressing it into legal copy.</p>
 <p>An FAQ is different again. Questions need enough emphasis to scan, answers need enough calm to read, and the sequence must remain usable when every answer is open. Dense typography is not smaller typography. It is disciplined hierarchy under sustained information.</p>
 <p>That is the system under pressure: a short hero, a long explanation, a price, a process, a caveat, a filename, a question, a testimonial, and a next action. If the typography only works when the copy is brief, it is not ready for the website.</p>
-</article><aside class="dense-aside"><article class="lab-card dark"><p data-pd-type="metadata">READING CONTRACT</p><p data-pd-type="title.functional">19–21 px equivalent. 64ch target. 1.58 leading.</p><p data-pd-type="body.small">The measure is a tested starting point, not a commandment. Use the controls to stress it.</p></article><article class="lab-card"><p data-pd-type="metadata">FAMILY</p><p data-pd-type="data">PD BODY · 400</p><p data-pd-type="metadata">STRONG</p><p data-pd-type="data">PD BODY · 600</p></article></aside></div></section>
+</article><aside class="dense-aside"><article class="lab-card dark"><p data-pd-type="metadata">READING CONTRACT</p><p data-pd-type="title.functional">19–21 px equivalent. 45ch target. 1.58 leading.</p><p data-pd-type="body.small">The measure is a tested starting point, not a commandment. Use the controls to stress it.</p></article><article class="lab-card"><p data-pd-type="metadata">FAMILY</p><p data-pd-type="data">PD BODY · 400</p><p data-pd-type="metadata">STRONG</p><p data-pd-type="data">PD BODY · 600</p></article></aside></div></section>
 <section class="lab-section" data-pd-type-context="productive"><p class="lab-kicker">Dense process grid</p><h2 data-pd-type="heading.section">Eight steps. One great deck.</h2><div class="dense-list"><article><h3 data-pd-type="title.card">01. Discovery call.</h3><p data-pd-type="body.compact">We start with a conversation. No agenda, no slides from our side. We listen for the project, the goals, the audience, and what success needs to look like.</p></article><article><h3 data-pd-type="title.card">02. NDA + contract.</h3><p data-pd-type="body.compact">Confidentiality first. Scope, payment terms, access and responsibilities become clear before a single sensitive page changes hands.</p></article><article><h3 data-pd-type="title.card">03. The questionnaire.</h3><p data-pd-type="body.compact">We go wide and deep. Tastes, references, narrative goals, must-haves, deal-breakers, competition, audience and emotional intent.</p></article><article><h3 data-pd-type="title.card">04. Moodboard + direction.</h3><p data-pd-type="body.compact">Colour, typography, texture, imagery and sample slides become the visual gut-check before a full deck is built.</p></article><article><h3 data-pd-type="title.card">05. First draft.</h3><p data-pd-type="body.compact">The complete deck comes to life. Every slide designed. Every section structured. Every visual choice attached to an argument.</p></article><article><h3 data-pd-type="title.card">06. Revisions.</h3><p data-pd-type="body.compact">Feedback becomes refinement. The process continues until the work feels right, not until an arbitrary revision counter reaches zero.</p></article><article><h3 data-pd-type="title.card">07. Handover.</h3><p data-pd-type="body.compact">High-resolution PDF, editable source files, assets and supporting materials. Everything is transferred cleanly and completely.</p></article><article><h3 data-pd-type="title.card">08. Go get ’em.</h3><p data-pd-type="body.compact">The pitch is ready. Get the green light, win the bid, close the round, and tell us when it happens.</p></article></div></section>
 <section class="lab-section"><p class="lab-kicker">Pricing and aligned data</p><table class="dense-table"><thead><tr><th data-pd-type="label">Service</th><th data-pd-type="label">Starting at</th></tr></thead><tbody><tr><td data-pd-type="body.compact">Pitch Deck · Design only</td><td data-pd-type="data">$2,500 · ₹2,09,000</td></tr><tr><td data-pd-type="body.compact">Pitch Deck · Writing + Design</td><td data-pd-type="data">$4,000 · ₹3,34,000</td></tr><tr><td data-pd-type="body.compact">Show Bible / Extended Deck</td><td data-pd-type="data">$5,000 · ₹4,18,000</td></tr><tr><td data-pd-type="body.compact">Full Branding Package</td><td data-pd-type="data">$7,000 · ₹5,85,000</td></tr></tbody></table></section>
 </section>
@@ -542,7 +542,7 @@ function faceRules(src){return EXPECTED.map(rec=>{const axes=Object.fromEntries(
 async function useFiles(items){loaded=new Map();for(const item of items){const rec=findExpected(item.name);if(rec&&!loaded.has(rec.sourcePath))loaded.set(rec.sourcePath,item.data)}const missing=EXPECTED.filter(x=>!loaded.has(x.sourcePath));if(missing.length){setStatus('Missing '+missing.length+' required variable WOFF2 file(s): '+missing.map(x=>base(x.sourcePath)).join(', '));build.disabled=true;return}for(const rec of EXPECTED){const data=loaded.get(rec.sourcePath);if(data.length!==rec.bytes)throw new Error(base(rec.sourcePath)+' has an unexpected byte size.');const hash=await digest(data);if(hash!==rec.sha256)throw new Error(base(rec.sourcePath)+' failed SHA-256 verification.')}injectFaces();await Promise.all([document.fonts.load('600 4rem "PD Head"'),document.fonts.load('600 4rem "PD Head Alt"'),document.fonts.load('400 1rem "PD Body"'),document.fonts.load('italic 400 1rem "PD Body"'),document.fonts.load('400 1rem "PD Body Alt"'),document.fonts.load('italic 400 1rem "PD Body Alt"'),document.fonts.load('500 1rem "PD Eyebrow"')]);document.body.classList.add('font-ready');setStatus('Verified and loaded all 7 variable webfonts. Head italic is axis-driven.');build.disabled=false}
 function injectFaces(){document.querySelector('#pd-runtime-fonts')?.remove();const urls=new Map();for(const [k,data] of loaded)urls.set(k,URL.createObjectURL(new Blob([data],{type:'font/woff2'})));const style=document.createElement('style');style.id='pd-runtime-fonts';style.textContent=faceRules(rec=>JSON.stringify(urls.get(rec.sourcePath)));document.head.prepend(style)}
 const toData=bytes=>new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(new Blob([bytes],{type:'font/woff2'}))});
-async function makeStandalone(){build.disabled=true;setStatus('Embedding seven verified variable fonts…');const data=new Map();for(const [k,v] of loaded)data.set(k,await toData(v));const clone=document.documentElement.cloneNode(true);clone.querySelector('[data-pd-repo-fonts]')?.remove();clone.querySelector('#pd-font-loader')?.remove();clone.querySelector('#pd-font-builder-script')?.remove();clone.querySelector('#pd-runtime-fonts')?.remove();const style=clone.ownerDocument.createElement('style');style.id='pd-embedded-fonts';style.textContent=faceRules(rec=>JSON.stringify(data.get(rec.sourcePath)));clone.querySelector('head').prepend(style);const output='<!doctype html>\n'+clone.outerHTML;const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([output],{type:'text/html'}));a.download='pitchdog-typography-system-v2-STANDALONE.html';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),30000);setStatus('Standalone built. It contains the verified fonts, favicons and complete system.');build.disabled=false}
+async function makeStandalone(){build.disabled=true;setStatus('Embedding seven verified variable fonts…');const data=new Map();for(const [k,v] of loaded)data.set(k,await toData(v));const clone=document.documentElement.cloneNode(true);clone.querySelector('[data-pd-repo-fonts]')?.remove();clone.querySelector('#pd-font-loader')?.remove();clone.querySelector('#pd-font-builder-script')?.remove();clone.querySelector('#pd-runtime-fonts')?.remove();const style=clone.ownerDocument.createElement('style');style.id='pd-embedded-fonts';style.textContent=faceRules(rec=>JSON.stringify(data.get(rec.sourcePath)));clone.querySelector('head').prepend(style);const output='<!doctype html>\n'+clone.outerHTML;const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([output],{type:'text/html'}));a.download='pitchdog-typography-system-v3-STANDALONE.html';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),30000);setStatus('Standalone built. It contains the verified fonts, favicons and complete system.');build.disabled=false}
 document.querySelector('#fontZip').addEventListener('change',async e=>{try{setStatus('Reading ZIP locally…');await useFiles(await unzip(e.target.files[0]))}catch(err){setStatus(String(err));build.disabled=true}});
 document.querySelector('#fontFolder').addEventListener('change',async e=>{try{setStatus('Reading folder locally…');const rows=[];for(const f of e.target.files)if(f.name.toLowerCase().endsWith('.woff2'))rows.push({name:f.webkitRelativePath||f.name,data:new Uint8Array(await f.arrayBuffer())});await useFiles(rows)}catch(err){setStatus(String(err));build.disabled=true}});
 build.addEventListener('click',makeStandalone);document.querySelector('#loaderMin').addEventListener('click',()=>document.querySelector('#pd-font-loader').classList.toggle('is-min'));

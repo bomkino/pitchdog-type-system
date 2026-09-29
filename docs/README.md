@@ -47,7 +47,8 @@ Find the document for the job in front of you. Values always come from `tokens/p
 
 | Document | From → to |
 | --- | --- |
+| [MIGRATION-v2-to-v3.md](MIGRATION-v2-to-v3.md) | 2.x → 3.0.0 (reading measures and social small-text sizes) |
 | [MIGRATION-v13-to-v2.md](MIGRATION-v13-to-v2.md) | 13.x → 2.x (font names; 2.1 adds decks without breaking changes) |
-| [MIGRATION-v3-to-v13.md](MIGRATION-v3-to-v13.md) | 3.x → 13.x |
+| [MIGRATION-v3-to-v13.md](MIGRATION-v3-to-v13.md) | the older pre-13 v3 line → 13.x (not 3.0.0) |
 
 Release history is in [CHANGELOG.md](../CHANGELOG.md) and the current release evidence in [RELEASE-RECEIPT.md](../RELEASE-RECEIPT.md).

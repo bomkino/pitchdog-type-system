@@ -4,9 +4,9 @@ The website contains long beliefs, process instructions, FAQs, pricing tables, t
 
 ## Reading defaults
 
-- `body.reading`: 19–21 px equivalent, Body 400, 1.58 line-height, 64ch
-- `body.default`: 17–19 px equivalent, Body 400, 1.52 line-height, 68ch
-- `body.compact`: 16–17 px equivalent, Body 400, 1.45 line-height, 72ch
+- `body.reading`: 19–21 px equivalent, Body 400, 1.58 line-height, 45ch
+- `body.default`: 17–19 px equivalent, Body 400, 1.52 line-height, 48ch
+- `body.compact`: 16–17 px equivalent, Body 400, 1.45 line-height, 52ch
 - Inline strong: Body 600
 - Body italic: authentic Body Italic 400
 

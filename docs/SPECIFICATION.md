@@ -116,8 +116,8 @@ Dense content is a first-class mode, not a fallback. It uses:
 
 - Body 400
 - Body 600 for genuine emphasis
-- 64ch reading measure as a tested default
-- 68–72ch for shorter operational copy
+- 45ch reading measure, about 65 characters of PD Body per line
+- 48–52ch for general and operational copy, about 70 characters
 - 1.45–1.58 line-height by reading duration
 - productive sans titles inside cards and tables
 - Eyebrow only for literal data and metadata

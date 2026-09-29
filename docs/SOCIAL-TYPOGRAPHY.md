@@ -30,4 +30,5 @@ Social media is a governed output layer over the same five voices.
 - Alt text accompanies informative images.
 - Spoken video receives captions.
 - Final compressed posts receive a physical-phone review.
+- A 1080-pixel post shows at roughly 390 pixels wide in a phone feed, about a third of its size. The small roles are sized for that. At phone width, body text must stay at 11 px or more, and labels, metadata and credits at 8.5 px or more.
 - Social introduces no additional typeface.

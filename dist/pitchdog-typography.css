@@ -22,9 +22,9 @@
     --pd-reading-measure-default: 48ch;
     --pd-reading-measure-wide: 52ch;
     --pd-reading-measure-ceiling: 54ch;
-    --pd-measure-reading: 64ch;
-    --pd-measure-default: 68ch;
-    --pd-measure-compact: 72ch;
+    --pd-measure-reading: 45ch;
+    --pd-measure-default: 48ch;
+    --pd-measure-compact: 52ch;
 
     --pd-head-wght-thin: 265;
     --pd-head-wght-light: 300;
@@ -143,11 +143,11 @@
   }
   :where([data-pd-type="lead.hero"], .pd-type-lead-hero) {
     font-family: var(--pd-font-body-alt); font-weight: 400; font-style: normal;
-    font-size: clamp(1.5rem, 1.19rem + .96vi, 2.375rem); line-height: 1.25; letter-spacing: -.013em; max-inline-size: 44ch; text-wrap: pretty;
+    font-size: clamp(1.5rem, 1.19rem + .96vi, 2.375rem); line-height: 1.25; letter-spacing: -.013em; max-inline-size: 38ch; text-wrap: pretty;
   }
   :where([data-pd-type="lead.section"], .pd-type-lead-section) {
     font-family: var(--pd-font-body-alt); font-weight: 400; font-style: normal;
-    font-size: clamp(1.25rem, 1.11rem + .43vi, 1.625rem); line-height: 1.34; letter-spacing: -.009em; max-inline-size: 56ch; text-wrap: pretty;
+    font-size: clamp(1.25rem, 1.11rem + .43vi, 1.625rem); line-height: 1.34; letter-spacing: -.009em; max-inline-size: 48ch; text-wrap: pretty;
   }
   :where([data-pd-type="body.reading"], .pd-type-body-reading) {
     font-family: var(--pd-font-body); font-weight: 400; font-style: normal;
@@ -163,7 +163,7 @@
   }
   :where([data-pd-type="body.small"], .pd-type-body-small) {
     font-family: var(--pd-font-body); font-weight: 400; font-style: normal;
-    font-size: clamp(.875rem, .856rem + .06vi, .9375rem); line-height: 1.42; letter-spacing: .003em; max-inline-size: 74ch;
+    font-size: clamp(.875rem, .856rem + .06vi, .9375rem); line-height: 1.42; letter-spacing: .003em; max-inline-size: 52ch;
   }
   :where([data-pd-type="quote.feature"], .pd-type-quote-feature) {
     --pd-wght: 500; --pd-ital: 1; font-family: var(--pd-font-head-active); font-weight: 500; font-style: normal;

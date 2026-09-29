@@ -1,8 +1,8 @@
 {
   "meta": {
     "name": "pitch.dog Type System",
-    "version": "2.2.0",
-    "displayVersion": "2",
+    "version": "3.0.0",
+    "displayVersion": "3",
     "status": "production",
     "fontSource": "FontBlind-Final-2026-08-28-v13.zip",
     "principle": "Anchor-locked variable typography"

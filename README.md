@@ -2,7 +2,7 @@
 
 The canonical source for pitch.dog typography: five variable font families, semantic type tokens, production CSS, and the roles that govern the website, product interfaces, social posts, YouTube and pitch decks.
 
-Current release: **v2.2.0**
+Current release: **v3.0.0**
 
 ![Specimen overview: hero type, Head italics, dense reading, interface, social and YouTube layouts, and the arrow set](evidence/pitchdog-typography-preview-v13.png)
 
@@ -42,7 +42,7 @@ Pin a release. Do not depend on `main`.
 ```json
 {
   "dependencies": {
-    "@pitchdog/type-system": "git+https://github.com/bomkino/pitchdog-type-system.git#v2.2.0"
+    "@pitchdog/type-system": "git+https://github.com/bomkino/pitchdog-type-system.git#v3.0.0"
   }
 }
 ```
@@ -70,7 +70,7 @@ The CSS resolves the seven WOFF2 files from this package. Let your bundler copy 
 
 For web wrapping and reading measure, use the semantic roles or the explicit `data-pd-wrap` and `data-pd-measure` contracts. Do not put `text-wrap: pretty` on `body`, every paragraph, or an entire application shell. See `docs/WEB-TEXT-WRAPPING.md`.
 
-Frameworks, non-JavaScript projects, vendoring and native apps are covered in `docs/USING-IN-PROJECTS.md`. Upgrading from 13.x: `docs/MIGRATION-v13-to-v2.md`.
+Frameworks, non-JavaScript projects, vendoring and native apps are covered in `docs/USING-IN-PROJECTS.md`. Upgrading from 2.x: `docs/MIGRATION-v2-to-v3.md`. From 13.x: `docs/MIGRATION-v13-to-v2.md` first.
 
 ## Decks
 
@@ -118,9 +118,9 @@ Every asset has a `.sha256` sidecar. Variable fonts are authoritative; static fo
 Resolve the release tag to its full commit, then install from that commit:
 
 ```bash
-pitchdog_release_commit="$(git ls-remote https://github.com/bomkino/pitchdog-type-system.git 'refs/tags/v2.2.0^{}' 'refs/tags/v2.2.0' | tail -n1 | cut -f1)"
+pitchdog_release_commit="$(git ls-remote https://github.com/bomkino/pitchdog-type-system.git 'refs/tags/v3.0.0^{}' 'refs/tags/v3.0.0' | tail -n1 | cut -f1)"
 if ! printf '%s' "$pitchdog_release_commit" | grep -Eq '^[0-9a-f]{40}$'; then
-  echo "Could not resolve v2.2.0 to one full commit." >&2
+  echo "Could not resolve v3.0.0 to one full commit." >&2
   exit 1
 fi
 python3 /path/to/skill-installer/scripts/install-skill-from-github.py \
@@ -130,7 +130,7 @@ python3 /path/to/skill-installer/scripts/install-skill-from-github.py \
   --method download
 ```
 
-Confirm the v2.2.0 GitHub Release records that commit before installing.
+Confirm the v3.0.0 GitHub Release records that commit before installing.
 
 For Claude, upload the Release's `pitchdog-type-system-skill-<tag>.zip` as a skill; for Claude Code, unzip it into `~/.claude/skills/`. Replace the installed copy on each release, since an older copy keeps routing to older documents.
 

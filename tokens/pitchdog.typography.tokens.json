@@ -1,8 +1,8 @@
 {
   "meta": {
     "name": "pitch.dog Type System",
-    "version": "2.2.0",
-    "displayVersion": "2",
+    "version": "3.0.0",
+    "displayVersion": "3",
     "status": "production",
     "fontSource": "FontBlind-Final-2026-08-28-v13.zip",
     "principle": "Anchor-locked variable typography"
@@ -214,7 +214,7 @@
       "size": "clamp(1.5rem, 1.19rem + .96vi, 2.375rem)",
       "lineHeight": 1.25,
       "tracking": "-0.013em",
-      "measure": "44ch",
+      "measure": "38ch",
       "wrap": "pretty",
       "context": "expressive",
       "maxLines": 6
@@ -226,7 +226,7 @@
       "size": "clamp(1.25rem, 1.11rem + .43vi, 1.625rem)",
       "lineHeight": 1.34,
       "tracking": "-0.009em",
-      "measure": "56ch",
+      "measure": "48ch",
       "wrap": "pretty",
       "context": "both",
       "maxLines": 8
@@ -238,7 +238,7 @@
       "size": "clamp(1.1875rem, 1.15rem + .12vi, 1.3125rem)",
       "lineHeight": 1.58,
       "tracking": "-0.004em",
-      "measure": "64ch",
+      "measure": "45ch",
       "wrap": "pretty",
       "context": "both",
       "maxLines": null
@@ -250,7 +250,7 @@
       "size": "clamp(1.0625rem, 1.025rem + .12vi, 1.1875rem)",
       "lineHeight": 1.52,
       "tracking": "-0.003em",
-      "measure": "68ch",
+      "measure": "48ch",
       "wrap": "normal",
       "context": "both",
       "maxLines": null
@@ -262,7 +262,7 @@
       "size": "clamp(1rem, .981rem + .06vi, 1.0625rem)",
       "lineHeight": 1.45,
       "tracking": "0em",
-      "measure": "72ch",
+      "measure": "52ch",
       "wrap": "normal",
       "context": "productive",
       "maxLines": null
@@ -274,7 +274,7 @@
       "size": "clamp(.875rem, .856rem + .06vi, .9375rem)",
       "lineHeight": 1.42,
       "tracking": ".003em",
-      "measure": "74ch",
+      "measure": "52ch",
       "wrap": "normal",
       "context": "productive",
       "maxLines": null
