@@ -17,6 +17,8 @@ The browser algorithms are progressive enhancement. Copy structure, measure and 
 
 ## Measure tokens
 
+The target for rendered prose is 45 to 75 characters per line, counted on real lines in the real font; 80 is the ceiling.
+
 - `narrow` — 38ch, roughly 56 characters of representative PD Body copy
 - `intro` — 48ch, roughly 71 characters for propositions and section introductions
 - `reading` — 45ch, roughly 67 characters for sustained prose
@@ -26,7 +28,7 @@ The browser algorithms are progressive enhancement. Copy structure, measure and 
 
 The values deliberately sit inside the 45–90 character range used by USWDS, near its 66-character long-reading target, and below the 75-character GOV.UK recommendation for ordinary page layouts. They also respect WCAG 2.2’s 80-character Visual Presentation ceiling.
 
-`ch` measures the advance width of the font’s zero; it does not count characters. These new utility values were therefore calibrated in PD Body against representative English copy instead of copying generic `ch` numbers. They remain approximations: review real text in the real font rather than treating a token as a guarantee. Version 13’s intrinsic role widths remain unchanged for compatibility; adding a `data-pd-measure` contract is the explicit opt-in to the calibrated reading measures.
+`ch` measures the advance width of the font’s zero; it does not count characters. These new utility values were therefore calibrated in PD Body against representative English copy instead of copying generic `ch` numbers. They remain approximations: review real text in the real font rather than treating a token as a guarantee. Since 3.0.0 the lead and body roles carry these calibrated measures by default (`lead.hero` narrow, `lead.section` intro, `body.reading` reading, `body.default` default, `body.compact` and `body.small` wide), so no role sets more than about 75 characters per line. `data-pd-measure` still overrides a role when the content job differs.
 
 ## Why `pretty` is opt-in
 

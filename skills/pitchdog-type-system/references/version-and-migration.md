@@ -3,6 +3,7 @@
 ## Select an immutable version
 
 1. Start from the consumer's pin (SKILL.md step 1). When a tag has no recorded commit, or its recorded lock or receipt commit differs from the commit the tag now resolves to, recover the original commit from installed or lock evidence. Fail closed if that evidence is absent or still disagrees, and ask the user which named commit is the pin.
+   A lock that records a full commit for a version with no published tag still has a pin: that commit. Read from it and report the missing tag; do not treat the consumer as unpinned. Fail closed only when the repository has no such commit.
 2. Inspect stable GitHub Release records and Git tags independently. Peel annotated tags to commits and record the full SHA.
 3. At that commit, compare the package version, canonical token metadata, generated version markers, changelog, and release receipt.
 4. Choose the version:

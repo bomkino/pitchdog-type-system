@@ -3,10 +3,10 @@
 ## Identity
 
 - Product: **pitch.dog Type System**
-- Canonical display version: **2**
-- Package version: **2.2.0**
+- Canonical display version: **3**
+- Package version: **3.0.0**
 - Font authority: `FontBlind-Final-2026-08-28-v13.zip`
-- Release date: **28 September 2026**
+- Release date: **29 September 2026**
 - State: **production release**
 
 ## Scope
@@ -19,6 +19,8 @@ The system governs typography across:
 - social media
 - YouTube thumbnails, Shorts, podcast covers, channel banners, and end screens
 - pitch decks on 16:9 and 4:3 slides, presented live or read as a PDF
+- subtitles on 16:9, 4:3, square and vertical video, burned in or as a text track
+- spacing between text blocks on pages and slides
 - web reading measures and content-role wrapping contracts
 - the complete native arrow set
 
@@ -31,10 +33,12 @@ The system governs typography across:
 - Eyebrow uses only the approved weight anchors, width endpoints `87.5` and `100`, and binary posture.
 - Components consume semantic roles rather than raw typographic values.
 - Short display copy balances; selected editorial prose uses pretty wrapping; controls, navigation, data and dense UI retain normal wrapping.
-- Calibrated opt-in measures target about 56–80 characters in PD Body. They are font-specific approximations, not generic `ch` folklore.
+- Lead and body roles carry calibrated measures of about 55–75 characters in PD Body; `data-pd-measure` overrides them per content job. They are font-specific approximations, not generic `ch` folklore.
 - The progressive `avoid-orphans` contract falls back to normal wrapping where it is not supported.
 - The default HTML contains no embedded font payload. The canonical repository includes the governed runtime WOFF2 files plus the complete handoff.
-- Deck roles size from the slide with container units, set 4:3 slides at 80 percent of 16:9, and never go below 1.8 percent of the slide height. Present and read densities share one role set.
+- Deck roles size from the slide with container units, set 4:3 slides at 80 percent of 16:9, and never go below 1.8 percent of the slide height; at present density every role but the footer stays at or above 2.2 percent. Present and read densities share one role set.
+- Subtitles set in PD Body 600 with a line height of 7 percent of the frame height (4 percent on vertical frames), at most two lines and 42 characters per line (fewer on square and vertical frames), in the broadcast, cinema and clean styles. Boxed styles keep 4.5:1 contrast over a white or black picture.
+- Spacing comes from a seven-step web scale and a five-step deck scale; `data-pd-flow` puts more space before every heading than after it.
 - Every derived file is generated from `tokens/pitchdog.system.tokens.json` by `scripts/build_dist.py`; CI rejects stale output. The web and UI CSS layers remain hand-authored.
 - Every font file carries its canonical family name and a unique PostScript name (`docs/FONT-NAMING.md`); only naming and style-linking metadata differs from the FontBlind v13 source.
 
@@ -47,6 +51,7 @@ The system governs typography across:
 
 ## Validation receipt
 
+- 3.0.0 narrows the six lead and body role measures to the calibrated reading tokens, enlarges the small social and YouTube roles and the deck present sizes for the size people see them at, and adds the spacing scale, the flow contract and the subtitle layer. Fonts, anchors, line heights, tracking and UI roles are unchanged. The release validator checks subtitle line heights against the BBC ranges, line and character limits, and style contrast, and holds the flow CSS to its tokens. `evidence/type-review-v3.0.0.md` records the Chromium measurements before and after, `evidence/browser-v3.0.0.json` the rendered checks of the starters and specimen, and `evidence/agent-skill-behavior-v3.0.0.md` the skill runs.
 - 2.2.0 rewrites the Agent Skill for agents and adds `AGENTS.md`; no token, CSS, contract or font file changes. `evidence/agent-skill-behavior-v2.2.0.md` records decision-level runs on the pinned, contradictory-latest, runtime-diagnosis and deck branches.
 - 2.1.0 adds deck mode and generated derived files; font binaries are byte-identical to 2.0.0. `scripts/build_dist.py --check` passes, and the release validator checks every deck role against its floor, the 80 percent 4:3 ratio, the read-density ordering and limits, template roles, starter markup and the deck print rules.
 - `evidence/browser-deck-v2.1.0.json`: in Chromium 141 the starter deck loads all four families; at present and read density on both canvases no element leaves a slide's safe area; computed sizes match the tokens; printing gives 10 pages at 1920 × 1080 px (widescreen) and 1440 × 1080 px (standard); all ten specimen views open, the Decks view has no overflow, and there are no console or page errors.
@@ -68,6 +73,14 @@ The system governs typography across:
 - `docs/SPECIFICATION.md`
 - `docs/WEB-TEXT-WRAPPING.md`
 - `skills/pitchdog-type-system/SKILL.md`
+- `evidence/type-review-v3.0.0.md`
+- `evidence/agent-skill-behavior-v3.0.0.md`
+- `docs/MIGRATION-v2-to-v3.md`
+- `evidence/browser-v3.0.0.json`
+- `docs/SPACING.md`
+- `docs/SUBTITLES.md`
+- `dist/pitchdog-subtitle.css`
+- `subtitle/subtitle-starter.html`
 - `evidence/agent-skill-behavior-v2.2.0.md`
 - `evidence/agent-skill-behavior-v13.1.1.md`
 - `AGENTS.md`

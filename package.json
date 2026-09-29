@@ -1,6 +1,6 @@
 {
   "name": "@pitchdog/type-system",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "private": true,
   "description": "Canonical pitch.dog fonts and typography system.",
   "license": "SEE LICENSE IN LICENSE.md",
@@ -23,6 +23,7 @@
     "social",
     "youtube",
     "deck",
+    "subtitle",
     "docs"
   ],
   "exports": {
@@ -35,6 +36,7 @@
     "./social.css": "./dist/pitchdog-social.css",
     "./youtube.css": "./dist/pitchdog-youtube.css",
     "./deck.css": "./dist/pitchdog-deck.css",
+    "./subtitle.css": "./dist/pitchdog-subtitle.css",
     "./tokens/*": "./tokens/*",
     "./dist/*": "./dist/*",
     "./fonts/*": "./assets/fonts/*"

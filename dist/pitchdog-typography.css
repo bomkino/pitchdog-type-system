@@ -22,9 +22,17 @@
     --pd-reading-measure-default: 48ch;
     --pd-reading-measure-wide: 52ch;
     --pd-reading-measure-ceiling: 54ch;
-    --pd-measure-reading: 64ch;
-    --pd-measure-default: 68ch;
-    --pd-measure-compact: 72ch;
+    --pd-measure-reading: 45ch;
+    --pd-measure-default: 48ch;
+    --pd-measure-compact: 52ch;
+
+    --pd-space-2xs: .25rem;
+    --pd-space-xs: .5rem;
+    --pd-space-s: .75rem;
+    --pd-space-m: clamp(1rem, .917rem + .37vi, 1.25rem);
+    --pd-space-l: clamp(1.5rem, 1.25rem + 1.11vi, 2.25rem);
+    --pd-space-xl: clamp(2.5rem, 2rem + 2.22vi, 4rem);
+    --pd-space-2xl: clamp(4rem, 3rem + 4.44vi, 7rem);
 
     --pd-head-wght-thin: 265;
     --pd-head-wght-light: 300;
@@ -143,11 +151,11 @@
   }
   :where([data-pd-type="lead.hero"], .pd-type-lead-hero) {
     font-family: var(--pd-font-body-alt); font-weight: 400; font-style: normal;
-    font-size: clamp(1.5rem, 1.19rem + .96vi, 2.375rem); line-height: 1.25; letter-spacing: -.013em; max-inline-size: 44ch; text-wrap: pretty;
+    font-size: clamp(1.5rem, 1.19rem + .96vi, 2.375rem); line-height: 1.25; letter-spacing: -.013em; max-inline-size: 38ch; text-wrap: pretty;
   }
   :where([data-pd-type="lead.section"], .pd-type-lead-section) {
     font-family: var(--pd-font-body-alt); font-weight: 400; font-style: normal;
-    font-size: clamp(1.25rem, 1.11rem + .43vi, 1.625rem); line-height: 1.34; letter-spacing: -.009em; max-inline-size: 56ch; text-wrap: pretty;
+    font-size: clamp(1.25rem, 1.11rem + .43vi, 1.625rem); line-height: 1.34; letter-spacing: -.009em; max-inline-size: 48ch; text-wrap: pretty;
   }
   :where([data-pd-type="body.reading"], .pd-type-body-reading) {
     font-family: var(--pd-font-body); font-weight: 400; font-style: normal;
@@ -163,7 +171,7 @@
   }
   :where([data-pd-type="body.small"], .pd-type-body-small) {
     font-family: var(--pd-font-body); font-weight: 400; font-style: normal;
-    font-size: clamp(.875rem, .856rem + .06vi, .9375rem); line-height: 1.42; letter-spacing: .003em; max-inline-size: 74ch;
+    font-size: clamp(.875rem, .856rem + .06vi, .9375rem); line-height: 1.42; letter-spacing: .003em; max-inline-size: 52ch;
   }
   :where([data-pd-type="quote.feature"], .pd-type-quote-feature) {
     --pd-wght: 500; --pd-ital: 1; font-family: var(--pd-font-head-active); font-weight: 500; font-style: normal;
@@ -236,6 +244,24 @@
   :where(.pd-tabular) { font-variant-numeric: tabular-nums lining-nums; }
   :where(.pd-no-ligatures) { font-variant-ligatures: none; }
   :where(.pd-head-italic) { --pd-ital: 1; font-family: var(--pd-font-head-active); font-style: normal; font-variation-settings: "wght" var(--pd-wght, 500), "ital" 1; }
+
+  /* Flow: vertical space between the text blocks of one column. Headings sit closer to the text they introduce.
+     Later rules win: media, then space before a heading, then space after it, then a kicker or label and what it labels. */
+  :where([data-pd-flow]) > :where(*) { margin-block: 0; }
+  :where([data-pd-flow]) > :where(* + *) { margin-block-start: var(--pd-flow-space, 1em); }
+  :where([data-pd-flow]) > :where(* + :is(figure, img, picture, video, table, pre, hr)) { margin-block-start: var(--pd-space-l); }
+  :where([data-pd-flow]) > :where(:is(figure, img, picture, video, table, pre, hr) + *) { margin-block-start: var(--pd-space-l); }
+  :where([data-pd-flow]) > :where(* + :is([data-pd-type="title.card"], [data-pd-type="title.functional"])) { margin-block-start: var(--pd-space-l); }
+  :where([data-pd-flow]) > :where(* + :is([data-pd-type="heading.subsection"], [data-pd-type="quote.feature"], [data-pd-type="metric"])) { margin-block-start: var(--pd-space-xl); }
+  :where([data-pd-flow]) > :where(* + :is([data-pd-type="display.hero"], [data-pd-type="display.chapter"], [data-pd-type="heading.section"])) { margin-block-start: var(--pd-space-2xl); }
+  :where([data-pd-flow]) > :where(* + [data-pd-type="metadata"]:has(+ :is([data-pd-type="title.card"], [data-pd-type="title.functional"]))) { margin-block-start: var(--pd-space-l); }
+  :where([data-pd-flow]) > :where(* + [data-pd-type="metadata"]:has(+ :is([data-pd-type="heading.subsection"], [data-pd-type="quote.feature"], [data-pd-type="metric"]))) { margin-block-start: var(--pd-space-xl); }
+  :where([data-pd-flow]) > :where(* + [data-pd-type="metadata"]:has(+ :is([data-pd-type="display.hero"], [data-pd-type="display.chapter"], [data-pd-type="heading.section"]))) { margin-block-start: var(--pd-space-2xl); }
+  :where([data-pd-flow]) > :where(:is([data-pd-type="display.hero"], [data-pd-type="display.chapter"], [data-pd-type="heading.section"]) + *) { margin-block-start: var(--pd-space-l); }
+  :where([data-pd-flow]) > :where(:is([data-pd-type="heading.subsection"], [data-pd-type="quote.feature"], [data-pd-type="metric"]) + *) { margin-block-start: var(--pd-space-m); }
+  :where([data-pd-flow]) > :where([data-pd-type="title.card"] + *) { margin-block-start: var(--pd-space-s); }
+  :where([data-pd-flow]) > :where(:is([data-pd-type="title.functional"], [data-pd-type="metadata"]) + *) { margin-block-start: var(--pd-space-xs); }
+  :where([data-pd-flow]) > :where([data-pd-type="label"] + *) { margin-block-start: var(--pd-space-2xs); }
 }
 
 @media (max-width: 40rem) {

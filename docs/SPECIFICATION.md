@@ -110,14 +110,16 @@ The explicit axis is intentional. It avoids the ambiguity that prevented the pre
 
 Every public role uses a bounded responsive formula. Display roles receive meaningful fluid growth. Body and UI roles move shallowly. No size depends only on a viewport or container unit. Root-relative limits preserve user control.
 
+At 40rem wide and below, `display.hero`, `display.chapter` and `heading.section` open their leading and relax their tracking slightly, and `body.reading` tightens its leading to 1.55. These values are the `narrowViewport` entries of those roles in the token source.
+
 ## 10. Dense content
 
 Dense content is a first-class mode, not a fallback. It uses:
 
 - Body 400
 - Body 600 for genuine emphasis
-- 64ch reading measure as a tested default
-- 68–72ch for shorter operational copy
+- 45ch reading measure, about 65 characters of PD Body per line
+- 48–52ch for general and operational copy, about 70 characters
 - 1.45–1.58 line-height by reading duration
 - productive sans titles inside cards and tables
 - Eyebrow only for literal data and metadata
@@ -126,15 +128,21 @@ Dense content is a first-class mode, not a fallback. It uses:
 
 Wrapping is governed by content job, never by a blanket paragraph selector. Short display text uses `balance`; selected leads and reading prose use `pretty`; repeated or longer body copy may opt into progressive `avoid-orphans`; editable text uses `stable`; controls and dense UI keep normal wrapping. Reading measure and wrapping are independent decisions. See `WEB-TEXT-WRAPPING.md` for the complete policy, API and QA matrix.
 
+## 10b. Spacing
+
+A seven-step web scale (`--pd-space-2xs` to `--pd-space-2xl`, 4 to 112 px) and a five-step deck scale measured from the slide. `data-pd-flow` spaces a column of text by role: 1em between text blocks, and more space before every heading than after it, so a heading belongs to the text it introduces. See `SPACING.md`.
+
 ## 11. Interface layer
 
 The UI system contains fourteen roles and three density modes. Density changes spacing and control geometry before it changes typography. Default controls are 48 px tall. Coarse-pointer contexts never use the 40 px compact control geometry.
 
 ## 12. Media layers
 
-Social, YouTube and decks use canvas-relative roles because their typography belongs to a fixed export surface. They share families and anchor weights with the web but not its responsive formulas.
+Social, YouTube, decks and subtitles use canvas-relative roles because their typography belongs to a fixed export surface. They share families and anchor weights with the web but not its responsive formulas.
 
 Decks add a second axis: density. Present density is for slides shown live; read density steps nine roles down for decks sent ahead. Deck sizes are `min(0.6 × Y cqi, Y cqb)`, so 4:3 slides set at 80 percent of 16:9, and no deck role sets below 1.8 percent of the slide height. See `DECKS.md`.
+
+Subtitles set dialogue in PD Body 600 on 16:9, 4:3, 1:1 and 9:16 frames in three styles (broadcast, cinema, clean). Line height is 7 percent of the frame height on landscape, 4:3 and square frames and 4 percent on vertical ones, following the BBC Subtitle Guidelines; a subtitle has at most two lines and 42 characters per line, fewer on square and vertical frames. See `SUBTITLES.md`.
 
 ## 13. Arrows
 

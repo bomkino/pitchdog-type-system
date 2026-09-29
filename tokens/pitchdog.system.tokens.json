@@ -2,8 +2,8 @@
   "$schema": "./pitchdog.system.tokens.schema.json",
   "meta": {
     "name": "pitch.dog Type System",
-    "version": "2.2.0",
-    "displayVersion": "2",
+    "version": "3.0.0",
+    "displayVersion": "3",
     "status": "production",
     "fontSource": "FontBlind-Final-2026-08-28-v13.zip",
     "principle": "Anchor-locked variable typography"
@@ -164,6 +164,49 @@
         "use": "Progressive, lower-cost last-line protection for repeated or longer body copy"
       }
     },
+    "spacing": {
+      "scale": {
+        "2xs": ".25rem",
+        "xs": ".5rem",
+        "s": ".75rem",
+        "m": "clamp(1rem, .917rem + .37vi, 1.25rem)",
+        "l": "clamp(1.5rem, 1.25rem + 1.11vi, 2.25rem)",
+        "xl": "clamp(2.5rem, 2rem + 2.22vi, 4rem)",
+        "2xl": "clamp(4rem, 3rem + 4.44vi, 7rem)"
+      },
+      "flow": {
+        "text": "1em",
+        "before": {
+          "display.hero": "2xl",
+          "display.chapter": "2xl",
+          "heading.section": "2xl",
+          "heading.subsection": "xl",
+          "title.card": "l",
+          "title.functional": "l",
+          "quote.feature": "xl",
+          "metric": "xl",
+          "media": "l"
+        },
+        "after": {
+          "display.hero": "l",
+          "display.chapter": "l",
+          "heading.section": "l",
+          "heading.subsection": "m",
+          "title.card": "s",
+          "title.functional": "xs",
+          "quote.feature": "m",
+          "metric": "m",
+          "metadata": "xs",
+          "label": "2xs",
+          "media": "l"
+        },
+        "note": "Space before a heading is larger than the space after it, so a heading belongs to the text it introduces. Text after text is 1em of its own size. Scale steps are fluid between 360 and 1440 px viewports."
+      }
+    },
+    "narrowViewport": {
+      "maxWidth": "40rem",
+      "note": "At or below this width, roles with a `narrowViewport` entry open their leading and relax their tracking slightly, because short lines of large type set closer together."
+    },
     "roles": {
       "display.hero": {
         "family": "head",
@@ -175,7 +218,11 @@
         "measure": "11.5ch",
         "wrap": "balance",
         "context": "expressive",
-        "maxLines": 4
+        "maxLines": 4,
+        "narrowViewport": {
+          "lineHeight": 0.91,
+          "tracking": "-0.038em"
+        }
       },
       "display.chapter": {
         "family": "head",
@@ -187,7 +234,11 @@
         "measure": "14ch",
         "wrap": "balance",
         "context": "expressive",
-        "maxLines": 4
+        "maxLines": 4,
+        "narrowViewport": {
+          "lineHeight": 0.93,
+          "tracking": "-0.034em"
+        }
       },
       "heading.section": {
         "family": "head",
@@ -199,7 +250,11 @@
         "measure": "17ch",
         "wrap": "balance",
         "context": "both",
-        "maxLines": 4
+        "maxLines": 4,
+        "narrowViewport": {
+          "lineHeight": 0.98,
+          "tracking": "-0.028em"
+        }
       },
       "heading.subsection": {
         "family": "head",
@@ -244,7 +299,7 @@
         "size": "clamp(1.5rem, 1.19rem + .96vi, 2.375rem)",
         "lineHeight": 1.25,
         "tracking": "-0.013em",
-        "measure": "44ch",
+        "measure": "38ch",
         "wrap": "pretty",
         "context": "expressive",
         "maxLines": 6
@@ -256,7 +311,7 @@
         "size": "clamp(1.25rem, 1.11rem + .43vi, 1.625rem)",
         "lineHeight": 1.34,
         "tracking": "-0.009em",
-        "measure": "56ch",
+        "measure": "48ch",
         "wrap": "pretty",
         "context": "both",
         "maxLines": 8
@@ -268,10 +323,13 @@
         "size": "clamp(1.1875rem, 1.15rem + .12vi, 1.3125rem)",
         "lineHeight": 1.58,
         "tracking": "-0.004em",
-        "measure": "64ch",
+        "measure": "45ch",
         "wrap": "pretty",
         "context": "both",
-        "maxLines": null
+        "maxLines": null,
+        "narrowViewport": {
+          "lineHeight": 1.55
+        }
       },
       "body.default": {
         "family": "body",
@@ -280,7 +338,7 @@
         "size": "clamp(1.0625rem, 1.025rem + .12vi, 1.1875rem)",
         "lineHeight": 1.52,
         "tracking": "-0.003em",
-        "measure": "68ch",
+        "measure": "48ch",
         "wrap": "normal",
         "context": "both",
         "maxLines": null
@@ -292,7 +350,7 @@
         "size": "clamp(1rem, .981rem + .06vi, 1.0625rem)",
         "lineHeight": 1.45,
         "tracking": "0em",
-        "measure": "72ch",
+        "measure": "52ch",
         "wrap": "normal",
         "context": "productive",
         "maxLines": null
@@ -304,7 +362,7 @@
         "size": "clamp(.875rem, .856rem + .06vi, .9375rem)",
         "lineHeight": 1.42,
         "tracking": ".003em",
-        "measure": "74ch",
+        "measure": "52ch",
         "wrap": "normal",
         "context": "productive",
         "maxLines": null
@@ -626,7 +684,7 @@
         "family": "bodyAlt",
         "weight": 400,
         "style": "normal",
-        "size": "min(3.4cqi, 2.9cqb)",
+        "size": "min(4.4cqi, 3.9cqb)",
         "lineHeight": 1.2,
         "tracking": "-0.012em",
         "maxLines": 6,
@@ -637,7 +695,7 @@
         "family": "body",
         "weight": 400,
         "style": "normal",
-        "size": "min(2.32cqi, 1.95cqb)",
+        "size": "min(3.4cqi, 3cqb)",
         "lineHeight": 1.38,
         "tracking": "0em",
         "maxLines": 10,
@@ -669,7 +727,7 @@
         "family": "body",
         "weight": 600,
         "style": "normal",
-        "size": "min(1.75cqi, 1.45cqb)",
+        "size": "min(2.8cqi, 2.5cqb)",
         "lineHeight": 1.15,
         "tracking": ".012em",
         "maxLines": 2,
@@ -680,7 +738,7 @@
         "weight": 500,
         "width": 87.5,
         "ital": 0,
-        "size": "min(1.38cqi, 1.12cqb)",
+        "size": "min(2.6cqi, 2.4cqb)",
         "lineHeight": 1.2,
         "tracking": ".055em",
         "maxLines": 3,
@@ -691,7 +749,7 @@
         "family": "body",
         "weight": 600,
         "style": "normal",
-        "size": "min(1.72cqi, 1.4cqb)",
+        "size": "min(2.4cqi, 2.2cqb)",
         "lineHeight": 1.2,
         "tracking": "0em",
         "maxLines": 2,
@@ -807,7 +865,7 @@
         "weight": 700,
         "width": 87.5,
         "ital": 0,
-        "size": "min(1.8cqi, 2.5cqb)",
+        "size": "min(3.05cqi, 4.2cqb)",
         "lineHeight": 1.0,
         "tracking": ".07em",
         "maxLines": 1,
@@ -818,7 +876,7 @@
         "family": "bodyAlt",
         "weight": 600,
         "style": "normal",
-        "size": "min(2.9cqi, 4cqb)",
+        "size": "min(4.06cqi, 5.6cqb)",
         "lineHeight": 1.1,
         "tracking": "-0.012em",
         "maxLines": 2,
@@ -829,7 +887,7 @@
         "family": "body",
         "weight": 700,
         "style": "normal",
-        "size": "min(1.9cqi, 2.65cqb)",
+        "size": "min(3.19cqi, 4.4cqb)",
         "lineHeight": 1.0,
         "tracking": ".006em",
         "maxLines": 1,
@@ -839,7 +897,7 @@
         "family": "body",
         "weight": 600,
         "style": "normal",
-        "size": "min(1.45cqi, 2cqb)",
+        "size": "min(2.9cqi, 4cqb)",
         "lineHeight": 1.1,
         "tracking": "0em",
         "maxLines": 1,
@@ -926,12 +984,20 @@
       }
     },
     "floor": {
-      "present": "2cqb",
+      "present": "2.2cqb",
       "read": "1.8cqb",
       "exceptions": [
         "deck.footer"
       ],
-      "note": "1cqb is 10.8px on a 1080px slide. Footer is the only present-density role below 2cqb."
+      "note": "1cqb is 10.8px on a 1080px slide. Footer is the only present-density role below 2.2cqb."
+    },
+    "spacing": {
+      "2xs": "min(.72cqi, 1.2cqb)",
+      "xs": "min(1.2cqi, 2cqb)",
+      "s": "min(1.92cqi, 3.2cqb)",
+      "m": "min(3.12cqi, 5.2cqb)",
+      "l": "min(5.04cqi, 8.4cqb)",
+      "note": "Steps grow by about 1.6. Use 2xs for table cell padding; xs between bullets, between paragraphs, between a kicker and its headline and between a label and its value; s between a headline and whatever follows it; m between groups; l between columns and regions. On 4:3 slides spacing sets at 80 percent, like type."
     },
     "roles": {
       "deck.title": {
@@ -962,7 +1028,7 @@
         "family": "head",
         "weight": 500,
         "ital": 0,
-        "size": "min(3.24cqi, 5.4cqb)",
+        "size": "min(3.6cqi, 6cqb)",
         "lineHeight": 1.0,
         "tracking": "-0.028em",
         "maxLines": 2,
@@ -996,7 +1062,7 @@
         "family": "bodyAlt",
         "weight": 400,
         "style": "normal",
-        "size": "min(2.16cqi, 3.6cqb)",
+        "size": "min(2.4cqi, 4cqb)",
         "lineHeight": 1.22,
         "tracking": "-0.012em",
         "maxLines": 3,
@@ -1013,7 +1079,7 @@
         "family": "body",
         "weight": 400,
         "style": "normal",
-        "size": "min(1.68cqi, 2.8cqb)",
+        "size": "min(2.04cqi, 3.4cqb)",
         "lineHeight": 1.36,
         "tracking": "0em",
         "maxLines": 7,
@@ -1031,7 +1097,7 @@
         "family": "body",
         "weight": 400,
         "style": "normal",
-        "size": "min(1.8cqi, 3cqb)",
+        "size": "min(2.16cqi, 3.6cqb)",
         "lineHeight": 1.3,
         "tracking": "0em",
         "maxLines": 2,
@@ -1050,7 +1116,7 @@
         "family": "head",
         "weight": 500,
         "ital": 1,
-        "size": "min(3.12cqi, 5.2cqb)",
+        "size": "min(3.36cqi, 5.6cqb)",
         "lineHeight": 1.04,
         "tracking": "-0.024em",
         "maxLines": 5,
@@ -1079,7 +1145,7 @@
         "weight": 500,
         "width": 87.5,
         "ital": 0,
-        "size": "min(1.32cqi, 2.2cqb)",
+        "size": "min(1.44cqi, 2.4cqb)",
         "lineHeight": 1.1,
         "tracking": ".06em",
         "maxLines": 1,
@@ -1091,7 +1157,7 @@
         "family": "body",
         "weight": 600,
         "style": "normal",
-        "size": "min(1.38cqi, 2.3cqb)",
+        "size": "min(1.56cqi, 2.6cqb)",
         "lineHeight": 1.2,
         "tracking": ".01em",
         "maxLines": 2,
@@ -1106,7 +1172,7 @@
         "weight": 500,
         "width": 100,
         "ital": 0,
-        "size": "min(1.38cqi, 2.3cqb)",
+        "size": "min(1.56cqi, 2.6cqb)",
         "lineHeight": 1.2,
         "tracking": "0em",
         "maxLines": 1,
@@ -1120,7 +1186,7 @@
         "family": "body",
         "weight": 400,
         "style": "normal",
-        "size": "min(1.2cqi, 2cqb)",
+        "size": "min(1.32cqi, 2.2cqb)",
         "lineHeight": 1.3,
         "tracking": "0em",
         "maxLines": 2,
@@ -1135,7 +1201,7 @@
         "weight": 500,
         "width": 87.5,
         "ital": 0,
-        "size": "min(1.08cqi, 1.8cqb)",
+        "size": "min(1.2cqi, 2cqb)",
         "lineHeight": 1.1,
         "tracking": ".06em",
         "maxLines": 1,
@@ -1232,6 +1298,131 @@
         ],
         "copy": "Let’s build the one that gets funded."
       }
+    }
+  },
+  "subtitle": {
+    "canvases": {
+      "landscape": {
+        "width": 1920,
+        "height": 1080,
+        "ratio": "16 / 9",
+        "cue": {
+          "bottom": "8cqb",
+          "maxWidth": "68cqi",
+          "maxChars": 42
+        },
+        "use": "Films, showreels, YouTube, interviews and web video"
+      },
+      "standard": {
+        "width": 1440,
+        "height": 1080,
+        "ratio": "4 / 3",
+        "cue": {
+          "bottom": "8cqb",
+          "maxWidth": "90cqi",
+          "maxChars": 42
+        },
+        "use": "Archive and 4:3 footage"
+      },
+      "square": {
+        "width": 1080,
+        "height": 1080,
+        "ratio": "1 / 1",
+        "cue": {
+          "bottom": "9cqb",
+          "maxWidth": "90cqi",
+          "maxChars": 30
+        },
+        "use": "Square feed video"
+      },
+      "vertical": {
+        "width": 1080,
+        "height": 1920,
+        "ratio": "9 / 16",
+        "cue": {
+          "bottom": "30cqb",
+          "maxWidth": "76cqi",
+          "maxChars": 24
+        },
+        "use": "Reels, Shorts, Stories and TikTok; the cue stays above the platform's caption and inside its right-hand buttons"
+      }
+    },
+    "roles": {
+      "subtitle.line": {
+        "family": "body",
+        "weight": 600,
+        "style": "normal",
+        "size": "min(6.2cqi, 5.9cqb)",
+        "lineHeight": 1.2,
+        "tracking": ".01em",
+        "maxLines": 2,
+        "maxWords": 16,
+        "maxChars": 42,
+        "wrap": "balance",
+        "use": "Dialogue and on-screen speech"
+      },
+      "subtitle.italic": {
+        "family": "body",
+        "weight": 600,
+        "style": "italic",
+        "size": "min(6.2cqi, 5.9cqb)",
+        "lineHeight": 1.2,
+        "tracking": ".01em",
+        "maxLines": 2,
+        "maxWords": 16,
+        "maxChars": 42,
+        "wrap": "balance",
+        "use": "Narration, inner voice, sung lyrics, off-screen or remote speakers, unfamiliar foreign words and titles of works"
+      },
+      "subtitle.punch": {
+        "family": "bodyAlt",
+        "weight": 700,
+        "style": "normal",
+        "size": "min(8.4cqi, 6.6cqb)",
+        "lineHeight": 1.1,
+        "tracking": "-0.01em",
+        "maxLines": 2,
+        "maxWords": 6,
+        "maxChars": 18,
+        "wrap": "balance",
+        "use": "Short-form burned-in captions of one to six words per cue"
+      }
+    },
+    "styles": {
+      "broadcast": {
+        "ink": "#FFFFFF",
+        "box": "rgb(0 0 0 / 0.75)",
+        "outline": "none",
+        "use": "The default. White on a black box stays legible over any footage"
+      },
+      "cinema": {
+        "ink": "#FFD84A",
+        "box": "rgb(0 0 0 / 0.7)",
+        "outline": "none",
+        "use": "Films, trailers and showreels: warm cinema yellow on a see-through black box"
+      },
+      "clean": {
+        "ink": "#FFFFFF",
+        "box": "transparent",
+        "outline": "0 0 .08em #000, 0 0 .16em rgb(0 0 0 / 0.8), 0 .04em .12em rgb(0 0 0 / 0.9)",
+        "use": "No box, for dark or controlled footage only; check contrast on every frame"
+      }
+    },
+    "timing": {
+      "minDuration": "0.833s",
+      "maxDuration": "7s",
+      "readingRate": {
+        "adult": "20 characters per second",
+        "children": "17 characters per second"
+      }
+    },
+    "sources": {
+      "checked": "2026-09-29",
+      "lineHeight": "BBC Subtitle Guidelines 9.2.1: line height 7–8% of video height (16:9, 4:3, 1:1), 3.9–4.5% for 9:16",
+      "lineLength": "BBC 3.1: 68% of a 16:9 frame's width, 90% for 4:3 and 1:1; Netflix English: 42 characters per line. Vertical frames use 76% to clear platform buttons",
+      "timing": "Netflix: 2 lines, 5/6 s to 7 s per event, 20 cps adult and 17 cps children",
+      "background": "BBC 9.2.4: background per line with no gap between lines",
+      "verticalPlacement": "Third-party safe-zone guides for Reels and TikTok (checked 2026-09-29): buttons take about 11% of the width on the right; caption and audio take the bottom 17-35%"
     }
   },
   "arrows": {

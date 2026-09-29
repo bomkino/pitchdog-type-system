@@ -1,4 +1,4 @@
-export const VERSION = "2.2.0" as const;
+export const VERSION = "3.0.0" as const;
 export const HEAD_WEIGHTS = [265, 300, 400, 500, 600, 700, 900] as const;
 export const BODY_WEIGHTS = [100, 250, 300, 400, 600, 700, 900] as const;
 export const EYEBROW_WEIGHTS = [100, 200, 300, 350, 400, 500, 600, 700, 800, 900] as const;
@@ -13,8 +13,12 @@ export const WEB_MEASURES = {
   ceiling: "54ch",
 } as const;
 export const WEB_WRAP_STYLES = ["auto", "balance", "pretty", "stable", "avoid-orphans"] as const;
+export const WEB_SPACE_STEPS = ["2xs", "xs", "s", "m", "l", "xl", "2xl"] as const;
+export const DECK_SPACE_STEPS = ["2xs", "xs", "s", "m", "l"] as const;
 export const DECK_CANVASES = ["widescreen", "standard"] as const;
 export const DECK_DENSITIES = ["present", "read"] as const;
+export const SUBTITLE_FRAMES = ["landscape", "standard", "square", "vertical"] as const;
+export const SUBTITLE_STYLES = ["broadcast", "cinema", "clean"] as const;
 
 export type HeadWeight = typeof HEAD_WEIGHTS[number];
 export type BodyWeight = typeof BODY_WEIGHTS[number];
@@ -22,13 +26,18 @@ export type EyebrowWeight = typeof EYEBROW_WEIGHTS[number];
 export type EyebrowWidth = typeof EYEBROW_WIDTHS[number];
 export type WebMeasure = keyof typeof WEB_MEASURES;
 export type WebWrapStyle = typeof WEB_WRAP_STYLES[number];
+export type WebSpaceStep = typeof WEB_SPACE_STEPS[number];
+export type DeckSpaceStep = typeof DECK_SPACE_STEPS[number];
 export type DeckCanvas = typeof DECK_CANVASES[number];
 export type DeckDensity = typeof DECK_DENSITIES[number];
+export type SubtitleFrame = typeof SUBTITLE_FRAMES[number];
+export type SubtitleStyle = typeof SUBTITLE_STYLES[number];
 export type WebRole = "display.hero" | "display.chapter" | "heading.section" | "heading.subsection" | "title.card" | "title.functional" | "lead.hero" | "lead.section" | "body.reading" | "body.default" | "body.compact" | "body.small" | "quote.feature" | "label" | "metadata" | "data" | "metric";
 export type UiRole = "ui.display" | "ui.pageTitle" | "ui.sectionTitle" | "ui.panelTitle" | "ui.body" | "ui.bodyCompact" | "ui.label" | "ui.action" | "ui.input" | "ui.caption" | "ui.badge" | "ui.metadata" | "ui.data" | "ui.code";
 export type SocialRole = "social.display" | "social.headline" | "social.subhead" | "social.body" | "social.quote" | "social.metric" | "social.label" | "social.metadata" | "social.credit";
 export type YouTubeRole = "youtube.title" | "youtube.titleCompact" | "youtube.kicker" | "youtube.support" | "youtube.badge" | "youtube.credit" | "youtube.arrow";
 export type DeckRole = "deck.title" | "deck.section" | "deck.headline" | "deck.statement" | "deck.lead" | "deck.body" | "deck.bullet" | "deck.quote" | "deck.metric" | "deck.kicker" | "deck.label" | "deck.data" | "deck.source" | "deck.footer";
+export type SubtitleRole = "subtitle.line" | "subtitle.italic" | "subtitle.punch";
 
 export function isHeadWeight(value: number): value is HeadWeight { return (HEAD_WEIGHTS as readonly number[]).includes(value); }
 export function isBodyWeight(value: number): value is BodyWeight { return (BODY_WEIGHTS as readonly number[]).includes(value); }

@@ -49,6 +49,18 @@ Use explicit wrapping and measure contracts when a role alone does not express t
 
 Do not apply `pretty` to `body`, every paragraph or an entire interface. Use `docs/WEB-TEXT-WRAPPING.md` to choose between `balance`, `pretty`, `stable`, progressive `avoid-orphans` and normal wrapping.
 
+Space a column of text with `data-pd-flow` rather than margins on each element:
+
+```html
+<article data-pd-flow>
+  <p data-pd-type="metadata">CASE STUDY · FILM</p>
+  <h2 data-pd-type="heading.section">From first call to final file.</h2>
+  <p data-pd-type="body.reading">A good pitch builds an argument.</p>
+</article>
+```
+
+`docs/SPACING.md` has the scale and the rules.
+
 ## Productive context
 
 ```html
@@ -87,6 +99,20 @@ Do not apply `pretty` to `body`, every paragraph or an entire interface. Use `do
 ```
 
 Switch to `data-pd-deck-density="read"` for decks sent as a PDF. `docs/DECKS.md` covers canvases, sizes, printing and app point sizes; `deck/deck-starter.html` is a working ten-slide starter.
+
+## Subtitles
+
+```html
+<div data-pd-subtitle-frame="landscape" data-pd-subtitle-style="cinema">
+  <video src="film.mp4"></video>
+  <p data-pd-subtitle-cue>
+    <span data-pd-subtitle="line">We didn’t want a better deck.</span>
+    <span data-pd-subtitle="line">We wanted to walk out with the money.</span>
+  </p>
+</div>
+```
+
+One element per line. `docs/SUBTITLES.md` covers styles, frames, writing rules, WebVTT and burning subtitles into video; `subtitle/subtitle-starter.html` shows every frame and style.
 
 ## Regenerating derived files
 

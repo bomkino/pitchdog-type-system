@@ -1,0 +1,327 @@
+{
+  "generated": "2026-09-29",
+  "browser": "Chromium 141.0.7390.37",
+  "notes": {
+    "flow": "A test article inside data-pd-flow: metadata, display.chapter, lead.section, two body.reading, heading.subsection, body.reading, figure, title.card, body.reading, heading.section, label, metric, body.compact.",
+    "subtitle": "Starter frames re-sized to their full pixel size; gaps are between the line boxes of one cue.",
+    "specimen": "Canvases with zero size are skipped; every view is opened at each width."
+  },
+  "checks": {
+    "specimen@1440": {
+      "views": {
+        "overview": {
+          "pageOverflowsViewport": false,
+          "canvasesWithContentPastEdge": []
+        },
+        "anchors": {
+          "pageOverflowsViewport": false,
+          "canvasesWithContentPastEdge": []
+        },
+        "roles": {
+          "pageOverflowsViewport": false,
+          "canvasesWithContentPastEdge": []
+        },
+        "dense": {
+          "pageOverflowsViewport": false,
+          "canvasesWithContentPastEdge": []
+        },
+        "ui": {
+          "pageOverflowsViewport": false,
+          "canvasesWithContentPastEdge": []
+        },
+        "social": {
+          "pageOverflowsViewport": false,
+          "canvasesWithContentPastEdge": []
+        },
+        "youtube": {
+          "pageOverflowsViewport": false,
+          "canvasesWithContentPastEdge": []
+        },
+        "decks": {
+          "pageOverflowsViewport": false,
+          "canvasesWithContentPastEdge": []
+        },
+        "subtitles": {
+          "pageOverflowsViewport": false,
+          "canvasesWithContentPastEdge": []
+        },
+        "arrows": {
+          "pageOverflowsViewport": false,
+          "canvasesWithContentPastEdge": []
+        },
+        "stress": {
+          "pageOverflowsViewport": false,
+          "canvasesWithContentPastEdge": []
+        }
+      },
+      "fontsLoaded": [
+        "PD Body Alt normal",
+        "PD Body italic",
+        "PD Body normal",
+        "PD Eyebrow normal",
+        "PD Head Alt normal",
+        "PD Head normal"
+      ],
+      "errors": []
+    },
+    "specimen@390": {
+      "views": {
+        "overview": {
+          "pageOverflowsViewport": false,
+          "canvasesWithContentPastEdge": []
+        },
+        "anchors": {
+          "pageOverflowsViewport": false,
+          "canvasesWithContentPastEdge": []
+        },
+        "roles": {
+          "pageOverflowsViewport": false,
+          "canvasesWithContentPastEdge": []
+        },
+        "dense": {
+          "pageOverflowsViewport": false,
+          "canvasesWithContentPastEdge": []
+        },
+        "ui": {
+          "pageOverflowsViewport": false,
+          "canvasesWithContentPastEdge": []
+        },
+        "social": {
+          "pageOverflowsViewport": false,
+          "canvasesWithContentPastEdge": []
+        },
+        "youtube": {
+          "pageOverflowsViewport": false,
+          "canvasesWithContentPastEdge": []
+        },
+        "decks": {
+          "pageOverflowsViewport": false,
+          "canvasesWithContentPastEdge": []
+        },
+        "subtitles": {
+          "pageOverflowsViewport": false,
+          "canvasesWithContentPastEdge": []
+        },
+        "arrows": {
+          "pageOverflowsViewport": false,
+          "canvasesWithContentPastEdge": []
+        },
+        "stress": {
+          "pageOverflowsViewport": false,
+          "canvasesWithContentPastEdge": []
+        }
+      },
+      "fontsLoaded": [
+        "PD Body Alt normal",
+        "PD Body italic",
+        "PD Body normal",
+        "PD Eyebrow normal",
+        "PD Head Alt normal",
+        "PD Head normal"
+      ],
+      "errors": []
+    },
+    "deck/deck-starter.html": {
+      "modes": {
+        "present/widescreen": {
+          "rule": "no deck role extends past the safe area",
+          "slides": 10,
+          "overflowing": [],
+          "bodyPx": 36.72,
+          "spaceSPx": 34.56
+        },
+        "read/widescreen": {
+          "rule": "no deck role extends past the safe area",
+          "slides": 10,
+          "overflowing": [],
+          "bodyPx": 24.84,
+          "spaceSPx": 34.56
+        },
+        "present/standard": {
+          "rule": "no deck role extends past the safe area",
+          "slides": 10,
+          "overflowing": [],
+          "bodyPx": 29.376,
+          "spaceSPx": 27.648
+        },
+        "read/standard": {
+          "rule": "no deck role extends past the safe area",
+          "slides": 10,
+          "overflowing": [],
+          "bodyPx": 19.872,
+          "spaceSPx": 27.648
+        }
+      },
+      "errors": []
+    },
+    "subtitle/subtitle-starter.html": {
+      "frames": [
+        {
+          "frame": "landscape 1920x1080",
+          "style": "cinema",
+          "role": "line",
+          "family": "\"PD Body\"",
+          "weight": "600",
+          "fontPx": 63.7,
+          "lineHeightPercentOfFrame": 7.08,
+          "lines": [
+            29,
+            37
+          ],
+          "gapsBetweenLineBoxesPx": [
+            0
+          ],
+          "cueWidthPercent": 61.9,
+          "cueEdgeDistancePercent": 8
+        },
+        {
+          "frame": "landscape 1920x1080",
+          "style": "broadcast",
+          "role": "italic",
+          "family": "\"PD Body\"",
+          "weight": "600",
+          "fontPx": 63.7,
+          "lineHeightPercentOfFrame": 7.08,
+          "lines": [
+            42
+          ],
+          "gapsBetweenLineBoxesPx": [],
+          "cueWidthPercent": 61.3,
+          "cueEdgeDistancePercent": 8
+        },
+        {
+          "frame": "landscape 1920x1080",
+          "style": "clean",
+          "role": "line",
+          "family": "\"PD Body\"",
+          "weight": "600",
+          "fontPx": 63.7,
+          "lineHeightPercentOfFrame": 7.08,
+          "lines": [
+            13,
+            32
+          ],
+          "gapsBetweenLineBoxesPx": [
+            0
+          ],
+          "cueWidthPercent": 51.8,
+          "cueEdgeDistancePercent": 8
+        },
+        {
+          "frame": "standard 1440x1080",
+          "style": "cinema",
+          "role": "line",
+          "family": "\"PD Body\"",
+          "weight": "600",
+          "fontPx": 63.7,
+          "lineHeightPercentOfFrame": 7.08,
+          "lines": [
+            29,
+            29
+          ],
+          "gapsBetweenLineBoxesPx": [
+            0
+          ],
+          "cueWidthPercent": 63.2,
+          "cueEdgeDistancePercent": 8
+        },
+        {
+          "frame": "square 1080x1080",
+          "style": "broadcast",
+          "role": "line",
+          "family": "\"PD Body\"",
+          "weight": "600",
+          "fontPx": 63.7,
+          "lineHeightPercentOfFrame": 7.08,
+          "lines": [
+            17,
+            27
+          ],
+          "gapsBetweenLineBoxesPx": [
+            0
+          ],
+          "cueWidthPercent": 73.6,
+          "cueEdgeDistancePercent": 9
+        },
+        {
+          "frame": "vertical 1080x1920",
+          "style": "cinema",
+          "role": "line",
+          "family": "\"PD Body\"",
+          "weight": "600",
+          "fontPx": 67,
+          "lineHeightPercentOfFrame": 4.19,
+          "lines": [
+            14,
+            23
+          ],
+          "gapsBetweenLineBoxesPx": [
+            0
+          ],
+          "cueWidthPercent": 70.5,
+          "cueEdgeDistancePercent": 30
+        },
+        {
+          "frame": "vertical 1080x1920",
+          "style": "cinema",
+          "role": "punch",
+          "family": "\"PD Body Alt\"",
+          "weight": "700",
+          "fontPx": 90.7,
+          "lineHeightPercentOfFrame": 5.2,
+          "lines": [
+            13
+          ],
+          "gapsBetweenLineBoxesPx": [],
+          "cueWidthPercent": 58.8,
+          "cueEdgeDistancePercent": 30
+        }
+      ],
+      "errors": []
+    },
+    "social/social-starter.html": {
+      "errors": []
+    },
+    "youtube/youtube-starter.html": {
+      "errors": []
+    },
+    "flow@1440": [
+      "metadata → display.chapter: 8 px",
+      "display.chapter → lead.section: 36 px",
+      "lead.section → body.reading: 20.1 px",
+      "body.reading → body.reading: 20.1 px",
+      "body.reading → heading.subsection: 64 px",
+      "heading.subsection → body.reading: 20 px",
+      "body.reading → figure: 36 px",
+      "figure → title.card: 36 px",
+      "title.card → body.reading: 12 px",
+      "body.reading → figure: 36 px",
+      "figure → heading.subsection: 64 px",
+      "heading.subsection → body.reading: 20 px",
+      "body.reading → metadata: 111.9 px",
+      "metadata → heading.section: 8 px",
+      "heading.section → label: 36 px",
+      "label → metric: 4 px",
+      "metric → body.compact: 20 px"
+    ],
+    "flow@390": [
+      "metadata → display.chapter: 8 px",
+      "display.chapter → lead.section: 24.3 px",
+      "lead.section → body.reading: 19 px",
+      "body.reading → body.reading: 19 px",
+      "body.reading → heading.subsection: 40.7 px",
+      "heading.subsection → body.reading: 16.1 px",
+      "body.reading → figure: 24.3 px",
+      "figure → title.card: 24.3 px",
+      "title.card → body.reading: 12 px",
+      "body.reading → figure: 24.3 px",
+      "figure → heading.subsection: 40.7 px",
+      "heading.subsection → body.reading: 16.1 px",
+      "body.reading → metadata: 65.3 px",
+      "metadata → heading.section: 8 px",
+      "heading.section → label: 24.3 px",
+      "label → metric: 4 px",
+      "metric → body.compact: 16.1 px"
+    ]
+  }
+}

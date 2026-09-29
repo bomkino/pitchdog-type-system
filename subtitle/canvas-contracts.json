@@ -1,0 +1,46 @@
+{
+  "landscape": {
+    "width": 1920,
+    "height": 1080,
+    "ratio": "16 / 9",
+    "cue": {
+      "bottom": "8cqb",
+      "maxWidth": "68cqi",
+      "maxChars": 42
+    },
+    "use": "Films, showreels, YouTube, interviews and web video"
+  },
+  "standard": {
+    "width": 1440,
+    "height": 1080,
+    "ratio": "4 / 3",
+    "cue": {
+      "bottom": "8cqb",
+      "maxWidth": "90cqi",
+      "maxChars": 42
+    },
+    "use": "Archive and 4:3 footage"
+  },
+  "square": {
+    "width": 1080,
+    "height": 1080,
+    "ratio": "1 / 1",
+    "cue": {
+      "bottom": "9cqb",
+      "maxWidth": "90cqi",
+      "maxChars": 30
+    },
+    "use": "Square feed video"
+  },
+  "vertical": {
+    "width": 1080,
+    "height": 1920,
+    "ratio": "9 / 16",
+    "cue": {
+      "bottom": "30cqb",
+      "maxWidth": "76cqi",
+      "maxChars": 24
+    },
+    "use": "Reels, Shorts, Stories and TikTok; the cue stays above the platform's caption and inside its right-hand buttons"
+  }
+}

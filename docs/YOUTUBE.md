@@ -29,7 +29,7 @@ Official sources are recorded in `docs/RESEARCH-SOURCES.md`.
 3. Keep the main title to two lines. Use the compact title only when the idea genuinely needs three.
 4. Put branding and episode information in the kicker, not the title.
 5. Keep the lower-right duration area clear.
-6. Make the title readable at roughly 10–15% of the full canvas size.
+6. Make the title readable at roughly 10–15% of the full canvas size. That is the delivery size for thumbnails: a 3840 × 2160 thumbnail seen about 384 px wide. At that size the support line must stay at 12 px or more, and kicker, badge and credit at 8.5 px or more. The roles are sized to land there, so never shrink them to fit more words.
 7. Avoid repeating the exact video title unless the repetition improves comprehension.
 8. Use Head 700 only here and in other fixed-canvas situations where compression demands more authority.
 9. Use arrows as composition, not clickbait punctuation.

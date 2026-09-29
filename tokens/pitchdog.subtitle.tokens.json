@@ -1,0 +1,133 @@
+{
+  "meta": {
+    "name": "pitch.dog Type System",
+    "version": "3.0.0",
+    "displayVersion": "3",
+    "status": "production",
+    "fontSource": "FontBlind-Final-2026-08-28-v13.zip",
+    "principle": "Anchor-locked variable typography"
+  },
+  "canvases": {
+    "landscape": {
+      "width": 1920,
+      "height": 1080,
+      "ratio": "16 / 9",
+      "cue": {
+        "bottom": "8cqb",
+        "maxWidth": "68cqi",
+        "maxChars": 42
+      },
+      "use": "Films, showreels, YouTube, interviews and web video"
+    },
+    "standard": {
+      "width": 1440,
+      "height": 1080,
+      "ratio": "4 / 3",
+      "cue": {
+        "bottom": "8cqb",
+        "maxWidth": "90cqi",
+        "maxChars": 42
+      },
+      "use": "Archive and 4:3 footage"
+    },
+    "square": {
+      "width": 1080,
+      "height": 1080,
+      "ratio": "1 / 1",
+      "cue": {
+        "bottom": "9cqb",
+        "maxWidth": "90cqi",
+        "maxChars": 30
+      },
+      "use": "Square feed video"
+    },
+    "vertical": {
+      "width": 1080,
+      "height": 1920,
+      "ratio": "9 / 16",
+      "cue": {
+        "bottom": "30cqb",
+        "maxWidth": "76cqi",
+        "maxChars": 24
+      },
+      "use": "Reels, Shorts, Stories and TikTok; the cue stays above the platform's caption and inside its right-hand buttons"
+    }
+  },
+  "roles": {
+    "subtitle.line": {
+      "family": "body",
+      "weight": 600,
+      "style": "normal",
+      "size": "min(6.2cqi, 5.9cqb)",
+      "lineHeight": 1.2,
+      "tracking": ".01em",
+      "maxLines": 2,
+      "maxWords": 16,
+      "maxChars": 42,
+      "wrap": "balance",
+      "use": "Dialogue and on-screen speech"
+    },
+    "subtitle.italic": {
+      "family": "body",
+      "weight": 600,
+      "style": "italic",
+      "size": "min(6.2cqi, 5.9cqb)",
+      "lineHeight": 1.2,
+      "tracking": ".01em",
+      "maxLines": 2,
+      "maxWords": 16,
+      "maxChars": 42,
+      "wrap": "balance",
+      "use": "Narration, inner voice, sung lyrics, off-screen or remote speakers, unfamiliar foreign words and titles of works"
+    },
+    "subtitle.punch": {
+      "family": "bodyAlt",
+      "weight": 700,
+      "style": "normal",
+      "size": "min(8.4cqi, 6.6cqb)",
+      "lineHeight": 1.1,
+      "tracking": "-0.01em",
+      "maxLines": 2,
+      "maxWords": 6,
+      "maxChars": 18,
+      "wrap": "balance",
+      "use": "Short-form burned-in captions of one to six words per cue"
+    }
+  },
+  "styles": {
+    "broadcast": {
+      "ink": "#FFFFFF",
+      "box": "rgb(0 0 0 / 0.75)",
+      "outline": "none",
+      "use": "The default. White on a black box stays legible over any footage"
+    },
+    "cinema": {
+      "ink": "#FFD84A",
+      "box": "rgb(0 0 0 / 0.7)",
+      "outline": "none",
+      "use": "Films, trailers and showreels: warm cinema yellow on a see-through black box"
+    },
+    "clean": {
+      "ink": "#FFFFFF",
+      "box": "transparent",
+      "outline": "0 0 .08em #000, 0 0 .16em rgb(0 0 0 / 0.8), 0 .04em .12em rgb(0 0 0 / 0.9)",
+      "use": "No box, for dark or controlled footage only; check contrast on every frame"
+    }
+  },
+  "timing": {
+    "minDuration": "0.833s",
+    "maxDuration": "7s",
+    "readingRate": {
+      "adult": "20 characters per second",
+      "children": "17 characters per second"
+    }
+  },
+  "sources": {
+    "checked": "2026-09-29",
+    "lineHeight": "BBC Subtitle Guidelines 9.2.1: line height 7–8% of video height (16:9, 4:3, 1:1), 3.9–4.5% for 9:16",
+    "lineLength": "BBC 3.1: 68% of a 16:9 frame's width, 90% for 4:3 and 1:1; Netflix English: 42 characters per line. Vertical frames use 76% to clear platform buttons",
+    "timing": "Netflix: 2 lines, 5/6 s to 7 s per event, 20 cps adult and 17 cps children",
+    "background": "BBC 9.2.4: background per line with no gap between lines",
+    "verticalPlacement": "Third-party safe-zone guides for Reels and TikTok (checked 2026-09-29): buttons take about 11% of the width on the right; caption and audio take the bottom 17-35%"
+  }
+}

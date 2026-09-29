@@ -1,0 +1,17 @@
+{
+  "subtitle.line": {
+    "maxLines": 2,
+    "maxWords": 16,
+    "maxChars": 42
+  },
+  "subtitle.italic": {
+    "maxLines": 2,
+    "maxWords": 16,
+    "maxChars": 42
+  },
+  "subtitle.punch": {
+    "maxLines": 2,
+    "maxWords": 6,
+    "maxChars": 18
+  }
+}
