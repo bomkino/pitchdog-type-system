@@ -17,7 +17,7 @@ Build the real consumer. Confirm its output emits every font in the resolved run
 - fallback and blocked-font states remain usable;
 - relevant viewport, zoom, text-spacing, language, and reduced-motion conditions do not clip, overflow, or shift dependent geometry;
 - counted characters per rendered line of prose stay inside the target range `docs/WEB-TEXT-WRAPPING.md` gives at the pinned commit, at the widest viewport in scope. A `ch` value is not a character count, and a consumer rule that removes or widens a role's measure is a mismatch. This range is for web prose; fixed canvases are held to their copy contracts instead;
-- where the pinned version publishes a flow contract, computed space between text blocks traces to it, and each heading sits closer to the text after it than to the text before it;
+- where the pinned version publishes a flow contract, computed space between text blocks traces to it, and each heading sits closer to the text after it than to the text before it, counting a kicker as part of its heading. A consumer margin that overrides flow is a mismatch;
 - no descender in a display line touches an ascender, accent or cap in the line below. Report a collision as a mismatch and propose rewording, or a break the wrapping document allows; the user approves copy changes, and changing the role is a governed exception.
 
 Inspect rendered glyphs when posture, interpolation, or synthesis is at issue. A font request, `document.fonts`, or a computed family list alone does not prove the intended face rendered.

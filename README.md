@@ -116,7 +116,7 @@ Each GitHub Release attaches:
 - `pitchdog-font-handoff-<tag>.zip` — the full handoff: web and native variable fonts plus static fallbacks
 - `pitchdog-type-system-skill-<tag>.zip` — the agent skill
 
-Every asset has a `.sha256` sidecar. Variable fonts are authoritative; static fonts are compatibility fallbacks. Never install the variable and static versions of the same family together.
+The handoff's `05-DOCUMENTATION/FONT-MANIFEST.json` records version 2.0.0, the last release that changed a font file; later releases ship the same fonts until one changes them. Every asset has a `.sha256` sidecar. Variable fonts are authoritative; static fonts are compatibility fallbacks. Never install the variable and static versions of the same family together.
 
 ## Documentation
 

@@ -37,10 +37,10 @@
     "height": 1920,
     "ratio": "9 / 16",
     "cue": {
-      "bottom": "22cqb",
-      "maxWidth": "90cqi",
-      "maxChars": 28
+      "bottom": "30cqb",
+      "maxWidth": "76cqi",
+      "maxChars": 24
     },
-    "use": "Reels, Shorts, Stories and TikTok; sits clear of the platform's own caption and buttons"
+    "use": "Reels, Shorts, Stories and TikTok; the cue stays above the platform's caption and inside its right-hand buttons"
   }
 }

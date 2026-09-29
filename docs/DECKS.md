@@ -61,13 +61,15 @@ Sizes are for a 1920 × 1080 slide. On a 1440 × 1080 slide multiply by 0.8.
 
 Titles, section dividers, headlines and statements balance their lines. Leads, body, bullets and quotes use pretty wrapping. Kicker and footer are set in capitals by CSS, so write them in sentence case.
 
-The canonical values, with every limit, live in `deck.roles` in `tokens/pitchdog.system.tokens.json`. `deck/copy-contracts.json` repeats the limits for copy tools.
+Line and word limits apply to each element, such as one text box; for bullets they apply to each item, and the item limit to the list. The canonical values, with every limit, live in `deck.roles` in `tokens/pitchdog.system.tokens.json`. `deck/copy-contracts.json` repeats the limits for copy tools.
 
 ## Densities
 
 **Present** is the default. The deck is shown while someone talks, and the audience reads from across a room: one idea per slide, and as little body copy as you can manage.
 
 **Read** is for a deck that travels without you: sent ahead of a meeting, attached to an email, read on a phone. Set `data-pd-deck-density="read"` and nine roles step down one notch (headline, statement, lead, body, bullet, quote, label, data and source) while their line and word limits rise. Title, section, metric, kicker and footer stay the same so the deck still looks like itself.
+
+A deck that is presented and then sent is two exports of the same story: present density for the room, and a read copy for the PDF, where slides carry what the presenter said out loud. Do not send the present version as the PDF, and do not present the read version.
 
 ## Size floor
 
@@ -139,7 +141,9 @@ Point sizes for each app's default slide size, rounded to whole points:
 | `deck.source` | 24 pt | 12 pt | 9 pt |
 | `deck.footer` | 22 pt | 11 pt | 8 pt |
 
-For any other slide size, multiply the 1080 px value by the slide height in points divided by 1080. For read density, use the read column above in the same way.
+For any other slide size, multiply the 1080 px value by the slide height in points divided by 1080. For read density, use the read column above in the same way. Round to the nearest whole point, but never below the floor: if rounding down would take a role under 1.8 % of the slide height, round up. Spacing steps convert the same way (`docs/SPACING.md`).
+
+Google Slides cannot load the PD families (below). Its column is for rebuilding a Slides deck at the same page size in an app that can; a deck set in Google Slides shows a substitute font whatever its sizes.
 
 - **Keynote.** Use the Wide (1920 × 1080) theme size; pixel values are point values. Set tracking from the role's `tracking` (Keynote's character spacing is a percentage: −0.042em is −4.2 %).
 - **PowerPoint.** Embed fonts when you send a `.pptx`, or send a PDF; otherwise the recipient sees a substitute font.

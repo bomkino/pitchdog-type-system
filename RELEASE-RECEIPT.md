@@ -37,7 +37,7 @@ The system governs typography across:
 - The progressive `avoid-orphans` contract falls back to normal wrapping where it is not supported.
 - The default HTML contains no embedded font payload. The canonical repository includes the governed runtime WOFF2 files plus the complete handoff.
 - Deck roles size from the slide with container units, set 4:3 slides at 80 percent of 16:9, and never go below 1.8 percent of the slide height; at present density every role but the footer stays at or above 2.2 percent. Present and read densities share one role set.
-- Subtitles set in PD Body 600 with a line height of 7 percent of the frame height (4 percent on vertical frames), at most two lines and 42 characters per line, in the broadcast, cinema and clean styles. Boxed styles keep 4.5:1 contrast over a white or black picture.
+- Subtitles set in PD Body 600 with a line height of 7 percent of the frame height (4 percent on vertical frames), at most two lines and 42 characters per line (fewer on square and vertical frames), in the broadcast, cinema and clean styles. Boxed styles keep 4.5:1 contrast over a white or black picture.
 - Spacing comes from a seven-step web scale and a five-step deck scale; `data-pd-flow` puts more space before every heading than after it.
 - Every derived file is generated from `tokens/pitchdog.system.tokens.json` by `scripts/build_dist.py`; CI rejects stale output. The web and UI CSS layers remain hand-authored.
 - Every font file carries its canonical family name and a unique PostScript name (`docs/FONT-NAMING.md`); only naming and style-linking metadata differs from the FontBlind v13 source.

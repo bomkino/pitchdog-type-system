@@ -233,6 +233,7 @@ def split_tokens(tokens: dict) -> dict[str, str]:
         "measures": {name: measure["value"] for name, measure in web["measures"].items()},
         "wrapStyles": list(web["wrapStyles"]),
         "spacing": web["spacing"],
+        "narrowViewport": web["narrowViewport"],
         "roles": web["roles"],
     }
     files = {"tokens/pitchdog.typography.tokens.json": as_json(typography)}

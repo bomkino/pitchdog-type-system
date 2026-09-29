@@ -24,11 +24,11 @@ For social work, read `docs/SOCIAL-TYPOGRAPHY.md`, `tokens/pitchdog.social.token
 
 ## Deck or presentation work
 
-Read `docs/DECKS.md`, `tokens/pitchdog.deck.tokens.json`, and the canvas, copy and template contracts in `deck/`. Choose the density (present or read) before choosing sizes. Deck roles carry their own wrapping, so the web wrapping branch does not apply to slides. For Keynote, PowerPoint, Google Slides or Figma, take sizes from `docs/DECKS.md`: its point-size table for present density, and its read column with the conversion it gives for read density.
+Read `docs/DECKS.md`, `tokens/pitchdog.deck.tokens.json`, and the canvas, copy and template contracts in `deck/`. Choose the density (present or read) before choosing sizes. Deck roles carry their own wrapping, so the web wrapping branch does not apply to slides. For Keynote, PowerPoint or Figma, take sizes from `docs/DECKS.md`: its point-size table for present density, and its read column with the conversion it gives for read density. Google Slides cannot load the PD families, so a deck set there is a font mismatch whatever its sizes; follow the document's advice on rebuilding it.
 
 ## Subtitle or caption work
 
-Read `docs/SUBTITLES.md`, `tokens/pitchdog.subtitle.tokens.json`, and the canvas and copy contracts in `subtitle/` when present. Choose the frame and style first, then decide whether subtitles are burned in or shipped as a text track: burned-in subtitles take their sizes from the document's frame table, and a text track leaves size to the player and the viewer. Wording and timing come from the transcript or the user, and line breaks follow the document's rules; propose any change to wording or timing for the user to approve.
+Read `docs/SUBTITLES.md`, `tokens/pitchdog.subtitle.tokens.json`, and the canvas and copy contracts in `subtitle/` when present. Choose the frame and style first, then decide whether subtitles are burned in or shipped as a text track: burned-in subtitles take their sizes from the document's frame table, and a text track leaves size to the player and the viewer. Wording and timing come from the transcript or the user, and line breaks follow the document's rules; propose any change to wording or timing for the user to approve. Placement on vertical video rests on third-party guides to the platforms' interfaces; `docs/RESEARCH-SOURCES.md` records when they were checked, and a changed interface is reported like any other refreshed platform rule.
 
 ## Figma or design-tool work
 

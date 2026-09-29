@@ -173,6 +173,10 @@
       "note": "Space before a heading is larger than the space after it, so a heading belongs to the text it introduces. Text after text is 1em of its own size. Scale steps are fluid between 360 and 1440 px viewports."
     }
   },
+  "narrowViewport": {
+    "maxWidth": "40rem",
+    "note": "At or below this width, roles with a `narrowViewport` entry open their leading and relax their tracking slightly, because short lines of large type set closer together."
+  },
   "roles": {
     "display.hero": {
       "family": "head",
@@ -184,7 +188,11 @@
       "measure": "11.5ch",
       "wrap": "balance",
       "context": "expressive",
-      "maxLines": 4
+      "maxLines": 4,
+      "narrowViewport": {
+        "lineHeight": 0.91,
+        "tracking": "-0.038em"
+      }
     },
     "display.chapter": {
       "family": "head",
@@ -196,7 +204,11 @@
       "measure": "14ch",
       "wrap": "balance",
       "context": "expressive",
-      "maxLines": 4
+      "maxLines": 4,
+      "narrowViewport": {
+        "lineHeight": 0.93,
+        "tracking": "-0.034em"
+      }
     },
     "heading.section": {
       "family": "head",
@@ -208,7 +220,11 @@
       "measure": "17ch",
       "wrap": "balance",
       "context": "both",
-      "maxLines": 4
+      "maxLines": 4,
+      "narrowViewport": {
+        "lineHeight": 0.98,
+        "tracking": "-0.028em"
+      }
     },
     "heading.subsection": {
       "family": "head",
@@ -280,7 +296,10 @@
       "measure": "45ch",
       "wrap": "pretty",
       "context": "both",
-      "maxLines": null
+      "maxLines": null,
+      "narrowViewport": {
+        "lineHeight": 1.55
+      }
     },
     "body.default": {
       "family": "body",

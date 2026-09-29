@@ -56,7 +56,7 @@
     "s": "min(1.92cqi, 3.2cqb)",
     "m": "min(3.12cqi, 5.2cqb)",
     "l": "min(5.04cqi, 8.4cqb)",
-    "note": "Steps grow by about 1.6. Use 2xs inside a group (bullets, table cells), xs between a kicker and its headline or a label and its value, s between a headline and its lead, m between groups and l to separate regions. On 4:3 slides spacing sets at 80 percent, like type."
+    "note": "Steps grow by about 1.6. Use 2xs for table cell padding; xs between bullets, between paragraphs, between a kicker and its headline and between a label and its value; s between a headline and whatever follows it; m between groups; l between columns and regions. On 4:3 slides spacing sets at 80 percent, like type."
   },
   "roles": {
     "deck.title": {

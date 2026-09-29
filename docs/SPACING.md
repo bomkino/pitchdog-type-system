@@ -45,13 +45,17 @@ Put `data-pd-flow` on the element that holds a column of text, such as an articl
 | Before `title.card`, `title.functional` | `l` |
 | After `title.card` | `s` |
 | After `title.functional` | `xs` |
-| After `metadata` (a kicker above a heading) | `xs` |
+| After `metadata` (a kicker above a heading; the space before the heading moves above the kicker) | `xs` |
 | After `label` (a label above its value) | `2xs` |
 | Before and after a figure, image, video, table, code block or rule | `l` |
 
-The rule underneath: a heading sits closer to the text it introduces than to the text before it, so every heading has more space above than below. The validator holds the CSS to this table and to that rule.
+The rule underneath: a heading sits closer to the text it introduces than to the text before it, so every heading has more space above than below. A kicker (`metadata`) belongs to the heading below it, so the space between them is small and the heading's space above goes above the kicker instead. The validator holds the CSS to this table and to that rule.
 
-Flow only sets the space between siblings. It never adds space before the first child or after the last, so the container's own padding stays in charge of its edges. Nest `data-pd-flow` for a column inside a column.
+When two rules meet, the later one in this order wins: space around media, then space before a heading, then space after a heading, then the space after a kicker or label. So a heading after a figure gets its own space above, and a figure right under a heading sits at the heading's space below.
+
+Flow only sets the space between direct children. It never adds space before the first child or after the last, so the container's own padding stays in charge of its edges. Nest `data-pd-flow` for a column inside a column. A heading that is the first child of a wrapper, such as a `<section>`, gets no space above from flow; space the wrappers themselves, for example with `gap: var(--pd-space-2xl)` on their parent.
+
+Flow lives in the system's cascade layers, so an app's own unlayered rule that sets margins on the same elements wins over it. Remove such margins from flow containers, or scope them away with `:not([data-pd-flow])`. A consumer margin that overrides flow is a mismatch, not a variant.
 
 ## Deck scale
 
@@ -60,8 +64,8 @@ Five steps, measured from the slide like deck type. On a 4:3 slide they set at 8
 | Step | Variable | On a 1080-pixel slide | Use |
 | --- | --- | --- | --- |
 | `2xs` | `--pd-deck-space-2xs` | 13 px | Table cell padding |
-| `xs` | `--pd-deck-space-xs` | 22 px | Between bullets, a kicker and its headline, a label and its value |
-| `s` | `--pd-deck-space-s` | 35 px | Between a headline and its lead, and between the parts of a slide |
+| `xs` | `--pd-deck-space-xs` | 22 px | Between bullets, between paragraphs, between a kicker and its headline, and between a label and its value |
+| `s` | `--pd-deck-space-s` | 35 px | Between a headline and whatever follows it (a lead or body), and between the parts of a slide |
 | `m` | `--pd-deck-space-m` | 56 px | Between groups |
 | `l` | `--pd-deck-space-l` | 91 px | Between columns and regions |
 

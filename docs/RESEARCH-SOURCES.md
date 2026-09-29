@@ -28,6 +28,7 @@ Checked 29 September 2026.
 - Netflix Timed Text Style Guide, General Requirements — five-sixths of a second to seven seconds per event, two lines at most, centred at the top or bottom of the frame.
 - Netflix English (USA) Timed Text Style Guide — 42 characters per line, bottom-heavy line breaks and where to break, dual speakers with a hyphen and no space, when to italicise, and 20 (adult) or 17 (children) characters per second.
 - W3C WebVTT — the properties a page may set on `::cue`.
+- Third-party safe-zone guides for Instagram Reels and TikTok — a column of buttons along the right edge, about 11 % of the width, and the caption and audio credit across the bottom 17 to 35 % of the height. They are not platform documentation, so the vertical cue (30 % up, 76 % wide) is the system's own choice inside their ranges. Both apps move their interface; recheck before relying on it.
 
 ## Delivery sizes
 

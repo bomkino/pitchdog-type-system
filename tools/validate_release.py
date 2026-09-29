@@ -288,6 +288,21 @@ for step, value in deck_spacing.items():
     previous = cqb
     check(f"--pd-deck-space-{step}:{value}" in deck_css, f"deck CSS declares --pd-deck-space-{step}")
 
+# Narrow-viewport adjustments: the hand-authored @media block must restate each role's `narrow` entry.
+narrow_viewport = tokens.get("web", {}).get("narrowViewport", {}).get("maxWidth", "")
+narrow_block = re.search(r"@media \(max-width: " + re.escape(narrow_viewport) + r"\) \{(.*?)\n\}", (ROOT / "dist" / "pitchdog-typography.css").read_text(encoding="utf-8"), re.S)
+css_narrow: dict[str, dict] = {}
+for name, body in re.findall(r'\[data-pd-type="([^"]+)"\] \{ ([^}]*) \}', narrow_block.group(1) if narrow_block else ""):
+    values: dict = {}
+    for prop, value in re.findall(r"([a-z-]+): ([^;]+);", body):
+        if prop == "line-height":
+            values["lineHeight"] = float(value)
+        elif prop == "letter-spacing":
+            values["tracking"] = value if not value.startswith("-.") else "-0" + value[1:]
+    css_narrow[name] = values
+token_narrow = {name: role["narrowViewport"] for name, role in canonical_web.items() if "narrowViewport" in role}
+check(bool(narrow_viewport) and css_narrow == token_narrow, "typography CSS narrow-viewport adjustments match the tokens")
+
 # Web flow spacing: the hand-authored CSS must restate the scale and the before/after contract exactly.
 typography_css = (ROOT / "dist" / "pitchdog-typography.css").read_text(encoding="utf-8")
 web_spacing = tokens.get("web", {}).get("spacing", {})
@@ -297,6 +312,14 @@ MEDIA_SELECTOR = ":is(figure, img, picture, video, table, pre, hr)"
 css_flow: dict[str, dict[str, str]] = {"before": {}, "after": {}}
 for rule in re.findall(r":where\(\[data-pd-flow\]\) > :where\((.+?)\) \{ margin-block-start: var\(--pd-space-([\w]+)\); \}", typography_css):
     selector, step = rule
+    if ":has(" in selector:
+        # A kicker takes the space its heading would have had above it.
+        kicker_for = re.findall(r'data-pd-type="([^"]+)"', selector.split(":has(", 1)[1])
+        check(
+            selector.startswith('* + [data-pd-type="metadata"]') and all(web_spacing.get("flow", {}).get("before", {}).get(name) == step for name in kicker_for),
+            f"flow gives a kicker the space before {', '.join(kicker_for)}",
+        )
+        continue
     side = "before" if selector.startswith("* + ") else "after"
     names = re.findall(r'data-pd-type="([^"]+)"', selector)
     if MEDIA_SELECTOR in selector:

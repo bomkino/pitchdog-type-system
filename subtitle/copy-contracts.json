@@ -12,6 +12,6 @@
   "subtitle.punch": {
     "maxLines": 2,
     "maxWords": 6,
-    "maxChars": 20
+    "maxChars": 18
   }
 }

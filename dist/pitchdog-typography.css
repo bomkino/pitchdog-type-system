@@ -245,14 +245,18 @@
   :where(.pd-no-ligatures) { font-variant-ligatures: none; }
   :where(.pd-head-italic) { --pd-ital: 1; font-family: var(--pd-font-head-active); font-style: normal; font-variation-settings: "wght" var(--pd-wght, 500), "ital" 1; }
 
-  /* Flow: vertical space between the text blocks of one column. Headings sit closer to the text they introduce. */
+  /* Flow: vertical space between the text blocks of one column. Headings sit closer to the text they introduce.
+     Later rules win: media, then space before a heading, then space after it, then a kicker or label and what it labels. */
   :where([data-pd-flow]) > :where(*) { margin-block: 0; }
   :where([data-pd-flow]) > :where(* + *) { margin-block-start: var(--pd-flow-space, 1em); }
   :where([data-pd-flow]) > :where(* + :is(figure, img, picture, video, table, pre, hr)) { margin-block-start: var(--pd-space-l); }
+  :where([data-pd-flow]) > :where(:is(figure, img, picture, video, table, pre, hr) + *) { margin-block-start: var(--pd-space-l); }
   :where([data-pd-flow]) > :where(* + :is([data-pd-type="title.card"], [data-pd-type="title.functional"])) { margin-block-start: var(--pd-space-l); }
   :where([data-pd-flow]) > :where(* + :is([data-pd-type="heading.subsection"], [data-pd-type="quote.feature"], [data-pd-type="metric"])) { margin-block-start: var(--pd-space-xl); }
   :where([data-pd-flow]) > :where(* + :is([data-pd-type="display.hero"], [data-pd-type="display.chapter"], [data-pd-type="heading.section"])) { margin-block-start: var(--pd-space-2xl); }
-  :where([data-pd-flow]) > :where(:is(figure, img, picture, video, table, pre, hr) + *) { margin-block-start: var(--pd-space-l); }
+  :where([data-pd-flow]) > :where(* + [data-pd-type="metadata"]:has(+ :is([data-pd-type="title.card"], [data-pd-type="title.functional"]))) { margin-block-start: var(--pd-space-l); }
+  :where([data-pd-flow]) > :where(* + [data-pd-type="metadata"]:has(+ :is([data-pd-type="heading.subsection"], [data-pd-type="quote.feature"], [data-pd-type="metric"]))) { margin-block-start: var(--pd-space-xl); }
+  :where([data-pd-flow]) > :where(* + [data-pd-type="metadata"]:has(+ :is([data-pd-type="display.hero"], [data-pd-type="display.chapter"], [data-pd-type="heading.section"]))) { margin-block-start: var(--pd-space-2xl); }
   :where([data-pd-flow]) > :where(:is([data-pd-type="display.hero"], [data-pd-type="display.chapter"], [data-pd-type="heading.section"]) + *) { margin-block-start: var(--pd-space-l); }
   :where([data-pd-flow]) > :where(:is([data-pd-type="heading.subsection"], [data-pd-type="quote.feature"], [data-pd-type="metric"]) + *) { margin-block-start: var(--pd-space-m); }
   :where([data-pd-flow]) > :where([data-pd-type="title.card"] + *) { margin-block-start: var(--pd-space-s); }

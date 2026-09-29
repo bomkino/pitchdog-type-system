@@ -110,6 +110,8 @@ The explicit axis is intentional. It avoids the ambiguity that prevented the pre
 
 Every public role uses a bounded responsive formula. Display roles receive meaningful fluid growth. Body and UI roles move shallowly. No size depends only on a viewport or container unit. Root-relative limits preserve user control.
 
+At 40rem wide and below, `display.hero`, `display.chapter` and `heading.section` open their leading and relax their tracking slightly, and `body.reading` tightens its leading to 1.55. These values are the `narrowViewport` entries of those roles in the token source.
+
 ## 10. Dense content
 
 Dense content is a first-class mode, not a fallback. It uses:
@@ -140,7 +142,7 @@ Social, YouTube, decks and subtitles use canvas-relative roles because their typ
 
 Decks add a second axis: density. Present density is for slides shown live; read density steps nine roles down for decks sent ahead. Deck sizes are `min(0.6 × Y cqi, Y cqb)`, so 4:3 slides set at 80 percent of 16:9, and no deck role sets below 1.8 percent of the slide height. See `DECKS.md`.
 
-Subtitles set dialogue in PD Body 600 on 16:9, 4:3, 1:1 and 9:16 frames in three styles (broadcast, cinema, clean). Line height is 7 percent of the frame height on landscape, 4:3 and square frames and 4 percent on vertical ones, following the BBC Subtitle Guidelines; a subtitle has at most two lines and 42 characters per line. See `SUBTITLES.md`.
+Subtitles set dialogue in PD Body 600 on 16:9, 4:3, 1:1 and 9:16 frames in three styles (broadcast, cinema, clean). Line height is 7 percent of the frame height on landscape, 4:3 and square frames and 4 percent on vertical ones, following the BBC Subtitle Guidelines; a subtitle has at most two lines and 42 characters per line, fewer on square and vertical frames. See `SUBTITLES.md`.
 
 ## 13. Arrows
 

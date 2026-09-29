@@ -252,14 +252,14 @@
           "fontPx": 67,
           "lineHeightPercentOfFrame": 4.19,
           "lines": [
-            24,
-            25
+            14,
+            23
           ],
           "gapsBetweenLineBoxesPx": [
             0
           ],
-          "cueWidthPercent": 78,
-          "cueEdgeDistancePercent": 22
+          "cueWidthPercent": 70.5,
+          "cueEdgeDistancePercent": 30
         },
         {
           "frame": "vertical 1080x1920",
@@ -274,7 +274,7 @@
           ],
           "gapsBetweenLineBoxesPx": [],
           "cueWidthPercent": 58.8,
-          "cueEdgeDistancePercent": 22
+          "cueEdgeDistancePercent": 30
         }
       ],
       "errors": []
@@ -295,7 +295,11 @@
       "body.reading → figure: 36 px",
       "figure → title.card: 36 px",
       "title.card → body.reading: 12 px",
-      "body.reading → heading.section: 111.9 px",
+      "body.reading → figure: 36 px",
+      "figure → heading.subsection: 64 px",
+      "heading.subsection → body.reading: 20 px",
+      "body.reading → metadata: 111.9 px",
+      "metadata → heading.section: 8 px",
       "heading.section → label: 36 px",
       "label → metric: 4 px",
       "metric → body.compact: 20 px"
@@ -310,7 +314,11 @@
       "body.reading → figure: 24.3 px",
       "figure → title.card: 24.3 px",
       "title.card → body.reading: 12 px",
-      "body.reading → heading.section: 65.3 px",
+      "body.reading → figure: 24.3 px",
+      "figure → heading.subsection: 40.7 px",
+      "heading.subsection → body.reading: 16.1 px",
+      "body.reading → metadata: 65.3 px",
+      "metadata → heading.section: 8 px",
       "heading.section → label: 24.3 px",
       "label → metric: 4 px",
       "metric → body.compact: 16.1 px"
