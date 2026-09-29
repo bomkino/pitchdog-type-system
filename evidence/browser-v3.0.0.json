@@ -1,6 +1,11 @@
 {
   "generated": "2026-09-29",
   "browser": "Chromium 141.0.7390.37",
+  "notes": {
+    "flow": "A test article inside data-pd-flow: metadata, display.chapter, lead.section, two body.reading, heading.subsection, body.reading, figure, title.card, body.reading, heading.section, label, metric, body.compact.",
+    "subtitle": "Starter frames re-sized to their full pixel size; gaps are between the line boxes of one cue.",
+    "specimen": "Canvases with zero size are skipped; every view is opened at each width."
+  },
   "checks": {
     "specimen@1440": {
       "views": {

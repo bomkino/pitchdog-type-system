@@ -85,7 +85,7 @@ d72f95924b3587d5166a85f8644b420a37661465e2603708c37fafec766b0274  docs/figma-sty
 a9742ea282188574304c3b009decd126d6e6db9434ad7c48cea815e80531e94a  evidence/agent-skill-behavior-v3.0.0.md
 caca4394718de2a5f99b086c81843256a3ff381c228af615e13c745ee96b9ca6  evidence/browser-deck-v2.1.0.json
 9c36f80b71b7c96c0efb89ebe130b6c3f8128a9485c5fff3a233be3031c40753  evidence/browser-font-rename-v2.0.0.json
-25dd05d6fcb06963e2051d404e4e93eb8f87bcecdf6e5021700aca49edaf4203  evidence/browser-v3.0.0.json
+596725ba9aa7a08936ba9f367c2d8dec0b2c73b385e4ef2f4be8ae2a3340d643  evidence/browser-v3.0.0.json
 e7479c0072b2087286b7b2c27fd222757310cedefbba7505fed73049a48beb9c  evidence/browser-validation.json
 9ba49089d84a71cd1567dce801ef1baff3cab21d7061db91f1d2662eb8dacba0  evidence/font-audit.json
 2c9cba9d428e960d7726fb23784c83bc24ec0a5efb94f5dac3ff9161ce85dddd  evidence/font-name-normalization-v2.0.0.json
