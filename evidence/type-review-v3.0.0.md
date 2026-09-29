@@ -2,7 +2,7 @@
 
 Date: 29 September 2026
 
-A review of sizes, leading, tracking, measure and spacing in 2.2.0, done by rendering the specimen, the starter deck and test pages in Chromium (Playwright 1.56) and reading font metrics with fontTools. It led to the two role changes in 3.0.0.
+A review of sizes, leading, tracking, measure and spacing in 2.2.0, done by rendering the specimen, the starter deck and test pages in Chromium (Playwright 1.56) and reading font metrics with fontTools. It led to the role changes and additions in 3.0.0.
 
 ## Findings that changed roles
 
@@ -31,11 +31,21 @@ At 390 px nothing changes, because the column is narrower than every measure.
 
 Story matches portrait. Landscape (1200 × 630) is limited by its height and is meant for display and headline only.
 
+**Deck present density.** `deck.body` was 30 px on a 1080 slide, 15 pt in PowerPoint and 11 pt in Google Slides, small for a room. Present sizes step up by about 1.07 to 1.21; read density is unchanged. On a 1080 slide: headline 58.3 → 64.8 px, lead 38.9 → 43.2, body 30.2 → 36.7, bullet 32.4 → 38.9, quote 56.2 → 60.5, kicker 23.8 → 25.9, label and data 24.8 → 28.1, source 21.6 → 23.8, footer 19.4 → 21.6. In the starter deck at both densities and on both canvases, no element leaves a slide's safe area.
+
+**YouTube small text.** A 3840 × 2160 thumbnail is seen about 384 px wide. At that size `youtube.support` was 8.6 px and kicker, badge and credit 4.3 to 5.7 px. They now land at 12.1, 9.1, 9.5 and 8.6 px.
+
+## Additions
+
+**Spacing.** 2.2.0 had no spacing beyond `p + p { margin-block-start: 1em }`. 3.0.0 adds a web scale, a flow contract and a deck scale. Measured gaps in a test article with `data-pd-flow` at 1440 px: kicker → chapter 8 px, chapter → lead 36, text → text 20 (1em), text → subsection 64, subsection → text 20, text → section 112, section → text 36, title card → text 12. At 390 px the fluid steps shrink (text → section 65 px, chapter → lead 24).
+
+**Subtitles.** Candidates from the family were rendered on a mid-grey-to-white gradient frame in the cinema style (yellow on black at 70 %): Body 400 and 600, Body Alt 400 and 600, Body Italic and Eyebrow. Judged by eye, Body 600 kept the clearest counters and the most even colour through the translucent box, and Body 400 looked thin against it. Measured at 64 px on the same sentence, Body Alt sets 2 % wider than Body with no gain in legibility, and Eyebrow is monospaced and sets 27 % wider, which costs about a fifth of the characters per line and reads as a label, not speech. Body 600 Italic carries narration, and Body Alt 700 the short vertical punch captions.
+
+Measured in Chromium: line height is 7.08 % of the frame height on 16:9, 4:3 and 1:1 frames and 4.18 % on 9:16 (BBC ranges 7–8 % and 3.9–4.5 %). With one element per line, line boxes abut exactly (no gap, no overlap) at every tested size; an inline box with `box-decoration-break` left 1–2 px gaps from rounding, so the layer sets each line as its own block. Characters that fit a line of mixed English: 45 on 16:9, 44 on 4:3, 32 on 1:1 and 31 on 9:16, so the frames publish 42, 42, 30 and 28. Contrast of the boxed styles composited over pure white: broadcast 10.4:1, cinema 6.2:1.
+
 ## Findings left unchanged
 
 - **Display leading.** PD Head's ascender (0.75 em) plus descender (0.23 em) is 0.98 em, so at `display.hero`'s 0.88 a descender directly above an ascender will touch. The specimen hero does this: the p of "pitch’s" meets the f of "friend". At 0.94 it still touches. The tight leading is part of the voice, so 3.0.0 keeps it and the skill now checks display lines for collisions.
-- **Deck present density.** `deck.body` is 30 px on a 1080 slide, 15 pt in PowerPoint and 11 pt in Google Slides, which is small for a room. A size change is a taste decision for the maintainers.
-- **Spacing.** Apart from `p + p { margin-block-start: 1em }`, the system has no spacing scale for the space between a heading and its text or between blocks. Pages make their own.
 - **Scale, tracking and body leading.** Display sizes step by about 1.15–1.3 on phones and 1.3–1.45 on desktop, tracking tightens with size and relaxes below 40rem, uppercase Eyebrow gets positive tracking, and body leading of 1.45–1.58 suits the fonts' 0.47 em x-height. No change.
 
 No browser console or page errors in any specimen view.

@@ -21,12 +21,13 @@ EXPECTED_ANCHORS = {
         "ital": [0, 1],
     },
 }
-EXPECTED_COUNTS = {"web": 17, "ui": 14, "social": 9, "youtube": 7, "deck": 14}
-EXPECTED_CANVASES = {"social": 4, "youtube": 5, "deck": 2}
+EXPECTED_COUNTS = {"web": 17, "ui": 14, "social": 9, "youtube": 7, "deck": 14, "subtitle": 3}
+EXPECTED_CANVASES = {"social": 4, "youtube": 5, "deck": 2, "subtitle": 4}
 MEDIA_ATTRIBUTES = {
     "social": ("data-pd-canvas", "data-pd-social"),
     "youtube": ("data-pd-youtube-canvas", "data-pd-youtube"),
     "deck": ("data-pd-deck-canvas", "data-pd-deck"),
+    "subtitle": ("data-pd-subtitle-frame", "data-pd-subtitle"),
 }
 
 errors: list[str] = []
@@ -84,6 +85,7 @@ for split_name in [
     "pitchdog.social.tokens.json",
     "pitchdog.youtube.tokens.json",
     "pitchdog.deck.tokens.json",
+    "pitchdog.subtitle.tokens.json",
 ]:
     split_meta = (load_json(ROOT / "tokens" / split_name) or {}).get("meta", {})
     check(split_meta.get("version") == meta.get("version"), f"{split_name} carries the canonical version")
@@ -178,7 +180,7 @@ check(
     "DTCG web role values match the canonical source",
 )
 
-for group in ["ui", "social", "youtube", "deck"]:
+for group in ["ui", "social", "youtube", "deck", "subtitle"]:
     exported = (dtcg.get("type") or {}).get(group) or {}
     canonical = tokens.get(group, {}).get("roles", {})
     prefix = f"{group}."
@@ -277,6 +279,103 @@ for marker in [
     check(marker in deck_css, f"deck CSS contains {marker}")
 system_css = (ROOT / "dist" / "pitchdog-system.css").read_text(encoding="utf-8")
 check(deck_css in system_css, "system CSS bundles the deck layer")
+deck_spacing = {step: value for step, value in deck.get("spacing", {}).items() if step != "note"}
+check(list(deck_spacing) == ["2xs", "xs", "s", "m", "l"], "deck publishes five spacing steps")
+previous = 0.0
+for step, value in deck_spacing.items():
+    cqi, cqb = slide_size(value)
+    check(cqb > previous and abs(cqi - round(cqb * 0.6, 2)) < 1e-9, f"deck spacing {step} grows and keeps the 4:3 ratio")
+    previous = cqb
+    check(f"--pd-deck-space-{step}:{value}" in deck_css, f"deck CSS declares --pd-deck-space-{step}")
+
+# Web flow spacing: the hand-authored CSS must restate the scale and the before/after contract exactly.
+typography_css = (ROOT / "dist" / "pitchdog-typography.css").read_text(encoding="utf-8")
+web_spacing = tokens.get("web", {}).get("spacing", {})
+for step, value in web_spacing.get("scale", {}).items():
+    check(f"--pd-space-{step}: {value};" in typography_css, f"typography CSS declares --pd-space-{step}")
+MEDIA_SELECTOR = ":is(figure, img, picture, video, table, pre, hr)"
+css_flow: dict[str, dict[str, str]] = {"before": {}, "after": {}}
+for rule in re.findall(r":where\(\[data-pd-flow\]\) > :where\((.+?)\) \{ margin-block-start: var\(--pd-space-([\w]+)\); \}", typography_css):
+    selector, step = rule
+    side = "before" if selector.startswith("* + ") else "after"
+    names = re.findall(r'data-pd-type="([^"]+)"', selector)
+    if MEDIA_SELECTOR in selector:
+        names.append("media")
+    for name in names:
+        css_flow[side][name] = step
+flow = web_spacing.get("flow", {})
+check(flow.get("text") == "1em" and "var(--pd-flow-space, 1em)" in typography_css, "flow sets text after text at 1em")
+for side in ("before", "after"):
+    check(css_flow[side] == flow.get(side), f"typography CSS flow spacing {side} headings matches the tokens")
+scale_order = list(web_spacing.get("scale", {}))
+for name, step in flow.get("before", {}).items():
+    after = flow.get("after", {}).get(name)
+    if after and name != "media":
+        check(scale_order.index(step) > scale_order.index(after), f"flow puts more space before {name} than after it")
+
+def srgb_channel(value: float) -> float:
+    value /= 255
+    return value / 12.92 if value <= 0.04045 else ((value + 0.055) / 1.055) ** 2.4
+
+
+def luminance(rgb: tuple[float, float, float]) -> float:
+    red, green, blue = (srgb_channel(channel) for channel in rgb)
+    return 0.2126 * red + 0.7152 * green + 0.0722 * blue
+
+
+def contrast(first: tuple[float, float, float], second: tuple[float, float, float]) -> float:
+    lighter, darker = sorted((luminance(first), luminance(second)), reverse=True)
+    return (lighter + 0.05) / (darker + 0.05)
+
+
+def hex_rgb(value: str) -> tuple[float, float, float]:
+    match = re.fullmatch(r"#([0-9A-Fa-f]{6})", value)
+    return tuple(float(int(match.group(1)[i : i + 2], 16)) for i in (0, 2, 4)) if match else (-1.0, -1.0, -1.0)
+
+
+def black_box_opacity(value: str) -> float:
+    match = re.fullmatch(r"rgb\(0 0 0 / ([\d.]+)\)", value)
+    return float(match.group(1)) if match else -1.0
+
+
+# Subtitles: BBC Subtitle Guidelines 9.2.1 line heights and 3.1 line lengths; Netflix line and character limits.
+subtitle = tokens.get("subtitle", {})
+subtitle_roles = subtitle.get("roles", {})
+for key, canvas in subtitle.get("canvases", {}).items():
+    width, height = canvas.get("width", 0), canvas.get("height", 0)
+    vertical = height > width
+    low, high = (3.9, 4.5) if vertical else (7.0, 8.0)
+    for name in ("subtitle.line", "subtitle.italic"):
+        role = subtitle_roles.get(name, {})
+        cqi, cqb = slide_size(role.get("size", ""))
+        line_px = min(cqi * width, cqb * height) / 100 * role.get("lineHeight", 0)
+        percent = line_px / height * 100 if height else 0
+        check(low <= percent <= high, f"{name} line height on the {key} frame is {low}-{high} % of frame height ({percent:.2f})")
+    cue = canvas.get("cue", {})
+    width_limit = 68.0 if canvas.get("ratio") == "16 / 9" else 90.0
+    max_width = re.fullmatch(r"([\d.]+)cqi", cue.get("maxWidth", ""))
+    check(bool(max_width) and float(max_width.group(1)) <= width_limit, f"subtitle {key} cue is at most {width_limit:g} % of frame width")
+    check(cqb_value(cue.get("bottom", "")) > 0, f"subtitle {key} cue sits above the frame edge")
+    check(0 < cue.get("maxChars", 0) <= 42, f"subtitle {key} cue publishes a characters-per-line limit of at most 42")
+for name, role in subtitle_roles.items():
+    check(role.get("maxLines", 0) <= 2, f"{name} holds at most two lines")
+    check(0 < role.get("maxChars", 0) <= 42, f"{name} holds at most 42 characters per line")
+    check(role.get("family") in {"body", "bodyAlt"}, f"{name} uses a Body voice")
+white, black = (255.0, 255.0, 255.0), (0.0, 0.0, 0.0)
+for name, style in subtitle.get("styles", {}).items():
+    ink = hex_rgb(style.get("ink", ""))
+    check(ink[0] >= 0, f"subtitle style {name} ink is a hex colour")
+    if style.get("box") == "transparent":
+        check(style.get("outline", "none") != "none", f"subtitle style {name} without a box carries an outline")
+        continue
+    opacity = black_box_opacity(style.get("box", ""))
+    check(0 < opacity <= 1, f"subtitle style {name} box is translucent black")
+    worst = min(contrast(ink, tuple(channel * (1 - opacity) for channel in backdrop)) for backdrop in (white, black))
+    check(worst >= 4.5, f"subtitle style {name} keeps 4.5:1 over a white or black picture ({worst:.2f}:1)")
+subtitle_css = (ROOT / "dist" / "pitchdog-subtitle.css").read_text(encoding="utf-8")
+for marker in ["[data-pd-subtitle-cue]", "inline-size:fit-content", "::cue", '[data-pd-subtitle-style="cinema"]']:
+    check(marker in subtitle_css, f"subtitle CSS contains {marker}")
+check(subtitle_css in system_css, "system CSS bundles the subtitle layer")
 
 arrow_contract = tokens.get("arrows", {})
 check(arrow_contract.get("glyphs") == ARROWS, "all twelve native arrows are governed")
@@ -380,6 +479,8 @@ required_docs = [
     "SOCIAL-TYPOGRAPHY.md",
     "YOUTUBE.md",
     "DECKS.md",
+    "SUBTITLES.md",
+    "SPACING.md",
     "ARROWS.md",
     "ACCESSIBILITY-QA.md",
     "IMPLEMENTATION.md",

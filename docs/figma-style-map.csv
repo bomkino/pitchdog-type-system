@@ -41,25 +41,25 @@ Social,Social / Metadata,social.metadata,eyebrow,500,0,87.5,"min(2.6cqi, 2.4cqb)
 Social,Social / Credit,social.credit,body,600,normal,,"min(2.4cqi, 2.2cqb)",1.2,0em
 YouTube,YouTube / Title,youtube.title,head,700,0,,"min(10.4cqi, 14.3cqb)",0.86,-0.045em
 YouTube,YouTube / Title Compact,youtube.titleCompact,head,600,0,,"min(7.8cqi, 10.8cqb)",0.91,-0.036em
-YouTube,YouTube / Kicker,youtube.kicker,eyebrow,700,0,87.5,"min(1.8cqi, 2.5cqb)",1.0,.07em
-YouTube,YouTube / Support,youtube.support,bodyAlt,600,normal,,"min(2.9cqi, 4cqb)",1.1,-0.012em
-YouTube,YouTube / Badge,youtube.badge,body,700,normal,,"min(1.9cqi, 2.65cqb)",1.0,.006em
-YouTube,YouTube / Credit,youtube.credit,body,600,normal,,"min(1.45cqi, 2cqb)",1.1,0em
+YouTube,YouTube / Kicker,youtube.kicker,eyebrow,700,0,87.5,"min(3.05cqi, 4.2cqb)",1.0,.07em
+YouTube,YouTube / Support,youtube.support,bodyAlt,600,normal,,"min(4.06cqi, 5.6cqb)",1.1,-0.012em
+YouTube,YouTube / Badge,youtube.badge,body,700,normal,,"min(3.19cqi, 4.4cqb)",1.0,.006em
+YouTube,YouTube / Credit,youtube.credit,body,600,normal,,"min(2.9cqi, 4cqb)",1.1,0em
 YouTube,YouTube / Arrow,youtube.arrow,head,700,0,,"min(7.2cqi, 10cqb)",0.8,0em
 Deck,Deck / Title,deck.title,head,600,0,,"min(5.64cqi, 9.4cqb)",0.9,-0.042em
 Deck,Deck / Section,deck.section,head,500,1,,"min(7.2cqi, 12cqb)",0.9,-0.04em
-Deck,Deck / Headline,deck.headline,head,500,0,,"min(3.24cqi, 5.4cqb)",1.0,-0.028em
+Deck,Deck / Headline,deck.headline,head,500,0,,"min(3.6cqi, 6cqb)",1.0,-0.028em
 Deck,Deck / Statement,deck.statement,head,500,0,,"min(4.56cqi, 7.6cqb)",0.95,-0.034em
-Deck,Deck / Lead,deck.lead,bodyAlt,400,normal,,"min(2.16cqi, 3.6cqb)",1.22,-0.012em
-Deck,Deck / Body,deck.body,body,400,normal,,"min(1.68cqi, 2.8cqb)",1.36,0em
-Deck,Deck / Bullet,deck.bullet,body,400,normal,,"min(1.8cqi, 3cqb)",1.3,0em
-Deck,Deck / Quote,deck.quote,head,500,1,,"min(3.12cqi, 5.2cqb)",1.04,-0.024em
+Deck,Deck / Lead,deck.lead,bodyAlt,400,normal,,"min(2.4cqi, 4cqb)",1.22,-0.012em
+Deck,Deck / Body,deck.body,body,400,normal,,"min(2.04cqi, 3.4cqb)",1.36,0em
+Deck,Deck / Bullet,deck.bullet,body,400,normal,,"min(2.16cqi, 3.6cqb)",1.3,0em
+Deck,Deck / Quote,deck.quote,head,500,1,,"min(3.36cqi, 5.6cqb)",1.04,-0.024em
 Deck,Deck / Metric,deck.metric,body,700,normal,,"min(10.2cqi, 17cqb)",0.82,-0.052em
-Deck,Deck / Kicker,deck.kicker,eyebrow,500,0,87.5,"min(1.32cqi, 2.2cqb)",1.1,.06em
-Deck,Deck / Label,deck.label,body,600,normal,,"min(1.38cqi, 2.3cqb)",1.2,.01em
-Deck,Deck / Data,deck.data,eyebrow,500,0,100,"min(1.38cqi, 2.3cqb)",1.2,0em
-Deck,Deck / Source,deck.source,body,400,normal,,"min(1.2cqi, 2cqb)",1.3,0em
-Deck,Deck / Footer,deck.footer,eyebrow,500,0,87.5,"min(1.08cqi, 1.8cqb)",1.1,.06em
+Deck,Deck / Kicker,deck.kicker,eyebrow,500,0,87.5,"min(1.44cqi, 2.4cqb)",1.1,.06em
+Deck,Deck / Label,deck.label,body,600,normal,,"min(1.56cqi, 2.6cqb)",1.2,.01em
+Deck,Deck / Data,deck.data,eyebrow,500,0,100,"min(1.56cqi, 2.6cqb)",1.2,0em
+Deck,Deck / Source,deck.source,body,400,normal,,"min(1.32cqi, 2.2cqb)",1.3,0em
+Deck,Deck / Footer,deck.footer,eyebrow,500,0,87.5,"min(1.2cqi, 2cqb)",1.1,.06em
 Deck,Deck / Read / Headline,deck.headline,head,500,0,,"min(2.76cqi, 4.6cqb)",1.0,-0.028em
 Deck,Deck / Read / Statement,deck.statement,head,500,0,,"min(3.84cqi, 6.4cqb)",0.95,-0.034em
 Deck,Deck / Read / Lead,deck.lead,bodyAlt,400,normal,,"min(1.8cqi, 3cqb)",1.22,-0.012em
@@ -69,3 +69,6 @@ Deck,Deck / Read / Quote,deck.quote,head,500,1,,"min(2.64cqi, 4.4cqb)",1.04,-0.0
 Deck,Deck / Read / Label,deck.label,body,600,normal,,"min(1.2cqi, 2cqb)",1.2,.01em
 Deck,Deck / Read / Data,deck.data,eyebrow,500,0,100,"min(1.2cqi, 2cqb)",1.2,0em
 Deck,Deck / Read / Source,deck.source,body,400,normal,,"min(1.08cqi, 1.8cqb)",1.3,0em
+Subtitle,Subtitle / Line,subtitle.line,body,600,normal,,"min(6.2cqi, 5.9cqb)",1.2,.01em
+Subtitle,Subtitle / Italic,subtitle.italic,body,600,italic,,"min(6.2cqi, 5.9cqb)",1.2,.01em
+Subtitle,Subtitle / Punch,subtitle.punch,bodyAlt,700,normal,,"min(8.4cqi, 6.6cqb)",1.1,-0.01em

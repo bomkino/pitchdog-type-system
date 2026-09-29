@@ -6,7 +6,7 @@ canvases and templates. This script writes everything that restates it:
 
 - split token files and the DTCG export in `tokens/`
 - role contracts, TypeScript types and the media-layer CSS in `dist/`
-- canvas, copy and template contracts in `social/`, `youtube/` and `deck/`
+- canvas, copy and template contracts in `social/`, `youtube/`, `deck/` and `subtitle/`
 - the Figma style map in `docs/`
 - `dist/pitchdog-system.css`, `dist/pitchdog-system.min.css` and the copy inlined in the specimen
 
@@ -34,13 +34,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 TOKENS = ROOT / "tokens" / "pitchdog.system.tokens.json"
 ESBUILD_VERSION = "0.28.2"
-ROLE_GROUPS = ["web", "ui", "social", "youtube", "deck"]
+ROLE_GROUPS = ["web", "ui", "social", "youtube", "deck", "subtitle"]
 
 # Media layers generated from tokens. Attribute names are part of the public API.
 MEDIA = {
     "social": {"css": "pitchdog-social.css", "canvas": "data-pd-canvas", "role": "data-pd-social"},
     "youtube": {"css": "pitchdog-youtube.css", "canvas": "data-pd-youtube-canvas", "role": "data-pd-youtube"},
     "deck": {"css": "pitchdog-deck.css", "canvas": "data-pd-deck-canvas", "role": "data-pd-deck"},
+    "subtitle": {"css": "pitchdog-subtitle.css", "canvas": "data-pd-subtitle-frame", "role": "data-pd-subtitle"},
 }
 SYSTEM_PARTS = [
     "pitchdog-fonts.template.css",
@@ -49,6 +50,7 @@ SYSTEM_PARTS = [
     "pitchdog-social.css",
     "pitchdog-youtube.css",
     "pitchdog-deck.css",
+    "pitchdog-subtitle.css",
 ]
 SPECIMEN = "pitchdog-typography-system.html"
 SPECIMEN_OPEN = '<style id="pd-system-css">'
@@ -59,7 +61,7 @@ FAMILY_VARS = {
     "bodyAlt": "--pd-font-body-alt",
     "eyebrow": "--pd-font-eyebrow",
 }
-FIGMA_SURFACES = {"web": "Web", "ui": "UI", "social": "Social", "youtube": "YouTube", "deck": "Deck"}
+FIGMA_SURFACES = {"web": "Web", "ui": "UI", "social": "Social", "youtube": "YouTube", "deck": "Deck", "subtitle": "Subtitle"}
 FIGMA_WORDS = {"ui": "UI", "youtube": "YouTube"}
 DTCG_VALUE_KEYS = {"family", "size", "weight", "tracking", "lineHeight"}
 
@@ -137,6 +139,11 @@ def media_css(group: str, section: dict) -> str:
                 ]
             )
             lines.append(f'  :where([{canvas_attr}="{kebab(key)}"] > [data-pd-deck-safe]) {{ inset:{inset}; }}')
+        # Spacing steps resolve against the slide wherever they are used inside it.
+        steps = "; ".join(f"--pd-deck-space-{step}:{value}" for step, value in section["spacing"].items() if step != "note")
+        lines.append(f"  :where([{canvas_attr}]) {{ {steps}; }}")
+    if group == "subtitle":
+        lines += subtitle_css(section)
     for name, role in roles.items():
         lines.append(f":where({role_selector(role_attr, name)}){{{declarations(role)}}}")
     for name, role in roles.items():
@@ -174,6 +181,44 @@ def media_css(group: str, section: dict) -> str:
     return "\n".join(lines) + "\n"
 
 
+def subtitle_css(section: dict) -> list[str]:
+    """Cue placement per frame, the per-line box, the named styles and native `::cue` styling."""
+    styles = section["styles"]
+    default = styles["broadcast"]
+    lines = [
+        "  :where([data-pd-subtitle-cue]) { position:absolute; inset-inline:0; margin:0 auto; padding:0; inline-size:fit-content;"
+        " text-align:center; text-wrap:balance; }",
+    ]
+    for key, canvas in section["canvases"].items():
+        cue = canvas["cue"]
+        frame = f'[data-pd-subtitle-frame="{kebab(key)}"]'
+        lines.append(f"  :where({frame} [data-pd-subtitle-cue]) {{ inset-block-end:{cue['bottom']}; max-inline-size:{cue['maxWidth']}; }}")
+        lines.append(f'  :where({frame} [data-pd-subtitle-cue="top"]) {{ inset-block:{cue["bottom"]} auto; }}')
+    lines.append(
+        # One element per subtitle line: each line is its own box, as wide as its text, and the boxes stack with no gap.
+        "  :where([data-pd-subtitle]) { display:block; inline-size:fit-content; margin:0 auto; padding:0 .4em;"
+        f" color:var(--pd-subtitle-ink, {default['ink']}); background:var(--pd-subtitle-box, {default['box']});"
+        f" text-shadow:var(--pd-subtitle-outline, {default['outline']}); }}"
+    )
+    for name, style in styles.items():
+        lines.append(
+            f'  :where([data-pd-subtitle-style="{name}"]) {{ --pd-subtitle-ink:{style["ink"]}; --pd-subtitle-box:{style["box"]};'
+            f' --pd-subtitle-outline:{style["outline"]}; }}'
+        )
+    # Native <video> text tracks: family, weight, colour and box only; the player and viewer keep control of size.
+    line = section["roles"]["subtitle.line"]
+    lines.append(
+        f'  video[data-pd-subtitle-style]::cue {{ font-family:"PD Body", system-ui, sans-serif; font-weight:{line["weight"]};'
+        f" line-height:{line['lineHeight']!r}; }}"
+    )
+    for name, style in styles.items():
+        lines.append(
+            f'  video[data-pd-subtitle-style="{name}"]::cue {{ color:{style["ink"]}; background-color:{style["box"]};'
+            f' text-shadow:{style["outline"]}; }}'
+        )
+    return lines
+
+
 # ---------------------------------------------------------------- JSON surfaces
 
 def split_tokens(tokens: dict) -> dict[str, str]:
@@ -187,10 +232,11 @@ def split_tokens(tokens: dict) -> dict[str, str]:
         "tones": tokens["tones"],
         "measures": {name: measure["value"] for name, measure in web["measures"].items()},
         "wrapStyles": list(web["wrapStyles"]),
+        "spacing": web["spacing"],
         "roles": web["roles"],
     }
     files = {"tokens/pitchdog.typography.tokens.json": as_json(typography)}
-    for group in ["ui", "social", "youtube", "deck"]:
+    for group in ["ui", "social", "youtube", "deck", "subtitle"]:
         files[f"tokens/pitchdog.{group}.tokens.json"] = as_json({"meta": meta, **tokens[group]})
     files["tokens/pitchdog.arrows.tokens.json"] = as_json(tokens["arrows"])
     return files
@@ -250,7 +296,7 @@ def media_contracts(tokens: dict) -> dict[str, str]:
         copy = {}
         for name, role in section["roles"].items():
             contract = {"maxLines": role["maxLines"], "maxWords": role["maxWords"]}
-            for key in ("maxItems",):
+            for key in ("maxItems", "maxChars"):
                 if key in role:
                     contract[key] = role[key]
             read = {key: value for key, value in role.get("read", {}).items() if key.startswith("max")}
@@ -284,8 +330,12 @@ def typescript(tokens: dict) -> str:
         *[f'  {name}: "{measure["value"]}",' for name, measure in measures.items()],
         "} as const;",
         f"export const WEB_WRAP_STYLES = [{union(tokens['web']['wrapStyles'])}] as const;".replace(" | ", ", "),
+        f"export const WEB_SPACE_STEPS = [{union(tokens['web']['spacing']['scale'])}] as const;".replace(" | ", ", "),
+        f"export const DECK_SPACE_STEPS = [{union(step for step in tokens['deck']['spacing'] if step != 'note')}] as const;".replace(" | ", ", "),
         f"export const DECK_CANVASES = [{union(kebab(key) for key in tokens['deck']['canvases'])}] as const;".replace(" | ", ", "),
         f"export const DECK_DENSITIES = [{union(tokens['deck']['densities'])}] as const;".replace(" | ", ", "),
+        f"export const SUBTITLE_FRAMES = [{union(kebab(key) for key in tokens['subtitle']['canvases'])}] as const;".replace(" | ", ", "),
+        f"export const SUBTITLE_STYLES = [{union(tokens['subtitle']['styles'])}] as const;".replace(" | ", ", "),
         "",
         "export type HeadWeight = typeof HEAD_WEIGHTS[number];",
         "export type BodyWeight = typeof BODY_WEIGHTS[number];",
@@ -293,13 +343,18 @@ def typescript(tokens: dict) -> str:
         "export type EyebrowWidth = typeof EYEBROW_WIDTHS[number];",
         "export type WebMeasure = keyof typeof WEB_MEASURES;",
         "export type WebWrapStyle = typeof WEB_WRAP_STYLES[number];",
+        "export type WebSpaceStep = typeof WEB_SPACE_STEPS[number];",
+        "export type DeckSpaceStep = typeof DECK_SPACE_STEPS[number];",
         "export type DeckCanvas = typeof DECK_CANVASES[number];",
         "export type DeckDensity = typeof DECK_DENSITIES[number];",
+        "export type SubtitleFrame = typeof SUBTITLE_FRAMES[number];",
+        "export type SubtitleStyle = typeof SUBTITLE_STYLES[number];",
         f"export type WebRole = {union(tokens['web']['roles'])};",
         f"export type UiRole = {union(tokens['ui']['roles'])};",
         f"export type SocialRole = {union(tokens['social']['roles'])};",
         f"export type YouTubeRole = {union(tokens['youtube']['roles'])};",
         f"export type DeckRole = {union(tokens['deck']['roles'])};",
+        f"export type SubtitleRole = {union(tokens['subtitle']['roles'])};",
         "",
         "export function isHeadWeight(value: number): value is HeadWeight { return (HEAD_WEIGHTS as readonly number[]).includes(value); }",
         "export function isBodyWeight(value: number): value is BodyWeight { return (BODY_WEIGHTS as readonly number[]).includes(value); }",

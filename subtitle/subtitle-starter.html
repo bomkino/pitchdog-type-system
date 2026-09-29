@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>pitch.dog subtitle starter</title>
+<link rel="stylesheet" href="../dist/pitchdog-system.css">
+<style>
+  /* Page chrome only. Frames stand in for video; replace the background with a still or play the video underneath. */
+  body { margin:0; padding:48px; background:#111; color:#f4f0e7; font-family:var(--pd-font-body); }
+  .sheet { display:flex; flex-wrap:wrap; gap:32px; align-items:flex-start; }
+  figure { margin:0; }
+  figcaption { margin-block-start:12px; font:500 13px/1.3 var(--pd-font-eyebrow); letter-spacing:.06em; text-transform:uppercase; color:#b9b3a6; }
+  [data-pd-subtitle-frame] { background:linear-gradient(160deg, #203040 0%, #6a7f86 38%, #f3eee2 64%, #ffffff 74%, #c79a64 88%, #3a2a1c 100%); }
+  [data-pd-subtitle-frame="landscape"], [data-pd-subtitle-frame="standard"] { inline-size:640px; }
+  [data-pd-subtitle-frame="square"] { inline-size:420px; }
+  [data-pd-subtitle-frame="vertical"] { inline-size:300px; }
+  /* Burn-in export: a frame with no picture renders as a transparent overlay at full size. */
+  [data-overlay] { background:none; }
+</style>
+</head>
+<body>
+<main class="sheet">
+  <figure>
+    <div data-pd-subtitle-frame="landscape" data-pd-subtitle-style="cinema">
+      <p data-pd-subtitle-cue><span data-pd-subtitle="line">We didn’t want a better deck.</span><span data-pd-subtitle="line">We wanted to walk out with the money.</span></p>
+    </div>
+    <figcaption>Landscape · cinema · line</figcaption>
+  </figure>
+  <figure>
+    <div data-pd-subtitle-frame="landscape" data-pd-subtitle-style="broadcast">
+      <p data-pd-subtitle-cue><span data-pd-subtitle="italic">Three years earlier, in a borrowed office.</span></p>
+    </div>
+    <figcaption>Landscape · broadcast · italic narration</figcaption>
+  </figure>
+  <figure>
+    <div data-pd-subtitle-frame="landscape" data-pd-subtitle-style="clean">
+      <p data-pd-subtitle-cue><span data-pd-subtitle="line">-Is it ready?</span><span data-pd-subtitle="line">-Almost. Give me one more slide.</span></p>
+    </div>
+    <figcaption>Landscape · clean · two speakers</figcaption>
+  </figure>
+  <figure>
+    <div data-pd-subtitle-frame="standard" data-pd-subtitle-style="cinema">
+      <p data-pd-subtitle-cue="top"><span data-pd-subtitle="line">Read the number on the slide,</span><span data-pd-subtitle="line">then tell them what it means.</span></p>
+    </div>
+    <figcaption>Standard 4:3 · cinema · top, when the picture has text below</figcaption>
+  </figure>
+  <figure>
+    <div data-pd-subtitle-frame="square" data-pd-subtitle-style="broadcast">
+      <p data-pd-subtitle-cue><span data-pd-subtitle="line">They decide fast,</span><span data-pd-subtitle="line">usually before slide three.</span></p>
+    </div>
+    <figcaption>Square · broadcast · line</figcaption>
+  </figure>
+  <figure>
+    <div data-pd-subtitle-frame="vertical" data-pd-subtitle-style="cinema">
+      <p data-pd-subtitle-cue><span data-pd-subtitle="line">We came to win the room,</span><span data-pd-subtitle="line">not to show off the deck.</span></p>
+    </div>
+    <figcaption>Vertical · cinema · line</figcaption>
+  </figure>
+  <figure>
+    <div data-pd-subtitle-frame="vertical" data-pd-subtitle-style="cinema">
+      <p data-pd-subtitle-cue><span data-pd-subtitle="punch">Win the room.</span></p>
+    </div>
+    <figcaption>Vertical · cinema · punch</figcaption>
+  </figure>
+</main>
+</body>
+</html>

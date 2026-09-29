@@ -46,18 +46,18 @@ Sizes are for a 1920 × 1080 slide. On a 1440 × 1080 slide multiply by 0.8.
 | --- | --- | --- | --- | --- | --- |
 | `deck.title` | Head 600 | 101.5 px | — | 3 / 10 | Cover and closing titles |
 | `deck.section` | Head 500 italic | 129.6 px | — | 2 / 5 | Chapter dividers in Head italic |
-| `deck.headline` | Head 500 | 58.3 px | 49.7 px | 2 / 14 (read 3 / 20) | The claim at the top of a content slide |
+| `deck.headline` | Head 500 | 64.8 px | 49.7 px | 2 / 14 (read 3 / 20) | The claim at the top of a content slide |
 | `deck.statement` | Head 500 | 82.1 px | 69.1 px | 4 / 16 (read 4 / 20) | A slide that is one sentence and nothing else |
-| `deck.lead` | Body Alt 400 | 38.9 px | 32.4 px | 3 / 28 (read 4 / 40) | The sentence that explains a headline |
-| `deck.body` | Body 400 | 30.2 px | 24.8 px | 7 / 55 (read 12 / 110) | Supporting paragraphs; keep them rare when presenting live |
-| `deck.bullet` | Body 400 | 32.4 px | 27.0 px | 2 / 14 · 5 items (read 3 / 24 · 7 items) | List items; limits are per item |
-| `deck.quote` | Head 500 italic | 56.2 px | 47.5 px | 5 / 32 (read 6 / 45) | Customer, investor and press quotes |
+| `deck.lead` | Body Alt 400 | 43.2 px | 32.4 px | 3 / 28 (read 4 / 40) | The sentence that explains a headline |
+| `deck.body` | Body 400 | 36.7 px | 24.8 px | 7 / 55 (read 12 / 110) | Supporting paragraphs; keep them rare when presenting live |
+| `deck.bullet` | Body 400 | 38.9 px | 27.0 px | 2 / 14 · 5 items (read 3 / 24 · 7 items) | List items; limits are per item |
+| `deck.quote` | Head 500 italic | 60.5 px | 47.5 px | 5 / 32 (read 6 / 45) | Customer, investor and press quotes |
 | `deck.metric` | Body 700 | 183.6 px | — | 1 / 2 | One hero number per slide |
-| `deck.kicker` | Eyebrow 500 · wdth 87.5 · caps | 23.8 px | — | 1 / 6 | Section markers and slide eyebrows |
-| `deck.label` | Body 600 | 24.8 px | 21.6 px | 2 / 8 | Metric labels, column heads, legends and attributions |
-| `deck.data` | Eyebrow 500 · wdth 100 | 24.8 px | 21.6 px | 1 / 4 | Table figures and chart axes |
-| `deck.source` | Body 400 | 21.6 px | 19.4 px | 2 / 30 | Sources, footnotes and disclaimers |
-| `deck.footer` | Eyebrow 500 · wdth 87.5 · caps | 19.4 px | — | 1 / 8 | Running footer: company, date and slide number |
+| `deck.kicker` | Eyebrow 500 · wdth 87.5 · caps | 25.9 px | — | 1 / 6 | Section markers and slide eyebrows |
+| `deck.label` | Body 600 | 28.1 px | 21.6 px | 2 / 8 | Metric labels, column heads, legends and attributions |
+| `deck.data` | Eyebrow 500 · wdth 100 | 28.1 px | 21.6 px | 1 / 4 | Table figures and chart axes |
+| `deck.source` | Body 400 | 23.8 px | 19.4 px | 2 / 30 | Sources, footnotes and disclaimers |
+| `deck.footer` | Eyebrow 500 · wdth 87.5 · caps | 21.6 px | — | 1 / 8 | Running footer: company, date and slide number |
 
 Titles, section dividers, headlines and statements balance their lines. Leads, body, bullets and quotes use pretty wrapping. Kicker and footer are set in capitals by CSS, so write them in sentence case.
 
@@ -71,7 +71,11 @@ The canonical values, with every limit, live in `deck.roles` in `tokens/pitchdog
 
 ## Size floor
 
-No role sets below **1.8 % of the slide height** (19.4 px on a 1080 px slide). At present density every role except the running footer stays at or above **2 %** (21.6 px). The validator enforces both floors. If copy does not fit, cut words or split the slide; do not shrink the type.
+No role sets below **1.8 % of the slide height** (19.4 px on a 1080 px slide). At present density every role except the running footer stays at or above **2.2 %** (23.8 px, 12 pt in PowerPoint), and body text sits at 3.4 % (36.7 px, 18 pt in PowerPoint) so it reads from the back of a room. The validator enforces both floors. If copy does not fit, cut words or split the slide; do not shrink the type.
+
+## Spacing
+
+Five spacing steps are measured from the slide like type: `--pd-deck-space-2xs` to `--pd-deck-space-l`, 13 to 91 px on a 1080-pixel slide. They are declared on every canvas, and set at 80 percent on 4:3 slides. `docs/SPACING.md` says which step goes where. In Keynote, PowerPoint and Google Slides, convert them like type sizes: multiply the 1080 px value by the slide height in points divided by 1080.
 
 ## Templates
 
@@ -122,18 +126,18 @@ Point sizes for each app's default slide size, rounded to whole points:
 | --- | --- | --- | --- |
 | `deck.title` | 102 pt | 51 pt | 38 pt |
 | `deck.section` | 130 pt | 65 pt | 49 pt |
-| `deck.headline` | 58 pt | 29 pt | 22 pt |
+| `deck.headline` | 65 pt | 32 pt | 24 pt |
 | `deck.statement` | 82 pt | 41 pt | 31 pt |
-| `deck.lead` | 39 pt | 19 pt | 15 pt |
-| `deck.body` | 30 pt | 15 pt | 11 pt |
-| `deck.bullet` | 32 pt | 16 pt | 12 pt |
-| `deck.quote` | 56 pt | 28 pt | 21 pt |
+| `deck.lead` | 43 pt | 22 pt | 16 pt |
+| `deck.body` | 37 pt | 18 pt | 14 pt |
+| `deck.bullet` | 39 pt | 19 pt | 15 pt |
+| `deck.quote` | 60 pt | 30 pt | 23 pt |
 | `deck.metric` | 184 pt | 92 pt | 69 pt |
-| `deck.kicker` | 24 pt | 12 pt | 9 pt |
-| `deck.label` | 25 pt | 12 pt | 9 pt |
-| `deck.data` | 25 pt | 12 pt | 9 pt |
-| `deck.source` | 22 pt | 11 pt | 8 pt |
-| `deck.footer` | 19 pt | 10 pt | 7 pt |
+| `deck.kicker` | 26 pt | 13 pt | 10 pt |
+| `deck.label` | 28 pt | 14 pt | 11 pt |
+| `deck.data` | 28 pt | 14 pt | 11 pt |
+| `deck.source` | 24 pt | 12 pt | 9 pt |
+| `deck.footer` | 22 pt | 11 pt | 8 pt |
 
 For any other slide size, multiply the 1080 px value by the slide height in points divided by 1080. For read density, use the read column above in the same way.
 

@@ -1,6 +1,6 @@
 ---
 name: pitchdog-type-system
-description: pitch.dog typography authority for fonts, type roles and hierarchy, wrapping and measure, and any rendered text on web, interface, social, video, deck, native or design-tool surfaces. Always invoke for any type work.
+description: pitch.dog typography authority for fonts, type roles and hierarchy, spacing, wrapping and measure, subtitles and captions, and any rendered text on web, interface, social, video, deck, native or design-tool surfaces. Always invoke for any type work.
 ---
 
 # pitch.dog Type System
@@ -20,6 +20,7 @@ Inspect the consumer's dependency files, lockfiles, submodules, vendored receipt
 - No pin, an explicit target version, “latest”, a pin change, release work, or a source contradiction: read [version and migration](references/version-and-migration.md) now.
 - Resolve a tag to its full commit SHA. A branch, a bare tag name, or `/releases/latest` is mutable evidence, never a pin.
 - Read canonical files from the consumer's exact package or checkout, or from `https://github.com/bomkino/pitchdog-type-system` at the pinned commit. Keep temporary source outside the consumer and remove it afterwards.
+- Uncommitted changes in a canonical checkout are not a release, so a consumer never pins to them; read the pinned commit instead. When the task is to change the type system itself, work in that checkout under its `CONTRIBUTING.md` and `AGENTS.md`; no consumer pin applies.
 
 Resolution is complete when the source location, version or tag, and full commit are recorded and the retrieved tree matches them. Fail closed on conflicting identity, missing provenance, a version not explicitly marked production, or canonical tokens disagreeing with a derived or documented surface.
 
@@ -41,9 +42,9 @@ Application is complete when every touched type decision points to a governed ro
 
 ## 4. Verify the rendered result
 
-For implementation, build, migration or diagnosis, read [runtime verification](references/runtime-verification.md) and inspect the real target after its build or export. Each check proves only its own surface: an import, build, validator or screenshot is narrow evidence.
+For implementation, build, migration, diagnosis or a review of how type looks, read [runtime verification](references/runtime-verification.md) and inspect the real target after its build or export. Each check proves only its own surface: an import, build, validator or screenshot is narrow evidence.
 
-Report source resolution, migration state and each surface runtime verification names as a separate claim, each `verified`, `unverified`, `mismatch` or `blocked`. A change is complete when every in-scope surface has direct evidence; a diagnosis is complete when every in-scope surface has a state and each one short of `verified` names the next check.
+Report source resolution, migration state and each surface runtime verification names as a separate claim, each `verified`, `unverified`, `mismatch` or `blocked`; migration state is `not applicable` when the pin did not change. A change is complete when every in-scope surface has direct evidence; a diagnosis is complete when every in-scope surface has a state and each one short of `verified` names the next check.
 
 ## Rights
 

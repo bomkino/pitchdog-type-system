@@ -16,11 +16,13 @@ Find the document for the job in front of you. Values always come from `tokens/p
 | Document | Surface |
 | --- | --- |
 | [WEB-TEXT-WRAPPING.md](WEB-TEXT-WRAPPING.md) | Website wrapping and reading measure |
+| [SPACING.md](SPACING.md) | Space between text blocks on pages and slides |
 | [DENSE-TEXT.md](DENSE-TEXT.md) | Long-form and dense operational content |
 | [UI-UX-TYPOGRAPHY.md](UI-UX-TYPOGRAPHY.md) | Product and internal-tool interfaces |
 | [SOCIAL-TYPOGRAPHY.md](SOCIAL-TYPOGRAPHY.md) | Feed posts, stories, carousels and link previews |
 | [YOUTUBE.md](YOUTUBE.md) | Thumbnails, Shorts, podcast covers, banners and end screens |
 | [DECKS.md](DECKS.md) | Pitch decks and presentations, live or as a PDF |
+| [SUBTITLES.md](SUBTITLES.md) | Subtitles and captions for films, web video and vertical clips |
 
 ## Families and fonts
 
@@ -47,7 +49,7 @@ Find the document for the job in front of you. Values always come from `tokens/p
 
 | Document | From → to |
 | --- | --- |
-| [MIGRATION-v2-to-v3.md](MIGRATION-v2-to-v3.md) | 2.x → 3.0.0 (reading measures and social small-text sizes) |
+| [MIGRATION-v2-to-v3.md](MIGRATION-v2-to-v3.md) | 2.x → 3.0.0 (reading measures, larger small text on social, YouTube and slides; adds spacing and subtitles) |
 | [MIGRATION-v13-to-v2.md](MIGRATION-v13-to-v2.md) | 13.x → 2.x (font names; 2.1 adds decks without breaking changes) |
 | [MIGRATION-v3-to-v13.md](MIGRATION-v3-to-v13.md) | the older pre-13 v3 line → 13.x (not 3.0.0) |
 

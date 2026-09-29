@@ -2,13 +2,17 @@
 
 ## 3.0.0
 
-**Lines you can read, and social text you can see.** A type review found that two sets of roles were fine on paper and wrong in the browser.
+**Lines you can read, small text you can see, spacing, and subtitles.** A type review found roles that were fine on paper and wrong in the browser, on a phone or across a room. 3.0.0 fixes them and adds the two things the system was missing: a spacing scale and subtitles.
 
 - **Reading measures.** The lead and body roles now carry the calibrated measures that 13.1 introduced as an opt-in. `body.reading` goes from 64ch to 45ch, `body.default` from 68ch to 48ch, `body.compact` and `body.small` to 52ch, `lead.section` to 48ch and `lead.hero` to 38ch. In Chromium at 1440 px, body text went from 92–102 characters per line, past WCAG's 80, to 63–72. The `--pd-measure-*` variables and `.pd-prose` follow, so they no longer contradict `data-pd-measure`.
 - **Social small text.** `social.subhead`, `body`, `label`, `metadata` and `credit` grow about 1.3 to 1.9 times. Seen at phone-feed width, body text went from about 9 px to 13 px and metadata from 5 px to 10 px on a portrait post.
-- **Agent Skill.** Runtime verification now counts characters per rendered line, checks display lines for descenders touching the line below, and judges exported media at the size people see it. Paragraph work always routes to the wrapping and measure document. `evidence/agent-skill-behavior-v3.0.0.md` records the runs.
+- **Deck present sizes.** Headline, lead, body, bullet, quote, kicker, label, data, source and footer grow at present density. Body goes from 30 to 37 px on a 1080-pixel slide, 15 to 18 pt in PowerPoint, and the present floor rises from 2 % to 2.2 % of the slide height. Read density is unchanged.
+- **YouTube small text.** `youtube.support`, `kicker`, `badge` and `credit` grow so they stay legible at thumbnail preview size: support from about 9 px to 12 px, the others to 8.5 px or more.
+- **Spacing.** A seven-step web scale (`--pd-space-*`), a `data-pd-flow` contract that spaces a column of text by role with more space before a heading than after it, and a five-step deck scale (`--pd-deck-space-*`) measured from the slide. The deck starter uses it. See `docs/SPACING.md`.
+- **Subtitles.** A new layer for films, web video and vertical clips: three roles (`subtitle.line`, `subtitle.italic`, `subtitle.punch`), four frames (16:9, 4:3, 1:1, 9:16) and three styles, `broadcast` (white on a black box), `cinema` (yellow on a see-through black box) and `clean` (white with an outline). Sizes follow the BBC Subtitle Guidelines and the line limits follow Netflix's. `@pitchdog/type-system/subtitle.css`, `subtitle/subtitle-starter.html` and `docs/SUBTITLES.md`, with sizes for burning subtitles in with video editors.
+- **Agent Skill.** Runtime verification now counts characters per rendered line, checks display lines for descenders touching the line below, judges exported media at the size people see it, checks flow spacing, and checks subtitles (lines, characters, boxes, reading speed). New routes for spacing and for subtitle work; a review of how type looks is judged on the rendered result. It says how to treat uncommitted changes in a canonical checkout and what migration state means when the pin did not change. `evidence/agent-skill-behavior-v3.0.0.md` records the runs.
 
-Fonts, anchors, families, weights, line heights, tracking, deck, YouTube and UI roles are unchanged. `docs/MIGRATION-v2-to-v3.md` lists the before and after values. `evidence/type-review-v3.0.0.md` records the review.
+Fonts, anchors, families, weights, line heights, tracking and UI roles are unchanged. `docs/MIGRATION-v2-to-v3.md` lists the before and after values. `evidence/type-review-v3.0.0.md` records the review.
 
 ## 2.2.0
 

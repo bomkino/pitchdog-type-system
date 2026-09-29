@@ -134,6 +134,45 @@
     "stable",
     "avoid-orphans"
   ],
+  "spacing": {
+    "scale": {
+      "2xs": ".25rem",
+      "xs": ".5rem",
+      "s": ".75rem",
+      "m": "clamp(1rem, .917rem + .37vi, 1.25rem)",
+      "l": "clamp(1.5rem, 1.25rem + 1.11vi, 2.25rem)",
+      "xl": "clamp(2.5rem, 2rem + 2.22vi, 4rem)",
+      "2xl": "clamp(4rem, 3rem + 4.44vi, 7rem)"
+    },
+    "flow": {
+      "text": "1em",
+      "before": {
+        "display.hero": "2xl",
+        "display.chapter": "2xl",
+        "heading.section": "2xl",
+        "heading.subsection": "xl",
+        "title.card": "l",
+        "title.functional": "l",
+        "quote.feature": "xl",
+        "metric": "xl",
+        "media": "l"
+      },
+      "after": {
+        "display.hero": "l",
+        "display.chapter": "l",
+        "heading.section": "l",
+        "heading.subsection": "m",
+        "title.card": "s",
+        "title.functional": "xs",
+        "quote.feature": "m",
+        "metric": "m",
+        "metadata": "xs",
+        "label": "2xs",
+        "media": "l"
+      },
+      "note": "Space before a heading is larger than the space after it, so a heading belongs to the text it introduces. Text after text is 1em of its own size. Scale steps are fluid between 360 and 1440 px viewports."
+    }
+  },
   "roles": {
     "display.hero": {
       "family": "head",
